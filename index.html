@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Roha — Studio desain digital yang dibuat hangat, dikirim rapi.</title>
+  <meta name="description" content="Roha adalah studio kecil yang bantu founder dan indie maker bikin website, UI/UX, dan brand yang kerasa — bukan yang asal jadi." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Geist:wght@300..700&family=Geist+Mono:wght@400..600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/global.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/pages/home.css">
+</head>
+<body>
+
+<a href="#main" class="skip-link">Lewati ke konten</a>
+
+<!-- =================== NAVBAR =================== -->
+<header class="nav" role="banner">
+  <div class="nav-inner">
+    <a href="index.html" class="logo" aria-label="Roha — Home">roha<span class="dot">.</span></a>
+    <nav aria-label="Primary">
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="work.html">Work</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </nav>
+    <div class="nav-cta">
+      <a href="about.html#contact" class="btn btn-primary btn-sm"><span class="btn-text">Hubungi</span> <span class="arr">→</span></a>
+      <button class="nav-toggle" data-nav-toggle aria-label="Buka menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu" aria-hidden="true">
+  <div class="mobile-menu-head">
+    <a href="index.html" class="logo">roha<span class="dot">.</span></a>
+    <button class="nav-toggle" data-nav-close aria-label="Tutup menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+  <ul class="mobile-menu-links">
+    <li><a href="index.html">Home <span class="arr">→</span></a></li>
+    <li><a href="work.html">Work <span class="arr">→</span></a></li>
+    <li><a href="services.html">Services <span class="arr">→</span></a></li>
+    <li><a href="shop.html">Shop <span class="arr">→</span></a></li>
+    <li><a href="about.html">About <span class="arr">→</span></a></li>
+    <li><a href="about.html#contact">Hubungi <span class="arr">→</span></a></li>
+  </ul>
+  <div class="mobile-menu-foot">
+    <span>halo@roha.design</span>
+    <span>v1.0</span>
+  </div>
+</div>
+
+<main id="main">
+
+  <!-- =================== HERO =================== -->
+  <section class="home-hero">
+    <div class="wrap">
+      <div class="eyebrow">Studio Desain · Est. 2026</div>
+
+      <div class="home-hero-grid">
+        <h1 class="display">Desain digital<br/>yang dibuat <em class="italic-accent">hangat</em>,<br/>dikirim rapi.</h1>
+
+        <div class="home-hero-meta">
+          <p>Roha adalah studio kecil yang bantu founder dan indie maker bikin website, UI/UX, dan brand yang kerasa — bukan yang asal jadi.</p>
+          <div class="btn-row">
+            <a href="work.html" class="btn btn-primary">Lihat Karya <span class="arr">→</span></a>
+            <a href="about.html#contact" class="btn btn-secondary">Hubungi Kami</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-stripe" aria-hidden="true">
+        <span style="background:var(--terracotta)"></span>
+        <span style="background:var(--terracotta-soft)"></span>
+        <span style="background:var(--mustard)"></span>
+        <span style="background:var(--sand)"></span>
+        <span style="background:var(--cream)"></span>
+        <span style="background:var(--clay)"></span>
+        <span style="background:var(--ink)"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- =================== FEATURED WORK =================== -->
+  <section class="section" id="work-preview">
+    <div class="wrap">
+      <div class="h-block">
+        <div class="left">
+          <div class="eyebrow">01 — Karya Pilihan</div>
+          <h2>Apa yang sudah kami kirim.</h2>
+        </div>
+        <p class="right">Dua project — sedikit, tapi punya cerita. Pilih satu untuk baca lebih detail.</p>
+      </div>
+
+      <div class="featured-grid">
+
+        <a href="work-detail.html" class="project-card">
+          <div class="thumb pat-arcs pattern-wrap" aria-hidden="true"></div>
+          <div class="meta-row">
+            <span class="tag">Web Design &amp; Dev</span>
+            <span class="year">2025</span>
+          </div>
+          <h3>Sora Landing Kit</h3>
+          <p class="summary">A landing kit for founders in a hurry — dari nol jadi system yang bisa dipakai berkali-kali.</p>
+        </a>
+
+        <a href="work-detail.html" class="project-card">
+          <div class="thumb pat-grid pattern-wrap" aria-hidden="true"></div>
+          <div class="meta-row">
+            <span class="tag">UX &amp; UI Design</span>
+            <span class="year">2026</span>
+          </div>
+          <h3>Nimbus Dashboard</h3>
+          <p class="summary">Internal tool yang akhirnya menyenangkan dipakai — redesign data-heavy dashboard untuk tim ops.</p>
+        </a>
+
+      </div>
+
+      <a href="work.html" class="section-link">Semua Karya <span class="arr">→</span></a>
+    </div>
+  </section>
+
+  <!-- =================== SHOP PREVIEW =================== -->
+  <section class="section" id="shop-preview">
+    <div class="wrap">
+      <div class="h-block">
+        <div class="left">
+          <div class="eyebrow">02 — Produk Digital</div>
+          <h2>Template untuk yang lagi sprint.</h2>
+        </div>
+        <p class="right">File yang sudah kami pakai sendiri di project klien — sekarang bisa kamu pakai juga. Rapi, terdokumentasi, gampang di-fork.</p>
+      </div>
+
+      <div class="shop-grid">
+
+        <a href="product-detail.html" class="product-card">
+          <div class="cover pat-arcs pattern-wrap" aria-hidden="true"></div>
+          <div class="body">
+            <span class="cat">Website Template</span>
+            <div class="name-row">
+              <h3 class="name">Sora Landing Kit</h3>
+              <span class="price">IDR 240k</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="product-detail.html" class="product-card">
+          <div class="cover pat-confetti pattern-wrap" aria-hidden="true"></div>
+          <div class="body">
+            <span class="cat">UI Kit</span>
+            <div class="name-row">
+              <h3 class="name">Nimbus UI Kit</h3>
+              <span class="price">IDR 380k</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="product-detail.html" class="product-card">
+          <div class="cover pat-block pattern-wrap" aria-hidden="true"></div>
+          <div class="body">
+            <span class="cat">Brand Template</span>
+            <div class="name-row">
+              <h3 class="name">Terra Brand Pack</h3>
+              <span class="price">IDR 320k</span>
+            </div>
+          </div>
+        </a>
+
+      </div>
+
+      <a href="shop.html" class="section-link">Belanja Produk <span class="arr">→</span></a>
+    </div>
+  </section>
+
+  <!-- =================== SERVICES (CARDS, MOVED BELOW SHOP) =================== -->
+  <section class="section" id="services-preview">
+    <div class="wrap">
+      <div class="h-block">
+        <div class="left">
+          <div class="eyebrow">03 — Layanan</div>
+          <h2>Apa yang bisa kami kerjakan.</h2>
+        </div>
+        <p class="right">Lima disiplin yang kami fokuskan. Setiap project di-treat dengan proses yang sama: pelan-pelan di depan, cepat di belakang.</p>
+      </div>
+
+      <div class="svc-card-grid">
+
+        <a href="services.html#ux" class="svc-tile">
+          <div class="top">
+            <span class="num">01</span>
+            <span class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 6h18M3 12h12M3 18h7"/></svg>
+            </span>
+          </div>
+          <h3>UX Design</h3>
+          <p>Research, wireframing, user flow, dan prototyping untuk produk yang lagi cari fit.</p>
+          <div class="price"><span>Mulai dari</span><span class="amount">Rp 8 jt <span class="arr">→</span></span></div>
+        </a>
+
+        <a href="services.html#ui" class="svc-tile">
+          <div class="top">
+            <span class="num">02</span>
+            <span class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+            </span>
+          </div>
+          <h3>UI Design</h3>
+          <p>Visual design, design system, dan component library yang gampang di-maintain.</p>
+          <div class="price"><span>Mulai dari</span><span class="amount">Rp 6 jt <span class="arr">→</span></span></div>
+        </a>
+
+        <a href="services.html#web" class="svc-tile">
+          <div class="top">
+            <span class="num">03</span>
+            <span class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 9h18M8 14h4"/></svg>
+            </span>
+          </div>
+          <h3>Website Development</h3>
+          <p>End-to-end — dari company profile sampai dashboard yang butuh interaktivitas.</p>
+          <div class="price"><span>Mulai dari</span><span class="amount">Rp 15 jt <span class="arr">→</span></span></div>
+        </a>
+
+        <a href="services.html#landing" class="svc-tile">
+          <div class="top">
+            <span class="num">04</span>
+            <span class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 3h14v18H5z"/><path d="M9 8h6M9 12h6M9 16h3"/></svg>
+            </span>
+          </div>
+          <h3>Landing Page</h3>
+          <p>Satu halaman yang convert — dari design sampai live dalam 1–2 minggu.</p>
+          <div class="price"><span>Mulai dari</span><span class="amount">Rp 5 jt <span class="arr">→</span></span></div>
+        </a>
+
+        <a href="services.html#brand" class="svc-tile">
+          <div class="top">
+            <span class="num">05</span>
+            <span class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/></svg>
+            </span>
+          </div>
+          <h3>Brand &amp; Logo Guideline</h3>
+          <p>Logo, brand book, dan sistem visual yang siap diserahkan ke tim mana pun.</p>
+          <div class="price"><span>Mulai dari</span><span class="amount">Rp 4 jt <span class="arr">→</span></span></div>
+        </a>
+
+        <a href="about.html#contact" class="svc-tile" style="background:var(--ink); color:var(--cream); border-color:var(--ink);">
+          <div class="top">
+            <span class="num" style="color:var(--terracotta-soft);">06</span>
+            <span class="icon" aria-hidden="true" style="background:transparent; border-color:rgba(246,239,224,.2); color:var(--terracotta-soft);">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+            </span>
+          </div>
+          <h3 style="color:var(--cream);">Project lain?</h3>
+          <p style="color:var(--cream); opacity:.7;">Kalau yang kamu butuhkan tidak ada di list, ngobrol dulu yuk. Kami jujur kalau bisa atau tidak.</p>
+          <div class="price" style="border-color:rgba(246,239,224,.18); color:var(--terracotta-soft);"><span>Diskusikan</span><span class="amount" style="color:var(--cream);">Hubungi <span class="arr">→</span></span></div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =================== CTA =================== -->
+  <section class="section-tight">
+    <div class="cta-wrap">
+      <div class="cta-panel cta-panel-compact pat-heat">
+        <div class="eyebrow">Mari ngobrol</div>
+        <h2>Punya project? <em class="italic-accent" style="color:var(--ink)">Mari ngobrol.</em></h2>
+        <p>Kirim brief atau cerita ide kamu. Kami balas dalam 1×24 jam (jam kerja).</p>
+        <div class="btn-row">
+          <a href="mailto:halo@roha.design" class="btn btn-cream">Email Kami <span class="arr">→</span></a>
+          <!-- Ganti [NO_WA] dengan nomor WhatsApp aktif -->
+          <a href="https://wa.me/[NO_WA]?text=Halo%20Roha%2C%20saya%20mau%20diskusi%20project" class="btn btn-outline-cream" target="_blank" rel="noopener">Chat WhatsApp</a>
+        </div>
+        <div class="arcs-deco" aria-hidden="true"></div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- =================== FOOTER =================== -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+
+      <div class="footer-col footer-brand">
+        <a href="index.html" class="logo">roha<span class="dot">.</span></a>
+        <p class="tagline">A quiet kind of warm.</p>
+        <p>Studio kecil di Sumatra. Bikin website, UI/UX, dan brand untuk founder dan indie maker yang mau kirim sesuatu yang kerasa.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Pages</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="work.html">Work</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Layanan</h4>
+        <ul>
+          <li><a href="services.html#ux">UX Design</a></li>
+          <li><a href="services.html#ui">UI Design</a></li>
+          <li><a href="services.html#web">Website</a></li>
+          <li><a href="services.html#landing">Landing Page</a></li>
+          <li><a href="services.html#brand">Brand &amp; Logo</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="mailto:halo@roha.design">halo@roha.design</a></li>
+          <li><a href="https://wa.me/[NO_WA]" target="_blank" rel="noopener">WhatsApp →</a></li>
+        </ul>
+        <div class="footer-social">
+          <a href="[INSTAGRAM_URL]" aria-label="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor"/></svg></a>
+          <a href="[DRIBBBLE_URL]" aria-label="Dribbble" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M8 21c1.5-7 3.5-10 6.5-15M3 11c5 0 12 .5 17 6M21 9c-4 1.5-9 3-18 .5"/></svg></a>
+          <a href="[BEHANCE_URL]" aria-label="Behance" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 6h5a3 3 0 010 6H3zM3 12h6a3 3 0 010 6H3zM14 14a3 3 0 116 0v1h-6a3 3 0 003 3M15 7h4"/></svg></a>
+          <a href="[LINKEDIN_URL]" aria-label="LinkedIn" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 014 0v4M12 10v7"/></svg></a>
+          <a href="[TIKTOK_URL]" aria-label="TikTok" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 4v10a4 4 0 11-4-4M14 4c0 3 2 5 5 5"/></svg></a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 Roha. Made with · in Sumatra, Indonesia.</span>
+      <span>v1.0</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
