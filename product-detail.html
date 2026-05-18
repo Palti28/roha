@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="id">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Sora Landing Kit — Website Template — Roha Design</title>
-  <meta name="description" content="A landing kit for founders in a hurry. Template Figma siap-pakai." />
+  <meta name="description" content="A landing kit for founders in a hurry. Ready-to-use Figma template." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,7 +17,7 @@
 </head>
 <body>
 
-<a href="#main" class="skip-link">Lewati ke konten</a>
+<a href="#main" class="skip-link">Skip to content</a>
 
 <header class="nav" role="banner">
   <div class="nav-inner">
@@ -32,8 +32,8 @@
       </ul>
     </nav>
     <div class="nav-cta">
-      <a href="about.html#contact" class="btn btn-primary btn-sm"><span class="btn-text">Hubungi</span> <span class="arr">→</span></a>
-      <button class="nav-toggle" data-nav-toggle aria-label="Buka menu">
+      <a href="about.html#contact" class="btn btn-primary btn-sm"><span class="btn-text">Contact</span> <span class="arr">→</span></a>
+      <button class="nav-toggle" data-nav-toggle aria-label="Open menu">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
       </button>
     </div>
@@ -43,7 +43,7 @@
 <div class="mobile-menu" aria-hidden="true">
   <div class="mobile-menu-head">
     <a href="index.html" class="logo">roha<span class="dot">.</span></a>
-    <button class="nav-toggle" data-nav-close aria-label="Tutup menu">
+    <button class="nav-toggle" data-nav-close aria-label="Close menu">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 6l12 12M18 6L6 18"/></svg>
     </button>
   </div>
@@ -53,7 +53,7 @@
     <li><a href="services.html">Services <span class="arr">→</span></a></li>
     <li><a href="shop.html">Shop <span class="arr">→</span></a></li>
     <li><a href="about.html">About <span class="arr">→</span></a></li>
-    <li><a href="about.html#contact">Hubungi <span class="arr">→</span></a></li>
+    <li><a href="about.html#contact">Contact <span class="arr">→</span></a></li>
   </ul>
   <div class="mobile-menu-foot">
     <span>halo@roha.design</span>
@@ -63,8 +63,22 @@
 
 <main id="main">
 
+  <!-- STICKY PRODUCT BAR (appears after scrolling past hero) -->
+  <div class="pd-stickybar" id="pdStickyBar" aria-hidden="true">
+    <div class="wrap pd-stickybar-inner">
+      <div class="pd-stickybar-title">
+        <span class="cat">Website Template</span>
+        <h2>Sora Landing Kit</h2>
+      </div>
+      <div class="pd-stickybar-actions">
+        <a href="[FIGMA_PREVIEW_LINK_1]" class="btn btn-secondary btn-sm" target="_blank" rel="noopener">Preview</a>
+        <a href="[MAYAR_LINK_PRODUCT_1]" class="btn btn-primary btn-sm" target="_blank" rel="noopener">Buy <span class="arr">→</span></a>
+      </div>
+    </div>
+  </div>
+
   <!-- PRODUCT HERO -->
-  <section class="pd-hero" style="padding: 32px 0px">
+  <section class="pd-hero" id="pdHero" style="padding: 32px 0px">
     <div class="wrap">
       <div class="pd-hero-grid">
         <div class="pd-cover pat-arcs pattern-wrap" aria-hidden="true"></div>
@@ -76,18 +90,38 @@
           <div class="pd-price"><span class="crossed">IDR 320k</span> IDR 240k</div>
 
           <div class="pd-actions">
-            <!-- Ganti [MAYAR_LINK_PRODUCT_1] dengan link produk Mayar -->
-            <a href="[MAYAR_LINK_PRODUCT_1]" class="btn btn-primary" target="_blank" rel="noopener">Beli di Mayar <span class="arr">→</span></a>
-            <!-- Ganti [FIGMA_PREVIEW_LINK_1] dengan link Figma preview -->
-            <a href="[FIGMA_PREVIEW_LINK_1]" class="btn btn-secondary" target="_blank" rel="noopener">Preview Figma</a>
+            <!-- Replace [MAYAR_LINK_PRODUCT_1] with the Mayar product link -->
+            <a href="[MAYAR_LINK_PRODUCT_1]" class="btn btn-primary" target="_blank" rel="noopener">Buy on Mayar <span class="arr">→</span></a>
+            <!-- Replace [FIGMA_PREVIEW_LINK_1] with the Figma preview link -->
+            <a href="[FIGMA_PREVIEW_LINK_1]" class="btn btn-secondary" target="_blank" rel="noopener">Figma Preview</a>
           </div>
 
           <div class="pd-trust">
-            <div><span class="ok">✓</span> Instant download setelah bayar</div>
-            <div><span class="ok">✓</span> Lifetime update gratis</div>
+            <div><span class="ok">✓</span> Instant download after payment</div>
+            <div><span class="ok">✓</span> Free lifetime updates</div>
             <div><span class="ok">✓</span> Personal &amp; commercial license</div>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PREVIEW -->
+  <section class="section">
+    <div class="wrap">
+      <div class="h-block">
+        <div class="left">
+          <div class="eyebrow">01 — Preview</div>
+          <h2>A quick look inside.</h2>
+        </div>
+      </div>
+
+      <div class="pd-gallery pd-gallery--stacked">
+        <div class="frame pat-arcs pattern-wrap" aria-hidden="true"></div>
+        <div class="frame pat-grid pattern-wrap" aria-hidden="true"></div>
+        <div class="frame pat-stripe pattern-wrap" aria-hidden="true"></div>
+        <div class="frame pat-block pattern-wrap" aria-hidden="true"></div>
+        <div class="frame pat-confetti pattern-wrap" aria-hidden="true"></div>
       </div>
     </div>
   </section>
@@ -97,42 +131,22 @@
     <div class="wrap">
       <div class="h-block">
         <div class="left">
-          <div class="eyebrow">01 — Di Dalamnya</div>
-          <h2>Apa yang kamu dapatkan.</h2>
+          <div class="eyebrow">02 — What&rsquo;s Inside</div>
+          <h2>What you get.</h2>
         </div>
-        <p class="right">Semua di-build modular — pasang, copot, swap section sesuai kebutuhan tanpa rusak layout.</p>
+        <p class="right">Everything is built modular — plug, unplug, and swap sections as needed without breaking the layout.</p>
       </div>
 
       <ul class="pd-inside">
-        <li>5 halaman desain (Home, About, Pricing, Blog, Contact)</li>
-        <li>120+ komponen modular</li>
-        <li>Auto layout untuk semua section</li>
-        <li>Dark &amp; light mode siap pakai</li>
+        <li>5 page designs (Home, About, Pricing, Blog, Contact)</li>
+        <li>120+ modular components</li>
+        <li>Auto-layout on every section</li>
+        <li>Dark &amp; light mode ready</li>
         <li>Mobile responsive (320 — 1440)</li>
-        <li>Design tokens lengkap (color, type, spacing)</li>
+        <li>Complete design tokens (color, type, spacing)</li>
         <li>Free Google Fonts integration</li>
-        <li>Component library terstruktur</li>
+        <li>Well-structured component library</li>
       </ul>
-    </div>
-  </section>
-
-  <!-- PREVIEW -->
-  <section class="section">
-    <div class="wrap">
-      <div class="h-block">
-        <div class="left">
-          <div class="eyebrow">02 — Preview</div>
-          <h2>Sekilas isi file.</h2>
-        </div>
-      </div>
-
-      <div class="pd-gallery">
-        <div class="frame wide pat-arcs pattern-wrap" aria-hidden="true"></div>
-        <div class="frame pat-grid pattern-wrap" aria-hidden="true"></div>
-        <div class="frame pat-stripe pattern-wrap" aria-hidden="true"></div>
-        <div class="frame pat-block pattern-wrap" aria-hidden="true"></div>
-        <div class="frame wide pat-confetti pattern-wrap" aria-hidden="true"></div>
-      </div>
     </div>
   </section>
 
@@ -141,8 +155,8 @@
     <div class="wrap">
       <div class="h-block">
         <div class="left">
-          <div class="eyebrow">03 — Spec &amp; Detail</div>
-          <h2>Teknis singkat.</h2>
+          <div class="eyebrow">03 — Spec &amp; Details</div>
+          <h2>The technical short.</h2>
         </div>
       </div>
 
@@ -160,10 +174,10 @@
     <div class="cta-wrap">
       <div class="cta-panel cta-panel-compact pat-heat">
         <div class="eyebrow">Custom</div>
-        <h2>Mau ini di-<em class="italic-accent" style="color:var(--ink)">custom</em>?</h2>
-        <p>Kirim WhatsApp dengan kebutuhan kamu — copywriting, color palette, brand match. Kami quote dalam 1 hari kerja.</p>
+        <h2>Want this <em class="italic-accent" style="color:var(--ink)">customized</em>?</h2>
+        <p>Send us a WhatsApp with your needs — copywriting, color palette, brand match. We quote within 1 business day.</p>
         <div class="btn-row">
-          <a href="https://wa.me/[NO_WA]?text=Halo%20Roha%2C%20saya%20mau%20order%20custom%20Sora%20Landing%20Kit" class="btn btn-cream" target="_blank" rel="noopener">Order Custom via WhatsApp <span class="arr">→</span></a>
+          <a href="https://wa.me/[NO_WA]?text=Hi%20Roha%2C%20I%27d%20like%20to%20order%20a%20custom%20Sora%20Landing%20Kit" class="btn btn-cream" target="_blank" rel="noopener">Order Custom via WhatsApp <span class="arr">→</span></a>
         </div>
         <div class="arcs-deco" aria-hidden="true"></div>
       </div>
@@ -175,10 +189,10 @@
     <div class="wrap">
       <div class="h-block">
         <div class="left">
-          <div class="eyebrow">Produk Lain</div>
-          <h2>Yang mungkin cocok juga.</h2>
+          <div class="eyebrow">Other Products</div>
+          <h2>You might like these too.</h2>
         </div>
-        <p class="right"><a href="shop.html" class="section-link" style="margin-top:0;">Lihat semua produk <span class="arr">→</span></a></p>
+        <p class="right"><a href="shop.html" class="section-link" style="margin-top:0;">See all products <span class="arr">→</span></a></p>
       </div>
 
       <div class="pd-related">
@@ -224,7 +238,7 @@
       <div class="footer-col footer-brand">
         <a href="index.html" class="logo">roha<span class="dot">.</span></a>
         <p class="tagline">A quiet kind of warm.</p>
-        <p>Studio kecil di Sumatra. Bikin website, UI/UX, dan brand untuk founder dan indie maker yang mau kirim sesuatu yang kerasa.</p>
+        <p>A small studio in Sumatra. We build websites, UI/UX, and brands for founders and indie makers who want to ship something that feels real.</p>
       </div>
       <div class="footer-col">
         <h4>Pages</h4>
@@ -237,7 +251,7 @@
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Layanan</h4>
+        <h4>Services</h4>
         <ul>
           <li><a href="services.html#ux">UX Design</a></li>
           <li><a href="services.html#ui">UI Design</a></li>
@@ -269,5 +283,18 @@
 </footer>
 
 <script src="assets/js/main.js"></script>
+<script>
+  // Sticky product bar — show after hero scrolls out of view
+  (() => {
+    const hero = document.getElementById('pdHero');
+    const bar  = document.getElementById('pdStickyBar');
+    if (!hero || !bar) return;
+    const io = new IntersectionObserver(
+      ([entry]) => bar.classList.toggle('is-stuck', !entry.isIntersecting),
+      { rootMargin: '-80px 0px 0px 0px', threshold: 0 }
+    );
+    io.observe(hero);
+  })();
+</script>
 </body>
 </html>
