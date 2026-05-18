@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -8,32 +9,53 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Geist:wght@300..700&family=Geist+Mono:wght@400..600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Geist:wght@300..700&family=Geist+Mono:wght@400..600&family=Instrument+Serif:ital@0;1&display=swap"
+    rel="stylesheet">
 
   <link rel="stylesheet" href="assets/css/global.css">
   <link rel="stylesheet" href="assets/css/components.css">
 
   <style>
-    body { min-height: 100vh; display: flex; flex-direction: column; }
-    main { flex: 1; display: flex; align-items: center; justify-content: center; padding: 80px 0; }
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 80px 0;
+    }
+
     .err-wrap {
       max-width: 720px;
       padding: 0 var(--gutter);
       text-align: center;
-      display: flex; flex-direction: column; align-items: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       gap: 24px;
     }
+
     .err-glyph {
-      width: 180px; height: 120px;
+      width: 180px;
+      height: 120px;
       border-radius: var(--radius-md);
       position: relative;
       overflow: hidden;
       border: 1px solid var(--rule);
     }
+
     .err-glyph .num {
       position: absolute;
       inset: 0;
-      display: flex; align-items: center; justify-content: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       font-family: 'Bricolage Grotesque', serif;
       font-size: 92px;
       font-weight: 600;
@@ -41,7 +63,11 @@
       letter-spacing: -.04em;
       z-index: 2;
     }
-    .err-glyph .num .dot { color: var(--ink); }
+
+    .err-glyph .num .dot {
+      color: var(--ink);
+    }
+
     .err h1 {
       font-family: 'Bricolage Grotesque', serif;
       font-size: clamp(36px, 6vw, 72px);
@@ -50,7 +76,14 @@
       font-weight: 500;
       margin: 8px 0 0;
     }
-    .err h1 em { font-family: 'Instrument Serif', serif; font-style: italic; color: var(--terracotta); font-weight: 400; }
+
+    .err h1 em {
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+      color: var(--terracotta);
+      font-weight: 400;
+    }
+
     .err p {
       font-size: 16px;
       line-height: 1.55;
@@ -59,80 +92,94 @@
       max-width: 44ch;
       margin: 0;
     }
-    .err .btn-row { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin-top: 8px; }
+
+    .err .btn-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 8px;
+    }
   </style>
 </head>
+
 <body>
 
-<header class="nav" role="banner">
-  <div class="nav-inner">
-    <a href="index.html" class="logo">roha<span class="dot">.</span></a>
-    <nav aria-label="Primary">
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="work.html">Work</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="shop.html">Shop</a></li>
-        <li><a href="about.html">About</a></li>
-      </ul>
-    </nav>
-    <div class="nav-cta">
-      <a href="about.html#contact" class="btn btn-primary btn-sm"><span class="btn-text">Contact</span> <span class="arr">→</span></a>
-      <button class="nav-toggle" data-nav-toggle aria-label="Open menu">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+  <header class="nav" role="banner">
+    <div class="nav-inner">
+      <a href="index.html" class="logo">roha<span class="dot">.</span></a>
+      <nav aria-label="Primary">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="work.html">Work</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </nav>
+      <div class="nav-cta">
+        <a href="about.html#contact" class="btn btn-primary btn-sm"><span class="btn-text">Contact</span> <span
+            class="arr">→</span></a>
+        <button class="nav-toggle" data-nav-toggle aria-label="Open menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M3 6h18M3 12h18M3 18h18" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-menu" aria-hidden="true">
+    <div class="mobile-menu-head">
+      <a href="index.html" class="logo">roha<span class="dot">.</span></a>
+      <button class="nav-toggle" data-nav-close aria-label="Close menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M6 6l12 12M18 6L6 18" />
+        </svg>
       </button>
     </div>
-  </div>
-</header>
-
-<div class="mobile-menu" aria-hidden="true">
-  <div class="mobile-menu-head">
-    <a href="index.html" class="logo">roha<span class="dot">.</span></a>
-    <button class="nav-toggle" data-nav-close aria-label="Close menu">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 6l12 12M18 6L6 18"/></svg>
-    </button>
-  </div>
-  <ul class="mobile-menu-links">
-    <li><a href="index.html">Home <span class="arr">→</span></a></li>
-    <li><a href="work.html">Work <span class="arr">→</span></a></li>
-    <li><a href="services.html">Services <span class="arr">→</span></a></li>
-    <li><a href="shop.html">Shop <span class="arr">→</span></a></li>
-    <li><a href="about.html">About <span class="arr">→</span></a></li>
-  </ul>
-  <div class="mobile-menu-foot">
-    <span>halo@roha.design</span>
-    <span>v1.0</span>
-  </div>
-</div>
-
-<main>
-  <div class="err-wrap err">
-    <div class="err-glyph pat-confetti pattern-wrap" aria-hidden="true">
-      <div class="num">404<span class="dot">.</span></div>
-    </div>
-
-    <div class="eyebrow" style="justify-content:center;">Page not found</div>
-
-    <h1>This page is <em>missing</em>.</h1>
-
-    <p>Maybe it&rsquo;s being edited. Maybe it never existed. Let&rsquo;s get you back on track.</p>
-
-    <div class="btn-row">
-      <a href="index.html" class="btn btn-primary">Back Home <span class="arr">→</span></a>
-      <a href="work.html" class="btn btn-secondary">See Our Work</a>
-    </div>
-  </div>
-</main>
-
-<footer class="footer" style="margin-top:0;">
-  <div class="wrap">
-    <div class="footer-bottom" style="border-top:0; padding-top:0;">
-      <span>© 2026 Roha. Made with · in Sumatra, Indonesia.</span>
+    <ul class="mobile-menu-links">
+      <li><a href="index.html">Home <span class="arr">→</span></a></li>
+      <li><a href="work.html">Work <span class="arr">→</span></a></li>
+      <li><a href="services.html">Services <span class="arr">→</span></a></li>
+      <li><a href="shop.html">Shop <span class="arr">→</span></a></li>
+      <li><a href="about.html">About <span class="arr">→</span></a></li>
+    </ul>
+    <div class="mobile-menu-foot">
+      <span>halo@roha.design</span>
       <span>v1.0</span>
     </div>
   </div>
-</footer>
 
-<script src="assets/js/main.js"></script>
+  <main>
+    <div class="err-wrap err">
+      <div class="err-glyph pat-confetti pattern-wrap" aria-hidden="true">
+        <div class="num">404<span class="dot">.</span></div>
+      </div>
+
+      <div class="eyebrow" style="justify-content:center;">Page not found</div>
+
+      <h1>This page is <em>missing</em>.</h1>
+
+      <p>Maybe it&rsquo;s being edited. Maybe it never existed. Let&rsquo;s get you back on track.</p>
+
+      <div class="btn-row">
+        <a href="index.html" class="btn btn-primary">Back Home <span class="arr">→</span></a>
+        <a href="work.html" class="btn btn-secondary">See Our Work</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer" style="margin-top:0;">
+    <div class="wrap">
+      <div class="footer-bottom" style="border-top:0; padding-top:0;">
+        <span>© 2026 Roha. Made with · in Sumatra, Indonesia.</span>
+        <span>v1.0</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
 </body>
+
 </html>

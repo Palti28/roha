@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -8,185 +9,215 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Geist:wght@300..700&family=Geist+Mono:wght@400..600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Geist:wght@300..700&family=Geist+Mono:wght@400..600&family=Instrument+Serif:ital@0;1&display=swap"
+    rel="stylesheet">
 
   <link rel="stylesheet" href="assets/css/global.css">
   <link rel="stylesheet" href="assets/css/components.css">
   <link rel="stylesheet" href="assets/css/pages/work.css">
 </head>
+
 <body>
 
-<a href="#main" class="skip-link">Skip to content</a>
+  <a href="#main" class="skip-link">Skip to content</a>
 
-<header class="nav" role="banner">
-  <div class="nav-inner">
-    <a href="index.html" class="logo">roha<span class="dot">.</span></a>
-    <nav aria-label="Primary">
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="work.html" class="active">Work</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="shop.html">Shop</a></li>
-        <li><a href="about.html">About</a></li>
-      </ul>
-    </nav>
-    <div class="nav-cta">
-      <a href="about.html#contact" class="btn btn-primary btn-sm"><span class="btn-text">Contact</span> <span class="arr">→</span></a>
-      <button class="nav-toggle" data-nav-toggle aria-label="Open menu">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
-      </button>
-    </div>
-  </div>
-</header>
-
-<div class="mobile-menu" aria-hidden="true">
-  <div class="mobile-menu-head">
-    <a href="index.html" class="logo">roha<span class="dot">.</span></a>
-    <button class="nav-toggle" data-nav-close aria-label="Close menu">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 6l12 12M18 6L6 18"/></svg>
-    </button>
-  </div>
-  <ul class="mobile-menu-links">
-    <li><a href="index.html">Home <span class="arr">→</span></a></li>
-    <li><a href="work.html">Work <span class="arr">→</span></a></li>
-    <li><a href="services.html">Services <span class="arr">→</span></a></li>
-    <li><a href="shop.html">Shop <span class="arr">→</span></a></li>
-    <li><a href="about.html">About <span class="arr">→</span></a></li>
-    <li><a href="about.html#contact">Contact <span class="arr">→</span></a></li>
-  </ul>
-  <div class="mobile-menu-foot">
-    <span>halo@roha.design</span>
-    <span>v1.0</span>
-  </div>
-</div>
-
-<main id="main">
-
-  <!-- HERO -->
-  <section class="work-hero">
-    <div class="wrap">
-      <div class="eyebrow">Work</div>
-      <h1>What we&rsquo;ve shipped.</h1>
-      <p class="section-lede">A small list, but every project has a story. Pick one to read in detail.</p>
-
-      <!-- Filter (structure ready, per-pill logic active in main.js — enable content filter when projects &gt; 2) -->
-      <div class="work-filter pills" data-work-filter>
-        <button class="pill active" data-filter="all">All</button>
-        <button class="pill" data-filter="ux">UX</button>
-        <button class="pill" data-filter="ui">UI</button>
-        <button class="pill" data-filter="web">Web Dev</button>
-        <button class="pill" data-filter="brand">Branding</button>
-      </div>
-    </div>
-  </section>
-
-  <!-- GRID -->
-  <section class="section-tight">
-    <div class="wrap">
-      <div class="work-grid">
-
-        <a href="work-detail.html" class="work-card" data-category="web">
-          <div class="thumb pat-arcs pattern-wrap" aria-hidden="true"></div>
-          <div class="meta-row">
-            <span class="tag">Web Design &amp; Dev</span>
-            <span class="meta-tag">2025</span>
-          </div>
-          <h3>Sora Landing Kit</h3>
-          <p class="summary">A landing kit for founders in a hurry.</p>
-          <div class="meta-bottom">
-            <span>SaaS</span>
-            <span>·</span>
-            <span>3 weeks</span>
-          </div>
-        </a>
-
-        <a href="work-detail.html" class="work-card" data-category="ui">
-          <div class="thumb pat-grid pattern-wrap" aria-hidden="true"></div>
-          <div class="meta-row">
-            <span class="tag">UX &amp; UI Design</span>
-            <span class="meta-tag">2026</span>
-          </div>
-          <h3>Nimbus Dashboard</h3>
-          <p class="summary">An internal tool that&rsquo;s finally enjoyable to use.</p>
-          <div class="meta-bottom">
-            <span>Ops Tool</span>
-            <span>·</span>
-            <span>5 weeks</span>
-          </div>
-        </a>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="section-tight">
-    <div class="cta-wrap">
-      <div class="cta-panel cta-panel-compact pat-heat">
-        <div class="eyebrow">Next Project</div>
-        <h2>Want to be our <em class="italic-accent" style="color:var(--ink)">next</em> project?</h2>
-        <p>Roha&rsquo;s project slots are limited — usually a maximum of 2 in parallel. Send your brief first.</p>
-        <div class="btn-row">
-          <a href="about.html#contact" class="btn btn-cream">Send a Brief <span class="arr">→</span></a>
-          <a href="https://wa.me/[NO_WA]?text=Hi%20Roha" class="btn btn-outline-cream" target="_blank" rel="noopener">Chat on WhatsApp</a>
-        </div>
-        <div class="arcs-deco" aria-hidden="true"></div>
-      </div>
-    </div>
-  </section>
-
-</main>
-
-<footer class="footer">
-  <div class="wrap">
-    <div class="footer-grid">
-      <div class="footer-col footer-brand">
-        <a href="index.html" class="logo">roha<span class="dot">.</span></a>
-        <p class="tagline">A quiet kind of warm.</p>
-        <p>A small studio in Sumatra. We build websites, UI/UX, and brands for founders and indie makers who want to ship something that feels real.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Pages</h4>
-        <ul>
+  <header class="nav" role="banner">
+    <div class="nav-inner">
+      <a href="index.html" class="logo">roha<span class="dot">.</span></a>
+      <nav aria-label="Primary">
+        <ul class="nav-links">
           <li><a href="index.html">Home</a></li>
-          <li><a href="work.html">Work</a></li>
-          <li><a href="services.html">Services</a></li>
+          <li><a href="work.html" class="active">Work</a></li>
           <li><a href="shop.html">Shop</a></li>
+          <li><a href="services.html">Services</a></li>
           <li><a href="about.html">About</a></li>
         </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Services</h4>
-        <ul>
-          <li><a href="services.html#ux">UX Design</a></li>
-          <li><a href="services.html#ui">UI Design</a></li>
-          <li><a href="services.html#web">Website</a></li>
-          <li><a href="services.html#landing">Landing Page</a></li>
-          <li><a href="services.html#brand">Brand &amp; Logo</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Connect</h4>
-        <ul>
-          <li><a href="mailto:halo@roha.design">halo@roha.design</a></li>
-          <li><a href="https://wa.me/[NO_WA]" target="_blank" rel="noopener">WhatsApp →</a></li>
-        </ul>
-        <div class="footer-social">
-          <a href="[INSTAGRAM_URL]" aria-label="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor"/></svg></a>
-          <a href="[DRIBBBLE_URL]" aria-label="Dribbble" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M8 21c1.5-7 3.5-10 6.5-15M3 11c5 0 12 .5 17 6M21 9c-4 1.5-9 3-18 .5"/></svg></a>
-          <a href="[BEHANCE_URL]" aria-label="Behance" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 6h5a3 3 0 010 6H3zM3 12h6a3 3 0 010 6H3zM14 14a3 3 0 116 0v1h-6a3 3 0 003 3M15 7h4"/></svg></a>
-          <a href="[LINKEDIN_URL]" aria-label="LinkedIn" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 014 0v4M12 10v7"/></svg></a>
-          <a href="[TIKTOK_URL]" aria-label="TikTok" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 4v10a4 4 0 11-4-4M14 4c0 3 2 5 5 5"/></svg></a>
-        </div>
+      </nav>
+      <div class="nav-cta">
+        <a href="about.html#contact" class="btn btn-primary btn-sm"><span class="btn-text">Contact</span> <span
+            class="arr">→</span></a>
+        <button class="nav-toggle" data-nav-toggle aria-label="Open menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M3 6h18M3 12h18M3 18h18" />
+          </svg>
+        </button>
       </div>
     </div>
-    <div class="footer-bottom">
-      <span>© 2026 Roha. Made with · in Sumatra, Indonesia.</span>
+  </header>
+
+  <div class="mobile-menu" aria-hidden="true">
+    <div class="mobile-menu-head">
+      <a href="index.html" class="logo">roha<span class="dot">.</span></a>
+      <button class="nav-toggle" data-nav-close aria-label="Close menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M6 6l12 12M18 6L6 18" />
+        </svg>
+      </button>
+    </div>
+    <ul class="mobile-menu-links">
+      <li><a href="index.html">Home <span class="arr">→</span></a></li>
+      <li><a href="work.html">Work <span class="arr">→</span></a></li>
+      <li><a href="services.html">Services <span class="arr">→</span></a></li>
+      <li><a href="shop.html">Shop <span class="arr">→</span></a></li>
+      <li><a href="about.html">About <span class="arr">→</span></a></li>
+      <li><a href="about.html#contact">Contact <span class="arr">→</span></a></li>
+    </ul>
+    <div class="mobile-menu-foot">
+      <span>halo@roha.design</span>
       <span>v1.0</span>
     </div>
   </div>
-</footer>
 
-<script src="assets/js/main.js"></script>
+  <main id="main">
+
+    <!-- HERO -->
+    <section class="work-hero">
+      <div class="wrap">
+        <div class="eyebrow">Work</div>
+        <h1>What we&rsquo;ve shipped.</h1>
+        <p class="section-lede">A small list, but every project has a story. Pick one to read in detail.</p>
+
+        <!-- Filter (structure ready, per-pill logic active in main.js — enable content filter when projects &gt; 2) -->
+        <div class="work-filter pills" data-work-filter>
+          <button class="pill active" data-filter="all">All</button>
+          <button class="pill" data-filter="ux">UX</button>
+          <button class="pill" data-filter="ui">UI</button>
+          <button class="pill" data-filter="web">Web Dev</button>
+          <button class="pill" data-filter="brand">Branding</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- GRID -->
+    <section class="section-tight">
+      <div class="wrap">
+        <div class="work-grid">
+
+          <a href="work-detail.html" class="work-card" data-category="web">
+            <div class="thumb pat-arcs pattern-wrap" aria-hidden="true"></div>
+            <div class="meta-row">
+              <span class="tag">Web Design &amp; Dev</span>
+              <span class="meta-tag">2025</span>
+            </div>
+            <h3>Sora Landing Kit</h3>
+            <p class="summary">A landing kit for founders in a hurry.</p>
+            <div class="meta-bottom">
+              <span>SaaS</span>
+              <span>·</span>
+              <span>3 weeks</span>
+            </div>
+          </a>
+
+          <a href="work-detail.html" class="work-card" data-category="ui">
+            <div class="thumb pat-grid pattern-wrap" aria-hidden="true"></div>
+            <div class="meta-row">
+              <span class="tag">UX &amp; UI Design</span>
+              <span class="meta-tag">2026</span>
+            </div>
+            <h3>Nimbus Dashboard</h3>
+            <p class="summary">An internal tool that&rsquo;s finally enjoyable to use.</p>
+            <div class="meta-bottom">
+              <span>Ops Tool</span>
+              <span>·</span>
+              <span>5 weeks</span>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section-tight">
+      <div class="cta-wrap">
+        <div class="cta-panel cta-panel-compact pat-heat">
+          <div class="eyebrow">Next Project</div>
+          <h2>Want to be our <em class="italic-accent" style="color:var(--ink)">next</em> project?</h2>
+          <p>Roha&rsquo;s project slots are limited — usually a maximum of 2 in parallel. Send your brief first.</p>
+          <div class="btn-row">
+            <a href="about.html#contact" class="btn btn-cream">Send a Brief <span class="arr">→</span></a>
+            <a href="https://wa.me/[NO_WA]?text=Hi%20Roha" class="btn btn-outline-cream" target="_blank"
+              rel="noopener">Chat on WhatsApp</a>
+          </div>
+          <div class="arcs-deco" aria-hidden="true"></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div class="footer-col footer-brand">
+          <a href="index.html" class="logo">roha<span class="dot">.</span></a>
+          <p class="tagline">A quiet kind of warm.</p>
+          <p>A small studio in Sumatra. We build websites, UI/UX, and brands for founders and indie makers who want to
+            ship something that feels real.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Pages</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="work.html">Work</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="about.html">About</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="services.html#ux">UX Design</a></li>
+            <li><a href="services.html#ui">UI Design</a></li>
+            <li><a href="services.html#web">Website</a></li>
+            <li><a href="services.html#landing">Landing Page</a></li>
+            <li><a href="services.html#brand">Brand &amp; Logo</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <ul>
+            <li><a href="mailto:halo@roha.design">halo@roha.design</a></li>
+            <li><a href="https://wa.me/[NO_WA]" target="_blank" rel="noopener">WhatsApp →</a></li>
+          </ul>
+          <div class="footer-social">
+            <a href="[INSTAGRAM_URL]" aria-label="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="1.6">
+                <rect x="3" y="3" width="18" height="18" rx="5" />
+                <circle cx="12" cy="12" r="4" />
+                <circle cx="17.5" cy="6.5" r=".8" fill="currentColor" />
+              </svg></a>
+            <a href="[DRIBBBLE_URL]" aria-label="Dribbble" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="1.6">
+                <circle cx="12" cy="12" r="9" />
+                <path d="M8 21c1.5-7 3.5-10 6.5-15M3 11c5 0 12 .5 17 6M21 9c-4 1.5-9 3-18 .5" />
+              </svg></a>
+            <a href="[BEHANCE_URL]" aria-label="Behance" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="1.6">
+                <path d="M3 6h5a3 3 0 010 6H3zM3 12h6a3 3 0 010 6H3zM14 14a3 3 0 116 0v1h-6a3 3 0 003 3M15 7h4" />
+              </svg></a>
+            <a href="[LINKEDIN_URL]" aria-label="LinkedIn" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="1.6">
+                <rect x="3" y="3" width="18" height="18" rx="3" />
+                <path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 014 0v4M12 10v7" />
+              </svg></a>
+            <a href="[TIKTOK_URL]" aria-label="TikTok" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="1.6">
+                <path d="M14 4v10a4 4 0 11-4-4M14 4c0 3 2 5 5 5" />
+              </svg></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Roha. Made with · in Sumatra, Indonesia.</span>
+        <span>v1.0</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
 </body>
+
 </html>
