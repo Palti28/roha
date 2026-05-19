@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Roha — A digital design studio made warm, shipped tidy.</title>
+  <meta name="description"
+    content="Roha is a small studio that helps founders and indie makers build websites, UI/UX, and brands that feel real — not just thrown together." />
+  <link rel="icon" href="https://ik.imagekit.io/gorat/roha/roha.png" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Geist:wght@300..700&family=Geist+Mono:wght@400..600&family=Instrument+Serif:ital@0;1&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/global.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/pages/home.css">
+
+  <!-- preview html/template -->
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; background: #f5f5f5; padding: 40px 20px; }
+        .container { max-width: 1000px; margin: 0 auto; }
+        h1 { text-align: center; margin-bottom: 40px; }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .card:hover { transform: translateY(-5px); }
+        .card-content { padding: 20px; }
+        .card-content h3 { margin-bottom: 10px; }
+        .card-content p { color: #666; margin-bottom: 15px; }
+        
+        .buttons {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .btn {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        
+        .btn-preview {
+            background: #007bff;
+            color: white;
+        }
+        .btn-preview:hover { background: #0056b3; }
+        
+        .btn-open {
+            background: #28a745;
+            color: white;
+        }
+        .btn-open:hover { background: #218838; }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal.active {
+            display: flex;
+        }
+        
+        .modal-content {
+            background: white;
+            width: 95%;
+            height: 95%;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+        
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            border-bottom: 1px solid #eee;
+            background: #f8f9fa;
+        }
+        
+        .modal-header h2 {
+            font-size: 18px;
+            margin: 0;
+        }
+        
+        .modal-buttons {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .modal-btn {
+            padding: 8px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        .modal-btn-close {
+            background: #dc3545;
+            color: white;
+        }
+        .modal-btn-close:hover { background: #c82333; }
+        
+        .modal-btn-open {
+            background: #28a745;
+            color: white;
+        }
+        .modal-btn-open:hover { background: #218838; }
+        
+        .modal-iframe {
+            flex: 1;
+            border: none;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <h1>Landing Page Templates</h1>
+        <div class="grid">
+            <div class="card">
+                <div class="card-content">
+                    <h3>SaaS Template</h3>
+                    <p>Modern SaaS landing page dengan pricing dan features.</p>
+                    <div class="buttons">
+                        <button class="btn btn-preview" onclick="previewTemplate('/templates/homestay/', 'Homestay Template')">Preview</button>
+                        <a href="/templates/homestay/" target="_blank" class="btn btn-open">Open</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-content">
+                    <h3>Agency Template</h3>
+                    <p>Creative agency portfolio template.</p>
+                    <div class="buttons">
+                        <button class="btn btn-preview" onclick="previewTemplate('/templates/template2/', 'Agency Template')">Preview</button>
+                        <a href="/templates/template2/" target="_blank" class="btn btn-open">Open</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-content">
+                    <h3>E-commerce Template</h3>
+                    <p>Product showcase dan sales template.</p>
+                    <div class="buttons">
+                        <button class="btn btn-preview" onclick="previewTemplate('/templates/template3/', 'E-commerce Template')">Preview</button>
+                        <a href="/templates/template3/" target="_blank" class="btn btn-open">Open</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="previewModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Preview</h2>
+                <div class="modal-buttons">
+                    <button class="modal-btn modal-btn-open" onclick="openInNewTab()">Open in New Tab</button>
+                    <button class="modal-btn modal-btn-close" onclick="closePreview()">Close</button>
+                </div>
+            </div>
+            <iframe id="previewIframe" class="modal-iframe" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+        </div>
+    </div>
+
+    <script>
+        let currentTemplateUrl = '';
+
+        function previewTemplate(url, title) {
+            currentTemplateUrl = url;
+            document.getElementById('modalTitle').textContent = `Preview - ${title}`;
+            document.getElementById('previewIframe').src = url;
+            document.getElementById('previewModal').classList.add('active');
+        }
+
+        function closePreview() {
+            document.getElementById('previewModal').classList.remove('active');
+            document.getElementById('previewIframe').src = '';
+        }
+
+        function openInNewTab() {
+            window.open(currentTemplateUrl, '_blank');
+        }
+
+        // Close modal ketika klik di luar
+        document.getElementById('previewModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closePreview();
+            }
+        });
+
+        // Close modal dengan ESC key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closePreview();
+            }
+        });
+    </script>
+</body>
+
+</html>
