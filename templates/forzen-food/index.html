@@ -1,0 +1,1318 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Frozn — Heat. Eat. Repeat.</title>
+<meta name="description" content="Frozen food berkualitas, sampai tetap beku. Dimsum, bakso, nugget, dan seafood premium dengan cold chain delivery." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --blue: #1E5EFF;
+    --blue-dark: #1648c4;
+    --blue-soft: #EAF0FF;
+    --mint: #4FD1A5;
+    --mint-soft: #E6FAF2;
+    --white: #FFFFFF;
+    --gray: #F7FAFC;
+    --gray-200: #E2E8F0;
+    --gray-400: #94A3B8;
+    --gray-600: #475569;
+    --gray-900: #0F172A;
+    --shadow-sm: 0 1px 2px rgba(15,23,42,.06), 0 1px 3px rgba(15,23,42,.04);
+    --shadow-md: 0 4px 12px rgba(15,23,42,.06), 0 2px 4px rgba(15,23,42,.04);
+    --shadow-lg: 0 12px 32px rgba(30,94,255,.12), 0 4px 12px rgba(15,23,42,.06);
+    --radius: 14px;
+    --radius-lg: 22px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; -webkit-tap-highlight-color: transparent; }
+  body {
+    margin: 0;
+    font-family: 'Inter', system-ui, sans-serif;
+    color: var(--gray-900);
+    background: var(--white);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+  h1, h2, h3, h4 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    margin: 0;
+  }
+  p { margin: 0; }
+  a { color: inherit; text-decoration: none; }
+  button { font-family: inherit; cursor: pointer; border: none; background: none; }
+  img { max-width: 100%; display: block; }
+
+  .container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  /* ========== NAVBAR ========== */
+  .navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: saturate(180%) blur(14px);
+    -webkit-backdrop-filter: saturate(180%) blur(14px);
+    border-bottom: 1px solid rgba(226,232,240,0.6);
+    transition: box-shadow .3s ease;
+  }
+  .navbar.scrolled { box-shadow: var(--shadow-sm); }
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 68px;
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 800;
+    font-size: 22px;
+    letter-spacing: -0.03em;
+    color: var(--gray-900);
+  }
+  .logo-mark {
+    width: 34px; height: 34px;
+    background: linear-gradient(135deg, var(--blue), var(--mint));
+    border-radius: 10px;
+    display: grid; place-items: center;
+    color: white;
+    box-shadow: 0 6px 16px rgba(30,94,255,.3);
+  }
+  .nav-menu {
+    display: none;
+    gap: 32px;
+    list-style: none;
+    padding: 0; margin: 0;
+  }
+  .nav-menu a {
+    font-weight: 500;
+    font-size: 15px;
+    color: var(--gray-600);
+    transition: color .2s;
+    position: relative;
+  }
+  .nav-menu a:hover { color: var(--blue); }
+  .nav-menu a::after {
+    content: '';
+    position: absolute;
+    bottom: -6px; left: 0;
+    width: 0; height: 2px;
+    background: var(--blue);
+    transition: width .25s ease;
+  }
+  .nav-menu a:hover::after { width: 100%; }
+
+  .nav-actions { display: flex; align-items: center; gap: 10px; }
+  .nav-wa-btn {
+    display: none;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    background: var(--blue);
+    color: white;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all .2s;
+  }
+  .nav-wa-btn:hover { background: var(--blue-dark); transform: translateY(-2px); }
+
+  .menu-toggle {
+    width: 42px; height: 42px;
+    background: var(--gray);
+    border-radius: 12px;
+    display: grid; place-items: center;
+  }
+  @media (min-width: 900px) {
+    .nav-menu { display: flex; }
+    .nav-wa-btn { display: inline-flex; }
+    .menu-toggle { display: none; }
+  }
+
+  /* Mobile nav */
+  .mobile-nav {
+    position: absolute;
+    top: 100%; left: 0; right: 0;
+    background: white;
+    border-bottom: 1px solid var(--gray-200);
+    padding: 12px 20px 16px;
+    transform: translateY(-110%);
+    transition: transform .3s, opacity .3s;
+    opacity: 0;
+    pointer-events: none;
+  }
+  .mobile-nav.open {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+    box-shadow: var(--shadow-md);
+  }
+  .mobile-nav ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 2px; }
+  .mobile-nav a {
+    display: block;
+    padding: 12px 16px;
+    border-radius: 10px;
+    font-weight: 500;
+    color: var(--gray-900);
+  }
+  .mobile-nav a:hover { background: var(--gray); color: var(--blue); }
+
+  /* ========== HERO ========== */
+  .hero {
+    position: relative;
+    padding: 56px 0 80px;
+    overflow: hidden;
+    background:
+      radial-gradient(circle at 80% 10%, rgba(79,209,165,.12), transparent 50%),
+      radial-gradient(circle at 10% 90%, rgba(30,94,255,.08), transparent 50%),
+      linear-gradient(180deg, #fff 0%, var(--gray) 100%);
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(30,94,255,.08) 1px, transparent 0);
+    background-size: 28px 28px;
+    mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%);
+    -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-grid {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+  @media (min-width: 900px) {
+    .hero { padding: 80px 0 120px; }
+    .hero-grid { grid-template-columns: 1.05fr 1fr; gap: 64px; }
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    background: var(--mint-soft);
+    color: #1a8c66;
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+  .hero-eyebrow .dot {
+    width: 6px; height: 6px;
+    background: var(--mint);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: .6; transform: scale(1.4); }
+  }
+  .hero h1 {
+    font-size: clamp(36px, 6vw, 64px);
+    margin-bottom: 20px;
+  }
+  .hero h1 .accent {
+    background: linear-gradient(120deg, var(--blue), var(--mint));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .hero p.lead {
+    font-size: 17px;
+    color: var(--gray-600);
+    margin-bottom: 32px;
+    max-width: 520px;
+  }
+  .hero-cta { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 36px; }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 24px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 15px;
+    transition: all .2s;
+    white-space: nowrap;
+  }
+  .btn-primary {
+    background: var(--blue);
+    color: white;
+    box-shadow: 0 8px 20px rgba(30,94,255,.3);
+  }
+  .btn-primary:hover { background: var(--blue-dark); transform: translateY(-2px); box-shadow: 0 12px 28px rgba(30,94,255,.4); }
+  .btn-wa {
+    background: #25D366;
+    color: white;
+    box-shadow: 0 8px 20px rgba(37,211,102,.3);
+  }
+  .btn-wa:hover { background: #1eb955; transform: translateY(-2px); }
+
+  .hero-stats {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+  .stat strong {
+    display: block;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--gray-900);
+    line-height: 1;
+  }
+  .stat span { font-size: 13px; color: var(--gray-600); }
+
+  /* Hero visual */
+  .hero-visual {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    max-width: 520px;
+    margin: 0 auto;
+    width: 100%;
+  }
+  .hero-img-wrap {
+    position: absolute;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+  }
+  .hero-img-wrap img { width: 100%; height: 100%; object-fit: cover; }
+  .hero-img-main { inset: 0; }
+  .hero-img-main::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 50%, rgba(30,94,255,.15));
+  }
+  .hero-chip {
+    position: absolute;
+    background: white;
+    border-radius: 16px;
+    padding: 12px 16px;
+    box-shadow: var(--shadow-md);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    animation: float 4s ease-in-out infinite;
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+  .chip-temp { top: 20px; left: -20px; color: var(--blue); }
+  .chip-temp .icon-box {
+    background: var(--blue-soft);
+    width: 32px; height: 32px;
+    border-radius: 8px;
+    display: grid; place-items: center;
+  }
+  .chip-delivery {
+    bottom: 24px; right: -16px;
+    animation-delay: 1.5s;
+  }
+  .chip-delivery .icon-box {
+    background: var(--mint-soft);
+    width: 32px; height: 32px;
+    border-radius: 8px;
+    display: grid; place-items: center;
+    color: #1a8c66;
+  }
+  @media (max-width: 600px) {
+    .chip-temp { left: 10px; }
+    .chip-delivery { right: 10px; }
+  }
+
+  /* ========== TRUST BAR ========== */
+  .trust {
+    padding: 40px 0;
+    background: white;
+    border-bottom: 1px solid var(--gray-200);
+  }
+  .trust-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+  @media (min-width: 700px) {
+    .trust-grid { grid-template-columns: repeat(4, 1fr); }
+  }
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .trust-icon {
+    width: 48px; height: 48px;
+    background: var(--blue-soft);
+    border-radius: 12px;
+    display: grid; place-items: center;
+    color: var(--blue);
+    flex-shrink: 0;
+  }
+  .trust-item:nth-child(2) .trust-icon { background: var(--mint-soft); color: #1a8c66; }
+  .trust-item:nth-child(3) .trust-icon { background: #FFF4E6; color: #D97706; }
+  .trust-item:nth-child(4) .trust-icon { background: #FCE7F3; color: #BE185D; }
+  .trust-item h4 { font-size: 14px; font-weight: 700; margin-bottom: 2px; }
+  .trust-item p { font-size: 12px; color: var(--gray-600); }
+
+  /* ========== SECTIONS ========== */
+  section { padding: 72px 0; }
+  @media (min-width: 900px) { section { padding: 96px 0; } }
+
+  .section-head {
+    text-align: center;
+    margin-bottom: 48px;
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .section-eyebrow {
+    display: inline-block;
+    padding: 5px 12px;
+    background: var(--blue-soft);
+    color: var(--blue);
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .section-head h2 {
+    font-size: clamp(28px, 4vw, 42px);
+    margin-bottom: 12px;
+  }
+  .section-head p {
+    color: var(--gray-600);
+    font-size: 16px;
+  }
+
+  /* ========== CATEGORIES ========== */
+  .categories { background: var(--gray); }
+  .cat-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  @media (min-width: 700px) { .cat-grid { grid-template-columns: repeat(4, 1fr); gap: 20px; } }
+  .cat-card {
+    background: white;
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    text-align: center;
+    transition: all .3s ease;
+    cursor: pointer;
+    border: 1px solid transparent;
+    position: relative;
+    overflow: hidden;
+  }
+  .cat-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--blue-soft), transparent);
+    opacity: 0;
+    transition: opacity .3s;
+  }
+  .cat-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--blue-soft);
+  }
+  .cat-card:hover::before { opacity: 1; }
+  .cat-card > * { position: relative; }
+  .cat-img {
+    width: 88px; height: 88px;
+    margin: 0 auto 16px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: var(--gray);
+    box-shadow: 0 8px 24px rgba(30,94,255,.12);
+  }
+  .cat-img img { width: 100%; height: 100%; object-fit: cover; }
+  .cat-card h3 { font-size: 17px; margin-bottom: 4px; }
+  .cat-card span { font-size: 13px; color: var(--gray-600); }
+
+  /* ========== PRODUCTS ========== */
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  @media (min-width: 700px) { .products-grid { grid-template-columns: repeat(4, 1fr); gap: 24px; } }
+  .product-card {
+    background: white;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 1px solid var(--gray-200);
+    transition: all .3s ease;
+    display: flex;
+    flex-direction: column;
+  }
+  .product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: transparent;
+  }
+  .product-img-wrap {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    background: var(--gray);
+  }
+  .product-img-wrap img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform .5s ease;
+  }
+  .product-card:hover .product-img-wrap img { transform: scale(1.08); }
+  .product-tag {
+    position: absolute;
+    top: 12px; left: 12px;
+    background: var(--blue);
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 100px;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+  }
+  .product-tag.hot { background: #EF4444; }
+  .product-tag.new { background: var(--mint); }
+  .product-body { padding: 16px; flex: 1; display: flex; flex-direction: column; }
+  .product-body h3 {
+    font-size: 15px;
+    margin-bottom: 4px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+  .product-desc {
+    font-size: 12px;
+    color: var(--gray-600);
+    margin-bottom: 12px;
+    flex: 1;
+  }
+  .product-price {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 800;
+    font-size: 17px;
+    color: var(--gray-900);
+    margin-bottom: 12px;
+  }
+  .product-price small {
+    display: block;
+    font-size: 11px;
+    color: var(--gray-400);
+    text-decoration: line-through;
+    font-weight: 500;
+  }
+  .order-btn {
+    width: 100%;
+    background: #25D366;
+    color: white;
+    padding: 10px 12px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    transition: all .2s;
+  }
+  .order-btn:hover { background: #1eb955; transform: translateY(-1px); }
+  .order-btn:active { transform: scale(.98); }
+
+  /* ========== STEPS ========== */
+  .steps { background: var(--gray); }
+  .steps-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    position: relative;
+  }
+  @media (min-width: 800px) { .steps-grid { grid-template-columns: repeat(3, 1fr); gap: 32px; } }
+  .step-card {
+    background: white;
+    border-radius: var(--radius-lg);
+    padding: 32px 28px;
+    text-align: center;
+    position: relative;
+    transition: transform .3s ease;
+  }
+  .step-card:hover { transform: translateY(-4px); }
+  .step-num {
+    width: 56px; height: 56px;
+    margin: 0 auto 18px;
+    background: linear-gradient(135deg, var(--blue), var(--mint));
+    border-radius: 50%;
+    display: grid; place-items: center;
+    color: white;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 800;
+    font-size: 22px;
+    box-shadow: 0 8px 20px rgba(30,94,255,.25);
+  }
+  .step-card h3 { font-size: 19px; margin-bottom: 8px; }
+  .step-card p { color: var(--gray-600); font-size: 14px; }
+
+  /* ========== TESTIMONIALS ========== */
+  .testi-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  @media (min-width: 800px) { .testi-grid { grid-template-columns: repeat(3, 1fr); gap: 24px; } }
+  .testi-card {
+    background: white;
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-lg);
+    padding: 28px;
+    transition: all .3s ease;
+    position: relative;
+  }
+  .testi-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-3px); border-color: transparent; }
+  .stars { display: flex; gap: 2px; margin-bottom: 14px; color: #F59E0B; }
+  .testi-text {
+    color: var(--gray-600);
+    font-size: 15px;
+    margin-bottom: 20px;
+    font-style: italic;
+  }
+  .testi-author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .testi-avatar {
+    width: 42px; height: 42px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--blue), var(--mint));
+    color: white;
+    display: grid; place-items: center;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+  }
+  .testi-author strong { font-size: 14px; display: block; }
+  .testi-author span { font-size: 12px; color: var(--gray-400); }
+
+  /* ========== CTA BANNER ========== */
+  .cta-banner { padding: 56px 0; }
+  .cta-inner {
+    background: linear-gradient(120deg, var(--blue) 0%, #2563eb 60%, var(--mint) 130%);
+    border-radius: 28px;
+    padding: 48px 32px;
+    text-align: center;
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-inner::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 20% 20%, rgba(255,255,255,.15), transparent 40%),
+      radial-gradient(circle at 80% 80%, rgba(255,255,255,.1), transparent 40%);
+  }
+  .cta-inner > * { position: relative; }
+  .cta-inner h2 {
+    font-size: clamp(26px, 4vw, 38px);
+    margin-bottom: 12px;
+  }
+  .cta-inner p {
+    opacity: .92;
+    font-size: 16px;
+    margin-bottom: 24px;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .cta-inner .btn-primary { background: white; color: var(--blue); }
+  .cta-inner .btn-primary:hover { background: #f1f5f9; }
+
+  /* ========== FOOTER ========== */
+  footer {
+    background: #0a1530;
+    color: #cbd5e1;
+    padding: 64px 0 24px;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 36px;
+    margin-bottom: 40px;
+  }
+  @media (min-width: 700px) { .footer-grid { grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 32px; } }
+  .footer-brand .logo { color: white; margin-bottom: 14px; }
+  .footer-brand p { font-size: 14px; line-height: 1.7; max-width: 280px; margin-bottom: 18px; }
+  .socials { display: flex; gap: 10px; }
+  .socials a {
+    width: 38px; height: 38px;
+    background: rgba(255,255,255,.06);
+    border-radius: 10px;
+    display: grid; place-items: center;
+    transition: all .2s;
+    color: white;
+  }
+  .socials a:hover { background: var(--blue); transform: translateY(-2px); }
+
+  .footer-col h4 {
+    color: white;
+    font-size: 15px;
+    margin-bottom: 16px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+  .footer-col ul {
+    list-style: none;
+    padding: 0; margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .footer-col a {
+    font-size: 14px;
+    color: #94a3b8;
+    transition: color .2s;
+  }
+  .footer-col a:hover { color: var(--mint); }
+  .footer-info { display: flex; flex-direction: column; gap: 14px; font-size: 14px; }
+  .footer-info > div { display: flex; gap: 10px; align-items: flex-start; }
+  .footer-info svg { flex-shrink: 0; color: var(--mint); margin-top: 2px; }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,.08);
+    padding-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: 13px;
+    color: #64748b;
+  }
+
+  /* ========== FLOATING WA ========== */
+  .wa-float {
+    position: fixed;
+    bottom: 22px; right: 22px;
+    width: 58px; height: 58px;
+    background: #25D366;
+    border-radius: 50%;
+    display: grid; place-items: center;
+    color: white;
+    box-shadow: 0 10px 28px rgba(37,211,102,.45);
+    z-index: 90;
+    transition: all .3s;
+    animation: waPulse 2.5s infinite;
+  }
+  .wa-float:hover { transform: scale(1.1); }
+  @keyframes waPulse {
+    0% { box-shadow: 0 10px 28px rgba(37,211,102,.45), 0 0 0 0 rgba(37,211,102,.5); }
+    70% { box-shadow: 0 10px 28px rgba(37,211,102,.45), 0 0 0 18px rgba(37,211,102,0); }
+    100% { box-shadow: 0 10px 28px rgba(37,211,102,.45), 0 0 0 0 rgba(37,211,102,0); }
+  }
+
+  /* ========== TOAST ========== */
+  .toast-stack {
+    position: fixed;
+    bottom: 100px; right: 22px;
+    z-index: 300;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    pointer-events: none;
+  }
+  @media (max-width: 600px) {
+    .toast-stack { left: 16px; right: 16px; bottom: 90px; }
+  }
+  .toast {
+    background: white;
+    border-radius: 14px;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 12px 32px rgba(15,23,42,.15);
+    border-left: 4px solid #25D366;
+    transform: translateX(120%);
+    animation: toastIn .35s cubic-bezier(.34,1.56,.64,1) forwards, toastOut .3s ease 2.6s forwards;
+    pointer-events: auto;
+    max-width: 360px;
+  }
+  @keyframes toastIn { to { transform: translateX(0); } }
+  @keyframes toastOut { to { transform: translateX(120%); opacity: 0; } }
+  .toast-icon {
+    width: 36px; height: 36px;
+    background: var(--mint-soft);
+    color: #1a8c66;
+    border-radius: 10px;
+    display: grid; place-items: center;
+    flex-shrink: 0;
+  }
+  .toast-msg strong { font-size: 14px; display: block; }
+  .toast-msg span { font-size: 12px; color: var(--gray-600); }
+
+  /* ========== REVEAL ANIMATION ========== */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity .7s ease, transform .7s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-stagger > * {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity .6s ease, transform .6s ease;
+  }
+  .reveal-stagger.visible > * { opacity: 1; transform: translateY(0); }
+  .reveal-stagger.visible > *:nth-child(1) { transition-delay: 0s; }
+  .reveal-stagger.visible > *:nth-child(2) { transition-delay: .08s; }
+  .reveal-stagger.visible > *:nth-child(3) { transition-delay: .16s; }
+  .reveal-stagger.visible > *:nth-child(4) { transition-delay: .24s; }
+
+</style>
+</head>
+<body>
+
+<!-- ========== NAVBAR ========== -->
+<nav class="navbar" id="navbar">
+  <div class="container nav-inner">
+    <a href="#top" class="logo">
+      <span class="logo-mark">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M19.07 4.93L4.93 19.07"/></svg>
+      </span>
+      Frozn
+    </a>
+    <ul class="nav-menu">
+      <li><a href="#kategori">Kategori</a></li>
+      <li><a href="#produk">Produk</a></li>
+      <li><a href="#cara">Cara Pesan</a></li>
+      <li><a href="#testimoni">Testimoni</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="#" class="nav-wa-btn" id="navWaBtn" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 6.32A8.78 8.78 0 0 0 11.5 4a8.8 8.8 0 0 0-7.59 13.21L3 22l4.97-.91A8.79 8.79 0 0 0 11.5 22h.01a8.79 8.79 0 0 0 6.09-15.68zM11.5 20.4a7.3 7.3 0 0 1-3.72-1.02l-.27-.16-2.95.54.55-2.87-.18-.29A7.3 7.3 0 1 1 11.5 20.4z"/></svg>
+        Pesan via WA
+      </a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Menu" aria-expanded="false">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-nav" id="mobileNav">
+    <ul>
+      <li><a href="#kategori">Kategori</a></li>
+      <li><a href="#produk">Produk</a></li>
+      <li><a href="#cara">Cara Pesan</a></li>
+      <li><a href="#testimoni">Testimoni</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ========== HERO ========== -->
+<section class="hero" id="top">
+  <div class="container hero-grid">
+    <div class="reveal">
+      <div class="hero-eyebrow">
+        <span class="dot"></span>
+        Heat. Eat. Repeat.
+      </div>
+      <h1>Frozen Food Berkualitas, <span class="accent">Sampai Tetap Beku.</span></h1>
+      <p class="lead">Dimsum, bakso, nugget, dan seafood premium yang diantar langsung ke rumah dengan cold chain delivery. Garansi dingin atau uang kembali.</p>
+      <div class="hero-cta">
+        <a href="#produk" class="btn btn-primary">
+          Lihat Produk
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#" class="btn btn-wa" id="heroWaBtn" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 6.32A8.78 8.78 0 0 0 11.5 4a8.8 8.8 0 0 0-7.59 13.21L3 22l4.97-.91A8.79 8.79 0 0 0 11.5 22h.01a8.79 8.79 0 0 0 6.09-15.68zM11.5 20.4a7.3 7.3 0 0 1-3.72-1.02l-.27-.16-2.95.54.55-2.87-.18-.29A7.3 7.3 0 1 1 11.5 20.4z"/></svg>
+          Chat WhatsApp
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><strong>15K+</strong><span>Pelanggan puas</span></div>
+        <div class="stat"><strong>4.9★</strong><span>Rating produk</span></div>
+        <div class="stat"><strong>-18°C</strong><span>Suhu pengiriman</span></div>
+      </div>
+    </div>
+    <div class="hero-visual reveal">
+      <div class="hero-img-wrap hero-img-main">
+        <img src="https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=800&q=80" alt="Frozen food premium" />
+      </div>
+      <div class="hero-chip chip-temp">
+        <span class="icon-box">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M4.93 4.93l14.14 14.14M19.07 4.93L4.93 19.07M2 12h20"/></svg>
+        </span>
+        <div>
+          <div style="font-size:11px;color:#94a3b8;font-weight:500;">Suhu</div>
+          -18°C terjaga
+        </div>
+      </div>
+      <div class="hero-chip chip-delivery">
+        <span class="icon-box">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        </span>
+        <div>
+          <div style="font-size:11px;color:#94a3b8;font-weight:500;">Pengiriman</div>
+          Same day Jakarta
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== TRUST BAR ========== -->
+<section class="trust" style="padding: 32px 0;">
+  <div class="container">
+    <div class="trust-grid reveal-stagger">
+      <div class="trust-item">
+        <div class="trust-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M4.93 4.93l14.14 14.14M19.07 4.93L4.93 19.07M2 12h20"/></svg>
+        </div>
+        <div>
+          <h4>Cold Chain</h4>
+          <p>Dingin terjaga dari gudang sampai rumah</p>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9 9 4.03 9 9z"/></svg>
+        </div>
+        <div>
+          <h4>BPOM & Halal</h4>
+          <p>Tersertifikasi resmi & terjamin</p>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <div>
+          <h4>Same Day</h4>
+          <p>Order sebelum 12 siang, sampai hari ini</p>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div>
+          <h4>Garansi Freshness</h4>
+          <p>Tidak fresh, uang kembali</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CATEGORIES ========== -->
+<section class="categories" id="kategori">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-eyebrow">Kategori</span>
+      <h2>Pilih sesuai selera</h2>
+      <p>Dari dimsum hangat sampai seafood segar, semua siap dimasak dalam 5 menit.</p>
+    </div>
+    <div class="cat-grid reveal-stagger">
+      <a class="cat-card" href="#produk">
+        <div class="cat-img"><img src="https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=300&q=80" alt="Dimsum" /></div>
+        <h3>Dimsum</h3>
+        <span>12 varian</span>
+      </a>
+      <a class="cat-card" href="#produk">
+        <div class="cat-img"><img src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?w=300&q=80" alt="Bakso" /></div>
+        <h3>Bakso</h3>
+        <span>8 varian</span>
+      </a>
+      <a class="cat-card" href="#produk">
+        <div class="cat-img"><img src="https://images.unsplash.com/photo-1562967914-608f82629710?w=300&q=80" alt="Nugget" /></div>
+        <h3>Nugget</h3>
+        <span>10 varian</span>
+      </a>
+      <a class="cat-card" href="#produk">
+        <div class="cat-img"><img src="https://images.unsplash.com/photo-1565680018434-b513d5e5fd47?w=300&q=80" alt="Seafood" /></div>
+        <h3>Seafood</h3>
+        <span>15 varian</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ========== PRODUCTS ========== -->
+<section id="produk">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-eyebrow">Best Seller</span>
+      <h2>Produk paling laris minggu ini</h2>
+      <p>Dipilih ribuan pelanggan setia kami di seluruh Jabodetabek.</p>
+    </div>
+    <div class="products-grid reveal-stagger" id="productsGrid">
+      <!-- Diisi via JS -->
+    </div>
+  </div>
+</section>
+
+<!-- ========== STEPS ========== -->
+<section class="steps" id="cara">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-eyebrow">Cara Pesan</span>
+      <h2>3 langkah, sampai depan pintu</h2>
+      <p>Proses pemesanan yang simpel, transparan, dan terjamin.</p>
+    </div>
+    <div class="steps-grid reveal-stagger">
+      <div class="step-card">
+        <div class="step-num">1</div>
+        <h3>Pesan via WA</h3>
+        <p>Klik tombol "Pesan via WhatsApp" di produk pilihan Anda. Detail otomatis tertulis di chat.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">2</div>
+        <h3>Dikemas</h3>
+        <p>Produk dikemas rapi dalam styrofoam khusus dengan dry ice agar tetap beku selama perjalanan.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">3</div>
+        <h3>Diterima</h3>
+        <p>Kurir cold chain kami mengantar langsung ke rumah Anda — masih beku, siap masuk freezer.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== TESTIMONIALS ========== -->
+<section id="testimoni">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-eyebrow">Testimoni</span>
+      <h2>Apa kata pelanggan Frozn</h2>
+      <p>Ribuan keluarga sudah merasakan praktisnya stok frozen food premium di rumah.</p>
+    </div>
+    <div class="testi-grid reveal-stagger">
+      <div class="testi-card">
+        <div class="stars">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p class="testi-text">"Dimsum-nya beneran kayak di restoran! Sampai rumah masih beku banget. Anak-anak tiap pagi minta diukus terus."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">SR</div>
+          <div>
+            <strong>Sarah Ramadhani</strong>
+            <span>Jakarta Selatan</span>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="stars">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p class="testi-text">"Udang vannamei-nya gede-gede dan masih segar. Bumbu nugget-nya juga pas, nggak terlalu asin. Langganan tiap bulan!"</p>
+        <div class="testi-author">
+          <div class="testi-avatar">BW</div>
+          <div>
+            <strong>Budi Wijaya</strong>
+            <span>Tangerang</span>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="stars">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p class="testi-text">"Pengirimannya cepet, packaging-nya rapih banget pake dry ice. Bakso urat-nya juicy, nggak ada rasa amis sama sekali. Recommended!"</p>
+        <div class="testi-author">
+          <div class="testi-avatar">DK</div>
+          <div>
+            <strong>Dewi Kartika</strong>
+            <span>Depok</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CTA BANNER ========== -->
+<section class="cta-banner">
+  <div class="container">
+    <div class="cta-inner reveal">
+      <h2>Gratis ongkir di atas Rp150rb</h2>
+      <p>Khusus area Jabodetabek. Pesan sekarang dan nikmati pengiriman cold chain tanpa biaya tambahan.</p>
+      <a href="#produk" class="btn btn-primary">
+        Lihat Produk
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#top" class="logo">
+          <span class="logo-mark">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M19.07 4.93L4.93 19.07"/></svg>
+          </span>
+          Frozn
+        </a>
+        <p>Heat. Eat. Repeat. Frozen food premium dengan cold chain delivery untuk keluarga Indonesia.</p>
+        <div class="socials">
+          <a href="#" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+          <a href="#" aria-label="TikTok"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43V8.39a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.84-.16z"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="#" aria-label="WhatsApp"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 6.32A8.78 8.78 0 0 0 11.5 4a8.8 8.8 0 0 0-7.59 13.21L3 22l4.97-.91A8.79 8.79 0 0 0 11.5 22h.01a8.79 8.79 0 0 0 6.09-15.68z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Kategori</h4>
+        <ul>
+          <li><a href="#">Dimsum</a></li>
+          <li><a href="#">Bakso</a></li>
+          <li><a href="#">Nugget</a></li>
+          <li><a href="#">Seafood</a></li>
+          <li><a href="#">Paket Hemat</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Bantuan</h4>
+        <ul>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#cara">Cara Pesan</a></li>
+          <li><a href="#">Kebijakan Privasi</a></li>
+          <li><a href="#">Syarat & Ketentuan</a></li>
+          <li><a href="#">Hubungi Kami</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Info Pengiriman</h4>
+        <div class="footer-info">
+          <div>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+            <span>Same day Jabodetabek</span>
+          </div>
+          <div>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span>Senin – Sabtu, 08.00 – 20.00</span>
+          </div>
+          <div>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>Gudang: Jakarta Timur</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Frozn Indonesia. All rights reserved.</span>
+      <span>Made with ❄️ in Jakarta</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ========== FLOATING WA ========== -->
+<a href="#" class="wa-float" id="floatWaBtn" aria-label="Chat WhatsApp" target="_blank" rel="noopener">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 6.32A8.78 8.78 0 0 0 11.5 4a8.8 8.8 0 0 0-7.59 13.21L3 22l4.97-.91A8.79 8.79 0 0 0 11.5 22h.01a8.79 8.79 0 0 0 6.09-15.68zM11.5 20.4a7.3 7.3 0 0 1-3.72-1.02l-.27-.16-2.95.54.55-2.87-.18-.29A7.3 7.3 0 1 1 11.5 20.4z"/></svg>
+</a>
+
+<!-- ========== TOAST CONTAINER ========== -->
+<div class="toast-stack" id="toastStack"></div>
+
+<script>
+  // ========== CONFIG ==========
+  const WA_NUMBER = "6281234567890"; // ganti dengan nomor WhatsApp Frozn
+
+  // ========== DATA ==========
+  const products = [
+    {
+      id: 1,
+      name: "Dimsum Mentai Premium",
+      desc: "Isi 20 pcs, topping mayo mentai, siap kukus",
+      price: 65000,
+      oldPrice: 75000,
+      img: "https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=400&q=80",
+      tag: "HOT"
+    },
+    {
+      id: 2,
+      name: "Bakso Sapi Urat Jumbo",
+      desc: "Isi 15 pcs, daging sapi pilihan, kenyal & juicy",
+      price: 48000,
+      oldPrice: null,
+      img: "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?w=400&q=80",
+      tag: null
+    },
+    {
+      id: 3,
+      name: "Chicken Nugget Crispy",
+      desc: "500gr, ayam fillet 100%, tanpa pengawet",
+      price: 42000,
+      oldPrice: 50000,
+      img: "https://images.unsplash.com/photo-1562967914-608f82629710?w=400&q=80",
+      tag: "NEW"
+    },
+    {
+      id: 4,
+      name: "Udang Vannamei Peeled",
+      desc: "500gr, ukuran 31/40, sudah dikupas bersih",
+      price: 89000,
+      oldPrice: null,
+      img: "https://images.unsplash.com/photo-1565680018434-b513d5e5fd47?w=400&q=80",
+      tag: "HOT"
+    }
+  ];
+
+  const fmt = (n) => "Rp " + n.toLocaleString('id-ID');
+
+  // ========== BUILD WA LINKS ==========
+  function buildProductWaLink(p) {
+    const msg = `Halo Frozn 👋
+
+Saya tertarik untuk pesan:
+*${p.name}*
+${p.desc}
+Harga: ${fmt(p.price)}
+
+Apakah produk ini masih tersedia? Mohon info detailnya ya. Terima kasih! 🙏`;
+    return `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`;
+  }
+
+  function buildGeneralWaLink() {
+    const msg = `Halo Frozn 👋
+
+Saya ingin tanya-tanya seputar produk frozen food yang tersedia. Mohon dibantu ya. Terima kasih!`;
+    return `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`;
+  }
+
+  // set general WA links
+  document.getElementById('navWaBtn').href = buildGeneralWaLink();
+  document.getElementById('heroWaBtn').href = buildGeneralWaLink();
+  document.getElementById('floatWaBtn').href = buildGeneralWaLink();
+
+  // ========== RENDER PRODUCTS ==========
+  const grid = document.getElementById('productsGrid');
+  grid.innerHTML = products.map(p => `
+    <article class="product-card">
+      <div class="product-img-wrap">
+        ${p.tag ? `<span class="product-tag ${p.tag === 'HOT' ? 'hot' : p.tag === 'NEW' ? 'new' : ''}">${p.tag}</span>` : ''}
+        <img src="${p.img}" alt="${p.name}" loading="lazy" />
+      </div>
+      <div class="product-body">
+        <h3>${p.name}</h3>
+        <p class="product-desc">${p.desc}</p>
+        <div class="product-price">
+          ${p.oldPrice ? `<small>${fmt(p.oldPrice)}</small>` : ''}
+          ${fmt(p.price)}
+        </div>
+        <a href="${buildProductWaLink(p)}" target="_blank" rel="noopener" class="order-btn" data-product="${p.name}">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 6.32A8.78 8.78 0 0 0 11.5 4a8.8 8.8 0 0 0-7.59 13.21L3 22l4.97-.91A8.79 8.79 0 0 0 11.5 22h.01a8.79 8.79 0 0 0 6.09-15.68z"/></svg>
+          Pesan via WhatsApp
+        </a>
+      </div>
+    </article>
+  `).join('');
+
+  // toast on order click
+  grid.addEventListener('click', (e) => {
+    const btn = e.target.closest('.order-btn');
+    if (!btn) return;
+    showToast(btn.dataset.product);
+  });
+
+  // ========== TOAST ==========
+  const toastStack = document.getElementById('toastStack');
+  function showToast(productName) {
+    const toast = document.createElement('div');
+    toast.className = 'toast';
+    toast.innerHTML = `
+      <div class="toast-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 6.32A8.78 8.78 0 0 0 11.5 4a8.8 8.8 0 0 0-7.59 13.21L3 22l4.97-.91A8.79 8.79 0 0 0 11.5 22h.01a8.79 8.79 0 0 0 6.09-15.68z"/></svg>
+      </div>
+      <div class="toast-msg">
+        <strong>Mengarahkan ke WhatsApp…</strong>
+        <span>${productName}</span>
+      </div>
+    `;
+    toastStack.appendChild(toast);
+    setTimeout(() => toast.remove(), 3000);
+  }
+
+  // ========== NAVBAR SCROLL ==========
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 10);
+  });
+
+  // ========== MOBILE NAV ==========
+  const menuToggle = document.getElementById('menuToggle');
+  const mobileNav = document.getElementById('mobileNav');
+  menuToggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const isOpen = mobileNav.classList.toggle('open');
+    menuToggle.setAttribute('aria-expanded', isOpen);
+  });
+  mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    mobileNav.classList.remove('open');
+    menuToggle.setAttribute('aria-expanded', 'false');
+  }));
+  // close on outside click
+  document.addEventListener('click', (e) => {
+    if (!mobileNav.contains(e.target) && !menuToggle.contains(e.target)) {
+      mobileNav.classList.remove('open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  // ========== REVEAL ON SCROLL ==========
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -50px 0px' });
+
+  document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
