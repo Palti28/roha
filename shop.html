@@ -18,6 +18,7 @@
   <link rel="stylesheet" href="assets/css/components.css">
   <link rel="stylesheet" href="assets/css/pages/home.css">
   <link rel="stylesheet" href="assets/css/pages/shop.css">
+  <link rel="stylesheet" href="assets/css/preview.css">
 </head>
 
 <body>
@@ -97,7 +98,47 @@
       <div class="wrap">
         <div class="shop-page-grid" data-shop-grid>
 
-          <a href="product-detail.html" class="product-card" data-category="web">
+          <!--
+            ============================================================
+            PRODUCT CARD — TEMPLATE / REFERENCE
+            Copy this block when adding a new product.
+
+            REQUIRED attributes
+            -------------------
+            href="product-detail.html"        Card click destination (NOT the Preview button).
+            class="product-card"              Required styling.
+            data-category="web"               Filter pill match: all | ui | web | figma | brand | other
+            data-preview-url="..."            URL loaded in the modal iframe. "#" or empty -> shows fallback.
+            data-preview-title="..."          Title shown in modal header + URL pill.
+            data-preview-cat="..."            Category eyebrow shown in modal header.
+
+            OPTIONAL attributes (per-product overrides)
+            -------------------------------------------
+            data-preview-detail="..."         Override "View product details" button URL. "" hides it.
+            data-preview-buy="..."            Override "Buy" button URL. Defaults to detail URL.
+            data-preview-detail-label="..."   Custom secondary button label.
+            data-preview-buy-label="..."      Custom primary button label.
+            data-preview-aspect="9/16"        Iframe aspect ratio for desktop viewport.
+            data-preview-viewport="mobile"    Initial viewport: desktop | tablet | mobile.
+            data-preview-timeout="3000"       ms before fallback shows.
+
+            CHILD STRUCTURE
+            ---------------
+            .pv-trigger    The "Preview" pill in the top-right of the cover. role="button" + tabindex.
+                           Clicking this opens the modal. Clicking the card body goes to product detail.
+            .cover         Pattern background: pat-arcs | pat-confetti | pat-block | pat-grid |
+                           pat-stripe | pat-grain.
+            .body          Holds .cat + .name-row (.name + .price).
+            ============================================================
+          -->
+          <a href="product-detail.html" class="product-card" data-category="web"
+            data-preview-url="templates/sora-landing-kit/index.html"
+            data-preview-title="Sora Landing Kit"
+            data-preview-cat="Website Template">
+            <span class="pv-trigger" role="button" tabindex="0" data-preview-trigger aria-label="Preview Sora Landing Kit">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>
+              Preview
+            </span>
             <div class="cover pat-arcs pattern-wrap" aria-hidden="true"></div>
             <div class="body">
               <span class="cat">Website Template</span>
@@ -108,7 +149,14 @@
             </div>
           </a>
 
-          <a href="product-detail.html" class="product-card" data-category="ui">
+          <a href="product-detail.html" class="product-card" data-category="ui"
+            data-preview-url="templates/nimbus-ui-kit/index.html"
+            data-preview-title="Nimbus UI Kit"
+            data-preview-cat="UI Kit">
+            <span class="pv-trigger" role="button" tabindex="0" data-preview-trigger aria-label="Preview Nimbus UI Kit">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>
+              Preview
+            </span>
             <div class="cover pat-confetti pattern-wrap" aria-hidden="true"></div>
             <div class="body">
               <span class="cat">UI Kit</span>
@@ -119,7 +167,14 @@
             </div>
           </a>
 
-          <a href="product-detail.html" class="product-card" data-category="brand">
+          <a href="product-detail.html" class="product-card" data-category="brand"
+            data-preview-url="templates/terra-brand-pack/index.html"
+            data-preview-title="Terra Brand Pack"
+            data-preview-cat="Brand Template">
+            <span class="pv-trigger" role="button" tabindex="0" data-preview-trigger aria-label="Preview Terra Brand Pack">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>
+              Preview
+            </span>
             <div class="cover pat-block pattern-wrap" aria-hidden="true"></div>
             <div class="body">
               <span class="cat">Brand Template</span>
@@ -130,7 +185,14 @@
             </div>
           </a>
 
-          <a href="product-detail.html" class="product-card" data-category="figma">
+          <a href="product-detail.html" class="product-card" data-category="figma"
+            data-preview-url="templates/paper-portfolio-kit/index.html"
+            data-preview-title="Paper Portfolio Kit"
+            data-preview-cat="Figma Template">
+            <span class="pv-trigger" role="button" tabindex="0" data-preview-trigger aria-label="Preview Paper Portfolio Kit">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>
+              Preview
+            </span>
             <div class="cover pat-grid pattern-wrap" aria-hidden="true"></div>
             <div class="body">
               <span class="cat">Figma Template</span>
@@ -141,7 +203,14 @@
             </div>
           </a>
 
-          <a href="product-detail.html" class="product-card" data-category="other">
+          <a href="product-detail.html" class="product-card" data-category="other"
+            data-preview-url="templates/hangat-icon-set/index.html"
+            data-preview-title="Hangat Icon Set"
+            data-preview-cat="Icon Set">
+            <span class="pv-trigger" role="button" tabindex="0" data-preview-trigger aria-label="Preview Hangat Icon Set">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>
+              Preview
+            </span>
             <div class="cover pat-stripe pattern-wrap" aria-hidden="true"></div>
             <div class="body">
               <span class="cat">Icon Set</span>
@@ -152,7 +221,14 @@
             </div>
           </a>
 
-          <a href="product-detail.html" class="product-card" data-category="other">
+          <a href="product-detail.html" class="product-card" data-category="other"
+            data-preview-url="templates/roha-notion-hub/index.html"
+            data-preview-title="Roha Notion Hub"
+            data-preview-cat="Notion Template">
+            <span class="pv-trigger" role="button" tabindex="0" data-preview-trigger aria-label="Preview Roha Notion Hub">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>
+              Preview
+            </span>
             <div class="cover pat-grain pattern-wrap" aria-hidden="true"></div>
             <div class="body">
               <span class="cat">Notion Template</span>
@@ -393,6 +469,7 @@
   </footer>
 
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/preview.js"></script>
 </body>
 
 </html>

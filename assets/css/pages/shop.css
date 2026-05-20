@@ -129,6 +129,10 @@
 }
 .pd-actions {
   display: flex; gap: 10px; flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+.pd-actions-tertiary {
+  display: flex; gap: 18px; flex-wrap: wrap;
   margin-bottom: 24px;
 }
 .pd-trust {
