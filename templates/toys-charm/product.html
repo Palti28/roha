@@ -1,0 +1,974 @@
+<!doctype html>
+<html lang="id">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Detail Produk — Cute Things by Eca</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&family=Caveat:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles/shared.css" />
+  <style>
+    .pd-wrap {
+      padding: 20px 0 60px
+    }
+
+    .pd-crumbs {
+      font-size: 13px;
+      color: var(--ink-soft);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 16px;
+    }
+
+    .pd-crumbs a {
+      color: var(--ink-soft);
+      text-decoration: none
+    }
+
+    .pd-crumbs a:hover {
+      color: var(--terracotta)
+    }
+
+    .pd-crumbs .sep {
+      opacity: .4
+    }
+
+    .pd-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 28px;
+    }
+
+    /* Gallery */
+    .gallery {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .gallery .main {
+      aspect-ratio: 1/1;
+      border-radius: 20px;
+      overflow: hidden;
+      background: var(--cream);
+      position: relative;
+      box-shadow: var(--shadow-card);
+    }
+
+    .gallery .main .art {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      font-size: 120px;
+      background: linear-gradient(135deg, var(--c1), var(--c2));
+      transition: opacity .25s ease, transform .4s ease;
+    }
+
+    .gallery .main .art.dim {
+      opacity: 0;
+      pointer-events: none
+    }
+
+    .gallery .main .badge-pin {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: rgba(253, 248, 243, .95);
+      backdrop-filter: blur(4px);
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+      border: 1px solid rgba(42, 37, 34, .08);
+      z-index: 2;
+    }
+
+    .gallery .main .badge-pin.custom {
+      background: var(--terracotta);
+      color: #fff;
+      border-color: transparent
+    }
+
+    .gallery .main .like {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      z-index: 2;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: rgba(253, 248, 243, .95);
+      backdrop-filter: blur(4px);
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(42, 37, 34, .08);
+      cursor: pointer;
+      transition: transform .15s ease;
+    }
+
+    .gallery .main .like:hover {
+      transform: scale(1.1)
+    }
+
+    .gallery .main .like svg {
+      width: 18px;
+      height: 18px;
+      color: var(--ink)
+    }
+
+    .gallery .main .like.liked svg {
+      color: var(--terracotta);
+      fill: var(--terracotta)
+    }
+
+    .gallery .thumbs {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+    }
+
+    .gallery .thumb {
+      aspect-ratio: 1/1;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 2px solid transparent;
+      cursor: pointer;
+      background: var(--cream);
+      display: grid;
+      place-items: center;
+      font-size: 32px;
+      transition: border-color .15s ease, transform .15s ease;
+    }
+
+    .gallery .thumb:hover {
+      transform: translateY(-2px)
+    }
+
+    .gallery .thumb.active {
+      border-color: var(--terracotta)
+    }
+
+    /* Info */
+    .info-col h1 {
+      font-size: 32px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+
+    .info-col .price-row {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .info-col .price-row .big {
+      font-family: 'Fraunces', serif;
+      font-weight: 600;
+      font-size: 32px;
+      color: var(--terracotta);
+      letter-spacing: -0.02em;
+    }
+
+    .info-col .price-row .from {
+      font-size: 13px;
+      color: var(--ink-soft);
+    }
+
+    .rating-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--ink-soft);
+      font-size: 13px;
+      padding: 10px 0 14px;
+      border-bottom: 1px solid rgba(42, 37, 34, .08);
+      margin-bottom: 18px;
+    }
+
+    .stars {
+      color: #E8A845;
+      letter-spacing: 1px;
+      font-size: 14px
+    }
+
+    .rating-row .dot-sep {
+      opacity: .4
+    }
+
+    .desc {
+      font-size: 15px;
+      color: var(--ink-soft);
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    /* Variant chooser */
+    .variant {
+      margin-bottom: 20px;
+    }
+
+    .variant-label {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+
+    .variant-label .small {
+      font-weight: 400;
+      color: var(--ink-soft);
+      font-size: 12px;
+    }
+
+    .options {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap
+    }
+
+    .opt {
+      padding: 10px 14px;
+      border-radius: 10px;
+      background: #fff;
+      border: 1.5px solid rgba(42, 37, 34, .1);
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--ink);
+      cursor: pointer;
+      transition: all .15s ease;
+    }
+
+    .opt:hover {
+      border-color: var(--ink)
+    }
+
+    .opt.active {
+      background: var(--ink);
+      color: var(--cream-soft);
+      border-color: var(--ink)
+    }
+
+    .opt-color {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 2.5px solid #fff;
+      box-shadow: 0 0 0 1.5px rgba(42, 37, 34, .1);
+      cursor: pointer;
+      transition: transform .15s ease, box-shadow .15s ease;
+    }
+
+    .opt-color:hover {
+      transform: scale(1.08)
+    }
+
+    .opt-color.active {
+      box-shadow: 0 0 0 2.5px var(--terracotta)
+    }
+
+    /* Qty */
+    .qty-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+
+    .qty {
+      display: inline-flex;
+      align-items: center;
+      background: #fff;
+      border: 1.5px solid rgba(42, 37, 34, .1);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .qty button {
+      width: 38px;
+      height: 38px;
+      background: transparent;
+      color: var(--ink);
+      font-size: 18px;
+      font-weight: 600;
+      transition: background .15s ease;
+    }
+
+    .qty button:hover {
+      background: var(--cream)
+    }
+
+    .qty button:disabled {
+      opacity: .3;
+      cursor: not-allowed
+    }
+
+    .qty .num {
+      min-width: 38px;
+      text-align: center;
+      font-family: 'Fraunces', serif;
+      font-weight: 600;
+      font-size: 16px;
+    }
+
+    .qty-row .total-text {
+      font-size: 13px;
+      color: var(--ink-soft);
+    }
+
+    .qty-row .total-text b {
+      color: var(--terracotta);
+      font-family: 'Fraunces', serif;
+      font-size: 16px
+    }
+
+    /* Actions */
+    .actions {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+
+    .btn-block {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 16px;
+      border-radius: 14px;
+      font-weight: 600;
+      font-size: 15px;
+      text-decoration: none;
+      transition: transform .15s ease, background .15s ease;
+    }
+
+    .btn-block.wa {
+      background: #25D366;
+      color: #fff
+    }
+
+    .btn-block.wa:hover {
+      transform: translateY(-1px);
+      background: #1FB957
+    }
+
+    .btn-block.outline {
+      background: transparent;
+      color: var(--ink);
+      border: 1.5px solid var(--ink)
+    }
+
+    .btn-block.outline:hover {
+      background: var(--ink);
+      color: var(--cream-soft)
+    }
+
+    .btn-block svg {
+      width: 18px;
+      height: 18px
+    }
+
+    /* Specs accordion */
+    .specs {
+      background: #fff;
+      border-radius: 16px;
+      border: 1px solid rgba(42, 37, 34, .06);
+      overflow: hidden;
+      margin-bottom: 14px;
+    }
+
+    .specs details {
+      border-bottom: 1px solid rgba(42, 37, 34, .06)
+    }
+
+    .specs details:last-child {
+      border-bottom: none
+    }
+
+    .specs summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 14px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      font-family: 'Fraunces', serif;
+      font-weight: 600;
+      font-size: 15px;
+    }
+
+    .specs summary::-webkit-details-marker {
+      display: none
+    }
+
+    .specs summary .pl {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--cream);
+      color: var(--terracotta);
+      display: grid;
+      place-items: center;
+      font-size: 13px;
+      font-weight: 600;
+      transition: transform .25s ease;
+    }
+
+    .specs details[open] summary .pl {
+      transform: rotate(45deg);
+      background: var(--terracotta);
+      color: #fff
+    }
+
+    .specs .a {
+      padding: 0 16px 16px;
+      font-size: 14px;
+      color: var(--ink-soft);
+      line-height: 1.55
+    }
+
+    .specs .a ul {
+      padding-left: 18px;
+      margin: 0;
+      display: grid;
+      gap: 6px
+    }
+
+    /* Trust strip */
+    .trust {
+      background: var(--cream);
+      border-radius: 16px;
+      padding: 16px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 12.5px;
+      color: var(--ink-soft);
+      line-height: 1.4;
+    }
+
+    .trust-item .ic {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: #fff;
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      font-size: 14px;
+    }
+
+    .trust-item b {
+      color: var(--ink);
+      display: block;
+      font-size: 13px;
+      font-weight: 600
+    }
+
+    /* Related */
+    .related {
+      margin-top: 48px;
+      padding-top: 40px;
+      border-top: 1px solid rgba(42, 37, 34, .08);
+    }
+
+    .related-head {
+      margin-bottom: 18px;
+    }
+
+    .related-head .kicker {
+      font-family: 'Caveat', cursive;
+      font-weight: 600;
+      color: var(--terracotta);
+      font-size: 20px;
+      transform: rotate(-2deg);
+      display: inline-block;
+    }
+
+    .related-head h2 {
+      font-size: 26px;
+      letter-spacing: -0.02em;
+      margin-top: 2px;
+    }
+
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    @media (min-width:820px) {
+      .pd-grid {
+        grid-template-columns: 1.05fr 1fr;
+        gap: 48px;
+      }
+
+      .gallery {
+        position: sticky;
+        top: 80px;
+        align-self: start
+      }
+
+      .info-col h1 {
+        font-size: 42px
+      }
+
+      .related-grid {
+        grid-template-columns: repeat(4, 1fr)
+      }
+
+      .actions {
+        grid-template-columns: 1fr 1fr
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">✿</span>
+        <span>Cute Things <i style="font-style:italic;font-weight:400;color:var(--ink-soft)">by Eca</i></span>
+      </a>
+      <a class="nav-cta" href="all-products.html">
+        Semua Produk →
+      </a>
+    </div>
+  </header>
+
+  <section class="pd-wrap">
+    <div class="wrap">
+      <div class="pd-crumbs">
+        <a href="Cute Things by Eca.html">Beranda</a>
+        <span class="sep">/</span>
+        <a href="all-products.html">Produk</a>
+        <span class="sep">/</span>
+        <span id="crumbName">Loading…</span>
+      </div>
+
+      <div class="pd-grid">
+        <!-- Gallery -->
+        <div class="gallery">
+          <div class="main" id="mainImg">
+            <span class="badge-pin" id="badgePin">Ready Stock</span>
+            <button class="like" id="likeBtn" aria-label="Suka produk ini">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path
+                  d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+              </svg>
+            </button>
+            <div class="art" id="art">🐱</div>
+          </div>
+          <div class="thumbs" id="thumbs"></div>
+        </div>
+
+        <!-- Info -->
+        <div class="info-col">
+          <h1 id="prodName">Loading…</h1>
+          <div class="rating-row">
+            <span class="stars">★★★★★</span>
+            <span><b id="ratingNum">4.9</b> (<span id="reviewCount">42</span> ulasan)</span>
+            <span class="dot-sep">·</span>
+            <span id="soldCount">120+ terjual</span>
+          </div>
+          <div class="price-row">
+            <span class="big" id="priceBig">Rp 25.000</span>
+            <span class="from" id="priceFrom">/ pcs</span>
+          </div>
+
+          <p class="desc" id="prodDesc">Loading description…</p>
+
+          <!-- Variants -->
+          <div class="variant" id="varColor">
+            <div class="variant-label">
+              <span>Pilihan warna</span>
+              <span class="small" id="colorName">— peach</span>
+            </div>
+            <div class="options" id="colorOpts"></div>
+          </div>
+
+          <div class="variant">
+            <div class="variant-label">
+              <span>Jenis gantungan</span>
+              <span class="small">opsional, gratis</span>
+            </div>
+            <div class="options">
+              <button class="opt active" data-opt="Ring biasa">Ring biasa</button>
+              <button class="opt" data-opt="Tali pendek">Tali pendek</button>
+              <button class="opt" data-opt="Lobster clip">Lobster clip</button>
+            </div>
+          </div>
+
+          <div class="qty-row">
+            <div class="qty" role="group" aria-label="Jumlah">
+              <button id="qtyMinus" aria-label="Kurangi">−</button>
+              <span class="num" id="qtyNum">1</span>
+              <button id="qtyPlus" aria-label="Tambah">+</button>
+            </div>
+            <div class="total-text">Total: <b id="totalTxt">Rp 25.000</b></div>
+          </div>
+
+          <div class="actions">
+            <a class="btn-block wa" id="waBtn" href="#" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z" />
+              </svg>
+              Pesan via WhatsApp
+            </a>
+            <button class="btn-block outline" id="copyBtn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                <rect x="9" y="9" width="13" height="13" rx="2" />
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+              </svg>
+              <span id="copyTxt">Salin link produk</span>
+            </button>
+          </div>
+
+          <div class="trust">
+            <div class="trust-item"><span class="ic">✋</span>
+              <div><b>Handmade</b>Dibuat dengan tangan, bukan mesin</div>
+            </div>
+            <div class="trust-item"><span class="ic">📦</span>
+              <div><b>Packaging lucu</b>Siap dijadikan hadiah</div>
+            </div>
+            <div class="trust-item"><span class="ic">🚚</span>
+              <div><b>Kirim seluruh Indonesia</b>JNE / SiCepat / J&T</div>
+            </div>
+            <div class="trust-item"><span class="ic">🛡️</span>
+              <div><b>Garansi cacat</b>Buat ulang gratis</div>
+            </div>
+          </div>
+
+          <div class="specs">
+            <details open>
+              <summary>Spesifikasi <span class="pl">+</span></summary>
+              <div class="a">
+                <ul>
+                  <li>Material: <b>polymer clay food-grade</b>, sealed dengan varnish</li>
+                  <li>Ukuran: <span id="specSize">3–5 cm</span> (bisa request berbeda saat custom)</li>
+                  <li>Berat: ~10 gram</li>
+                  <li>Aksesoris: ring metal anti karat</li>
+                  <li>Ketahanan: 2–3 tahun pemakaian normal</li>
+                </ul>
+              </div>
+            </details>
+            <details>
+              <summary>Cara merawat <span class="pl">+</span></summary>
+              <div class="a">
+                <ul>
+                  <li>Hindari air dalam waktu lama (boleh kena hujan sebentar, lap kering setelahnya)</li>
+                  <li>Jangan dijatuhkan dari tempat tinggi</li>
+                  <li>Bersihkan dengan kain microfiber yang sedikit lembap</li>
+                  <li>Simpan di tempat sejuk, jauh dari sinar matahari langsung</li>
+                </ul>
+              </div>
+            </details>
+            <details>
+              <summary>Pengiriman <span class="pl">+</span></summary>
+              <div class="a">
+                Dikirim dari Jakarta via JNE / SiCepat / J&T. Estimasi 1–4 hari (Pulau Jawa) atau 3–7 hari (luar Jawa).
+                Gratis ongkir Jabodetabek untuk order di atas Rp 50.000. Resi dikirim via WhatsApp setelah dropoff.
+              </div>
+            </details>
+            <details>
+              <summary>Pembayaran <span class="pl">+</span></summary>
+              <div class="a">
+                Transfer bank (BCA / Mandiri), GoPay, OVO, atau QRIS. Info rekening dikirim setelah konfirmasi via
+                WhatsApp.
+              </div>
+            </details>
+          </div>
+        </div>
+      </div>
+
+      <!-- Related -->
+      <div class="related">
+        <div class="related-head">
+          <span class="kicker">kamu mungkin juga suka</span>
+          <h2>Produk lain dari Eca</h2>
+        </div>
+        <div class="related-grid" id="related"></div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <div class="f-brand">Cute Things by Eca</div>
+      <div class="f-tag">Handmade with love from Jakarta ✿</div>
+      <div class="f-links">
+        <a href="https://wa.me/6281234567890" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="https://instagram.com/cutethingsbyeca" target="_blank" rel="noopener">Instagram</a>
+        <a href="all-products.html">Semua Produk</a>
+        <a href="Cute Things by Eca.html">Beranda</a>
+      </div>
+      <div class="f-copy">© 2026 Cute Things by Eca</div>
+    </div>
+  </footer>
+
+  <a class="float-wa" id="floatWa" href="#" target="_blank" rel="noopener" aria-label="Chat WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor">
+      <path
+        d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z" />
+      <path
+        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"
+        fill="#fff" />
+    </svg>
+  </a>
+
+  <script>
+    const PRODUCTS = [
+      {
+        id: 'kucing-lucu', name: 'Keychain Kucing Lucu', price: 25000, cat: ['ready', 'keychain'], status: 'Ready Stock', emoji: '🐱', c1: '#F4C7B5', c2: '#E8A088',
+        desc: 'Kucing oren si paling sat-set. Dibentuk satu-satu dengan detail kumis dan ekspresi unik di tiap pcs — jadi punyamu nggak akan sama persis dengan punya orang lain.',
+        colors: [{ name: 'Peach', c1: '#F4C7B5', c2: '#E8A088' }, { name: 'Cream', c1: '#FBF1E2', c2: '#E8C898' }, { name: 'Sage', c1: '#C9DDD0', c2: '#7BAE91' }, { name: 'Pink', c1: '#F8DDE5', c2: '#E8B5C5' }],
+        altEmojis: ['🐱', '🐈', '😺', '🐾'], rating: 4.9, reviews: 42, sold: '120+ terjual', size: '3–4 cm'
+      },
+      {
+        id: 'kelinci-pastel', name: 'Keychain Kelinci Pastel', price: 28000, cat: ['ready', 'keychain'], status: 'Ready Stock', emoji: '🐰', c1: '#F8DDE5', c2: '#E8B5C5',
+        desc: 'Kelinci dengan telinga panjang & pipi tembem. Warna pastel soft yang cocok dipasang di tas sekolah, kunci motor, atau jadi kado last-minute.',
+        colors: [{ name: 'Pink', c1: '#F8DDE5', c2: '#E8B5C5' }, { name: 'Cream', c1: '#FFF0DD', c2: '#E8C898' }, { name: 'Lavender', c1: '#E8D3F0', c2: '#C9A8DD' }],
+        altEmojis: ['🐰', '🐇', '🌸', '💕'], rating: 4.9, reviews: 38, sold: '95+ terjual', size: '3–5 cm'
+      },
+      {
+        id: 'karakter-custom', name: 'Keychain Karakter Custom', price: 45000, cat: ['custom', 'keychain'], status: 'Custom', emoji: '✨', c1: '#E8D3F0', c2: '#C9A8DD',
+        desc: 'Mau request karakter favoritmu? Kirim foto/sketsa, kami diskusi detail, dan kami wujudkan jadi keychain. Termasuk 1× revisi gratis sebelum produksi.',
+        colors: [{ name: 'Lavender', c1: '#E8D3F0', c2: '#C9A8DD' }, { name: 'Peach', c1: '#F4C7B5', c2: '#E8A088' }, { name: 'Mint', c1: '#C9DDD0', c2: '#7BAE91' }, { name: 'Butter', c1: '#FFE2B5', c2: '#E8B45A' }],
+        altEmojis: ['✨', '🎨', '🖌️', '💫'], rating: 5.0, reviews: 24, sold: '40+ terjual', size: '4–6 cm'
+      },
+      {
+        id: 'couple-custom', name: 'Keychain Couple Custom', price: 85000, cat: ['custom', 'keychain', 'couple'], status: 'Custom · 2 pcs', emoji: '💑', c1: '#FFE2B5', c2: '#E8B45A',
+        desc: '2 keychain matching untuk kamu dan pasangan, sahabat, atau partner-in-crime. Bisa custom karakter, nama, atau initial. Dikirim dalam 1 packaging gift box.',
+        colors: [{ name: 'Butter', c1: '#FFE2B5', c2: '#E8B45A' }, { name: 'Peach', c1: '#F4C7B5', c2: '#E8A088' }, { name: 'Pink', c1: '#F8DDE5', c2: '#E8B5C5' }],
+        altEmojis: ['💑', '💕', '👫', '🤝'], rating: 5.0, reviews: 18, sold: '30+ terjual', size: '4–5 cm /pcs'
+      },
+      {
+        id: 'miniatur-hewan', name: 'Miniatur Hewan Clay', price: 35000, cat: ['ready', 'miniatur'], status: 'Ready Stock', emoji: '🐻', c1: '#C9DDD0', c2: '#7BAE91',
+        desc: 'Mini figurine yang bisa kamu pajang di meja kerja atau rak buku. Bukan keychain — ini benar-benar miniatur 5–7 cm dengan detail lebih rich.',
+        colors: [{ name: 'Sage', c1: '#C9DDD0', c2: '#7BAE91' }, { name: 'Brown', c1: '#F2D8B8', c2: '#A87850' }, { name: 'Cream', c1: '#FFF0DD', c2: '#E8C898' }],
+        altEmojis: ['🐻', '🦊', '🐨', '🦝'], rating: 4.8, reviews: 29, sold: '70+ terjual', size: '5–7 cm'
+      },
+      {
+        id: 'nama-custom', name: 'Keychain Nama Custom', price: 42000, cat: ['custom', 'keychain'], status: 'Custom', emoji: '🌸', c1: '#F2D8B8', c2: '#D9A878',
+        desc: 'Tulis nama, panggilan, atau kata favorit kamu — kami bentuk jadi keychain dengan dekorasi bunga atau emoji pilihan kamu.',
+        colors: [{ name: 'Caramel', c1: '#F2D8B8', c2: '#D9A878' }, { name: 'Pink', c1: '#F8DDE5', c2: '#E8B5C5' }, { name: 'Sage', c1: '#C9DDD0', c2: '#7BAE91' }],
+        altEmojis: ['🌸', '🌼', '🌺', '🌷'], rating: 4.9, reviews: 33, sold: '85+ terjual', size: '4–6 cm (max 8 huruf)'
+      },
+      {
+        id: 'matcha-bun', name: 'Keychain Matcha Bun', price: 24000, cat: ['ready', 'keychain'], status: 'Ready Stock', emoji: '🍵', c1: '#D8E8D0', c2: '#9CC2AC',
+        desc: 'Roti matcha kecil yang gembul dan menggemaskan. Cocok buat penggemar dessert atau yang suka koleksi food-themed accessories.',
+        colors: [{ name: 'Matcha', c1: '#D8E8D0', c2: '#9CC2AC' }, { name: 'Choco', c1: '#E8D5BD', c2: '#A87850' }, { name: 'Strawberry', c1: '#F8DDE5', c2: '#E8B5C5' }],
+        altEmojis: ['🍵', '🍡', '🥮', '🌿'], rating: 4.9, reviews: 21, sold: '55+ terjual', size: '3 cm'
+      },
+      {
+        id: 'panda-mini', name: 'Miniatur Panda Mini', price: 38000, cat: ['ready', 'miniatur'], status: 'Ready Stock', emoji: '🐼', c1: '#EFEFEF', c2: '#A8A8A8',
+        desc: 'Panda mungil lagi duduk dengan pose ngantuk. Detail mata bulet hitam yang bikin gemes. Bisa jadi hiasan meja atau dipasang di tas.',
+        colors: [{ name: 'Classic', c1: '#EFEFEF', c2: '#A8A8A8' }],
+        altEmojis: ['🐼', '🎋', '💤', '🤍'], rating: 4.9, reviews: 27, sold: '62+ terjual', size: '5 cm'
+      },
+      {
+        id: 'foto-pet', name: 'Keychain Foto Hewan Peliharaan', price: 55000, cat: ['custom', 'keychain'], status: 'Custom', emoji: '🐶', c1: '#FFD8B5', c2: '#E89F60',
+        desc: 'Punya peliharaan kesayangan? Kirim 2-3 foto, kami sculpt jadi keychain mirip aslinya. Cocok juga buat memorial pet yang sudah berpulang 🤍',
+        colors: [{ name: 'Sesuai foto', c1: '#FFD8B5', c2: '#E89F60' }],
+        altEmojis: ['🐶', '🐱', '🐾', '💛'], rating: 5.0, reviews: 31, sold: '75+ terjual', size: '4–6 cm'
+      },
+      {
+        id: 'family-set', name: 'Keychain Family Set', price: 120000, cat: ['custom', 'keychain', 'couple'], status: 'Custom · 3-4 pcs', emoji: '👨‍👩‍👧', c1: '#F4C7B5', c2: '#C75A42',
+        desc: 'Set keychain untuk seluruh keluarga (3–4 pcs). Bisa figur orang, hewan peliharaan, atau campuran. Datang dalam gift box ekstra besar.',
+        colors: [{ name: 'Warm', c1: '#F4C7B5', c2: '#C75A42' }, { name: 'Pastel', c1: '#F8DDE5', c2: '#E8B5C5' }, { name: 'Sage', c1: '#C9DDD0', c2: '#7BAE91' }],
+        altEmojis: ['👨‍👩‍👧', '👪', '💕', '🏡'], rating: 5.0, reviews: 12, sold: '18+ terjual', size: '4–5 cm /pcs'
+      },
+      {
+        id: 'donut-pastel', name: 'Keychain Donut Pastel', price: 22000, cat: ['ready', 'keychain'], status: 'Ready Stock', emoji: '🍩', c1: '#FBD3DB', c2: '#E89BAA',
+        desc: 'Donut kecil dengan icing pastel dan sprinkle warna-warni. Salah satu seller paling laris — ringan, lucu, dan murah meriah untuk gift.',
+        colors: [{ name: 'Strawberry', c1: '#FBD3DB', c2: '#E89BAA' }, { name: 'Choco', c1: '#E8D5BD', c2: '#A87850' }, { name: 'Matcha', c1: '#D8E8D0', c2: '#9CC2AC' }, { name: 'Vanilla', c1: '#FFF0DD', c2: '#E8C898' }],
+        altEmojis: ['🍩', '🧁', '🍪', '🌈'], rating: 4.9, reviews: 48, sold: '140+ terjual', size: '3 cm'
+      },
+      {
+        id: 'bunny-mini', name: 'Miniatur Kelinci Mini', price: 32000, cat: ['ready', 'miniatur'], status: 'Ready Stock', emoji: '🐇', c1: '#FFF0DD', c2: '#E8C898',
+        desc: 'Versi miniatur dari keychain kelinci pastel. Pose duduk dengan telinga panjang & ekspresi kalem. Bisa berdiri sendiri sebagai hiasan.',
+        colors: [{ name: 'Cream', c1: '#FFF0DD', c2: '#E8C898' }, { name: 'Pink', c1: '#F8DDE5', c2: '#E8B5C5' }, { name: 'Grey', c1: '#EFEFEF', c2: '#A8A8A8' }],
+        altEmojis: ['🐇', '🐰', '🥕', '💕'], rating: 4.8, reviews: 19, sold: '45+ terjual', size: '5–6 cm'
+      },
+    ];
+
+    function fmt(n) { return 'Rp ' + n.toLocaleString('id-ID'); }
+
+    const params = new URLSearchParams(location.search);
+    const id = params.get('id') || PRODUCTS[0].id;
+    const product = PRODUCTS.find(p => p.id === id) || PRODUCTS[0];
+
+    // State
+    let qty = 1;
+    let activeColor = 0;
+    let activeEmoji = 0;
+    let activeStrap = 'Ring biasa';
+
+    // Populate
+    document.title = product.name + ' — Cute Things by Eca';
+    document.getElementById('crumbName').textContent = product.name;
+    document.getElementById('prodName').textContent = product.name;
+    document.getElementById('prodDesc').textContent = product.desc;
+    document.getElementById('priceBig').textContent = fmt(product.price);
+    document.getElementById('priceFrom').textContent = product.cat.includes('custom') ? '/ pcs (mulai dari)' : '/ pcs';
+    document.getElementById('ratingNum').textContent = product.rating.toFixed(1);
+    document.getElementById('reviewCount').textContent = product.reviews;
+    document.getElementById('soldCount').textContent = product.sold;
+    document.getElementById('specSize').textContent = product.size;
+
+    const badgeEl = document.getElementById('badgePin');
+    badgeEl.textContent = product.status;
+    if (product.cat.includes('custom')) badgeEl.classList.add('custom');
+
+    const art = document.getElementById('art');
+    const mainImg = document.getElementById('mainImg');
+    function applyMain() {
+      const c = product.colors[activeColor];
+      mainImg.style.setProperty('--c1', c.c1);
+      mainImg.style.setProperty('--c2', c.c2);
+      art.style.background = `linear-gradient(135deg,${c.c1},${c.c2})`;
+      art.textContent = product.altEmojis[activeEmoji];
+      document.getElementById('colorName').textContent = '— ' + c.name.toLowerCase();
+    }
+    applyMain();
+
+    // Color options
+    const colorOptsEl = document.getElementById('colorOpts');
+    if (product.colors.length > 1) {
+      colorOptsEl.innerHTML = product.colors.map((c, i) => `
+    <button class="opt-color ${i === 0 ? 'active' : ''}" data-i="${i}"
+      style="background:linear-gradient(135deg,${c.c1},${c.c2})"
+      aria-label="Warna ${c.name}" title="${c.name}"></button>
+  `).join('');
+      colorOptsEl.addEventListener('click', e => {
+        const btn = e.target.closest('.opt-color');
+        if (!btn) return;
+        colorOptsEl.querySelectorAll('.opt-color').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        activeColor = parseInt(btn.dataset.i);
+        art.classList.add('dim');
+        setTimeout(() => { applyMain(); art.classList.remove('dim'); }, 150);
+      });
+    } else {
+      document.getElementById('varColor').style.display = 'none';
+    }
+
+    // Thumbnails (alt views)
+    const thumbsEl = document.getElementById('thumbs');
+    thumbsEl.innerHTML = product.altEmojis.map((em, i) => {
+      const c = product.colors[Math.min(i, product.colors.length - 1)];
+      return `<div class="thumb ${i === 0 ? 'active' : ''}" data-i="${i}" style="background:linear-gradient(135deg,${c.c1}33,${c.c2}33)">${em}</div>`;
+    }).join('');
+    thumbsEl.addEventListener('click', e => {
+      const t = e.target.closest('.thumb');
+      if (!t) return;
+      thumbsEl.querySelectorAll('.thumb').forEach(b => b.classList.remove('active'));
+      t.classList.add('active');
+      activeEmoji = parseInt(t.dataset.i);
+      art.classList.add('dim');
+      setTimeout(() => { applyMain(); art.classList.remove('dim'); }, 150);
+    });
+
+    // Strap options
+    document.querySelectorAll('[data-opt]').forEach(b => {
+      b.addEventListener('click', () => {
+        document.querySelectorAll('[data-opt]').forEach(x => x.classList.remove('active'));
+        b.classList.add('active');
+        activeStrap = b.dataset.opt;
+        updateWa();
+      });
+    });
+
+    // Qty
+    const qtyNum = document.getElementById('qtyNum');
+    const totalTxt = document.getElementById('totalTxt');
+    const minus = document.getElementById('qtyMinus');
+    const plus = document.getElementById('qtyPlus');
+    function updateQty() {
+      qtyNum.textContent = qty;
+      totalTxt.textContent = fmt(product.price * qty);
+      minus.disabled = qty <= 1;
+      updateWa();
+    }
+    minus.addEventListener('click', () => { if (qty > 1) { qty--; updateQty(); } });
+    plus.addEventListener('click', () => { qty++; updateQty(); });
+    updateQty();
+
+    // WA buttons
+    function updateWa() {
+      const c = product.colors[activeColor];
+      const verb = product.cat.includes('custom') ? 'mau pesan custom' : 'tertarik pesan';
+      const lines = [
+        `Halo Eca! Saya ${verb} produk ini:`,
+        ``,
+        `📦 ${product.name}`,
+        `💰 ${fmt(product.price)} × ${qty} = ${fmt(product.price * qty)}`,
+        `🎨 Warna: ${c.name}`,
+        `🔗 Gantungan: ${activeStrap}`,
+        ``,
+        `Boleh info lebih lanjut?`
+      ].join('\n');
+      const url = `https://wa.me/6281234567890?text=${encodeURIComponent(lines)}`;
+      document.getElementById('waBtn').href = url;
+      document.getElementById('floatWa').href = url;
+    }
+    updateWa();
+
+    // Like
+    const likeBtn = document.getElementById('likeBtn');
+    likeBtn.addEventListener('click', () => likeBtn.classList.toggle('liked'));
+
+    // Copy link
+    document.getElementById('copyBtn').addEventListener('click', async () => {
+      const txt = document.getElementById('copyTxt');
+      try {
+        await navigator.clipboard.writeText(location.href);
+        txt.textContent = 'Tersalin ✓';
+      } catch (e) { txt.textContent = 'Gagal salin'; }
+      setTimeout(() => txt.textContent = 'Salin link produk', 1800);
+    });
+
+    // Related (4 random others)
+    const others = PRODUCTS.filter(p => p.id !== product.id).sort(() => Math.random() - 0.5).slice(0, 4);
+    document.getElementById('related').innerHTML = others.map(p => `
+  <a class="product" href="product.html?id=${p.id}">
+    <div class="pic">
+      <div class="placeholder-art" style="--c1:${p.c1};--c2:${p.c2}">${p.emoji}</div>
+      <span class="badge ${p.cat.includes('custom') ? 'custom' : ''}">${p.status}</span>
+    </div>
+    <div class="info">
+      <div class="name">${p.name}</div>
+      <div class="price">${fmt(p.price)}</div>
+      <span class="pesan">Lihat detail →</span>
+    </div>
+  </a>
+`).join('');
+  </script>
+
+</body>
+
+</html>
