@@ -1,0 +1,60 @@
+---
+import { site } from '../data/site.ts';
+
+const navLinks = [
+  { href: '/about', label: 'About' },
+  { href: '/services', label: 'Services' },
+  { href: '/work', label: 'Work' },
+  { href: '/shop', label: 'Shop' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+
+<!-- =================== NAVBAR =================== -->
+<header class="nav" role="banner">
+  <div class="nav-inner">
+    <a href="/" class="logo" aria-label="Roha — Home">roha<span class="dot">.</span></a>
+    <nav aria-label="Primary">
+      <ul class="nav-links">
+        {navLinks.map((link) => (
+          <li>
+            <a
+              href={link.href}
+              class={link.href === '/' ? (currentPath === '/' ? 'active' : '') : (currentPath.startsWith(link.href) ? 'active' : '')}
+            >
+              {link.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+    <div class="nav-cta">
+      <a href="/about#contact" class="btn btn-primary btn-sm"><span class="btn-text">Contact</span> <span class="arr">→</span></a>
+      <button class="nav-toggle" data-nav-toggle aria-label="Open menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu" aria-hidden="true">
+  <div class="mobile-menu-head">
+    <a href="/" class="logo">roha<span class="dot">.</span></a>
+    <button class="nav-toggle" data-nav-close aria-label="Close menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+  <ul class="mobile-menu-links">
+    {navLinks.map((link) => (
+      <li><a href={link.href}>{link.label} <span class="arr">→</span></a></li>
+    ))}
+    <li><a href="/about#contact">Contact <span class="arr">→</span></a></li>
+  </ul>
+  <div class="mobile-menu-foot">
+    <span><a href="mailto:hello@rohaworks.com">hello@rohaworks.com</a></span>
+    <span>v1.0</span>
+  </div>
+</div>
+

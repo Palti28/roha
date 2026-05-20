@@ -1,0 +1,293 @@
+/* ============================================================
+   Home page — compact, Notion-style cards
+   ============================================================ */
+
+/* ---------- Hero ---------- */
+.home-hero {
+  padding: clamp(56px, 7vw, 88px) 0 clamp(40px, 5vw, 64px);
+}
+.home-hero-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 48px;
+  align-items: end;
+  margin-top: 16px;
+}
+.home-hero h1 {
+  font-size: clamp(36px, 5.4vw, 68px);
+  line-height: 1;
+  letter-spacing: -.035em;
+  margin: 0;
+  font-weight: 500;
+}
+.home-hero-meta {
+  border-left: 1px solid var(--rule);
+  padding-left: 20px;
+  padding-bottom: 4px;
+}
+.home-hero-meta p {
+  font-size: 14.5px;
+  line-height: 1.55;
+  margin: 0 0 18px;
+  color: var(--ink);
+  opacity: .7;
+  max-width: 34ch;
+}
+.home-hero-meta .btn-row {
+  display: flex; flex-wrap: wrap; gap: 10px;
+}
+@media (max-width: 880px) {
+  .home-hero-grid { grid-template-columns: 1fr; gap: 28px; }
+  .home-hero-meta { border-left: 0; padding-left: 0; }
+}
+
+/* ---------- Section heading util ---------- */
+.h-block {
+  display: flex; justify-content: space-between; align-items: flex-end;
+  gap: 24px; margin-bottom: 24px; flex-wrap: wrap;
+}
+.h-block .left { max-width: 26ch; }
+.h-block .left h2 {
+  font-family: 'Bricolage Grotesque', serif;
+  font-size: clamp(22px, 2.6vw, 32px);
+  line-height: 1.12;
+  letter-spacing: -.02em;
+  font-weight: 500;
+  margin: 8px 0 0;
+}
+.h-block .right {
+  font-size: 14px;
+  color: var(--ink);
+  opacity: .65;
+  max-width: 40ch;
+  margin: 0;
+  align-self: flex-end;
+}
+
+/* ---------- Featured work grid ---------- */
+.featured-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+@media (max-width: 880px) { .featured-grid { grid-template-columns: 1fr; gap: 16px; } }
+
+.project-card {
+  display: flex; flex-direction: column;
+  gap: 12px;
+  text-decoration: none;
+  color: inherit;
+  transition: transform .25s ease;
+}
+.project-card:hover { transform: translateY(-2px); }
+.project-card .thumb {
+  aspect-ratio: 16/10;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--rule);
+  overflow: hidden;
+  position: relative;
+  transition: border-color .25s ease;
+}
+.project-card:hover .thumb { border-color: var(--rule-strong); }
+.project-card .meta-row {
+  display: flex; justify-content: space-between; align-items: center;
+  gap: 12px;
+  margin-top: 2px;
+}
+.project-card .tag {
+  font-family: 'Geist Mono', monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  color: var(--terracotta);
+}
+.project-card .year {
+  font-family: 'Geist Mono', monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  color: var(--clay);
+  opacity: .65;
+}
+.project-card h3 {
+  font-family: 'Bricolage Grotesque', serif;
+  font-size: 22px;
+  letter-spacing: -.015em;
+  line-height: 1.15;
+  font-weight: 500;
+  margin: 0;
+}
+.project-card .summary {
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--ink);
+  opacity: .65;
+  max-width: 44ch;
+  margin: 0;
+}
+
+/* ---------- Shop preview cards ---------- */
+.shop-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+}
+@media (max-width: 880px) { .shop-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 540px) { .shop-grid { grid-template-columns: 1fr; } }
+
+.product-card {
+  display: flex; flex-direction: column;
+  text-decoration: none; color: inherit;
+  background: var(--paper-tint);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  transition: transform .2s ease, border-color .2s ease;
+}
+.product-card:hover { transform: translateY(-2px); border-color: var(--rule-strong); }
+.product-card .cover {
+  aspect-ratio: 1/1;
+  border-bottom: 1px solid var(--rule);
+  position: relative;
+}
+.product-card .body {
+  padding: 12px 14px 14px;
+  display: flex; flex-direction: column; gap: 4px;
+}
+.product-card .cat {
+  font-family: 'Geist Mono', monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  color: var(--clay);
+  opacity: .7;
+}
+.product-card .name-row {
+  display: flex; justify-content: space-between; align-items: baseline;
+  gap: 10px;
+}
+.product-card .name {
+  font-family: 'Bricolage Grotesque', serif;
+  font-size: 16px;
+  letter-spacing: -.01em;
+  font-weight: 500;
+  margin: 0;
+}
+.product-card .price {
+  font-family: 'Geist Mono', monospace;
+  font-size: 11px;
+  letter-spacing: .04em;
+  color: var(--ink);
+  font-weight: 500;
+}
+
+/* ---------- Services as cards (Notion-style) ---------- */
+.svc-card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+@media (max-width: 980px) { .svc-card-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 600px) { .svc-card-grid { grid-template-columns: 1fr; } }
+
+.svc-tile {
+  background: var(--paper-tint);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-sm);
+  padding: 18px 18px 16px;
+  text-decoration: none;
+  color: inherit;
+  display: flex; flex-direction: column;
+  gap: 8px;
+  min-height: 180px;
+  transition: background .2s ease, border-color .2s ease;
+  position: relative;
+}
+.svc-tile:hover {
+  background: var(--cream);
+  border-color: var(--rule-strong);
+}
+.svc-tile .top {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 4px;
+}
+.svc-tile .num {
+  font-family: 'Geist Mono', monospace;
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  color: var(--clay);
+  opacity: .8;
+}
+.svc-tile .icon {
+  width: 28px; height: 28px;
+  border-radius: 8px;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  display: inline-flex; align-items: center; justify-content: center;
+  color: var(--terracotta);
+}
+.svc-tile .icon svg { width: 14px; height: 14px; }
+.svc-tile h3 {
+  font-family: 'Bricolage Grotesque', serif;
+  font-size: 18px;
+  letter-spacing: -.01em;
+  line-height: 1.2;
+  font-weight: 500;
+  margin: 2px 0 0;
+}
+.svc-tile p {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--ink);
+  opacity: .66;
+  margin: 0;
+}
+.svc-tile .price {
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px dashed var(--rule);
+  display: flex; justify-content: space-between; align-items: center;
+  font-family: 'Geist Mono', monospace;
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  color: var(--clay);
+}
+.svc-tile .price .amount { color: var(--ink); font-weight: 500; }
+.svc-tile .price .arr { color: var(--terracotta); transition: transform .2s ease; }
+.svc-tile:hover .price .arr { transform: translateX(3px); }
+
+/* ---------- Mini about ---------- */
+.mini-about {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: start;
+}
+@media (max-width: 880px) { .mini-about { grid-template-columns: 1fr; gap: 32px; } }
+.mini-about .pull em { font-family: 'Instrument Serif', serif; font-style: italic; color: var(--terracotta); }
+.mini-about p {
+  font-size: 15.5px;
+  line-height: 1.65;
+  color: var(--ink);
+  opacity: .76;
+  margin: 0 0 14px;
+}
+
+/* ---------- Section link ---------- */
+.section-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 22px;
+  font-family: 'Geist Mono', monospace;
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  color: var(--terracotta);
+  padding-bottom: 3px;
+  border-bottom: 1px solid var(--terracotta);
+  transition: gap .2s ease, color .15s ease, border-color .15s ease;
+}
+.section-link:hover { gap: 10px; color: var(--clay); border-bottom-color: var(--clay); }
+
+/* CTA wrap + compact panel styles moved to components.css (shared across pages). */
