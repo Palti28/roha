@@ -1,0 +1,83 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base title="Work">
+<main id="main">
+
+    <!-- HERO -->
+    <section class="work-hero">
+      <div class="wrap">
+        <div class="eyebrow">Work</div>
+        <h1>What we&rsquo;ve shipped.</h1>
+        <p class="section-lede">A small list, but every project has a story. Pick one to read in detail.</p>
+
+        <!-- Filter (structure ready, per-pill logic active in main.js — enable content filter when projects &gt; 2) -->
+        <div class="work-filter pills" data-work-filter>
+          <button class="pill active" data-filter="all">All</button>
+          <button class="pill" data-filter="ux">UX</button>
+          <button class="pill" data-filter="ui">UI</button>
+          <button class="pill" data-filter="web">Web Dev</button>
+          <button class="pill" data-filter="brand">Branding</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- GRID -->
+    <section class="section-tight">
+      <div class="wrap">
+        <div class="work-grid">
+
+          <a href="/work-detail" class="work-card" data-category="web">
+            <div class="thumb pat-arcs pattern-wrap" aria-hidden="true"></div>
+            <div class="meta-row">
+              <span class="tag">Web Design &amp; Dev</span>
+              <span class="meta-tag">2025</span>
+            </div>
+            <h3>Sora Landing Kit</h3>
+            <p class="summary">A landing kit for founders in a hurry.</p>
+            <div class="meta-bottom">
+              <span>SaaS</span>
+              <span>·</span>
+              <span>3 weeks</span>
+            </div>
+          </a>
+
+          <a href="/work-detail" class="work-card" data-category="ui">
+            <div class="thumb pat-grid pattern-wrap" aria-hidden="true"></div>
+            <div class="meta-row">
+              <span class="tag">UX &amp; UI Design</span>
+              <span class="meta-tag">2026</span>
+            </div>
+            <h3>Nimbus Dashboard</h3>
+            <p class="summary">An internal tool that&rsquo;s finally enjoyable to use.</p>
+            <div class="meta-bottom">
+              <span>Ops Tool</span>
+              <span>·</span>
+              <span>5 weeks</span>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section-tight">
+      <div class="cta-wrap">
+        <div class="cta-panel cta-panel-compact pat-heat">
+          <div class="eyebrow">Next Project</div>
+          <h2>Want to be our <em class="italic-accent" style="color:var(--ink)">next</em> project?</h2>
+          <p>Roha&rsquo;s project slots are limited — usually a maximum of 2 in parallel. Send your brief first.</p>
+          <div class="btn-row">
+            <a href="/about" class="btn btn-cream">Send a Brief <span class="arr">→</span></a>
+            <a href="https://wa.me/[NO_WA]?text=Hi%20Roha" class="btn btn-outline-cream" target="_blank"
+              rel="noopener">Chat on WhatsApp</a>
+          </div>
+          <div class="arcs-deco" aria-hidden="true"></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</Base>
