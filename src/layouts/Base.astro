@@ -1,48 +1,50 @@
 ---
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import '../styles/pages/about.css';
-import '../styles/pages/home.css';
-import '../styles/pages/services.css';
-import '../styles/pages/shop.css';
-import '../styles/pages/work.css';
-import '../styles/global.css';
-import '../styles/components.css';
-import '../styles/preview.css';
-import { site } from '../data/site.ts';
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/global.css";
+import "../styles/pages/about.css";
+import "../styles/pages/home.css";
+import "../styles/pages/services.css";
+import "../styles/pages/shop.css";
+import "../styles/pages/work.css";
+import "../styles/components.css";
+import "../styles/preview.css";
+import { site } from "../data/site.ts";
 interface Props {
   title?: string;
   description?: string;
 }
 
-const {
-  title = site.name,
-  description = site.tagline,
-} = Astro.props;
+const { title = site.name, description = site.tagline } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>{title} — Roha</title>
-  <meta name="description" content={description} />
-  <link rel="icon" type="image/svg+xml" href="https://ik.imagekit.io/gorat/roha.png?updatedAt=1779127109052" />
-   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Geist:wght@300..700&family=Geist+Mono:wght@400..600&family=Instrument+Serif:ital@0;1&display=swap"
-    rel="stylesheet">
-</head>
-<body>
-  <Header />
-  <main>
-    <slot />
-  </main>
-  
-  <Footer />
-<script src="../scripts/main.js" ></script>
-<script src="../scripts/preview.js" ></script>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title} — Roha</title>
+    <meta name="description" content={description} />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="https://ik.imagekit.io/gorat/roha.png?updatedAt=1779127109052"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Geist:wght@300..700&family=Geist+Mono:wght@400..600&family=Instrument+Serif:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <slot />
+    </main>
+
+    <Footer />
+    <script src="../scripts/main.js"></script>
+    <script src="../scripts/preview.js"></script>
+  </body>
 </html>

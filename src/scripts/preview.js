@@ -20,11 +20,11 @@
 document.addEventListener('DOMContentLoaded', () => {
   // ---------- Tunables ----------
   const FALLBACK_TIMEOUT_DEFAULT = 6000;
-  const TRANSITION_MS            = 320;
-  const FOCUS_DELAY_MS           = 80;
+  const TRANSITION_MS = 320;
+  const FOCUS_DELAY_MS = 80;
   const DEFAULT_LABELS = {
     detail: 'Lihat detail produk',
-    buy:    'Beli',
+    buy: 'Beli',
   };
 
   let els = null;
@@ -101,18 +101,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     els = {
       backdrop,
-      modal:      backdrop.querySelector('.pv-modal'),
-      device:     backdrop.querySelector('.pv-device'),
-      wrap:       backdrop.querySelector('[data-pv-wrap]'),
-      frame:      backdrop.querySelector('[data-pv-frame]'),
-      cat:        backdrop.querySelector('[data-pv-cat]'),
-      title:      backdrop.querySelector('[data-pv-title]'),
-      url:        backdrop.querySelector('[data-pv-url]'),
-      newtab:     backdrop.querySelector('[data-pv-newtab]'),
-      detail:     backdrop.querySelector('[data-pv-detail]'),
-      buy:        backdrop.querySelector('[data-pv-buy]'),
+      modal: backdrop.querySelector('.pv-modal'),
+      device: backdrop.querySelector('.pv-device'),
+      wrap: backdrop.querySelector('[data-pv-wrap]'),
+      frame: backdrop.querySelector('[data-pv-frame]'),
+      cat: backdrop.querySelector('[data-pv-cat]'),
+      title: backdrop.querySelector('[data-pv-title]'),
+      url: backdrop.querySelector('[data-pv-url]'),
+      newtab: backdrop.querySelector('[data-pv-newtab]'),
+      detail: backdrop.querySelector('[data-pv-detail]'),
+      buy: backdrop.querySelector('[data-pv-buy]'),
       toggleBtns: backdrop.querySelectorAll('.pv-toggle button'),
-      closeBtn:   backdrop.querySelector('[data-pv-close]'),
+      closeBtn: backdrop.querySelector('[data-pv-close]'),
     };
 
     els.closeBtn.addEventListener('click', close);
@@ -136,45 +136,62 @@ document.addEventListener('DOMContentLoaded', () => {
       : trigger.closest('[data-preview-url]') || trigger;
     const d = host.dataset || {};
     const fallbackHref = trigger.closest('a')?.getAttribute('href')
-                       || host.getAttribute?.('href') || '';
+      || host.getAttribute?.('href') || '';
     const detail = (d.previewDetail !== undefined ? d.previewDetail : fallbackHref) || '';
-    const buy    = d.previewBuy || detail || '';
+    const buy = d.previewBuy || detail || '';
     const timeoutAttr = parseInt(d.previewTimeout, 10);
     return {
-      url:         d.previewUrl   || '',
-      title:       d.previewTitle || host.querySelector?.('.name')?.textContent.trim() || 'Preview',
-      cat:         d.previewCat   || host.querySelector?.('.cat')?.textContent.trim() || 'Product',
+      url: d.previewUrl || '',
+      title: d.previewTitle || host.querySelector?.('.name')?.textContent.trim() || 'Preview',
+      cat: d.previewCat || host.querySelector?.('.cat')?.textContent.trim() || 'Product',
       detail,
       buy,
       detailLabel: d.previewDetailLabel || DEFAULT_LABELS.detail,
-      buyLabel:    d.previewBuyLabel    || DEFAULT_LABELS.buy,
-      aspect:      d.previewAspect      || '',
-      viewport:    d.previewViewport    || 'desktop',
-      timeout:     Number.isFinite(timeoutAttr) ? timeoutAttr : FALLBACK_TIMEOUT_DEFAULT,
+      buyLabel: d.previewBuyLabel || DEFAULT_LABELS.buy,
+      aspect: d.previewAspect || '',
+      viewport: d.previewViewport || 'desktop',
+      timeout: Number.isFinite(timeoutAttr) ? timeoutAttr : FALLBACK_TIMEOUT_DEFAULT,
     };
   }
 
   function open(trigger) {
     const e = mount();
     const data = readData(trigger);
-    e.cat.textContent   = data.cat;
+
+    // --- SANITIZE URL BIAR TIDAK RELATIF KE SUB-PAGE ---
+    let targetUrl = data.url;
+    if (targetUrl && targetUrl !== '#') {
+      // 1. Bersihkan jika ada double slash akibat salah gabung string
+      targetUrl = targetUrl.replace(/\/+/g, '/');
+
+      // 2. Jika tidak diawali http atau /, paksa jadi absolut dari root (folder public)
+      if (!targetUrl.startsWith('/') && !targetUrl.startsWith('http')) {
+        targetUrl = '/' + targetUrl;
+      }
+    }
+    // ----------------------------------------------------
+
+    e.cat.textContent = data.cat;
     e.title.textContent = data.title;
-    e.url.textContent   = data.title;
-    if (data.url && data.url !== '#') {
+    e.url.textContent = data.title;
+
+    if (targetUrl && targetUrl !== '#') {
       e.newtab.style.display = '';
-      e.newtab.setAttribute('href', data.url);
+      e.newtab.setAttribute('href', targetUrl);
     } else {
       e.newtab.style.display = 'none';
       e.newtab.removeAttribute('href');
     }
+
     applyAction(e.detail, data.detail, data.detailLabel);
     applyAction(e.buy, data.buy, data.buyLabel + ' <span class="arr">→</span>', true);
     e.wrap.classList.remove('is-loaded', 'is-fallback');
     currentAspect = data.aspect;
     setViewport(data.viewport);
     clearTimeout(fallbackTimer);
-    if (data.url && data.url !== '#') {
-      e.frame.src = data.url;
+
+    if (targetUrl && targetUrl !== '#') {
+      e.frame.src = targetUrl; // Sekarang iframe aman menembak path absolut
       fallbackTimer = setTimeout(() => {
         if (!e.wrap.classList.contains('is-loaded')) {
           e.wrap.classList.add('is-fallback');
@@ -184,6 +201,7 @@ document.addEventListener('DOMContentLoaded', () => {
       e.frame.removeAttribute('src');
       e.wrap.classList.add('is-fallback');
     }
+
     lastFocus = document.activeElement;
     e.backdrop.classList.add('is-open');
     e.backdrop.setAttribute('aria-hidden', 'false');
