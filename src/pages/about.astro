@@ -27,11 +27,11 @@ import Base from '../layouts/Base.astro';
         <h2 class="section-title">Not an acronym, not random.</h2>
 
         <div class="name-grid">
-          <div class="pull">
+          <div class="pull" data-reveal>
             <em>"Roha</em> is Batak for heart — a blend of feeling, thought, and intent. Our work tries to do the same:
             quiet on the surface, considered underneath."
           </div>
-          <div>
+          <div data-reveal data-reveal-delay="100">
             <p>This name wasn&rsquo;t picked from a naming agency shortlist, or pulled from a generator. Roha is a word
               people from North Sumatra use every day — to describe a feeling, an intention, and a decision in a single
               word.</p>
@@ -41,15 +41,15 @@ import Base from '../layouts/Base.astro';
         </div>
 
         <div class="name-card">
-          <div class="item">
+          <div class="item" data-reveal>
             <div class="k">Pronounced</div>
             <div class="v">/ˈro.ha/</div>
           </div>
-          <div class="item">
+          <div class="item" data-reveal data-reveal-delay="100">
             <div class="k">Origin</div>
             <div class="v">Batak Toba</div>
           </div>
-          <div class="item">
+          <div class="item" data-reveal data-reveal-delay="200">
             <div class="k">Translates to</div>
             <div class="v">Heart · Mind · Soul</div>
           </div>
@@ -66,25 +66,25 @@ import Base from '../layouts/Base.astro';
         </div>
 
         <div class="principles-grid">
-          <div class="principle">
+          <div class="principle" data-reveal>
             <div class="num">01</div>
             <h3>Quiet on the surface, considered underneath.</h3>
             <p>Design that doesn&rsquo;t shout, but every choice has a reason. Spacing, sizing, color — we can explain
               all of it if you ask.</p>
           </div>
-          <div class="principle">
+          <div class="principle" data-reveal data-reveal-delay="100">
             <div class="num">02</div>
             <h3>Warmth is a discipline.</h3>
             <p>Warmth isn&rsquo;t an accident. It&rsquo;s chosen, measured, intentional. Like a person who&rsquo;s warm
               — not because they forgot to be professional, but because they meant it.</p>
           </div>
-          <div class="principle">
+          <div class="principle" data-reveal data-reveal-delay="200">
             <div class="num">03</div>
             <h3>Systems, not decoration.</h3>
             <p>We build design systems, not one pretty page that falls apart on the second update. Components, tokens,
               documentation — so it still feels right a year from now.</p>
           </div>
-          <div class="principle">
+          <div class="principle" data-reveal data-reveal-delay="300">
             <div class="num">04</div>
             <h3>Ship it, don&rsquo;t polish it forever.</h3>
             <p>Shipped &gt; perfect. Better a 1.0 that&rsquo;s live than a 0.9 that&rsquo;s delayed. What matters is
@@ -103,33 +103,33 @@ import Base from '../layouts/Base.astro';
         </div>
 
         <div class="process-steps">
-          <div class="process-step">
+          <div class="process-step" data-reveal>
             <div class="num">01</div>
             <h4>Briefing</h4>
             <div class="dur">1–2 days</div>
             <p>Discovery call, scope alignment, deliverables. We make sure we understand the problem first — not jump
               straight to a solution.</p>
           </div>
-          <div class="process-step">
+          <div class="process-step" data-reveal data-reveal-delay="100">
             <div class="num">02</div>
             <h4>Exploration</h4>
             <div class="dur">3–5 days</div>
             <p>Mood board, wireframes, direction. We pick two or three directions to test before committing to one.</p>
           </div>
-          <div class="process-step">
+          <div class="process-step" data-reveal data-reveal-delay="200">
             <div class="num">03</div>
             <h4>Design</h4>
             <div class="dur">1–3 weeks</div>
             <p>Visual design, prototype, interaction details. The longest phase, with a weekly review rhythm.</p>
           </div>
-          <div class="process-step">
+          <div class="process-step" data-reveal data-reveal-delay="300">
             <div class="num">04</div>
             <h4>Iteration</h4>
             <div class="dur">1 week</div>
             <p>Revisions, refinement, polish. A big round of revisions, not little ping-pong loops that wear everyone
               out.</p>
           </div>
-          <div class="process-step">
+          <div class="process-step" data-reveal data-reveal-delay="400">
             <div class="num">05</div>
             <h4>Handoff</h4>
             <div class="dur">1–2 days</div>
@@ -145,7 +145,7 @@ import Base from '../layouts/Base.astro';
         <div class="eyebrow">04 — Disciplines &amp; Tools</div>
 
         <div class="tools-grid">
-          <div>
+          <div data-reveal>
             <h3>What we do.</h3>
             <ul>
               <li><a href="services.html#ux">UX Design</a> <span class="tag">From IDR 8M</span></li>
@@ -155,7 +155,7 @@ import Base from '../layouts/Base.astro';
               <li><a href="services.html#brand">Brand &amp; Logo Guideline</a> <span class="tag">From IDR 4M</span></li>
             </ul>
           </div>
-          <div>
+          <div data-reveal data-reveal-delay="150">
             <h3>Tools we use.</h3>
             <ul>
               <li>Figma <span class="tag">Design</span></li>
@@ -184,7 +184,7 @@ import Base from '../layouts/Base.astro';
           <!-- FORM -->
           <!-- Note: replace action with a Formspree/Web3Forms endpoint to make the form live.
              Default fallback: mailto. Example Formspree endpoint: https://formspree.io/f/xyzpqrwt -->
-          <form class="contact-form" data-contact-form action="mailto:hello@rohaworks.com" method="post"
+          <form class="contact-form" data-contact-form data-reveal action="mailto:hello@rohaworks.com" method="post"
             enctype="text/plain" novalidate>
 
             <div class="field-row">
@@ -239,7 +239,7 @@ import Base from '../layouts/Base.astro';
           </form>
 
           <!-- INFO -->
-          <div class="contact-info">
+          <div class="contact-info" data-reveal data-reveal-delay="150">
             <div class="contact-info-block">
               <div class="k">Email</div>
               <div class="v"><a href="mailto:hello@rohaworks.com">hello@rohaworks.com</a></div>
@@ -307,29 +307,3 @@ import Base from '../layouts/Base.astro';
 
   </main>
 </Base>
-
-<script>
-  // Scroll reveal animations — fade in elements as they come into view
-  const revealElements = document.querySelectorAll(
-    '.name-grid > div, .name-card .item, .values-grid .value-card, .team-grid .team-member, .contact-form-section'
-  );
-
-  if (revealElements.length > 0) {
-    const revealObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('reveal-visible');
-            revealObserver.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
-    );
-
-    revealElements.forEach((el) => {
-      el.classList.add('reveal');
-      revealObserver.observe(el);
-    });
-  }
-</script>

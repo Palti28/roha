@@ -120,4 +120,33 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
+
+  // ---------- Scroll reveal (fade-in on scroll) ----------
+  const revealEls = document.querySelectorAll('[data-reveal]');
+  if (revealEls.length > 0 && 'IntersectionObserver' in window) {
+    // Stagger animation delay using element index within its parent group
+    revealEls.forEach((el) => {
+      const delayAttr = el.getAttribute('data-reveal-delay');
+      if (delayAttr) {
+        el.style.transitionDelay = `${delayAttr}ms`;
+      }
+    });
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-revealed');
+            io.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+    );
+
+    revealEls.forEach((el) => io.observe(el));
+  } else if (revealEls.length > 0) {
+    // Fallback for older browsers — show all
+    revealEls.forEach((el) => el.classList.add('is-revealed'));
+  }
 });
