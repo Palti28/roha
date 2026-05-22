@@ -82,14 +82,15 @@ document.addEventListener('DOMContentLoaded', () => {
         form.querySelector('.has-error input, .has-error select, .has-error textarea')?.focus();
         return;
       }
-      if (form.action.startsWith('mailto:')) {
+      const mailto = form.dataset.mailto;
+      if (mailto) {
         e.preventDefault();
         const data = new FormData(form);
         const lines = [];
         data.forEach((v, k) => lines.push(`${k}: ${v}`));
         const body = encodeURIComponent(lines.join('\n'));
         const subject = encodeURIComponent(`Project inquiry from ${data.get('name') || 'website'}`);
-        window.location.href = `${form.action}?subject=${subject}&body=${body}`;
+        window.location.href = `mailto:${mailto}?subject=${subject}&body=${body}`;
       }
     });
   }

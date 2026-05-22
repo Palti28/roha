@@ -148,11 +148,11 @@ import Base from '../layouts/Base.astro';
           <div data-reveal>
             <h3>What we do.</h3>
             <ul>
-              <li><a href="services.html#ux">UX Design</a> <span class="tag">From IDR 8M</span></li>
-              <li><a href="services.html#ui">UI Design</a> <span class="tag">From IDR 6M</span></li>
-              <li><a href="services.html#web">Website Development</a> <span class="tag">From IDR 15M</span></li>
-              <li><a href="services.html#landing">Landing Page Development</a> <span class="tag">From IDR 5M</span></li>
-              <li><a href="services.html#brand">Brand &amp; Logo Guideline</a> <span class="tag">From IDR 4M</span></li>
+              <li><a href="/services#ux">UX Design</a> <span class="tag">From IDR 8M</span></li>
+              <li><a href="/services#ui">UI Design</a> <span class="tag">From IDR 6M</span></li>
+              <li><a href="/services#web">Website Development</a> <span class="tag">From IDR 15M</span></li>
+              <li><a href="/services#landing">Landing Page Development</a> <span class="tag">From IDR 5M</span></li>
+              <li><a href="/services#brand">Brand &amp; Logo Guideline</a> <span class="tag">From IDR 4M</span></li>
             </ul>
           </div>
           <div data-reveal data-reveal-delay="150">
@@ -184,8 +184,7 @@ import Base from '../layouts/Base.astro';
           <!-- FORM -->
           <!-- Note: replace action with a Formspree/Web3Forms endpoint to make the form live.
              Default fallback: mailto. Example Formspree endpoint: https://formspree.io/f/xyzpqrwt -->
-          <form class="contact-form" data-contact-form data-reveal action="mailto:hello@rohaworks.com" method="post"
-            enctype="text/plain" novalidate>
+          <form class="contact-form" data-contact-form data-reveal data-mailto="hello@rohaworks.com" novalidate>
 
             <div class="field-row">
               <div class="field">
