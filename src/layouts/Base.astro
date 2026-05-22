@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import Breadcrumb from "../components/Breadcrumb.astro";
@@ -11,12 +12,33 @@ import "../styles/pages/work.css";
 import "../styles/components.css";
 import "../styles/preview.css";
 import { site } from "../data/site.ts";
+import { organizationSchema, breadcrumbSchema, getBreadcrumbs } from "../utils/schema";
+
 interface Props {
   title?: string;
   description?: string;
+  image?: string;
+  type?: string;
+  schema?: any;
 }
 
-const { title = site.name, description = site.tagline } = Astro.props;
+const {
+  title = site.name,
+  description = site.tagline,
+  image = site.ogImage,
+  type = 'website',
+  schema,
+} = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, site.url).toString();
+const pageTitle = title === site.name ? site.name : `${title} — Roha`;
+const ogImage = image.startsWith('http') ? image : `${site.url}${image}`;
+
+// Get breadcrumbs for schema
+const { isHomepage, breadcrumbs: breadcrumbList } = getBreadcrumbs(Astro.url.pathname);
+const includeHomepage = [{ label: 'Home', href: '/' }, ...breadcrumbList];
+const orgSchema = organizationSchema(site.url);
+const breadcrumbListSchema = breadcrumbSchema(includeHomepage, site.url);
 ---
 
 <!doctype html>
@@ -24,8 +46,29 @@ const { title = site.name, description = site.tagline } = Astro.props;
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{title} — Roha</title>
+    <title>{pageTitle}</title>
     <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:type" content={type} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:site_name" content={site.name} />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify(orgSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbListSchema)} />
+    {schema && <script type="application/ld+json" set:html={JSON.stringify(schema)} />}
+
     <link
       rel="icon"
       type="image/svg+xml"
