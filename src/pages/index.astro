@@ -127,7 +127,9 @@ const idr = (n: number, currency = "IDR") =>
                   </span>
                 )}
                 {coverImage ? (
-                  <img src={coverImage} alt={d.title} class="cover" />
+                  <div class="cover">
+                    <img src={coverImage} alt={d.title} />
+                  </div>
                 ) : (
                   <div class={`cover ${d.pattern} pattern-wrap`} aria-hidden="true"></div>
                 )}

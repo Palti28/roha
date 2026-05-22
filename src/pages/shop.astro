@@ -91,7 +91,9 @@ const filterMap: Record<string, string> = {
                     </span>
                   )}
                   {coverImage ? (
-                    <img src={coverImage} alt={d.title} class="cover" />
+                    <div class="cover">
+                      <img src={coverImage} alt={d.title} />
+                    </div>
                   ) : (
                     <div
                       class={`cover ${d.pattern} pattern-wrap`}
