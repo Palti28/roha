@@ -10,8 +10,10 @@
   --clay: #7A2E1B;
   --sand: #E8D9BE;
   --cream: #F4ECD9;
-  --paper: #FBFBF9 ;            /* eksplorasi: soft paper */
-  --paper-tint: #F7F5F1;        /* untuk surface kedua / divider section */
+  --paper: #FBFBF9;
+  /* eksplorasi: soft paper */
+  --paper-tint: #F7F5F1;
+  /* untuk surface kedua / divider section */
   --ink: #221512;
   --mustard: #D8A23F;
   --sage: #6B7A5A;
@@ -29,9 +31,12 @@
 /* ---------- Reset ---------- */
 *,
 *::before,
-*::after { box-sizing: border-box; }
+*::after {
+  box-sizing: border-box;
+}
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   background: var(--paper);
@@ -48,12 +53,29 @@ body {
   overflow-x: hidden;
 }
 
-img, svg { display: block; max-width: 100%; }
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
 
-a { color: inherit; text-decoration: none; }
-button { font: inherit; border: 0; background: none; cursor: pointer; color: inherit; }
+a {
+  color: inherit;
+  text-decoration: none;
+}
 
-::selection { background: var(--terracotta); color: var(--cream); }
+button {
+  font: inherit;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  color: inherit;
+}
+
+::selection {
+  background: var(--terracotta);
+  color: var(--cream);
+}
 
 /* ---------- Type primitives ---------- */
 .display {
@@ -62,13 +84,18 @@ button { font: inherit; border: 0; background: none; cursor: pointer; color: inh
   line-height: .95;
   font-weight: 500;
 }
-.serif { font-family: 'Instrument Serif', serif; }
+
+.serif {
+  font-family: 'Instrument Serif', serif;
+}
+
 .mono {
   font-family: 'Geist Mono', ui-monospace, monospace;
   text-transform: uppercase;
   letter-spacing: .14em;
   font-size: 11px;
 }
+
 .italic-accent {
   font-family: 'Instrument Serif', serif;
   font-style: italic;
@@ -87,13 +114,27 @@ button { font: inherit; border: 0; background: none; cursor: pointer; color: inh
   padding: 64px 0;
   border-top: 1px solid var(--rule);
 }
-.section:first-of-type { border-top: 0; }
-.section-tight { padding: 40px 0; }
+
+.section:first-of-type {
+  border-top: 0;
+}
+
+.section-tight {
+  padding: 40px 0;
+}
 
 @media (max-width: 768px) {
-  .section { padding: 48px 0; }
-  .section-tight { padding: 32px 0; }
-  :root { --gutter: 20px; }
+  .section {
+    padding: 48px 0;
+  }
+
+  .section-tight {
+    padding: 32px 0;
+  }
+
+  :root {
+    --gutter: 20px;
+  }
 }
 
 /* ---------- Eyebrow + section titles ---------- */
@@ -108,6 +149,7 @@ button { font: inherit; border: 0; background: none; cursor: pointer; color: inh
   gap: 10px;
   opacity: .82;
 }
+
 .eyebrow::before {
   content: "";
   width: 14px;
@@ -125,7 +167,13 @@ button { font: inherit; border: 0; background: none; cursor: pointer; color: inh
   margin: 10px 0 4px;
   text-wrap: pretty;
 }
-.section-title em { font-family: 'Instrument Serif', serif; font-style: italic; color: var(--terracotta); font-weight: 400; }
+
+.section-title em {
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
+  color: var(--terracotta);
+  font-weight: 400;
+}
 
 .section-lede {
   font-size: 15px;
@@ -137,10 +185,17 @@ button { font: inherit; border: 0; background: none; cursor: pointer; color: inh
   text-wrap: pretty;
 }
 
-.section-head { margin-bottom: 32px; }
+.section-head {
+  margin-bottom: 32px;
+}
+
 .section-head--split {
-  display: flex; justify-content: space-between; align-items: flex-end;
-  gap: 32px; flex-wrap: wrap; margin-bottom: 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 32px;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
 }
 
 /* ---------- Hero ---------- */
@@ -149,6 +204,7 @@ button { font: inherit; border: 0; background: none; cursor: pointer; color: inh
   position: relative;
   overflow: hidden;
 }
+
 .hero h1 {
   font-family: 'Bricolage Grotesque', serif;
   font-weight: 500;
@@ -157,9 +213,23 @@ button { font: inherit; border: 0; background: none; cursor: pointer; color: inh
   margin: 18px 0 24px;
   text-wrap: balance;
 }
-.hero h1 em { font-family: 'Instrument Serif', serif; font-style: italic; color: var(--terracotta); font-weight: 400; }
-.hero-h1--xl { font-size: clamp(48px, 7.2vw, 104px); line-height: .92; }
-.hero-h1--lg { font-size: clamp(40px, 5.6vw, 80px); line-height: .96; }
+
+.hero h1 em {
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
+  color: var(--terracotta);
+  font-weight: 400;
+}
+
+.hero-h1--xl {
+  font-size: clamp(48px, 7.2vw, 104px);
+  line-height: .92;
+}
+
+.hero-h1--lg {
+  font-size: clamp(40px, 5.6vw, 80px);
+  line-height: .96;
+}
 
 .hero-sub {
   font-size: clamp(15px, 1.1vw, 18px);
@@ -179,7 +249,10 @@ button { font: inherit; border: 0; background: none; cursor: pointer; color: inh
   border-radius: 99px;
   overflow: hidden;
 }
-.hero-stripe span { flex: 1; }
+
+.hero-stripe span {
+  flex: 1;
+}
 
 /* ---------- Pull quote ---------- */
 .pull {
@@ -190,7 +263,12 @@ button { font: inherit; border: 0; background: none; cursor: pointer; color: inh
   font-weight: 400;
   text-wrap: pretty;
 }
-.pull em { font-family: 'Instrument Serif', serif; font-style: italic; color: var(--terracotta); }
+
+.pull em {
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
+  color: var(--terracotta);
+}
 
 /* ---------- Brand patterns (background utility) ---------- */
 .pat-arcs {
@@ -198,14 +276,17 @@ button { font: inherit; border: 0; background: none; cursor: pointer; color: inh
     radial-gradient(circle at 50% 100%, transparent 0 60px, var(--terracotta) 60px 64px, transparent 64px 100px, var(--terracotta) 100px 104px, transparent 104px 140px, var(--terracotta) 140px 144px, transparent 144px 180px, var(--terracotta) 180px 184px, transparent 184px 220px, var(--terracotta) 220px 224px, transparent 224px),
     var(--cream);
 }
+
 .pat-grid {
   background:
     radial-gradient(circle, var(--terracotta) 1.5px, transparent 2px) 0 0 / 22px 22px,
     var(--cream);
 }
+
 .pat-stripe {
   background: repeating-linear-gradient(45deg, var(--terracotta) 0 14px, var(--cream) 14px 28px);
 }
+
 .pat-confetti {
   background-color: var(--ink);
   background-image:
@@ -217,16 +298,20 @@ button { font: inherit; border: 0; background: none; cursor: pointer; color: inh
     radial-gradient(circle at 12% 65%, var(--mustard) 0 4px, transparent 5px),
     radial-gradient(circle at 90% 40%, var(--terracotta) 0 6px, transparent 7px);
 }
+
 .pat-block {
   background: linear-gradient(var(--terracotta) 0 50%, var(--clay) 50% 100%);
 }
+
 .pat-grain {
   background-color: var(--terracotta);
   position: relative;
 }
+
 .pat-grain::after {
   content: "";
-  position: absolute; inset: 0;
+  position: absolute;
+  inset: 0;
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.13  0 0 0 0 0.08  0 0 0 0 0.07  0 0 0 0.6 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
   background-size: 200px 200px;
   mix-blend-mode: multiply;
@@ -239,9 +324,11 @@ button { font: inherit; border: 0; background: none; cursor: pointer; color: inh
   background: linear-gradient(135deg, var(--terracotta) 0%, var(--clay) 100%);
   position: relative;
 }
+
 .pat-heat::after {
   content: "";
-  position: absolute; inset: 0;
+  position: absolute;
+  inset: 0;
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.13  0 0 0 0 0.08  0 0 0 0 0.07  0 0 0 0.6 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
   background-size: 220px 220px;
   mix-blend-mode: overlay;
@@ -257,11 +344,437 @@ button { font: inherit; border: 0; background: none; cursor: pointer; color: inh
   font-size: 11px;
   color: var(--clay);
 }
-.muted { opacity: .68; }
-.center { text-align: center; }
-.tabular { font-variant-numeric: tabular-nums; }
 
-.divider { height: 1px; background: var(--rule); border: 0; }
+.muted {
+  opacity: .68;
+}
+
+.center {
+  text-align: center;
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+.divider {
+  height: 1px;
+  background: var(--rule);
+  border: 0;
+}
 
 /* container patterns wrapped (so ::after positioning works) */
-.pattern-wrap { position: relative; overflow: hidden; }
+.pattern-wrap {
+  position: relative;
+  overflow: hidden;
+}
+
+/* ==========================================================================
+   Premium 2-Column Layout for .prose (What You Get Section)
+   ========================================================================== */
+
+/* Eyebrow utility style (untuk teks penanda di atas H3) */
+.prose .eyebrow-text {
+  font-family: 'Geist Mono', monospace;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--terracotta, #C9583B);
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+/* Container utama section features menggunakan CSS Grid */
+@media (min-width: 768px) {
+  .prose .features-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    /* Kiri 1/3, Kanan 2/3 */
+    gap: 2rem 4rem;
+    align-items: start;
+    margin: 4rem 0;
+  }
+
+  /* Kolom Kiri: Menampung Eyebrow + H3 */
+  .prose .features-left {
+    position: sticky;
+    top: 2rem;
+  }
+
+  /* Kolom Kanan: Menampung Deskripsi + List */
+  .prose .features-right {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+}
+
+/* Override styling h3 di dalam grid agar pas */
+.prose .features-left h3 {
+  font-family: 'Bricolage Grotesque', display, sans-serif;
+  color: var(--clay, #7A2E1B);
+  font-size: 2.25rem;
+  /* Ukuran "What you get" yang mantap */
+  font-weight: 600;
+  line-height: 1.1;
+  margin: 0;
+}
+
+/* Deskripsi teks kanan atas */
+.prose .features-right>p {
+  font-size: 1.125rem;
+  color: var(--ink, #221512);
+  opacity: 0.8;
+  max-width: 540px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Grid untuk List 2 Kolom di Kanan Bawah */
+.prose .features-right ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 0 2rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+/* Styling Tiap Item di List (Dengan border horizontal tipis) */
+.prose .features-right ul li {
+  position: relative;
+  padding: 1.25rem 0 1.25rem 2rem;
+  border-bottom: 1px solid rgba(34, 21, 18, 0.1);
+  /* Border tipis warna --ink transparan */
+  font-size: 1rem;
+  color: var(--ink, #221512);
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* Custom Checkmark Icon ala gambar */
+.prose .features-right ul li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 1.25rem;
+  color: var(--terracotta, #C9583B);
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+/* ==========================================================================
+   Base Prose Styling for Product Content
+   ========================================================================== */
+
+.prose {
+  font-family: 'Geist', sans-serif;
+  color: var(--ink, #221512);
+  line-height: 1.6;
+}
+
+.prose h2 {
+  font-family: 'Bricolage Grotesque', display, sans-serif;
+  font-size: 1.875rem;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--clay, #7A2E1B);
+  margin: 3rem 0 1.5rem 0;
+}
+
+.prose h2:first-child {
+  margin-top: 0;
+}
+
+.prose h3 {
+  font-family: 'Bricolage Grotesque', display, sans-serif;
+  font-size: 1.375rem;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--clay, #7A2E1B);
+  margin: 2rem 0 1rem 0;
+}
+
+.prose h4 {
+  font-family: 'Bricolage Grotesque', display, sans-serif;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--clay, #7A2E1B);
+  margin: 1.5rem 0 0.75rem 0;
+}
+
+.prose p {
+  font-size: 1rem;
+  margin: 1rem 0;
+  color: var(--ink, #221512);
+  opacity: 0.85;
+}
+
+.prose p:last-child {
+  margin-bottom: 0;
+}
+
+.prose ul,
+.prose ol {
+  margin: 1.5rem 0;
+  padding-left: 1.75rem;
+}
+
+.prose li {
+  margin: 0.5rem 0;
+  line-height: 1.6;
+  color: var(--ink, #221512);
+  opacity: 0.85;
+}
+
+.prose li::marker {
+  color: var(--terracotta, #C9583B);
+  font-weight: 500;
+}
+
+.prose blockquote {
+  border-left: 4px solid var(--terracotta, #C9583B);
+  padding-left: 1.5rem;
+  margin: 2rem 0;
+  font-size: 1.0625rem;
+  font-style: italic;
+  color: var(--clay, #7A2E1B);
+  opacity: 0.8;
+}
+
+.prose blockquote p {
+  margin: 0.5rem 0;
+}
+
+.prose a {
+  color: var(--terracotta, #C9583B);
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  transition: opacity 0.2s ease;
+}
+
+.prose a:hover {
+  opacity: 0.7;
+}
+
+.prose code {
+  font-family: 'Geist Mono', monospace;
+  background: rgba(34, 21, 18, 0.05);
+  border-radius: 0.375rem;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.9em;
+  color: var(--clay, #7A2E1B);
+}
+
+.prose pre {
+  background: rgba(34, 21, 18, 0.08);
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+  border: 1px solid rgba(34, 21, 18, 0.1);
+}
+
+.prose pre code {
+  background: none;
+  padding: 0;
+  color: var(--ink, #221512);
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.prose img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.75rem;
+  margin: 2rem 0;
+  display: block;
+}
+
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+  font-size: 0.9375rem;
+}
+
+.prose th {
+  background: rgba(34, 21, 18, 0.05);
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-weight: 600;
+  border-bottom: 2px solid rgba(34, 21, 18, 0.1);
+  color: var(--clay, #7A2E1B);
+}
+
+.prose td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid rgba(34, 21, 18, 0.08);
+}
+
+.prose tr:last-child td {
+  border-bottom: 0;
+}
+
+.prose hr {
+  border: none;
+  height: 1px;
+  background: rgba(34, 21, 18, 0.1);
+  margin: 3rem 0;
+}
+
+/* ==========================================================================
+   Product Detail Page — Preview Gallery & Specs Layout
+   ========================================================================== */
+
+#preview-gallery {
+  background: var(--paper-tint, #F7F5F1);
+  padding: 4rem 0;
+}
+
+.preview-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.preview-item {
+  overflow: hidden;
+  border-radius: 1rem;
+  background: var(--paper);
+  aspect-ratio: 1;
+}
+
+.preview-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .preview-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .preview-item {
+    aspect-ratio: 16 / 9;
+  }
+}
+
+/* Product Details Grid — Overview + Specs */
+#product-details {
+  padding: 4rem 0;
+}
+
+.product-details-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.product-overview .prose {
+  max-width: 100%;
+}
+
+.product-specs {
+  position: sticky;
+  top: 120px;
+}
+
+.specs-card {
+  background: var(--paper-tint, #F7F5F1);
+  border: 1px solid rgba(34, 21, 18, 0.08);
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.specs-header {
+  padding: 1.5rem 1.5rem 1rem;
+  border-bottom: 1px solid rgba(34, 21, 18, 0.08);
+}
+
+.specs-header h3 {
+  font-family: 'Bricolage Grotesque', display, sans-serif;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--clay, #7A2E1B);
+  margin: 0;
+}
+
+.specs-body {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+.spec-item {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid rgba(34, 21, 18, 0.08);
+}
+
+.spec-item:last-child {
+  border-bottom: none;
+}
+
+.spec-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--clay, #7A2E1B);
+  opacity: 0.8;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-family: 'Geist Mono', monospace;
+}
+
+.spec-value {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--ink, #221512);
+}
+
+@media (max-width: 1024px) {
+  .product-details-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .product-specs {
+    position: static;
+    top: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  #product-details {
+    padding: 2rem 0;
+  }
+
+  .product-details-grid {
+    gap: 1.5rem;
+  }
+
+  .specs-card {
+    border: none;
+    background: transparent;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .specs-header {
+    grid-column: 1 / -1;
+    padding: 1rem 0 1.5rem;
+    border-bottom: 2px solid rgba(34, 21, 18, 0.1);
+  }
+
+  .spec-item {
+    flex-direction: column;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(34, 21, 18, 0.08);
+    grid-column: span 1;
+  }
+}

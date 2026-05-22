@@ -1,0 +1,223 @@
+---
+// src/pages/shop/[slug].astro
+// Replaces the static product-detail.html.
+// Structure & class names mirror the original so shop.css + preview.js apply as-is.
+
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+
+export async function getStaticPaths() {
+  const all = (await getCollection('products', ({ data }) => !data.draft))
+    .sort((a, b) => a.data.order - b.data.order);
+
+  return all.map((entry) => ({
+    params: { slug: entry.id },
+    props: {
+      entry,
+      // "Related" = up to 3 other products, in order, wrapping around.
+      related: all.filter((p) => p.id !== entry.id).slice(0, 3),
+    },
+  }));
+}
+
+const { entry, related } = Astro.props;
+const { Content } = await render(entry);
+const d = entry.data;
+
+// IDR formatter: 240000 -> "IDR 240k"
+const idr = (n: number) =>
+  d.currency === 'IDR' && n >= 1000
+    ? `IDR ${Math.round(n / 1000)}k`
+    : `${d.currency} ${n.toLocaleString()}`;
+
+const buyLabel = d.format === 'figma' ? 'Buy on Mayar' : 'Buy Template';
+---
+
+<Base title={`${d.title} — ${d.category} — Roha Design`}>
+  <main id="main">
+
+    {/* STICKY PRODUCT BAR */}
+    <div class="pd-stickybar" id="pdStickyBar" aria-hidden="true">
+      <div class="wrap pd-stickybar-inner">
+        <div class="pd-stickybar-title">
+          <span class="cat">{d.category}</span>
+          <h2>{d.title}</h2>
+        </div>
+        <div class="pd-stickybar-actions">
+          {d.previewPath && (
+            <button type="button" class="btn btn-secondary btn-sm"
+              data-preview-trigger
+              data-preview-url={`templates/${d.previewPath}/index.html`}
+              data-preview-title={d.title}
+              data-preview-cat={d.category}
+              data-preview-buy={d.buyUrl}
+              data-preview-buy-label={buyLabel}>
+              Preview
+            </button>
+          )}
+          {d.buyUrl && (
+            <a href={d.buyUrl} class="btn btn-primary btn-sm" target="_blank" rel="noopener">
+              Buy <span class="arr">→</span>
+            </a>
+          )}
+        </div>
+      </div>
+    </div>
+
+    {/* PRODUCT HERO */}
+    <section class="pd-hero" id="pdHero" style="padding: 32px 0px">
+      <div class="wrap">
+        <div class="pd-hero-grid">
+          <div class={`pd-cover ${d.pattern} pattern-wrap`} aria-hidden="true"></div>
+          <div class="pd-info">
+            <span class="cat">{d.category}</span>
+            <h1>{d.title}</h1>
+            <p class="tagline">{d.tagline}</p>
+
+            <div class="pd-price">
+              {d.priceOriginal && <span class="crossed">{idr(d.priceOriginal)}</span>}
+              {idr(d.price)}
+            </div>
+
+            <div class="pd-actions">
+              {d.buyUrl && (
+                <a href={d.buyUrl} class="btn btn-primary" target="_blank" rel="noopener">
+                  {buyLabel} <span class="arr">→</span>
+                </a>
+              )}
+              {d.previewPath && (
+                <button type="button" class="btn btn-secondary"
+                  data-preview-trigger
+                  data-preview-url={`templates/${d.previewPath}/index.html`}
+                  data-preview-title={d.title}
+                  data-preview-cat={d.category}
+                  data-preview-buy={d.buyUrl}
+                  data-preview-buy-label={buyLabel}>
+                  HTML Preview
+                </button>
+              )}
+            </div>
+
+            {d.format === 'figma' && d.figmaUrl && (
+              <div class="pd-actions-tertiary">
+                <a href={d.figmaUrl} class="btn btn-tertiary" target="_blank" rel="noopener">
+                  Figma Preview <span class="arr">→</span>
+                </a>
+              </div>
+            )}
+
+            <div class="pd-trust">
+              <div><span class="ok">✓</span> Instant download after payment</div>
+              <div><span class="ok">✓</span> Free lifetime updates</div>
+              <div><span class="ok">✓</span> Personal &amp; commercial license</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* PREVIEW GALLERY — 2x2 grid of screenshots */}
+    {d.images && d.images.length > 0 && (
+      <section class="section" id="preview-gallery">
+        <div class="wrap">
+          <div class="preview-grid">
+            {d.images.map((img) => (
+              <div class="preview-item">
+                <img src={img} alt="Product preview" loading="lazy" />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
+
+    {/* OVERVIEW & SPECS — Side by side layout */}
+    <section class="section" id="product-details">
+      <div class="wrap">
+        <div class="product-details-grid">
+          <div class="product-overview">
+            <div class="prose">
+              <Content />
+            </div>
+          </div>
+
+          <aside class="product-specs">
+            <div class="specs-card">
+              <div class="specs-header">
+                <h3>What's Included</h3>
+              </div>
+              <div class="specs-body">
+                <div class="spec-item">
+                  <span class="spec-label">Format</span>
+                  <span class="spec-value">{d.format === 'figma' ? 'Figma' : 'HTML/CSS/JS'}</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-label">Status</span>
+                  <span class="spec-value">{d.status === 'available' ? '✓ Available' : d.status === 'soon' ? 'Coming Soon' : 'Sold Out'}</span>
+                </div>
+                {d.previewPath && (
+                  <div class="spec-item">
+                    <span class="spec-label">Preview</span>
+                    <span class="spec-value">Live Preview</span>
+                  </div>
+                )}
+                <div class="spec-item">
+                  <span class="spec-label">License</span>
+                  <span class="spec-value">Personal & Commercial</span>
+                </div>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    {/* RELATED — auto, up to 3 other products */}
+    {related.length > 0 && (
+      <section class="section">
+        <div class="wrap">
+          <div class="h-block">
+            <div class="left">
+              <div class="eyebrow">Other Products</div>
+              <h2>You might like these too.</h2>
+            </div>
+            <p class="right">
+              <a href="/shop/" class="section-link" style="margin-top:0;">
+                See all products <span class="arr">→</span>
+              </a>
+            </p>
+          </div>
+
+          <div class="pd-related">
+            {related.map((p) => (
+              <a href={`/shop/${p.id}/`} class="product-card">
+                <div class={`cover ${p.data.pattern} pattern-wrap`} aria-hidden="true"></div>
+                <div class="body">
+                  <span class="cat">{p.data.category}</span>
+                  <div class="name-row">
+                    <h3 class="name">{p.data.title}</h3>
+                    <span class="price">{idr(p.data.price)}</span>
+                  </div>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
+
+  </main>
+</Base>
+
+<script>
+  // Sticky product bar — show after hero scrolls out of view
+  const hero = document.getElementById('pdHero');
+  const bar = document.getElementById('pdStickyBar');
+  if (hero && bar) {
+    const io = new IntersectionObserver(
+      ([entry]) => bar.classList.toggle('is-stuck', !entry.isIntersecting),
+      { rootMargin: '-80px 0px 0px 0px', threshold: 0 }
+    );
+    io.observe(hero);
+  }
+</script>

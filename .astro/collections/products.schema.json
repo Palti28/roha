@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string"
+    },
+    "tagline": {
+      "type": "string"
+    },
+    "summary": {
+      "type": "string"
+    },
+    "price": {
+      "type": "number"
+    },
+    "priceOriginal": {
+      "type": "number"
+    },
+    "currency": {
+      "default": "IDR",
+      "type": "string"
+    },
+    "format": {
+      "type": "string",
+      "enum": [
+        "figma",
+        "html"
+      ]
+    },
+    "status": {
+      "default": "available",
+      "type": "string",
+      "enum": [
+        "available",
+        "soon",
+        "sold-out"
+      ]
+    },
+    "buyUrl": {
+      "type": "string",
+      "format": "uri"
+    },
+    "figmaUrl": {
+      "type": "string",
+      "format": "uri"
+    },
+    "previewPath": {
+      "type": "string"
+    },
+    "cover": {
+      "type": "string"
+    },
+    "pattern": {
+      "default": "pat-arcs",
+      "type": "string"
+    },
+    "order": {
+      "default": 0,
+      "type": "number"
+    },
+    "draft": {
+      "default": false,
+      "type": "boolean"
+    },
+    "$schema": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "title",
+    "category",
+    "tagline",
+    "summary",
+    "price",
+    "format"
+  ]
+}
