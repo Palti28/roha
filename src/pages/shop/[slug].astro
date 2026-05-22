@@ -116,11 +116,58 @@ const buyLabel = d.format === 'figma' ? 'Buy on Mayar' : 'Buy Template';
       </div>
     </section>
 
-    {/* BODY — preview gallery, what's inside, spec all come from markdown */}
-    <section class="section" id="product-content">
+    {/* PREVIEW GALLERY — 2x2 grid of screenshots */}
+    {d.images && d.images.length > 0 && (
+      <section class="section" id="preview-gallery">
+        <div class="wrap">
+          <div class="preview-grid">
+            {d.images.map((img) => (
+              <div class="preview-item">
+                <img src={img} alt="Product preview" loading="lazy" />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
+
+    {/* OVERVIEW & SPECS — Side by side layout */}
+    <section class="section" id="product-details">
       <div class="wrap">
-        <div class="prose" style="max-width: 840px;">
-          <Content />
+        <div class="product-details-grid">
+          <div class="product-overview">
+            <div class="prose">
+              <Content />
+            </div>
+          </div>
+
+          <aside class="product-specs">
+            <div class="specs-card">
+              <div class="specs-header">
+                <h3>What's Included</h3>
+              </div>
+              <div class="specs-body">
+                <div class="spec-item">
+                  <span class="spec-label">Format</span>
+                  <span class="spec-value">{d.format === 'figma' ? 'Figma' : 'HTML/CSS/JS'}</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-label">Status</span>
+                  <span class="spec-value">{d.status === 'available' ? '✓ Available' : d.status === 'soon' ? 'Coming Soon' : 'Sold Out'}</span>
+                </div>
+                {d.previewPath && (
+                  <div class="spec-item">
+                    <span class="spec-label">Preview</span>
+                    <span class="spec-value">Live Preview</span>
+                  </div>
+                )}
+                <div class="spec-item">
+                  <span class="spec-label">License</span>
+                  <span class="spec-value">Personal & Commercial</span>
+                </div>
+              </div>
+            </div>
+          </aside>
         </div>
       </div>
     </section>

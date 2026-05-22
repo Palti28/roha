@@ -11,6 +11,11 @@ status: "available"
 buyUrl: "https://roha.mayar.id/car-rental-template"
 previewPath: "/car-rental"
 pattern: "pat-arcs"
+images:
+  - "https://ik.imagekit.io/gorat/eca-car-rental/rent-car-ss.avif"
+  - "https://ik.imagekit.io/gorat/eca-car-rental/rent-car-ss.avif"
+  - "https://ik.imagekit.io/gorat/eca-car-rental/rent-car-ss.avif"
+  - "https://ik.imagekit.io/gorat/eca-car-rental/rent-car-ss.avif"
 order: 1
 draft: false
 ---
