@@ -16,8 +16,8 @@ const sortedWork = allWork.sort((a, b) => a.data.order - b.data.order);
     <section class="work-hero">
       <div class="wrap">
         <div class="eyebrow">Work</div>
-        <h1>What we&rsquo;ve shipped.</h1>
-        <p class="section-lede">
+        <h1 data-reveal>What we&rsquo;ve shipped.</h1>
+        <p class="section-lede" data-reveal data-reveal-delay="100">
           A small list, but every project has a story. Pick one to read in
           detail.
         </p>
@@ -35,7 +35,7 @@ const sortedWork = allWork.sort((a, b) => a.data.order - b.data.order);
       <div class="wrap">
         <div class="work-grid">
           {
-            sortedWork.map((project) => {
+            sortedWork.map((project, idx) => {
               const {
                 title,
                 summary,
@@ -47,12 +47,13 @@ const sortedWork = allWork.sort((a, b) => a.data.order - b.data.order);
                 pattern,
                 coverImage,
               } = project.data;
-
               return (
                 <a
                   href={`/work/${project.id}`}
                   class="work-card"
                   data-category={category}
+                  data-reveal
+                  data-reveal-delay={idx * 120}
                 >
                   {coverImage ? (
                     <img src={coverImage} alt={title} class="thumb" />
