@@ -1,5 +1,17 @@
 ---
+import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
+
+const allWork = await getCollection('work', ({ data }) => !data.draft);
+const sortedWork = allWork.sort((a, b) => a.data.order - b.data.order).slice(0, 2);
+
+const allProducts = await getCollection('products', ({ data }) => !data.draft);
+const sortedProducts = allProducts.sort((a, b) => a.data.order - b.data.order).slice(0, 3);
+
+const idr = (n: number, currency = "IDR") =>
+  currency === "IDR" && n >= 1000
+    ? `IDR ${Math.round(n / 1000)}k`
+    : `${currency} ${n.toLocaleString()}`;
 ---
 
 <Base title="Home">
@@ -46,27 +58,22 @@ import Base from '../layouts/Base.astro';
       </div>
 
       <div class="featured-grid">
-
-        <a href="/templates/car-rental/index.html" class="project-card">
-          <div class="thumb pat-arcs pattern-wrap" aria-hidden="true"></div>
-          <div class="meta-row">
-            <span class="tag">Web Design &amp; Dev</span>
-            <span class="year">2025</span>
-          </div>
-          <h3>Sora Landing Kit</h3>
-          <p class="summary">A landing kit for founders in a hurry — from zero to a system that can be reused over and over.</p>
-        </a>
-
-        <a href="work-detail.html" class="project-card">
-          <div class="thumb pat-grid pattern-wrap" aria-hidden="true"></div>
-          <div class="meta-row">
-            <span class="tag">UX &amp; UI Design</span>
-            <span class="year">2026</span>
-          </div>
-          <h3>Nimbus Dashboard</h3>
-          <p class="summary">An internal tool that&rsquo;s finally enjoyable to use — a data-heavy dashboard redesign for an ops team.</p>
-        </a>
-
+        {
+          sortedWork.map((project) => {
+            const { title, summary, service, year, pattern } = project.data;
+            return (
+              <a href={`/work/${project.id}`} class="project-card">
+                <div class={`thumb ${pattern} pattern-wrap`} aria-hidden="true"></div>
+                <div class="meta-row">
+                  <span class="tag">{service}</span>
+                  <span class="year">{year}</span>
+                </div>
+                <h3>{title}</h3>
+                <p class="summary">{summary}</p>
+              </a>
+            );
+          })
+        }
       </div>
 
       <a href="work.html" class="section-link">All Work <span class="arr">→</span></a>
@@ -85,61 +92,52 @@ import Base from '../layouts/Base.astro';
       </div>
 
       <div class="shop-grid">
-
-          <a href="product-detail.html" class="product-card"
-            data-preview-url="/templates/car-rental/index.html"
-           data-preview-title="Sora Landing Kit"
-           data-preview-cat="Website Template">
-          <span class="pv-trigger" role="button" tabindex="0" data-preview-trigger aria-label="Preview Sora Landing Kit">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>
-            Preview
-          </span>
-          <div class="cover pat-arcs pattern-wrap" aria-hidden="true"></div>
-          <div class="body">
-            <span class="cat">Website Template</span>
-            <div class="name-row">
-              <h3 class="name">Sorana Landing Kit</h3>
-              <span class="price">IDR 240k</span>
-            </div>
-          </div>
-        </a>
-
-          <a href="product-detail.html" class="product-card"
-            data-preview-url="/templates/nimbus-ui-kit/index.html"
-           data-preview-title="Nimbus UI Kit"
-           data-preview-cat="UI Kit">
-          <span class="pv-trigger" role="button" tabindex="0" data-preview-trigger aria-label="Preview Nimbus UI Kit">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>
-            Preview
-          </span>
-          <div class="cover pat-confetti pattern-wrap" aria-hidden="true"></div>
-          <div class="body">
-            <span class="cat">UI Kit</span>
-            <div class="name-row">
-              <h3 class="name">Nimbus UI Kit</h3>
-              <span class="price">IDR 380k</span>
-            </div>
-          </div>
-        </a>
-
-          <a href="product-detail.html" class="product-card"
-            data-preview-url="/templates/terra-brand-pack/index.html"
-           data-preview-title="Terra Brand Pack"
-           data-preview-cat="Brand Template">
-          <span class="pv-trigger" role="button" tabindex="0" data-preview-trigger aria-label="Preview Terra Brand Pack">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>
-            Preview
-          </span>
-          <div class="cover pat-block pattern-wrap" aria-hidden="true"></div>
-          <div class="body">
-            <span class="cat">Brand Template</span>
-            <div class="name-row">
-              <h3 class="name">Terra Brand Pack</h3>
-              <span class="price">IDR 320k</span>
-            </div>
-          </div>
-        </a>
-
+        {
+          sortedProducts.map((product) => {
+            const d = product.data;
+            return (
+              <a
+                href={`/shop/${product.id}`}
+                class="product-card"
+                data-preview-url={
+                  d.previewPath
+                    ? `/templates/${d.previewPath}/index.html`
+                    : undefined
+                }
+                data-preview-title={d.title}
+                data-preview-cat={d.category}
+              >
+                {d.previewPath && (
+                  <span
+                    class="pv-trigger"
+                    role="button"
+                    tabindex="0"
+                    data-preview-trigger
+                    aria-label={`Preview ${d.title}`}
+                  >
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>
+                    Preview
+                  </span>
+                )}
+                <div class={`cover ${d.pattern} pattern-wrap`} aria-hidden="true"></div>
+                <div class="body">
+                  <span class="cat">{d.category}</span>
+                  <div class="name-row">
+                    <h3 class="name">{d.title}</h3>
+                    <span class="price">
+                      {d.priceOriginal && (
+                        <span class="crossed">
+                          {idr(d.priceOriginal, d.currency)}
+                        </span>
+                      )}
+                      {idr(d.price, d.currency)}
+                    </span>
+                  </div>
+                </div>
+              </a>
+            );
+          })
+        }
       </div>
 
       <a href="shop.html" class="section-link">Shop Products <span class="arr">→</span></a>
