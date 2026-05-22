@@ -26,7 +26,11 @@ const d = entry.data;
 const nextSame = next.id === entry.id; // true only if there is just one entry
 ---
 
-<Base title={`${d.title} — Case Study — Roha Design`}>
+<Base
+  title={`${d.title} — Case Study`}
+  description={d.summary}
+  image={d.coverImage}
+>
   <main id="main">
 
     {/* HEADER + COVER */}

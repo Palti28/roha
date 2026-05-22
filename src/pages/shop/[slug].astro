@@ -33,7 +33,12 @@ const idr = (n: number) =>
 const buyLabel = d.format === 'figma' ? 'Buy on Mayar' : 'Buy Template';
 ---
 
-<Base title={`${d.title} — ${d.category} — Roha Design`}>
+<Base
+  title={`${d.title} — ${d.category}`}
+  description={d.summary}
+  image={d.images?.[0]}
+  type="product"
+>
   <main id="main">
 
     {/* STICKY PRODUCT BAR */}

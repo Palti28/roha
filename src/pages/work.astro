@@ -11,7 +11,10 @@ const allWork = await getCollection("work", ({ data }) => {
 const sortedWork = allWork.sort((a, b) => a.data.order - b.data.order);
 ---
 
-<Base title="Work">
+<Base
+  title="Work"
+  description="Case studies and projects from Roha — UI/UX, brand identity, and web design for founders and small teams."
+>
   <main id="main">
     <section class="work-hero">
       <div class="wrap">
