@@ -153,10 +153,19 @@
   aspect-ratio: 1/1;
   border-bottom: 1px solid var(--rule);
   position: relative;
-  transition: opacity .2s ease;
 }
-.product-card:hover .cover {
-  opacity: 0.75;
+.product-card .cover::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  opacity: 0;
+  transition: opacity .25s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+.product-card:hover .cover::after {
+  opacity: 1;
 }
 .product-card .cover img {
   width: 100%;
