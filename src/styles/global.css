@@ -635,7 +635,7 @@ button {
 .preview-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1.5rem;
+  gap: 16px;
 }
 
 .preview-item {
