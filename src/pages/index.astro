@@ -60,10 +60,14 @@ const idr = (n: number, currency = "IDR") =>
       <div class="featured-grid">
         {
           sortedWork.map((project) => {
-            const { title, summary, service, year, pattern } = project.data;
+            const { title, summary, service, year, pattern, coverImage } = project.data;
             return (
               <a href={`/work/${project.id}`} class="project-card">
-                <div class={`thumb ${pattern} pattern-wrap`} aria-hidden="true"></div>
+                {coverImage ? (
+                  <img src={coverImage} alt={title} class="thumb" />
+                ) : (
+                  <div class={`thumb ${pattern} pattern-wrap`} aria-hidden="true"></div>
+                )}
                 <div class="meta-row">
                   <span class="tag">{service}</span>
                   <span class="year">{year}</span>
@@ -95,6 +99,7 @@ const idr = (n: number, currency = "IDR") =>
         {
           sortedProducts.map((product) => {
             const d = product.data;
+            const coverImage = d.images?.[0];
             return (
               <a
                 href={`/shop/${product.id}`}
@@ -119,7 +124,11 @@ const idr = (n: number, currency = "IDR") =>
                     Preview
                   </span>
                 )}
-                <div class={`cover ${d.pattern} pattern-wrap`} aria-hidden="true"></div>
+                {coverImage ? (
+                  <img src={coverImage} alt={d.title} class="cover" />
+                ) : (
+                  <div class={`cover ${d.pattern} pattern-wrap`} aria-hidden="true"></div>
+                )}
                 <div class="body">
                   <span class="cat">{d.category}</span>
                   <div class="name-row">

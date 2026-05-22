@@ -39,6 +39,12 @@
   position: relative;
   transition: transform .3s ease, border-color .25s ease;
 }
+.work-card .thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
 .work-card:hover .thumb { transform: scale(1.01); border-color: var(--rule-strong); }
 .work-card .meta-row {
   display: flex; justify-content: space-between; align-items: center;

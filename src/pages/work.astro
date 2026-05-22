@@ -45,6 +45,7 @@ const sortedWork = allWork.sort((a, b) => a.data.order - b.data.order);
                 year,
                 client,
                 pattern,
+                coverImage,
               } = project.data;
 
               return (
@@ -53,11 +54,14 @@ const sortedWork = allWork.sort((a, b) => a.data.order - b.data.order);
                   class="work-card"
                   data-category={category}
                 >
-                  {/* Dynamic pattern class sesuai field di markdown (e.g. pat-arcs) */}
-                  <div
-                    class={`thumb ${pattern} pattern-wrap`}
-                    aria-hidden="true"
-                  />
+                  {coverImage ? (
+                    <img src={coverImage} alt={title} class="thumb" />
+                  ) : (
+                    <div
+                      class={`thumb ${pattern} pattern-wrap`}
+                      aria-hidden="true"
+                    />
+                  )}
 
                   <div class="meta-row">
                     <span class="tag">{service}</span>

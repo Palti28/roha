@@ -49,6 +49,7 @@ const filterMap: Record<string, string> = {
           {
             products.map((p) => {
               const d = p.data;
+              const coverImage = d.images?.[0];
               // Map category string to filter pill value
               const filterVal = filterMap[d.category] ?? "other";
 
@@ -87,10 +88,14 @@ const filterMap: Record<string, string> = {
                       Preview
                     </span>
                   )}
-                  <div
-                    class={`cover ${d.pattern} pattern-wrap`}
-                    aria-hidden="true"
-                  />
+                  {coverImage ? (
+                    <img src={coverImage} alt={d.title} class="cover" />
+                  ) : (
+                    <div
+                      class={`cover ${d.pattern} pattern-wrap`}
+                      aria-hidden="true"
+                    />
+                  )}
                   <div class="body">
                     <span class="cat">{d.category}</span>
                     <div class="name-row">
