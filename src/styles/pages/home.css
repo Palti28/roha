@@ -153,6 +153,10 @@
   aspect-ratio: 1/1;
   border-bottom: 1px solid var(--rule);
   position: relative;
+  transition: opacity .2s ease;
+}
+.product-card:hover .cover {
+  opacity: 0.75;
 }
 .product-card .cover img {
   width: 100%;
