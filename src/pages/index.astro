@@ -137,14 +137,6 @@ const idr = (n: number, currency = "IDR") =>
                   <span class="cat">{d.category}</span>
                   <div class="name-row">
                     <h3 class="name">{d.title}</h3>
-                    <span class="price">
-                      {d.priceOriginal && (
-                        <span class="crossed">
-                          {idr(d.priceOriginal, d.currency)}
-                        </span>
-                      )}
-                      {idr(d.price, d.currency)}
-                    </span>
                   </div>
                 </div>
               </a>
