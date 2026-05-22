@@ -38,15 +38,19 @@
   border: 1px solid var(--rule);
   overflow: hidden;
   position: relative;
-  transition: transform .3s ease, border-color .25s ease;
+  transition: border-color .25s ease;
 }
-.work-card .thumb img {
+.work-card .thumb img,
+.work-card .thumb.pattern-wrap {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
+  transition: transform .5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
-.work-card:hover .thumb { transform: scale(1.01); border-color: var(--rule-strong); }
+.work-card:hover .thumb img,
+.work-card:hover .thumb.pattern-wrap { transform: scale(1.06); }
+.work-card:hover .thumb { border-color: var(--rule-strong); }
 .work-card .meta-row {
   display: flex; justify-content: space-between; align-items: center;
   gap: 16px;
