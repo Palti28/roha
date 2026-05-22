@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
 
@@ -67,7 +68,7 @@ const idr = (n: number, currency = "IDR") =>
             return (
               <a href={`/work/${project.id}`} class="project-card" data-reveal data-reveal-delay={i * 120}>
                 {coverImage ? (
-                  <img src={coverImage} alt={title} class="thumb" />
+                  <img src={coverImage} alt={title} class="thumb" width={400} height={300} loading="lazy" />
                 ) : (
                   <div class={`thumb ${pattern} pattern-wrap`} aria-hidden="true"></div>
                 )}
@@ -131,7 +132,7 @@ const idr = (n: number, currency = "IDR") =>
                 )}
                 {coverImage ? (
                   <div class="cover">
-                    <img src={coverImage} alt={d.title} />
+                    <img src={coverImage} alt={d.title} width={350} height={280} loading="lazy" />
                   </div>
                 ) : (
                   <div class={`cover ${d.pattern} pattern-wrap`} aria-hidden="true"></div>

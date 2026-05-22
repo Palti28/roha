@@ -3,8 +3,11 @@
 // Replaces the static product-detail.html.
 // Structure & class names mirror the original so shop.css + preview.js apply as-is.
 
+import { Image } from 'astro:assets';
 import { getCollection, render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
+import { productSchema } from '../../utils/schema';
+import { site } from '../../data/site';
 
 export async function getStaticPaths() {
   const all = (await getCollection('products', ({ data }) => !data.draft))
@@ -31,6 +34,18 @@ const idr = (n: number) =>
     : `${d.currency} ${n.toLocaleString()}`;
 
 const buyLabel = d.format === 'figma' ? 'Buy on Mayar' : 'Buy Template';
+
+// Generate product schema
+const productSchemaData = productSchema({
+  title: d.title,
+  summary: d.summary,
+  price: d.price,
+  currency: d.currency,
+  category: d.category,
+  image: d.images?.[0],
+  url: `/shop/${entry.id}/`,
+  siteUrl: site.url,
+});
 ---
 
 <Base
@@ -38,6 +53,7 @@ const buyLabel = d.format === 'figma' ? 'Buy on Mayar' : 'Buy Template';
   description={d.summary}
   image={d.images?.[0]}
   type="product"
+  schema={productSchemaData}
 >
   <main id="main">
 
@@ -75,7 +91,7 @@ const buyLabel = d.format === 'figma' ? 'Buy on Mayar' : 'Buy Template';
         <div class="pd-hero-grid">
           {d.images && d.images.length > 0 ? (
             <div class="pd-cover">
-              <img src={d.images[0]} alt={d.title} />
+              <img src={d.images[0]} alt={d.title} width={500} height={400} />
             </div>
           ) : (
             <div class={`pd-cover ${d.pattern} pattern-wrap`} aria-hidden="true"></div>
@@ -134,7 +150,7 @@ const buyLabel = d.format === 'figma' ? 'Buy on Mayar' : 'Buy Template';
           <div class="preview-grid">
             {d.images.map((img, i) => (
               <div class="preview-item" data-reveal data-reveal-delay={i * 100}>
-                <img src={img} alt="Product preview" loading="lazy" />
+                <img src={img} alt="Product preview" loading="lazy" width={600} height={400} />
               </div>
             ))}
           </div>

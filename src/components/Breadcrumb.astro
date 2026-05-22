@@ -1,32 +1,8 @@
 ---
+import { getBreadcrumbs } from '../utils/schema';
+
 const currentPath = Astro.url.pathname;
-
-// Parse breadcrumbs from path
-const pathSegments = currentPath
-  .split('/')
-  .filter(segment => segment.length > 0);
-
-// Don't show breadcrumb on homepage
-const isHomepage = pathSegments.length === 0;
-
-const breadcrumbs = [{ label: 'Home', href: '/' }];
-
-// Build breadcrumbs for nested paths
-let accumulatedPath = '';
-for (const segment of pathSegments) {
-  accumulatedPath += `/${segment}`;
-
-  // Format label from slug (e.g., "ojk-website-redesign" -> "OJK Website Redesign")
-  const label = segment
-    .split('-')
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(' ');
-
-  breadcrumbs.push({ label, href: accumulatedPath });
-}
-
-// Remove the last breadcrumb (current page) as it will be shown as text
-const activeBreadcrumb = breadcrumbs.pop();
+const { isHomepage, breadcrumbs, activeBreadcrumb } = getBreadcrumbs(currentPath);
 ---
 
 {!isHomepage && (
