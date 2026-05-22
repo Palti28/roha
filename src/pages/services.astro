@@ -9,8 +9,8 @@ import Base from '../layouts/Base.astro';
     <section class="svc-hero">
       <div class="wrap">
         <div class="eyebrow">Services</div>
-        <h1 class="display">What we can help you <em class="italic-accent">build</em>.</h1>
-        <p class="section-lede">Five disciplines we focus on. Every project gets the same process: slow at the start,
+        <h1 class="display" data-reveal>What we can help you <em class="italic-accent">build</em>.</h1>
+        <p class="section-lede" data-reveal data-reveal-delay="100">Five disciplines we focus on. Every project gets the same process: slow at the start,
           quick at the end.</p>
       </div>
     </section>
@@ -21,7 +21,7 @@ import Base from '../layouts/Base.astro';
         <div class="svc-cards">
 
           <!-- 01 UX -->
-          <article class="svc-card" id="ux">
+          <article class="svc-card" id="ux" data-reveal data-reveal-delay="0">
             <div class="num">01</div>
             <div class="core">
               <h3>UX Design</h3>
@@ -46,7 +46,7 @@ import Base from '../layouts/Base.astro';
           </article>
 
           <!-- 02 UI -->
-          <article class="svc-card" id="ui">
+          <article class="svc-card" id="ui" data-reveal data-reveal-delay="100">
             <div class="num">02</div>
             <div class="core">
               <h3>UI Design</h3>
@@ -70,7 +70,7 @@ import Base from '../layouts/Base.astro';
           </article>
 
           <!-- 03 Web -->
-          <article class="svc-card" id="web">
+          <article class="svc-card" id="web" data-reveal data-reveal-delay="200">
             <div class="num">03</div>
             <div class="core">
               <h3>Website Development</h3>
@@ -95,7 +95,7 @@ import Base from '../layouts/Base.astro';
           </article>
 
           <!-- 04 Landing -->
-          <article class="svc-card" id="landing">
+          <article class="svc-card" id="landing" data-reveal data-reveal-delay="300">
             <div class="num">04</div>
             <div class="core">
               <h3>Landing Page Development</h3>
@@ -120,7 +120,7 @@ import Base from '../layouts/Base.astro';
           </article>
 
           <!-- 05 Brand -->
-          <article class="svc-card" id="brand">
+          <article class="svc-card" id="brand" data-reveal data-reveal-delay="400">
             <div class="num">05</div>
             <div class="core">
               <h3>Brand &amp; Logo Guideline</h3>
@@ -151,7 +151,7 @@ import Base from '../layouts/Base.astro';
     <!-- PROCESS -->
     <section class="section">
       <div class="wrap">
-        <div class="section-head">
+        <div class="section-head" data-reveal>
           <div class="eyebrow">How We Work</div>
           <h2 class="section-title">Slow at the start, <em class="italic-accent">quick</em> at the end.</h2>
         </div>
@@ -159,31 +159,31 @@ import Base from '../layouts/Base.astro';
         <div class="process-band pattern-wrap">
           <div class="pat-overlay" aria-hidden="true"></div>
           <div class="process-steps">
-            <div class="process-step">
+            <div class="process-step" data-reveal data-reveal-delay="0">
               <div class="num">01</div>
               <h4>Briefing</h4>
               <div class="dur">1–2 days</div>
               <p>Discovery call, scope alignment. We make sure we understand the problem first.</p>
             </div>
-            <div class="process-step">
+            <div class="process-step" data-reveal data-reveal-delay="80">
               <div class="num">02</div>
               <h4>Exploration</h4>
               <div class="dur">3–5 days</div>
               <p>Mood board, wireframes, direction. Two or three directions to test before committing.</p>
             </div>
-            <div class="process-step">
+            <div class="process-step" data-reveal data-reveal-delay="160">
               <div class="num">03</div>
               <h4>Design</h4>
               <div class="dur">1–3 weeks</div>
               <p>Visual design, prototype, interaction details. Reviews every week.</p>
             </div>
-            <div class="process-step">
+            <div class="process-step" data-reveal data-reveal-delay="240">
               <div class="num">04</div>
               <h4>Iteration</h4>
               <div class="dur">1 week</div>
               <p>One big revision round, not small ping-pong loops that wear everyone out.</p>
             </div>
-            <div class="process-step">
+            <div class="process-step" data-reveal data-reveal-delay="320">
               <div class="num">05</div>
               <h4>Handoff</h4>
               <div class="dur">1–2 days</div>
@@ -197,12 +197,12 @@ import Base from '../layouts/Base.astro';
     <!-- FAQ -->
     <section class="section" id="faq">
       <div class="wrap">
-        <div class="section-head">
+        <div class="section-head" data-reveal>
           <div class="eyebrow">FAQ</div>
           <h2 class="section-title">Common questions.</h2>
         </div>
 
-        <div class="faq-section">
+        <div class="faq-section" data-reveal data-reveal-delay="100">
           <div class="accordion">
             <div class="accordion-item">
               <button class="accordion-trigger">How long does a project usually take? <span
@@ -282,7 +282,7 @@ import Base from '../layouts/Base.astro';
     <!-- CTA -->
     <section class="section-tight">
       <div class="cta-wrap">
-        <div class="svc-cta">
+        <div class="svc-cta" data-reveal>
           <h3>Got a project? <em>Let&rsquo;s discuss</em> it with us.</h3>
           <div class="btn-row">
             <a href="mailto:hello@rohaworks.com" class="btn btn-primary">Email Us <span class="arr">→</span></a>
