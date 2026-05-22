@@ -91,7 +91,7 @@
 .nav-toggle svg { width: 18px; height: 18px; }
 
 @media (max-width: 880px) {
-  .nav-links, .nav-cta .btn-text { display: none; }
+  .nav-links { display: none; }
   .nav-toggle { display: inline-flex; }
 }
 
