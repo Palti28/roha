@@ -25,8 +25,8 @@ const filterMap: Record<string, string> = {
     <section class="shop-hero">
       <div class="wrap">
         <div class="eyebrow">Products</div>
-        <h1>Templates &amp; design systems<br />ready to use.</h1>
-        <p class="section-lede">
+        <h1 data-reveal>Templates &amp; design systems<br />ready to use.</h1>
+        <p class="section-lede" data-reveal data-reveal-delay="100">
           For founders on a sprint, designers looking for a shortcut, or anyone
           who doesn&rsquo;t want to start from scratch.
         </p>
@@ -47,8 +47,9 @@ const filterMap: Record<string, string> = {
       <div class="wrap">
         <div class="shop-page-grid" data-shop-grid>
           {
-            products.map((p) => {
+            products.map((p, i) => {
               const d = p.data;
+              const coverImage = d.images?.[0];
               // Map category string to filter pill value
               const filterVal = filterMap[d.category] ?? "other";
 
@@ -57,6 +58,8 @@ const filterMap: Record<string, string> = {
                   href={`/shop/${p.id}/`}
                   class="product-card"
                   data-category={filterVal}
+                  data-reveal
+                  data-reveal-delay={i * 80}
                   data-preview-url={
                     d.previewPath
                       ? `templates/${d.previewPath}/index.html`
@@ -87,10 +90,16 @@ const filterMap: Record<string, string> = {
                       Preview
                     </span>
                   )}
-                  <div
-                    class={`cover ${d.pattern} pattern-wrap`}
-                    aria-hidden="true"
-                  />
+                  {coverImage ? (
+                    <div class="cover">
+                      <img src={coverImage} alt={d.title} />
+                    </div>
+                  ) : (
+                    <div
+                      class={`cover ${d.pattern} pattern-wrap`}
+                      aria-hidden="true"
+                    />
+                  )}
                   <div class="body">
                     <span class="cat">{d.category}</span>
                     <div class="name-row">
@@ -205,7 +214,7 @@ const filterMap: Record<string, string> = {
           </div>
         </div>
 
-        <div style="max-width:820px;">
+        <div style="max-width:560px;">
           <div class="accordion">
             <div class="accordion-item">
               <button class="accordion-trigger"

@@ -68,7 +68,13 @@ const buyLabel = d.format === 'figma' ? 'Buy on Mayar' : 'Buy Template';
     <section class="pd-hero" id="pdHero" style="padding: 32px 0px">
       <div class="wrap">
         <div class="pd-hero-grid">
-          <div class={`pd-cover ${d.pattern} pattern-wrap`} aria-hidden="true"></div>
+          {d.images && d.images.length > 0 ? (
+            <div class="pd-cover">
+              <img src={d.images[0]} alt={d.title} />
+            </div>
+          ) : (
+            <div class={`pd-cover ${d.pattern} pattern-wrap`} aria-hidden="true"></div>
+          )}
           <div class="pd-info">
             <span class="cat">{d.category}</span>
             <h1>{d.title}</h1>
@@ -116,13 +122,13 @@ const buyLabel = d.format === 'figma' ? 'Buy on Mayar' : 'Buy Template';
       </div>
     </section>
 
-    {/* PREVIEW GALLERY — 2x2 grid of screenshots */}
+    {/* PREVIEW GALLERY — single column, full width */}
     {d.images && d.images.length > 0 && (
       <section class="section" id="preview-gallery">
         <div class="wrap">
           <div class="preview-grid">
-            {d.images.map((img) => (
-              <div class="preview-item">
+            {d.images.map((img, i) => (
+              <div class="preview-item" data-reveal data-reveal-delay={i * 100}>
                 <img src={img} alt="Product preview" loading="lazy" />
               </div>
             ))}
@@ -135,13 +141,13 @@ const buyLabel = d.format === 'figma' ? 'Buy on Mayar' : 'Buy Template';
     <section class="section" id="product-details">
       <div class="wrap">
         <div class="product-details-grid">
-          <div class="product-overview">
+          <div class="product-overview" data-reveal>
             <div class="prose">
               <Content />
             </div>
           </div>
 
-          <aside class="product-specs">
+          <aside class="product-specs" data-reveal data-reveal-delay="150">
             <div class="specs-card">
               <div class="specs-header">
                 <h3>What's Included</h3>

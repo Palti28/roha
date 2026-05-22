@@ -1,6 +1,7 @@
 ---
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import Breadcrumb from "../components/Breadcrumb.astro";
 import "../styles/global.css";
 import "../styles/pages/about.css";
 import "../styles/pages/home.css";
@@ -39,6 +40,7 @@ const { title = site.name, description = site.tagline } = Astro.props;
   </head>
   <body>
     <Header />
+    <Breadcrumb />
     <main>
       <slot />
     </main>

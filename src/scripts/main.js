@@ -120,4 +120,43 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
+
+  // ---------- Scroll reveal (fade-in on scroll) ----------
+  const revealEls = document.querySelectorAll('[data-reveal]');
+  if (revealEls.length > 0 && 'IntersectionObserver' in window) {
+    // Apply inline initial styles as a safety net (in case CSS is overridden/cached)
+    revealEls.forEach((el) => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(24px)';
+      el.style.transition = 'opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1)';
+      el.style.willChange = 'opacity, transform';
+      const delayAttr = el.getAttribute('data-reveal-delay');
+      if (delayAttr) {
+        el.style.transitionDelay = `${delayAttr}ms`;
+      }
+    });
+
+    const reveal = (el) => {
+      el.style.opacity = '1';
+      el.style.transform = 'translateY(0)';
+      el.classList.add('is-revealed');
+    };
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            reveal(entry.target);
+            io.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+    );
+
+    revealEls.forEach((el) => io.observe(el));
+  } else if (revealEls.length > 0) {
+    // Fallback for older browsers — show all
+    revealEls.forEach((el) => el.classList.add('is-revealed'));
+  }
 });

@@ -49,7 +49,7 @@ const idr = (n: number, currency = "IDR") =>
   <!-- =================== FEATURED WORK =================== -->
   <section class="section" id="work-preview">
     <div class="wrap">
-      <div class="h-block">
+      <div class="h-block" data-reveal>
         <div class="left">
           <div class="eyebrow">01 — Featured Work</div>
           <h2>What we&rsquo;ve shipped.</h2>
@@ -59,11 +59,15 @@ const idr = (n: number, currency = "IDR") =>
 
       <div class="featured-grid">
         {
-          sortedWork.map((project) => {
-            const { title, summary, service, year, pattern } = project.data;
+          sortedWork.map((project, i) => {
+            const { title, summary, service, year, pattern, coverImage } = project.data;
             return (
-              <a href={`/work/${project.id}`} class="project-card">
-                <div class={`thumb ${pattern} pattern-wrap`} aria-hidden="true"></div>
+              <a href={`/work/${project.id}`} class="project-card" data-reveal data-reveal-delay={i * 120}>
+                {coverImage ? (
+                  <img src={coverImage} alt={title} class="thumb" />
+                ) : (
+                  <div class={`thumb ${pattern} pattern-wrap`} aria-hidden="true"></div>
+                )}
                 <div class="meta-row">
                   <span class="tag">{service}</span>
                   <span class="year">{year}</span>
@@ -76,14 +80,14 @@ const idr = (n: number, currency = "IDR") =>
         }
       </div>
 
-      <a href="work.html" class="section-link">All Work <span class="arr">→</span></a>
+      <a href="work.html" class="section-link" data-reveal>All Work <span class="arr">→</span></a>
     </div>
   </section>
 
   <!-- =================== SHOP PREVIEW =================== -->
   <section class="section" id="shop-preview">
     <div class="wrap">
-      <div class="h-block">
+      <div class="h-block" data-reveal>
         <div class="left">
           <div class="eyebrow">02 — Digital Products</div>
           <h2>Templates for those on a sprint.</h2>
@@ -93,12 +97,15 @@ const idr = (n: number, currency = "IDR") =>
 
       <div class="shop-grid">
         {
-          sortedProducts.map((product) => {
+          sortedProducts.map((product, i) => {
             const d = product.data;
+            const coverImage = d.images?.[0];
             return (
               <a
                 href={`/shop/${product.id}`}
                 class="product-card"
+                data-reveal
+                data-reveal-delay={i * 100}
                 data-preview-url={
                   d.previewPath
                     ? `/templates/${d.previewPath}/index.html`
@@ -119,7 +126,13 @@ const idr = (n: number, currency = "IDR") =>
                     Preview
                   </span>
                 )}
-                <div class={`cover ${d.pattern} pattern-wrap`} aria-hidden="true"></div>
+                {coverImage ? (
+                  <div class="cover">
+                    <img src={coverImage} alt={d.title} />
+                  </div>
+                ) : (
+                  <div class={`cover ${d.pattern} pattern-wrap`} aria-hidden="true"></div>
+                )}
                 <div class="body">
                   <span class="cat">{d.category}</span>
                   <div class="name-row">
@@ -140,14 +153,14 @@ const idr = (n: number, currency = "IDR") =>
         }
       </div>
 
-      <a href="shop.html" class="section-link">Shop Products <span class="arr">→</span></a>
+      <a href="shop.html" class="section-link" data-reveal>Shop Products <span class="arr">→</span></a>
     </div>
   </section>
 
   <!-- =================== SERVICES (CARDS, MOVED BELOW SHOP) =================== -->
   <section class="section" id="services-preview">
     <div class="wrap">
-      <div class="h-block">
+      <div class="h-block" data-reveal>
         <div class="left">
           <div class="eyebrow">03 — Services</div>
           <h2>What we can build for you.</h2>
@@ -157,7 +170,7 @@ const idr = (n: number, currency = "IDR") =>
 
       <div class="svc-card-grid">
 
-        <a href="services.html#ux" class="svc-tile">
+        <a href="services.html#ux" class="svc-tile" data-reveal data-reveal-delay="0">
           <div class="top">
             <span class="num">01</span>
             <span class="icon" aria-hidden="true">
@@ -169,7 +182,7 @@ const idr = (n: number, currency = "IDR") =>
           <div class="price"><span>Starting at</span><span class="amount">IDR 8M <span class="arr">→</span></span></div>
         </a>
 
-        <a href="services.html#ui" class="svc-tile">
+        <a href="services.html#ui" class="svc-tile" data-reveal data-reveal-delay="80">
           <div class="top">
             <span class="num">02</span>
             <span class="icon" aria-hidden="true">
@@ -181,7 +194,7 @@ const idr = (n: number, currency = "IDR") =>
           <div class="price"><span>Starting at</span><span class="amount">IDR 6M <span class="arr">→</span></span></div>
         </a>
 
-        <a href="services.html#web" class="svc-tile">
+        <a href="services.html#web" class="svc-tile" data-reveal data-reveal-delay="160">
           <div class="top">
             <span class="num">03</span>
             <span class="icon" aria-hidden="true">
@@ -193,7 +206,7 @@ const idr = (n: number, currency = "IDR") =>
           <div class="price"><span>Starting at</span><span class="amount">IDR 15M <span class="arr">→</span></span></div>
         </a>
 
-        <a href="services.html#landing" class="svc-tile">
+        <a href="services.html#landing" class="svc-tile" data-reveal data-reveal-delay="240">
           <div class="top">
             <span class="num">04</span>
             <span class="icon" aria-hidden="true">
@@ -205,7 +218,7 @@ const idr = (n: number, currency = "IDR") =>
           <div class="price"><span>Starting at</span><span class="amount">IDR 5M <span class="arr">→</span></span></div>
         </a>
 
-        <a href="services.html#brand" class="svc-tile">
+        <a href="services.html#brand" class="svc-tile" data-reveal data-reveal-delay="320">
           <div class="top">
             <span class="num">05</span>
             <span class="icon" aria-hidden="true">
@@ -217,7 +230,7 @@ const idr = (n: number, currency = "IDR") =>
           <div class="price"><span>Starting at</span><span class="amount">IDR 4M <span class="arr">→</span></span></div>
         </a>
 
-        <a href="about.html#contact" class="svc-tile" style="background:var(--ink); color:var(--cream); border-color:var(--ink);">
+        <a href="about.html#contact" class="svc-tile" data-reveal data-reveal-delay="400" style="background:var(--ink); color:var(--cream); border-color:var(--ink);">
           <div class="top">
             <span class="num" style="color:var(--terracotta-soft);">06</span>
             <span class="icon" aria-hidden="true" style="background:transparent; border-color:rgba(246,239,224,.2); color:var(--terracotta-soft);">

@@ -634,20 +634,19 @@ button {
 
 .preview-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
+  grid-template-columns: 1fr;
+  gap: 16px;
 }
 
 .preview-item {
   overflow: hidden;
   border-radius: 1rem;
   background: var(--paper);
-  aspect-ratio: 1;
 }
 
 .preview-item img {
   width: 100%;
-  height: 100%;
+  height: auto;
   object-fit: cover;
   display: block;
 }
@@ -776,5 +775,154 @@ button {
     padding: 1rem 0;
     border-bottom: 1px solid rgba(34, 21, 18, 0.08);
     grid-column: span 1;
+  }
+}
+
+/* ==========================================================================
+   Work Detail Page — Images & Content Styling
+   ========================================================================== */
+
+.wd-images-section {
+  background: var(--paper-tint, #F7F5F1);
+  padding: 4rem 0;
+}
+
+.wd-images-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.wd-image-item {
+  overflow: hidden;
+  border-radius: 1rem;
+  background: var(--paper);
+  aspect-ratio: 4 / 3;
+}
+
+.wd-image-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.wd-image-item:hover img {
+  transform: scale(1.02);
+}
+
+/* Work cover with image (dynamic) */
+.wd-cover-frame.wd-cover-image {
+  overflow: hidden;
+  border-radius: 1.5rem;
+  background: var(--paper);
+  aspect-ratio: 16 / 9;
+  width: 100%;
+}
+
+.wd-cover-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Work detail section prose styling */
+.wd-section {
+  max-width: 840px;
+  margin: 0 auto;
+}
+
+.wd-section.prose h2 {
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+  font-size: 1.875rem;
+}
+
+.wd-section.prose h2:first-child {
+  margin-top: 0;
+}
+
+.wd-section.prose h3 {
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  font-size: 1.375rem;
+}
+
+.wd-section.prose p {
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  margin: 1.25rem 0;
+}
+
+.wd-section.prose blockquote {
+  border-left: 4px solid var(--terracotta, #C9583B);
+  padding-left: 1.5rem;
+  margin: 2.5rem 0;
+  font-size: 1.125rem;
+  font-style: italic;
+  color: var(--clay, #7A2E1B);
+}
+
+.wd-section.prose ul,
+.wd-section.prose ol {
+  margin: 1.5rem 0;
+  padding-left: 2rem;
+}
+
+.wd-section.prose li {
+  font-size: 1rem;
+  margin: 0.75rem 0;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .wd-images-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .wd-image-item {
+    aspect-ratio: 16 / 9;
+  }
+
+  .wd-section.prose h2 {
+    font-size: 1.5rem;
+  }
+
+  .wd-section.prose h3 {
+    font-size: 1.125rem;
+  }
+
+  .wd-section.prose p {
+    font-size: 1rem;
+  }
+}
+
+/* ==========================================================================
+   Scroll Reveal Animation — Fade In on Scroll
+   Higher specificity (html [data-reveal]) to beat any page-specific rules.
+   ========================================================================== */
+
+html body [data-reveal] {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+html body [data-reveal].is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html body [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
 }

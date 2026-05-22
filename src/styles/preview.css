@@ -24,8 +24,14 @@
   border: 1px solid var(--rule);
   cursor: pointer;
   user-select: none;
-  transition: background .15s ease, border-color .15s ease, transform .15s ease, color .15s ease;
+  transition: background .15s ease, border-color .15s ease, transform .15s ease, color .15s ease, opacity .25s ease, visibility .25s ease;
   box-shadow: 0 2px 8px -4px rgba(34,21,18,.15);
+  opacity: 0;
+  visibility: hidden;
+}
+.product-card:hover .pv-trigger {
+  opacity: 1;
+  visibility: visible;
 }
 .pv-trigger:hover {
   background: var(--ink);

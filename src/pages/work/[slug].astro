@@ -43,7 +43,13 @@ const nextSame = next.id === entry.id; // true only if there is just one entry
           )}
         </div>
 
-        <div class={`wd-cover-frame ${d.pattern} pattern-wrap`} aria-hidden="true"></div>
+        {d.coverImage ? (
+          <div class="wd-cover-frame wd-cover-image">
+            <img src={d.coverImage} alt={d.title} loading="lazy" />
+          </div>
+        ) : (
+          <div class={`wd-cover-frame ${d.pattern} pattern-wrap`} aria-hidden="true"></div>
+        )}
 
         <div class="wd-meta-grid">
           <div><div class="k">Year</div><div class="v">{d.year}</div></div>
@@ -53,6 +59,21 @@ const nextSame = next.id === entry.id; // true only if there is just one entry
         </div>
       </div>
     </section>
+
+    {/* IMAGES SHOWCASE — if available */}
+    {d.images && d.images.length > 0 && (
+      <section class="section wd-images-section">
+        <div class="wrap">
+          <div class="wd-images-grid">
+            {d.images.map((img) => (
+              <div class="wd-image-item">
+                <img src={img} alt="Project showcase" loading="lazy" />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
 
     {/* BODY — sections, quote and metrics come from the markdown */}
     <section class="section">

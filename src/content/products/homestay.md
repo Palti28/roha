@@ -11,6 +11,8 @@ status: "available"
 buyUrl: "https://roha.mayar.id/homestay-template"
 previewPath: "homestay"
 pattern: "pat-confetti"
+images:
+  - "https://ik.imagekit.io/gorat/myasnbkn.avif?updatedAt=1779433713313"
 order: 3
 draft: false
 ---
