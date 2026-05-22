@@ -33,6 +33,7 @@
 }
 .work-card .thumb {
   aspect-ratio: 4/5;
+  max-height: 350px;
   border-radius: var(--radius-md);
   border: 1px solid var(--rule);
   overflow: hidden;
