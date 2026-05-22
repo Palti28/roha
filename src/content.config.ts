@@ -20,6 +20,8 @@ const work = defineCollection({
     previewPath: z.string().optional(),
     // Pattern class for the cover frame, e.g. "pat-arcs"
     pattern: z.string().default('pat-arcs'),
+    // Optional image URLs for project showcase (array of URLs)
+    images: z.array(z.string().url()).optional(),
     // Controls listing order AND the "next project" sequence
     order: z.number().default(0),
     draft: z.boolean().default(false),

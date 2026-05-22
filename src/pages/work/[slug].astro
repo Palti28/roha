@@ -54,6 +54,21 @@ const nextSame = next.id === entry.id; // true only if there is just one entry
       </div>
     </section>
 
+    {/* IMAGES SHOWCASE — if available */}
+    {d.images && d.images.length > 0 && (
+      <section class="section wd-images-section">
+        <div class="wrap">
+          <div class="wd-images-grid">
+            {d.images.map((img) => (
+              <div class="wd-image-item">
+                <img src={img} alt="Project showcase" loading="lazy" />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
+
     {/* BODY — sections, quote and metrics come from the markdown */}
     <section class="section">
       <div class="wrap">

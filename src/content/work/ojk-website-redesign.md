@@ -8,6 +8,9 @@ year: 2026
 client: "Otoritas Jasa Keuangan"
 concept: true
 pattern: "pat-grid"
+images:
+  - "https://ik.imagekit.io/gorat/eca-car-rental/rent-car-ss.avif"
+  - "https://ik.imagekit.io/gorat/eca-car-rental/rent-car-ss.avif"
 order: 1
 draft: false
 ---
