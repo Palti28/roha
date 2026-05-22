@@ -12,6 +12,8 @@ buyUrl: "https://roha.mayar.id/toys-charm-kit"
 figmaUrl: "https://figma.com/community/file/REPLACE_ME"
 previewPath: "toys-charm"
 pattern: "pat-block"
+images:
+  - "https://ik.imagekit.io/gorat/myasnbkn.avif?updatedAt=1779433713313"
 order: 4
 draft: false
 ---

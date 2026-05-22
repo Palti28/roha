@@ -8,6 +8,7 @@ year: 2026
 client: "Roha"
 concept: false
 pattern: "pat-arcs"
+coverImage: "https://ik.imagekit.io/gorat/myasnbkn.avif?updatedAt=1779433713313"
 order: 2
 draft: false
 ---
