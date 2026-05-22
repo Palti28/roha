@@ -58,6 +58,13 @@
       "default": "pat-arcs",
       "type": "string"
     },
+    "images": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uri"
+      }
+    },
     "order": {
       "default": 0,
       "type": "number"

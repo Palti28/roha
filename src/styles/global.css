@@ -813,6 +813,22 @@ button {
   transform: scale(1.02);
 }
 
+/* Work cover with image (dynamic) */
+.wd-cover-frame.wd-cover-image {
+  overflow: hidden;
+  border-radius: 1.5rem;
+  background: var(--paper);
+  aspect-ratio: 16 / 9;
+  width: 100%;
+}
+
+.wd-cover-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
 /* Work detail section prose styling */
 .wd-section {
   max-width: 840px;

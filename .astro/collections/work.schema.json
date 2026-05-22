@@ -42,6 +42,17 @@
       "default": "pat-arcs",
       "type": "string"
     },
+    "coverImage": {
+      "type": "string",
+      "format": "uri"
+    },
+    "images": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uri"
+      }
+    },
     "order": {
       "default": 0,
       "type": "number"
