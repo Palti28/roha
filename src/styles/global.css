@@ -902,9 +902,10 @@ button {
 
 /* ==========================================================================
    Scroll Reveal Animation — Fade In on Scroll
+   Higher specificity (html [data-reveal]) to beat any page-specific rules.
    ========================================================================== */
 
-[data-reveal] {
+html body [data-reveal] {
   opacity: 0;
   transform: translateY(24px);
   transition:
@@ -913,13 +914,13 @@ button {
   will-change: opacity, transform;
 }
 
-[data-reveal].is-revealed {
+html body [data-reveal].is-revealed {
   opacity: 1;
   transform: translateY(0);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  [data-reveal] {
+  html body [data-reveal] {
     opacity: 1;
     transform: none;
     transition: none;

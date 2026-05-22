@@ -124,19 +124,29 @@ document.addEventListener('DOMContentLoaded', () => {
   // ---------- Scroll reveal (fade-in on scroll) ----------
   const revealEls = document.querySelectorAll('[data-reveal]');
   if (revealEls.length > 0 && 'IntersectionObserver' in window) {
-    // Stagger animation delay using element index within its parent group
+    // Apply inline initial styles as a safety net (in case CSS is overridden/cached)
     revealEls.forEach((el) => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(24px)';
+      el.style.transition = 'opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1)';
+      el.style.willChange = 'opacity, transform';
       const delayAttr = el.getAttribute('data-reveal-delay');
       if (delayAttr) {
         el.style.transitionDelay = `${delayAttr}ms`;
       }
     });
 
+    const reveal = (el) => {
+      el.style.opacity = '1';
+      el.style.transform = 'translateY(0)';
+      el.classList.add('is-revealed');
+    };
+
     const io = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('is-revealed');
+            reveal(entry.target);
             io.unobserve(entry.target);
           }
         });
