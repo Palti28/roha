@@ -68,7 +68,13 @@ const buyLabel = d.format === 'figma' ? 'Buy on Mayar' : 'Buy Template';
     <section class="pd-hero" id="pdHero" style="padding: 32px 0px">
       <div class="wrap">
         <div class="pd-hero-grid">
-          <div class={`pd-cover ${d.pattern} pattern-wrap`} aria-hidden="true"></div>
+          {d.images && d.images.length > 0 ? (
+            <div class="pd-cover">
+              <img src={d.images[0]} alt={d.title} />
+            </div>
+          ) : (
+            <div class={`pd-cover ${d.pattern} pattern-wrap`} aria-hidden="true"></div>
+          )}
           <div class="pd-info">
             <span class="cat">{d.category}</span>
             <h1>{d.title}</h1>
