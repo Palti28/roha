@@ -6,13 +6,8 @@ import Base from '../layouts/Base.astro';
 const allWork = await getCollection('work', ({ data }) => !data.draft);
 const sortedWork = allWork.sort((a, b) => a.data.order - b.data.order).slice(0, 2);
 
-const allProducts = await getCollection('products', ({ data }) => !data.draft);
-const sortedProducts = allProducts.sort((a, b) => a.data.order - b.data.order).slice(0, 3);
-
-const idr = (n: number, currency = "IDR") =>
-  currency === "IDR" && n >= 1000
-    ? `IDR ${Math.round(n / 1000)}k`
-    : `${currency} ${n.toLocaleString()}`;
+const allPortfolio = await getCollection('portfolio', ({ data }) => !data.draft);
+const sortedPortfolio = allPortfolio.sort((a, b) => a.data.order - b.data.order).slice(0, 3);
 ---
 
 <Base
@@ -219,25 +214,25 @@ const idr = (n: number, currency = "IDR") =>
     </div>
   </section>
 
-  <!-- =================== SHOP PREVIEW =================== -->
-  <section class="section" id="shop-preview">
+  <!-- =================== PORTFOLIO PREVIEW =================== -->
+  <section class="section" id="portfolio-preview">
     <div class="wrap">
       <div class="h-block" data-reveal>
         <div class="left">
-          <div class="eyebrow">02 — Digital Products</div>
-          <h2>Templates for those on a sprint.</h2>
+          <div class="eyebrow">02 — Design System &amp; Templates</div>
+          <h2>Templates we&rsquo;ve created.</h2>
         </div>
-        <p class="right">Files we&rsquo;ve used on our own client projects — now you can use them too. Tidy, documented, easy to fork.</p>
+        <p class="right">Design systems and templates from our client work — proven, documented, and ready to adapt. See how we approach systematic design.</p>
       </div>
 
       <div class="shop-grid">
         {
-          sortedProducts.map((product, i) => {
-            const d = product.data;
+          sortedPortfolio.map((item, i) => {
+            const d = item.data;
             const coverImage = d.images?.[0];
             return (
               <a
-                href={`/shop/${product.id}`}
+                href={`/portfolio/${item.id}`}
                 class="product-card"
                 data-reveal
                 data-reveal-delay={i * 100}
@@ -280,7 +275,7 @@ const idr = (n: number, currency = "IDR") =>
         }
       </div>
 
-      <a href="/shop" class="section-link" data-reveal>Shop Products <span class="arr">→</span></a>
+      <a href="/portfolio" class="section-link" data-reveal>View All Portfolio <span class="arr">→</span></a>
     </div>
   </section>
 

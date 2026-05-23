@@ -30,11 +30,11 @@ const work = defineCollection({
   }),
 });
 
-// ── PRODUCTS ────────────────────────────────────────────
-// Shop items. Mirrors the fields product-detail.html actually renders.
+// ── PORTFOLIO ──────────────────────────────────────────
+// Portfolio showcase items. Mirrors the fields portfolio-detail.html actually renders.
 // Spec table, "what's inside" list and trust points live in the BODY.
-const products = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/products' }),
+const portfolio = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/portfolio' }),
   schema: z.object({
     title: z.string(),
     // Category label above the title, e.g. "Website Template"
@@ -78,4 +78,4 @@ const products = defineCollection({
   }),
 });
 
-export const collections = { work, products };
+export const collections = { work, portfolio };

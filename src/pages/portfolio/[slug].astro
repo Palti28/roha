@@ -1,7 +1,7 @@
 ---
-// src/pages/shop/[slug].astro
-// Replaces the static product-detail.html.
-// Structure & class names mirror the original so shop.css + preview.js apply as-is.
+// src/pages/portfolio/[slug].astro
+// Portfolio item detail page.
+// Structure & class names mirror the original so portfolio.css + preview.js apply as-is.
 
 import { Image } from 'astro:assets';
 import { getCollection, render } from 'astro:content';
@@ -10,14 +10,14 @@ import { productSchema } from '../../utils/schema';
 import { site } from '../../data/site';
 
 export async function getStaticPaths() {
-  const all = (await getCollection('products', ({ data }) => !data.draft))
+  const all = (await getCollection('portfolio', ({ data }) => !data.draft))
     .sort((a, b) => a.data.order - b.data.order);
 
   return all.map((entry) => ({
     params: { slug: entry.id },
     props: {
       entry,
-      // "Related" = up to 3 other products, in order, wrapping around.
+      // "Related" = up to 3 other portfolio items, in order, wrapping around.
       related: all.filter((p) => p.id !== entry.id).slice(0, 3),
     },
   }));
@@ -27,15 +27,13 @@ const { entry, related } = Astro.props;
 const { Content } = await render(entry);
 const d = entry.data;
 
-const buyLabel = d.format === 'figma' ? 'Buy on Mayar' : 'Buy Template';
-
 // Generate product schema
 const productSchemaData = productSchema({
   title: d.title,
   summary: d.summary,
   category: d.category,
   image: d.images?.[0],
-  url: `/shop/${entry.id}/`,
+  url: `/portfolio/${entry.id}/`,
   siteUrl: site.url,
 });
 ---
@@ -58,20 +56,13 @@ const productSchemaData = productSchema({
         </div>
         <div class="pd-stickybar-actions">
           {d.previewPath && (
-            <button type="button" class="btn btn-secondary btn-sm"
+            <button type="button" class="btn btn-primary btn-sm"
               data-preview-trigger
               data-preview-url={`templates/${d.previewPath}/index.html`}
               data-preview-title={d.title}
-              data-preview-cat={d.category}
-              data-preview-buy={d.buyUrl}
-              data-preview-buy-label={buyLabel}>
+              data-preview-cat={d.category}>
               Preview
             </button>
-          )}
-          {d.buyUrl && (
-            <a href={d.buyUrl} class="btn btn-primary btn-sm" target="_blank" rel="noopener">
-              Buy <span class="arr">→</span>
-            </a>
           )}
         </div>
       </div>
@@ -94,20 +85,13 @@ const productSchemaData = productSchema({
             <p class="tagline">{d.tagline}</p>
 
             <div class="pd-actions">
-              {d.buyUrl && (
-                <a href={d.buyUrl} class="btn btn-primary" target="_blank" rel="noopener">
-                  {buyLabel} <span class="arr">→</span>
-                </a>
-              )}
               {d.previewPath && (
-                <button type="button" class="btn btn-secondary"
+                <button type="button" class="btn btn-primary"
                   data-preview-trigger
                   data-preview-url={`templates/${d.previewPath}/index.html`}
                   data-preview-title={d.title}
-                  data-preview-cat={d.category}
-                  data-preview-buy={d.buyUrl}
-                  data-preview-buy-label={buyLabel}>
-                  HTML Preview
+                  data-preview-cat={d.category}>
+                  Preview
                 </button>
               )}
             </div>
@@ -121,9 +105,9 @@ const productSchemaData = productSchema({
             )}
 
             <div class="pd-trust">
-              <div><span class="ok">✓</span> Instant download after payment</div>
-              <div><span class="ok">✓</span> Free lifetime updates</div>
               <div><span class="ok">✓</span> Personal &amp; commercial license</div>
+              <div><span class="ok">✓</span> Well-documented &amp; organized</div>
+              <div><span class="ok">✓</span> Ready to adapt &amp; customize</div>
             </div>
           </div>
         </div>
@@ -196,7 +180,7 @@ const productSchemaData = productSchema({
               <h2>You might like these too.</h2>
             </div>
             <p class="right">
-              <a href="/shop/" class="section-link" style="margin-top:0;">
+              <a href="/portfolio/" class="section-link" style="margin-top:0;">
                 See all products <span class="arr">→</span>
               </a>
             </p>
@@ -206,7 +190,7 @@ const productSchemaData = productSchema({
             {related.map((p) => {
               const coverImage = p.data.images?.[0];
               return (
-                <a href={`/shop/${p.id}/`} class="product-card">
+                <a href={`/portfolio/${p.id}/`} class="product-card">
                   {coverImage ? (
                     <div class="cover">
                       <img src={coverImage} alt={p.data.title} width={350} height={280} loading="lazy" />
