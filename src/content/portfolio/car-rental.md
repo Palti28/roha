@@ -1,10 +1,8 @@
 ---
-title: "Car Rental Template"
+title: "Car Rental"
 category: "Website Template"
 tagline: "A clean booking site for vehicle hire businesses."
 summary: "A conversion-focused website template for car rental and vehicle hire businesses."
-price: 240000
-priceOriginal: 320000
 currency: "IDR"
 format: "html"
 status: "available"

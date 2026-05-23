@@ -6,13 +6,8 @@ import Base from '../layouts/Base.astro';
 const allWork = await getCollection('work', ({ data }) => !data.draft);
 const sortedWork = allWork.sort((a, b) => a.data.order - b.data.order).slice(0, 2);
 
-const allProducts = await getCollection('products', ({ data }) => !data.draft);
-const sortedProducts = allProducts.sort((a, b) => a.data.order - b.data.order).slice(0, 3);
-
-const idr = (n: number, currency = "IDR") =>
-  currency === "IDR" && n >= 1000
-    ? `IDR ${Math.round(n / 1000)}k`
-    : `${currency} ${n.toLocaleString()}`;
+const allPortfolio = await getCollection('portfolio', ({ data }) => !data.draft);
+const sortedPortfolio = allPortfolio.sort((a, b) => a.data.order - b.data.order).slice(0, 3);
 ---
 
 <Base
@@ -24,7 +19,7 @@ const idr = (n: number, currency = "IDR") =>
   <!-- =================== HERO =================== -->
   <section class="home-hero">
     <div class="wrap">
-      <div class="eyebrow">Design Studio · Est. 2026</div>
+      <div class="eyebrow">Design Studio · Est. 2020</div>
 
       <div class="home-hero-grid">
         <h1 class="display">Digital design<br/>made <em class="italic-accent">warm</em>,<br/>shipped tidy.</h1>
@@ -50,6 +45,135 @@ const idr = (n: number, currency = "IDR") =>
     </div>
   </section>
 
+  <!-- =================== PRINCIPLES =================== -->
+  <section class="section">
+    <div class="wrap">
+      <div class="h-block" data-reveal>
+        <div class="left">
+          <div class="eyebrow">Our Approach</div>
+          <h2>How we work.</h2>
+        </div>
+        <p class="right">Four things that guide every project. Design that means something, built with intention.</p>
+      </div>
+
+      <div class="principles-grid">
+        <div class="principle" data-reveal>
+          <div class="principle-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 3"/></svg>
+          </div>
+          <h3>Quiet on the surface, considered underneath.</h3>
+          <p>Design that doesn&rsquo;t shout, but every choice has a reason. Spacing, sizing, color — we can explain all of it.</p>
+        </div>
+        <div class="principle" data-reveal data-reveal-delay="100">
+          <div class="principle-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+          <h3>Warmth is a discipline.</h3>
+          <p>Warmth isn&rsquo;t an accident. It&rsquo;s chosen, measured, intentional — because we meant it, not by default.</p>
+        </div>
+        <div class="principle" data-reveal data-reveal-delay="200">
+          <div class="principle-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+          </div>
+          <h3>Systems, not decoration.</h3>
+          <p>We build design systems, not one pretty page. Components, tokens, documentation — so it feels right a year from now.</p>
+        </div>
+        <div class="principle" data-reveal data-reveal-delay="300">
+          <div class="principle-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </div>
+          <h3>Ship it, don&rsquo;t polish it forever.</h3>
+          <p>Shipped &gt; perfect. Better a 1.0 that&rsquo;s live than a 0.9 that&rsquo;s delayed. What matters is knowing what to improve next.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =================== STATS =================== -->
+  <section class="section">
+    <div class="wrap">
+      <div class="stats-grid">
+        <div class="stat-card" data-reveal>
+          <div class="stat-number">20+</div>
+          <div class="stat-label">Projects Shipped</div>
+        </div>
+        <div class="stat-card" data-reveal data-reveal-delay="100">
+          <div class="stat-number">4+</div>
+          <div class="stat-label">Years in Business</div>
+        </div>
+        <div class="stat-card" data-reveal data-reveal-delay="200">
+          <div class="stat-number">15+</div>
+          <div class="stat-label">Happy Clients</div>
+        </div>
+        <div class="stat-card" data-reveal data-reveal-delay="300">
+          <div class="stat-number">100%</div>
+          <div class="stat-label">On-Time Delivery</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =================== TESTIMONIALS =================== -->
+  <section class="section testimonials-section">
+    <div class="wrap">
+      <div class="h-block" data-reveal>
+        <div class="left">
+          <div class="eyebrow">Testimonials</div>
+          <h2>What clients say.</h2>
+        </div>
+      </div>
+    </div>
+
+    <div class="marquee-outer" aria-label="Client testimonials">
+      <div class="marquee-track">
+        <!-- original set -->
+        <div class="testimonial-card">
+          <p class="quote">&ldquo;Roha didn&rsquo;t just build us a website — they built us a system. Every decision was intentional, and it shows.&rdquo;</p>
+          <div class="testimonial-meta">
+            <div class="testimonial-name">Sarah Chen</div>
+            <div class="testimonial-role">Founder, Bloom Studio</div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <p class="quote">&ldquo;The design felt warm and approachable, exactly what we needed. Plus, the handoff documentation made it easy for our dev team.&rdquo;</p>
+          <div class="testimonial-meta">
+            <div class="testimonial-name">Adi Wijaya</div>
+            <div class="testimonial-role">Product Lead, Startup ID</div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <p class="quote">&ldquo;We loved the process. They asked the right questions, showed us multiple directions, and were transparent about tradeoffs.&rdquo;</p>
+          <div class="testimonial-meta">
+            <div class="testimonial-name">Maya Patel</div>
+            <div class="testimonial-role">CEO, Design Market</div>
+          </div>
+        </div>
+        <!-- duplicate for seamless loop -->
+        <div class="testimonial-card" aria-hidden="true">
+          <p class="quote">&ldquo;Roha didn&rsquo;t just build us a website — they built us a system. Every decision was intentional, and it shows.&rdquo;</p>
+          <div class="testimonial-meta">
+            <div class="testimonial-name">Sarah Chen</div>
+            <div class="testimonial-role">Founder, Bloom Studio</div>
+          </div>
+        </div>
+        <div class="testimonial-card" aria-hidden="true">
+          <p class="quote">&ldquo;The design felt warm and approachable, exactly what we needed. Plus, the handoff documentation made it easy for our dev team.&rdquo;</p>
+          <div class="testimonial-meta">
+            <div class="testimonial-name">Adi Wijaya</div>
+            <div class="testimonial-role">Product Lead, Startup ID</div>
+          </div>
+        </div>
+        <div class="testimonial-card" aria-hidden="true">
+          <p class="quote">&ldquo;We loved the process. They asked the right questions, showed us multiple directions, and were transparent about tradeoffs.&rdquo;</p>
+          <div class="testimonial-meta">
+            <div class="testimonial-name">Maya Patel</div>
+            <div class="testimonial-role">CEO, Design Market</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- =================== FEATURED WORK =================== -->
   <section class="section" id="work-preview">
     <div class="wrap">
@@ -61,52 +185,54 @@ const idr = (n: number, currency = "IDR") =>
         <p class="right">Two projects — a small list, but each has a story. Pick one to read in detail.</p>
       </div>
 
-      <div class="featured-grid">
-        {
-          sortedWork.map((project, i) => {
-            const { title, summary, service, year, pattern, coverImage } = project.data;
-            return (
-              <a href={`/work/${project.id}`} class="project-card" data-reveal data-reveal-delay={i * 120}>
-                {coverImage ? (
-                  <img src={coverImage} alt={title} class="thumb" width={400} height={300} loading="lazy" />
-                ) : (
-                  <div class={`thumb ${pattern} pattern-wrap`} aria-hidden="true"></div>
-                )}
-                <div class="meta-row">
-                  <span class="tag">{service}</span>
-                  <span class="year">{year}</span>
-                </div>
-                <h3>{title}</h3>
-                <p class="summary">{summary}</p>
-              </a>
-            );
-          })
-        }
+      <div class="featured-scroll-outer">
+        <div class="featured-grid">
+          {
+            sortedWork.map((project, i) => {
+              const { title, summary, service, year, pattern, coverImage } = project.data;
+              return (
+                <a href={`/work/${project.id}`} class="project-card" data-reveal data-reveal-delay={i * 120}>
+                  {coverImage ? (
+                    <img src={coverImage} alt={title} class="thumb" width={400} height={300} loading="lazy" />
+                  ) : (
+                    <div class={`thumb ${pattern} pattern-wrap`} aria-hidden="true"></div>
+                  )}
+                  <div class="meta-row">
+                    <span class="tag">{service}</span>
+                    <span class="year">{year}</span>
+                  </div>
+                  <h3>{title}</h3>
+                  <p class="summary">{summary}</p>
+                </a>
+              );
+            })
+          }
+        </div>
       </div>
 
       <a href="/work" class="section-link" data-reveal>All Work <span class="arr">→</span></a>
     </div>
   </section>
 
-  <!-- =================== SHOP PREVIEW =================== -->
-  <section class="section" id="shop-preview">
+  <!-- =================== PORTFOLIO PREVIEW =================== -->
+  <section class="section" id="portfolio-preview">
     <div class="wrap">
       <div class="h-block" data-reveal>
         <div class="left">
-          <div class="eyebrow">02 — Digital Products</div>
-          <h2>Templates for those on a sprint.</h2>
+          <div class="eyebrow">02 — Design System &amp; Kits</div>
+          <h2>Design kits we&rsquo;ve created.</h2>
         </div>
-        <p class="right">Files we&rsquo;ve used on our own client projects — now you can use them too. Tidy, documented, easy to fork.</p>
+        <p class="right">Design systems and kits from our client work — proven, documented, and ready to adapt. See how we approach systematic design.</p>
       </div>
 
       <div class="shop-grid">
         {
-          sortedProducts.map((product, i) => {
-            const d = product.data;
+          sortedPortfolio.map((item, i) => {
+            const d = item.data;
             const coverImage = d.images?.[0];
             return (
               <a
-                href={`/shop/${product.id}`}
+                href={`/portfolio/${item.id}`}
                 class="product-card"
                 data-reveal
                 data-reveal-delay={i * 100}
@@ -149,7 +275,7 @@ const idr = (n: number, currency = "IDR") =>
         }
       </div>
 
-      <a href="/shop" class="section-link" data-reveal>Shop Products <span class="arr">→</span></a>
+      <a href="/portfolio" class="section-link" data-reveal>View All Portfolio <span class="arr">→</span></a>
     </div>
   </section>
 
@@ -175,7 +301,6 @@ const idr = (n: number, currency = "IDR") =>
           </div>
           <h3>UX Design</h3>
           <p>Research, wireframing, user flow, and prototyping for products still looking for fit.</p>
-          <div class="price"><span>Starting at</span><span class="amount">IDR 8M <span class="arr">→</span></span></div>
         </a>
 
         <a href="/services#ui" class="svc-tile" data-reveal data-reveal-delay="80">
@@ -187,7 +312,6 @@ const idr = (n: number, currency = "IDR") =>
           </div>
           <h3>UI Design</h3>
           <p>Visual design, design systems, and component libraries that are easy to maintain.</p>
-          <div class="price"><span>Starting at</span><span class="amount">IDR 6M <span class="arr">→</span></span></div>
         </a>
 
         <a href="/services#web" class="svc-tile" data-reveal data-reveal-delay="160">
@@ -199,7 +323,6 @@ const idr = (n: number, currency = "IDR") =>
           </div>
           <h3>Website Development</h3>
           <p>End-to-end — from company profile to dashboards that need real interactivity.</p>
-          <div class="price"><span>Starting at</span><span class="amount">IDR 15M <span class="arr">→</span></span></div>
         </a>
 
         <a href="/services#landing" class="svc-tile" data-reveal data-reveal-delay="240">
@@ -211,7 +334,6 @@ const idr = (n: number, currency = "IDR") =>
           </div>
           <h3>Landing Page</h3>
           <p>A single page that converts — from design to live in 1–2 weeks.</p>
-          <div class="price"><span>Starting at</span><span class="amount">IDR 5M <span class="arr">→</span></span></div>
         </a>
 
         <a href="/services#brand" class="svc-tile" data-reveal data-reveal-delay="320">
@@ -223,7 +345,6 @@ const idr = (n: number, currency = "IDR") =>
           </div>
           <h3>Brand &amp; Logo Guideline</h3>
           <p>Logo, brand book, and a visual system ready to hand off to any team.</p>
-          <div class="price"><span>Starting at</span><span class="amount">IDR 4M <span class="arr">→</span></span></div>
         </a>
 
         <a href="/about#contact" class="svc-tile" data-reveal data-reveal-delay="400" style="background:var(--ink); color:var(--cream); border-color:var(--ink);">
@@ -235,7 +356,6 @@ const idr = (n: number, currency = "IDR") =>
           </div>
           <h3 style="color:var(--cream);">Something else?</h3>
           <p style="color:var(--cream); opacity:.7;">If what you need isn&rsquo;t on the list, let&rsquo;s talk first. We&rsquo;ll be honest about whether we can help.</p>
-          <div class="price" style="border-color:rgba(246,239,224,.18); color:var(--terracotta-soft);"><span>Discuss</span><span class="amount" style="color:var(--cream);">Contact <span class="arr">→</span></span></div>
         </a>
 
       </div>

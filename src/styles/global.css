@@ -125,15 +125,25 @@ button {
 
 @media (max-width: 768px) {
   .section {
-    padding: 48px 0;
+    padding: 32px 0;
   }
 
   .section-tight {
-    padding: 32px 0;
+    padding: 20px 0;
   }
 
   :root {
     --gutter: 20px;
+  }
+}
+
+@media (max-width: 540px) {
+  .section {
+    padding: 24px 0;
+  }
+
+  .section-tight {
+    padding: 16px 0;
   }
 }
 
