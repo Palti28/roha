@@ -1,10 +1,8 @@
 ---
-title: "Toys Charm Kit"
+title: "Toys Charm"
 category: "Figma Template"
 tagline: "A playful but tidy kit for toy & kids' brands."
 summary: "A Figma template for toy shops and children's product brands — playful, never cluttered."
-price: 230000
-priceOriginal: 310000
 currency: "IDR"
 format: "figma"
 status: "available"

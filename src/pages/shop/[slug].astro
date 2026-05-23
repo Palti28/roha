@@ -27,20 +27,12 @@ const { entry, related } = Astro.props;
 const { Content } = await render(entry);
 const d = entry.data;
 
-// IDR formatter: 240000 -> "IDR 240k"
-const idr = (n: number) =>
-  d.currency === 'IDR' && n >= 1000
-    ? `IDR ${Math.round(n / 1000)}k`
-    : `${d.currency} ${n.toLocaleString()}`;
-
 const buyLabel = d.format === 'figma' ? 'Buy on Mayar' : 'Buy Template';
 
 // Generate product schema
 const productSchemaData = productSchema({
   title: d.title,
   summary: d.summary,
-  price: d.price,
-  currency: d.currency,
   category: d.category,
   image: d.images?.[0],
   url: `/shop/${entry.id}/`,
@@ -100,11 +92,6 @@ const productSchemaData = productSchema({
             <span class="cat">{d.category}</span>
             <h1>{d.title}</h1>
             <p class="tagline">{d.tagline}</p>
-
-            <div class="pd-price">
-              {d.priceOriginal && <span class="crossed">{idr(d.priceOriginal)}</span>}
-              {idr(d.price)}
-            </div>
 
             <div class="pd-actions">
               {d.buyUrl && (
@@ -223,7 +210,6 @@ const productSchemaData = productSchema({
                   <span class="cat">{p.data.category}</span>
                   <div class="name-row">
                     <h3 class="name">{p.data.title}</h3>
-                    <span class="price">{idr(p.data.price)}</span>
                   </div>
                 </div>
               </a>

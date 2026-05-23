@@ -45,8 +45,8 @@ const products = defineCollection({
     summary: z.string(),
 
     // ── Pricing ──
-    // Final selling price in IDR, e.g. 240000
-    price: z.number(),
+    // Final selling price in IDR, e.g. 240000 (optional)
+    price: z.number().optional(),
     // Optional original price for the crossed-out "was" figure
     priceOriginal: z.number().optional(),
     currency: z.string().default('IDR'),
