@@ -203,17 +203,26 @@ const productSchemaData = productSchema({
           </div>
 
           <div class="pd-related">
-            {related.map((p) => (
-              <a href={`/shop/${p.id}/`} class="product-card">
-                <div class={`cover ${p.data.pattern} pattern-wrap`} aria-hidden="true"></div>
-                <div class="body">
-                  <span class="cat">{p.data.category}</span>
-                  <div class="name-row">
-                    <h3 class="name">{p.data.title}</h3>
+            {related.map((p) => {
+              const coverImage = p.data.images?.[0];
+              return (
+                <a href={`/shop/${p.id}/`} class="product-card">
+                  {coverImage ? (
+                    <div class="cover">
+                      <img src={coverImage} alt={p.data.title} width={350} height={280} loading="lazy" />
+                    </div>
+                  ) : (
+                    <div class={`cover ${p.data.pattern} pattern-wrap`} aria-hidden="true"></div>
+                  )}
+                  <div class="body">
+                    <span class="cat">{p.data.category}</span>
+                    <div class="name-row">
+                      <h3 class="name">{p.data.title}</h3>
+                    </div>
                   </div>
-                </div>
-              </a>
-            ))}
+                </a>
+              );
+            })}
           </div>
         </div>
       </section>
