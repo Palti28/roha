@@ -437,8 +437,8 @@
   .footer-brand { grid-column: span 2; }
 }
 @media (max-width: 540px) {
-  .footer-grid { grid-template-columns: 1fr; }
-  .footer-brand { grid-column: span 1; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
+  .footer-brand { grid-column: span 2; }
 }
 
 /* ---------- CTA panel (terracotta block) ---------- */
