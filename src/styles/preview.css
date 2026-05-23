@@ -409,6 +409,6 @@ body.pv-lock { overflow: hidden; }
 
 @media (max-width: 640px) {
   .pv-stage { padding: 0; }
-  .pv-modal { background: transparent; }
+  .pv-modal { background: transparent; border: none; box-shadow: none; }
   .pv-head { padding: 0; background: transparent; border-bottom: none; }
 }
