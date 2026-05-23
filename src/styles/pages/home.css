@@ -317,4 +317,122 @@
 }
 .section-link:hover { gap: 10px; color: var(--clay); border-bottom-color: var(--clay); }
 
+/* ---------- Principles grid ---------- */
+.principles-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px 48px;
+}
+@media (max-width: 880px) { .principles-grid { grid-template-columns: 1fr; gap: 32px; } }
+
+.principle {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.principle .num {
+  font-family: 'Geist Mono', monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  color: var(--clay);
+  opacity: .7;
+}
+.principle h3 {
+  font-family: 'Bricolage Grotesque', serif;
+  font-size: 20px;
+  letter-spacing: -.015em;
+  line-height: 1.2;
+  font-weight: 500;
+  margin: 0;
+  color: var(--ink);
+}
+.principle p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--ink);
+  opacity: .7;
+  margin: 0;
+}
+
+/* ---------- Stats grid ---------- */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  text-align: center;
+}
+@media (max-width: 880px) { .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; } }
+@media (max-width: 540px) { .stats-grid { grid-template-columns: 1fr; } }
+
+.stat-card {
+  padding: 32px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+}
+.stat-number {
+  font-family: 'Bricolage Grotesque', serif;
+  font-size: clamp(32px, 8vw, 48px);
+  font-weight: 600;
+  letter-spacing: -.02em;
+  color: var(--terracotta);
+  line-height: 1;
+}
+.stat-label {
+  font-family: 'Geist', sans-serif;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--clay);
+  opacity: .8;
+}
+
+/* ---------- Testimonials grid ---------- */
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+@media (max-width: 880px) { .testimonials-grid { grid-template-columns: 1fr; gap: 24px; } }
+
+.testimonial-card {
+  background: var(--paper-tint);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-sm);
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.testimonial-card .quote {
+  font-family: 'Instrument Serif', serif;
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--ink);
+  font-style: italic;
+  margin: 0;
+}
+.testimonial-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.testimonial-name {
+  font-family: 'Bricolage Grotesque', serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink);
+}
+.testimonial-role {
+  font-family: 'Geist Mono', monospace;
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  color: var(--clay);
+  opacity: .7;
+}
+
 /* CTA wrap + compact panel styles moved to components.css (shared across pages). */
