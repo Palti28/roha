@@ -379,6 +379,7 @@
   margin: 0 0 14px;
   line-height: 1.25;
   max-width: 28ch;
+  font-weight: 300;
 }
 .footer-brand p {
   font-size: 14px;
