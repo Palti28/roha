@@ -379,6 +379,7 @@
   margin: 0 0 14px;
   line-height: 1.25;
   max-width: 28ch;
+  font-weight: 300;
 }
 .footer-brand p {
   font-size: 14px;
@@ -437,8 +438,8 @@
   .footer-brand { grid-column: span 2; }
 }
 @media (max-width: 540px) {
-  .footer-grid { grid-template-columns: 1fr; }
-  .footer-brand { grid-column: span 1; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
+  .footer-brand { grid-column: span 2; }
 }
 
 /* ---------- CTA panel (terracotta block) ---------- */

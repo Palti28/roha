@@ -1,10 +1,8 @@
 ---
-title: "Frozen Food Template"
+title: "Frozen Food"
 category: "Website Template"
 tagline: "A warm storefront for frozen food sellers."
 summary: "An appetising website template for frozen food brands and home-based food sellers."
-price: 220000
-priceOriginal: 300000
 currency: "IDR"
 format: "html"
 status: "available"

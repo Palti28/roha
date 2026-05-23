@@ -3,8 +3,11 @@
 // Replaces the static work-detail.html.
 // Structure & class names mirror the original so work.css applies as-is.
 
+import { Image } from 'astro:assets';
 import { getCollection, render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
+import { creativeWorkSchema } from '../../utils/schema';
+import { site } from '../../data/site';
 
 export async function getStaticPaths() {
   const entries = (await getCollection('work', ({ data }) => !data.draft))
@@ -24,9 +27,25 @@ const { entry, next } = Astro.props;
 const { Content } = await render(entry);
 const d = entry.data;
 const nextSame = next.id === entry.id; // true only if there is just one entry
+
+// Generate creative work schema
+const workSchema = creativeWorkSchema({
+  title: d.title,
+  summary: d.summary,
+  category: d.service || d.category,
+  year: d.year,
+  image: d.coverImage,
+  url: `/work/${entry.id}/`,
+  siteUrl: site.url,
+});
 ---
 
-<Base title={`${d.title} — Case Study — Roha Design`}>
+<Base
+  title={`${d.title} — Case Study`}
+  description={d.summary}
+  image={d.coverImage}
+  schema={workSchema}
+>
   <main id="main">
 
     {/* HEADER + COVER */}
@@ -45,7 +64,7 @@ const nextSame = next.id === entry.id; // true only if there is just one entry
 
         {d.coverImage ? (
           <div class="wd-cover-frame wd-cover-image">
-            <img src={d.coverImage} alt={d.title} loading="lazy" />
+            <img src={d.coverImage} alt={d.title} loading="lazy" width={800} height={500} />
           </div>
         ) : (
           <div class={`wd-cover-frame ${d.pattern} pattern-wrap`} aria-hidden="true"></div>
@@ -67,7 +86,7 @@ const nextSame = next.id === entry.id; // true only if there is just one entry
           <div class="wd-images-grid">
             {d.images.map((img) => (
               <div class="wd-image-item">
-                <img src={img} alt="Project showcase" loading="lazy" />
+                <img src={img} alt="Project showcase" loading="lazy" width={600} height={400} />
               </div>
             ))}
           </div>

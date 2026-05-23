@@ -1,20 +1,23 @@
 ---
-// src/pages/shop/[slug].astro
-// Replaces the static product-detail.html.
-// Structure & class names mirror the original so shop.css + preview.js apply as-is.
+// src/pages/portfolio/[slug].astro
+// Portfolio item detail page.
+// Structure & class names mirror the original so portfolio.css + preview.js apply as-is.
 
+import { Image } from 'astro:assets';
 import { getCollection, render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
+import { productSchema } from '../../utils/schema';
+import { site } from '../../data/site';
 
 export async function getStaticPaths() {
-  const all = (await getCollection('products', ({ data }) => !data.draft))
+  const all = (await getCollection('portfolio', ({ data }) => !data.draft))
     .sort((a, b) => a.data.order - b.data.order);
 
   return all.map((entry) => ({
     params: { slug: entry.id },
     props: {
       entry,
-      // "Related" = up to 3 other products, in order, wrapping around.
+      // "Related" = up to 3 other portfolio items, in order, wrapping around.
       related: all.filter((p) => p.id !== entry.id).slice(0, 3),
     },
   }));
@@ -24,16 +27,24 @@ const { entry, related } = Astro.props;
 const { Content } = await render(entry);
 const d = entry.data;
 
-// IDR formatter: 240000 -> "IDR 240k"
-const idr = (n: number) =>
-  d.currency === 'IDR' && n >= 1000
-    ? `IDR ${Math.round(n / 1000)}k`
-    : `${d.currency} ${n.toLocaleString()}`;
-
-const buyLabel = d.format === 'figma' ? 'Buy on Mayar' : 'Buy Template';
+// Generate product schema
+const productSchemaData = productSchema({
+  title: d.title,
+  summary: d.summary,
+  category: d.category,
+  image: d.images?.[0],
+  url: `/portfolio/${entry.id}/`,
+  siteUrl: site.url,
+});
 ---
 
-<Base title={`${d.title} — ${d.category} — Roha Design`}>
+<Base
+  title={`${d.title} — ${d.category}`}
+  description={d.summary}
+  image={d.images?.[0]}
+  type="product"
+  schema={productSchemaData}
+>
   <main id="main">
 
     {/* STICKY PRODUCT BAR */}
@@ -45,20 +56,13 @@ const buyLabel = d.format === 'figma' ? 'Buy on Mayar' : 'Buy Template';
         </div>
         <div class="pd-stickybar-actions">
           {d.previewPath && (
-            <button type="button" class="btn btn-secondary btn-sm"
+            <button type="button" class="btn btn-primary btn-sm"
               data-preview-trigger
               data-preview-url={`templates/${d.previewPath}/index.html`}
               data-preview-title={d.title}
-              data-preview-cat={d.category}
-              data-preview-buy={d.buyUrl}
-              data-preview-buy-label={buyLabel}>
+              data-preview-cat={d.category}>
               Preview
             </button>
-          )}
-          {d.buyUrl && (
-            <a href={d.buyUrl} class="btn btn-primary btn-sm" target="_blank" rel="noopener">
-              Buy <span class="arr">→</span>
-            </a>
           )}
         </div>
       </div>
@@ -70,7 +74,7 @@ const buyLabel = d.format === 'figma' ? 'Buy on Mayar' : 'Buy Template';
         <div class="pd-hero-grid">
           {d.images && d.images.length > 0 ? (
             <div class="pd-cover">
-              <img src={d.images[0]} alt={d.title} />
+              <img src={d.images[0]} alt={d.title} width={500} height={400} />
             </div>
           ) : (
             <div class={`pd-cover ${d.pattern} pattern-wrap`} aria-hidden="true"></div>
@@ -80,26 +84,14 @@ const buyLabel = d.format === 'figma' ? 'Buy on Mayar' : 'Buy Template';
             <h1>{d.title}</h1>
             <p class="tagline">{d.tagline}</p>
 
-            <div class="pd-price">
-              {d.priceOriginal && <span class="crossed">{idr(d.priceOriginal)}</span>}
-              {idr(d.price)}
-            </div>
-
             <div class="pd-actions">
-              {d.buyUrl && (
-                <a href={d.buyUrl} class="btn btn-primary" target="_blank" rel="noopener">
-                  {buyLabel} <span class="arr">→</span>
-                </a>
-              )}
               {d.previewPath && (
-                <button type="button" class="btn btn-secondary"
+                <button type="button" class="btn btn-primary"
                   data-preview-trigger
                   data-preview-url={`templates/${d.previewPath}/index.html`}
                   data-preview-title={d.title}
-                  data-preview-cat={d.category}
-                  data-preview-buy={d.buyUrl}
-                  data-preview-buy-label={buyLabel}>
-                  HTML Preview
+                  data-preview-cat={d.category}>
+                  Preview
                 </button>
               )}
             </div>
@@ -113,9 +105,9 @@ const buyLabel = d.format === 'figma' ? 'Buy on Mayar' : 'Buy Template';
             )}
 
             <div class="pd-trust">
-              <div><span class="ok">✓</span> Instant download after payment</div>
-              <div><span class="ok">✓</span> Free lifetime updates</div>
               <div><span class="ok">✓</span> Personal &amp; commercial license</div>
+              <div><span class="ok">✓</span> Well-documented &amp; organized</div>
+              <div><span class="ok">✓</span> Ready to adapt &amp; customize</div>
             </div>
           </div>
         </div>
@@ -129,7 +121,7 @@ const buyLabel = d.format === 'figma' ? 'Buy on Mayar' : 'Buy Template';
           <div class="preview-grid">
             {d.images.map((img, i) => (
               <div class="preview-item" data-reveal data-reveal-delay={i * 100}>
-                <img src={img} alt="Product preview" loading="lazy" />
+                <img src={img} alt="Product preview" loading="lazy" width={600} height={400} />
               </div>
             ))}
           </div>
@@ -188,25 +180,33 @@ const buyLabel = d.format === 'figma' ? 'Buy on Mayar' : 'Buy Template';
               <h2>You might like these too.</h2>
             </div>
             <p class="right">
-              <a href="/shop/" class="section-link" style="margin-top:0;">
+              <a href="/portfolio/" class="section-link" style="margin-top:0;">
                 See all products <span class="arr">→</span>
               </a>
             </p>
           </div>
 
           <div class="pd-related">
-            {related.map((p) => (
-              <a href={`/shop/${p.id}/`} class="product-card">
-                <div class={`cover ${p.data.pattern} pattern-wrap`} aria-hidden="true"></div>
-                <div class="body">
-                  <span class="cat">{p.data.category}</span>
-                  <div class="name-row">
-                    <h3 class="name">{p.data.title}</h3>
-                    <span class="price">{idr(p.data.price)}</span>
+            {related.map((p) => {
+              const coverImage = p.data.images?.[0];
+              return (
+                <a href={`/portfolio/${p.id}/`} class="product-card">
+                  {coverImage ? (
+                    <div class="cover">
+                      <img src={coverImage} alt={p.data.title} width={350} height={280} loading="lazy" />
+                    </div>
+                  ) : (
+                    <div class={`cover ${p.data.pattern} pattern-wrap`} aria-hidden="true"></div>
+                  )}
+                  <div class="body">
+                    <span class="cat">{p.data.category}</span>
+                    <div class="name-row">
+                      <h3 class="name">{p.data.title}</h3>
+                    </div>
                   </div>
-                </div>
-              </a>
-            ))}
+                </a>
+              );
+            })}
           </div>
         </div>
       </section>

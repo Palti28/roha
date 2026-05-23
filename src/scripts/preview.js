@@ -59,8 +59,9 @@ document.addEventListener('DOMContentLoaded', () => {
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="7" y="3" width="10" height="18" rx="2"/><path d="M11 18h2"/></svg>
             </button>
           </div>
-          <a class="pv-newtab" data-pv-newtab target="_blank" rel="noopener" aria-label="Buka preview di tab baru" title="Buka di tab baru">
+          <a class="pv-newtab" data-pv-newtab target="_blank" rel="noopener" aria-label="Open preview in new tab" title="Open in new tab">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 4h6v6M10 14L20 4M19 13v6a1 1 0 01-1 1H5a1 1 0 01-1-1V6a1 1 0 011-1h6"/></svg>
+            <span>New Tab</span>
           </a>
           <button type="button" class="pv-close" aria-label="Close preview" data-pv-close>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 6l12 12M18 6L6 18"/></svg>

@@ -2,7 +2,10 @@
 import Base from '../layouts/Base.astro';
 ---
 
-<Base title="About">
+<Base
+  title="About"
+  description="Learn about Roha — a design studio focused on warm, thoughtful digital products for founders and indie makers."
+>
   <main id="main">
 
     <!-- =================== HERO =================== -->
@@ -148,11 +151,11 @@ import Base from '../layouts/Base.astro';
           <div data-reveal>
             <h3>What we do.</h3>
             <ul>
-              <li><a href="/services#ux">UX Design</a> <span class="tag">From IDR 8M</span></li>
-              <li><a href="/services#ui">UI Design</a> <span class="tag">From IDR 6M</span></li>
-              <li><a href="/services#web">Website Development</a> <span class="tag">From IDR 15M</span></li>
-              <li><a href="/services#landing">Landing Page Development</a> <span class="tag">From IDR 5M</span></li>
-              <li><a href="/services#brand">Brand &amp; Logo Guideline</a> <span class="tag">From IDR 4M</span></li>
+              <li><a href="/services#ux">UX Design</a></li>
+              <li><a href="/services#ui">UI Design</a></li>
+              <li><a href="/services#web">Website Development</a></li>
+              <li><a href="/services#landing">Landing Page Development</a></li>
+              <li><a href="/services#brand">Brand &amp; Logo Guideline</a></li>
             </ul>
           </div>
           <div data-reveal data-reveal-delay="150">
@@ -217,10 +220,9 @@ import Base from '../layouts/Base.astro';
                 <label for="budget">Budget</label>
                 <select id="budget" name="budget" required>
                   <option value="">Pick one</option>
-                  <option>&lt; IDR 10M</option>
-                  <option>IDR 10–30M</option>
-                  <option>IDR 30–50M</option>
-                  <option>IDR 50M+</option>
+                  <option>Small</option>
+                  <option>Medium</option>
+                  <option>Large</option>
                   <option>Not sure yet</option>
                 </select>
                 <span class="field-error">Please pick a budget range.</span>

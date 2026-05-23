@@ -1,15 +1,11 @@
 ---
+import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 import Base from "../layouts/Base.astro";
 
-const products = (
-  await getCollection("products", ({ data }) => !data.draft)
+const portfolio = (
+  await getCollection("portfolio", ({ data }) => !data.draft)
 ).sort((a, b) => a.data.order - b.data.order);
-
-const idr = (n: number, currency = "IDR") =>
-  currency === "IDR" && n >= 1000
-    ? `IDR ${Math.round(n / 1000)}k`
-    : `${currency} ${n.toLocaleString()}`;
 
 const filterMap: Record<string, string> = {
   "UI Kit": "ui",
@@ -19,16 +15,18 @@ const filterMap: Record<string, string> = {
 };
 ---
 
-<Base title="Shop — Roha Design">
+<Base
+  title="Portfolio"
+  description="Roha Design portfolio — design templates, UI kits, and digital products we've created. Explore our work and design examples."
+>
   <main id="main">
     <!-- HERO -->
     <section class="shop-hero">
       <div class="wrap">
-        <div class="eyebrow">Products</div>
-        <h1 data-reveal>Templates &amp; design systems<br />ready to use.</h1>
+        <div class="eyebrow">Portfolio</div>
+        <h1 data-reveal>Design systems, templates,<br />and digital work.</h1>
         <p class="section-lede" data-reveal data-reveal-delay="100">
-          For founders on a sprint, designers looking for a shortcut, or anyone
-          who doesn&rsquo;t want to start from scratch.
+          Explore the design templates, UI kits, and digital products we&rsquo;ve created. Examples of our approach to thoughtful, systematic design.
         </p>
 
         <div class="shop-filters pills" data-shop-filter>
@@ -47,7 +45,7 @@ const filterMap: Record<string, string> = {
       <div class="wrap">
         <div class="shop-page-grid" data-shop-grid>
           {
-            products.map((p, i) => {
+            portfolio.map((p, i) => {
               const d = p.data;
               const coverImage = d.images?.[0];
               // Map category string to filter pill value
@@ -55,7 +53,7 @@ const filterMap: Record<string, string> = {
 
               return (
                 <a
-                  href={`/shop/${p.id}/`}
+                  href={`/portfolio/${p.id}/`}
                   class="product-card"
                   data-category={filterVal}
                   data-reveal
@@ -67,7 +65,7 @@ const filterMap: Record<string, string> = {
                   }
                   data-preview-title={d.title}
                   data-preview-cat={d.category}
-                  data-preview-detail={`/shop/${p.id}/`}
+                  data-preview-detail={`/portfolio/${p.id}/`}
                 >
                   {d.previewPath && (
                     <span
@@ -92,7 +90,7 @@ const filterMap: Record<string, string> = {
                   )}
                   {coverImage ? (
                     <div class="cover">
-                      <img src={coverImage} alt={d.title} />
+                      <img src={coverImage} alt={d.title} width={350} height={280} loading="lazy" />
                     </div>
                   ) : (
                     <div
@@ -114,17 +112,16 @@ const filterMap: Record<string, string> = {
       </div>
     </section>
 
-    <!-- WHY BUY -->
+    <!-- APPROACH -->
     <section class="section">
       <div class="wrap">
         <div class="h-block">
           <div class="left">
-            <div class="eyebrow">Why buy from Roha</div>
-            <h2>Files we use ourselves, sold as they are.</h2>
+            <div class="eyebrow">Our Work Philosophy</div>
+            <h2>How we approach design systems and digital products.</h2>
           </div>
           <p class="right">
-            Not files made just to be sold — every product here has been used on
-            a real client project first.
+            Every template here was built for real use — refined through actual client projects. Systematic, thoughtful, and ready to adapt.
           </p>
         </div>
 
@@ -140,8 +137,8 @@ const filterMap: Record<string, string> = {
                   d="M3 9h18M9 3v18"></path></svg
               ></span
             >
-            <h3>Tidy design system</h3>
-            <p>Tokens, components, styles — all consistent and organized.</p>
+            <h3>Systematic design</h3>
+            <p>Built on tokens, components, and reusable patterns — not ad hoc one-offs.</p>
           </div>
           <div class="why-card">
             <span class="icon" aria-hidden="true"
@@ -154,8 +151,8 @@ const filterMap: Record<string, string> = {
                 ></path></svg
               ></span
             >
-            <h3>Organized files</h3>
-            <p>Layers named, auto-layout used, pages clearly structured.</p>
+            <h3>Production-ready</h3>
+            <p>Used on real projects. Refined, tested, and documented for actual use.</p>
           </div>
           <div class="why-card">
             <span class="icon" aria-hidden="true"
@@ -169,10 +166,9 @@ const filterMap: Record<string, string> = {
                 ></path></svg
               ></span
             >
-            <h3>Full documentation</h3>
+            <h3>Well-documented</h3>
             <p>
-              Every file ships with a README — how to use it, structure, and
-              best practices.
+              Structure explained, best practices included, ready to extend or customize for your needs.
             </p>
           </div>
           <div class="why-card">
@@ -186,10 +182,9 @@ const filterMap: Record<string, string> = {
                   d="M21 3v5h-5"></path></svg
               ></span
             >
-            <h3>Free updates</h3>
+            <h3>Roha's actual work</h3>
             <p>
-              Buy once, get minor &amp; major updates for as long as the product
-              is alive.
+              Not templates made to sell. These are the systems and approaches we use with our clients.
             </p>
           </div>
         </div>
@@ -201,7 +196,7 @@ const filterMap: Record<string, string> = {
       <div class="wrap">
         <div class="h-block">
           <div class="left">
-            <div class="eyebrow">Shop FAQ</div>
+            <div class="eyebrow">Portfolio FAQ</div>
             <h2>Common questions.</h2>
           </div>
         </div>
@@ -210,90 +205,54 @@ const filterMap: Record<string, string> = {
           <div class="accordion">
             <div class="accordion-item">
               <button class="accordion-trigger"
-                >License — can I use it for client work? <span class="icon"
-                  >+</span
-                ></button
-              >
-              <div class="accordion-content">
-                <div class="accordion-content-inner">
-                  Yes. All Roha products come with a personal &amp; commercial
-                  license — usable for personal projects, client work (unlimited
-                  projects), and even on products you sell. What&rsquo;s not
-                  allowed: reselling the raw file itself.
-                </div>
-              </div>
-            </div>
-            <div class="accordion-item">
-              <button class="accordion-trigger"
                 >What file formats are included? <span class="icon">+</span
                 ></button
               >
               <div class="accordion-content">
                 <div class="accordion-content-inner">
-                  Mostly Figma (.fig). Some products also have Framer, Webflow,
-                  or code (React/Astro) versions. Per-product details are on
-                  each product page.
+                  Mostly Figma (.fig). Some portfolio items also include Framer, Webflow, or code (React/Astro) versions. Per-item details are on each portfolio page.
                 </div>
               </div>
             </div>
             <div class="accordion-item">
               <button class="accordion-trigger"
-                >Can I request custom modifications? <span class="icon">+</span
+                >Can I use these in my own work? <span class="icon">+</span
                 ></button
               >
               <div class="accordion-content">
                 <div class="accordion-content-inner">
-                  Yes. After purchasing, message us on WhatsApp with your needs.
-                  We quote within 1 business day. Customizations usually run IDR
-                  5–10M depending on scope.
+                  Yes. These portfolio pieces come with a personal &amp; commercial license — usable for personal projects, client work, and on products you create. What&rsquo;s not allowed: reselling the raw file itself without modification.
                 </div>
               </div>
             </div>
             <div class="accordion-item">
               <button class="accordion-trigger"
-                >Refund policy? <span class="icon">+</span></button
-              >
-              <div class="accordion-content">
-                <div class="accordion-content-inner">
-                  Since these are digital products, refunds are only for cases
-                  of corrupt or wrong files. If there&rsquo;s an issue, contact
-                  us within the first 24 hours.
-                </div>
-              </div>
-            </div>
-            <div class="accordion-item">
-              <button class="accordion-trigger"
-                >Free lifetime updates? <span class="icon">+</span></button
-              >
-              <div class="accordion-content">
-                <div class="accordion-content-inner">
-                  Yes, as long as the product is still supported. Update
-                  notifications are sent to the email used at checkout.
-                </div>
-              </div>
-            </div>
-            <div class="accordion-item">
-              <button class="accordion-trigger"
-                >How do I buy &amp; pay? <span class="icon">+</span></button
-              >
-              <div class="accordion-content">
-                <div class="accordion-content-inner">
-                  All transactions go through Mayar — we accept Bank Transfer
-                  (BCA, BNI, Mandiri), QRIS, GoPay, OVO, Dana, and credit cards.
-                  Instant confirmation and download link sent to email.
-                </div>
-              </div>
-            </div>
-            <div class="accordion-item">
-              <button class="accordion-trigger"
-                >How do I download after purchase? <span class="icon">+</span
+                >Can I customize or modify these? <span class="icon">+</span
                 ></button
               >
               <div class="accordion-content">
                 <div class="accordion-content-inner">
-                  Once payment is successful, a download link is sent
-                  automatically to your email. The link works forever — you can
-                  re-download anytime.
+                  Absolutely. These are designed to be adapted. Use them as starting points for your own work. If you need custom design work built from scratch, we&rsquo;re happy to discuss that separately.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <button class="accordion-trigger"
+                >Is there documentation? <span class="icon">+</span></button
+              >
+              <div class="accordion-content">
+                <div class="accordion-content-inner">
+                  Yes. Each portfolio item includes documentation covering the structure, how to use it, and best practices for extending it.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <button class="accordion-trigger"
+                >Are these actively maintained? <span class="icon">+</span></button
+              >
+              <div class="accordion-content">
+                <div class="accordion-content-inner">
+                  Yes. We update these as our approach evolves and as tools improve. Updates are shared with anyone who uses them.
                 </div>
               </div>
             </div>
@@ -306,20 +265,19 @@ const filterMap: Record<string, string> = {
     <section class="section-tight">
       <div class="cta-wrap">
         <div class="cta-panel cta-panel-compact pat-heat">
-          <div class="eyebrow">Custom</div>
+          <div class="eyebrow">Let&rsquo;s Work Together</div>
           <h2>
-            Need something more <em
+            Need a custom <em
               class="italic-accent"
-              style="color:var(--ink)">custom</em
+              style="color:var(--ink)">design solution</em
             >?
           </h2>
           <p>
-            If the existing templates aren&rsquo;t a fit, we also take custom
-            requests. We quote within 1 business day.
+            These portfolio pieces show our approach. If you need custom design, branding, or development work, let&rsquo;s talk.
           </p>
           <div class="btn-row">
             <a
-              href="https://wa.me/[NO_WA]?text=Hi%20Roha%2C%20I%27d%20like%20to%20discuss%20a%20custom%20template"
+              href="https://wa.me/[NO_WA]?text=Hi%20Roha%2C%20I%27d%20like%20to%20discuss%20a%20project"
               class="btn btn-cream"
               target="_blank"
               rel="noopener">Chat on WhatsApp <span class="arr">→</span></a

@@ -1,10 +1,8 @@
 ---
-title: "Homestay Template"
+title: "Homestay"
 category: "Website Template"
 tagline: "A calm site for homestays and guesthouses."
 summary: "An inviting website template for homestays, guesthouses, and small lodging businesses."
-price: 260000
-priceOriginal: 340000
 currency: "IDR"
 format: "html"
 status: "available"
