@@ -271,13 +271,19 @@ body.pv-lock { overflow: hidden; }
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
-  border-radius: 999px;
+  gap: 6px;
+  padding: 8px 12px;
+  border-radius: 8px;
   border: 1px solid var(--rule);
   color: var(--ink);
   background: var(--paper);
+  font-family: 'Geist Mono', monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: .08em;
   transition: background .15s ease, border-color .15s ease, transform .15s ease, color .15s ease;
+  cursor: pointer;
+  text-decoration: none;
 }
 .pv-newtab:hover {
   background: var(--paper-tint);
@@ -285,7 +291,7 @@ body.pv-lock { overflow: hidden; }
   color: var(--terracotta);
 }
 .pv-newtab:active { transform: scale(.96); }
-.pv-newtab svg { width: 16px; height: 16px; }
+.pv-newtab svg { width: 14px; height: 14px; }
 
 .pv-iframe-wrap {
   position: relative;
