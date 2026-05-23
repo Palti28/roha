@@ -1,0 +1,189 @@
+/* =================== PRODUCT CARD =================== */
+.product-card {
+  display: flex; flex-direction: column;
+  text-decoration: none; color: inherit;
+  background: var(--paper-tint);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  transition: transform .2s ease, border-color .2s ease;
+}
+.product-card:hover { transform: translateY(-2px); border-color: var(--rule-strong); }
+
+.product-card .cover {
+  aspect-ratio: 1/1;
+  max-height: 320px;
+  border-bottom: 1px solid var(--rule);
+  position: relative;
+  overflow: hidden;
+}
+.product-card .cover::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  opacity: 0;
+  transition: opacity .25s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+.product-card:hover .cover::after { opacity: 1; }
+
+.product-card .cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.product-card .body {
+  padding: 12px 14px 14px;
+  display: flex; flex-direction: column; gap: 4px;
+}
+.product-card .cat {
+  font-family: 'Geist Mono', monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  color: var(--clay);
+  opacity: .7;
+}
+.product-card .name-row {
+  display: flex; align-items: center;
+  gap: 10px;
+}
+.product-card .name {
+  font-family: 'Bricolage Grotesque', serif;
+  font-size: 16px;
+  letter-spacing: -.01em;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* =================== WORK CARD =================== */
+.work-card {
+  display: flex; flex-direction: column;
+  gap: 14px;
+  text-decoration: none; color: inherit;
+}
+.work-card .thumb {
+  aspect-ratio: 4/5;
+  max-height: 350px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--rule);
+  overflow: hidden;
+  position: relative;
+  transition: border-color .25s ease;
+}
+.work-card .thumb img,
+.work-card .thumb.pattern-wrap {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.work-card:hover .thumb { border-color: var(--rule-strong); }
+.work-card:hover .thumb img { transform: scale(1.02); }
+
+.work-card .meta-row {
+  display: flex; align-items: center;
+  gap: 16px;
+}
+.work-card .tag {
+  font-family: 'Geist Mono', monospace;
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  color: var(--terracotta);
+}
+.work-card .meta-tag {
+  font-family: 'Geist Mono', monospace;
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  color: var(--clay);
+  opacity: .65;
+}
+.work-card h3 {
+  font-family: 'Bricolage Grotesque', serif;
+  font-size: 20px;
+  letter-spacing: -.015em;
+  line-height: 1.15;
+  font-weight: 500;
+  margin: 0;
+}
+.work-card .summary {
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--ink);
+  opacity: .65;
+  max-width: 50ch;
+  margin: 0;
+}
+.work-card .meta-bottom {
+  display: flex; align-items: center; gap: 8px;
+  font-family: 'Geist Mono', monospace;
+  font-size: 10px;
+  color: var(--clay);
+  opacity: .6;
+}
+
+/* =================== PROJECT CARD (Featured work di homepage) =================== */
+.project-card {
+  display: block;
+  text-decoration: none; color: inherit;
+}
+.project-card:hover .thumb { border-color: var(--rule-strong); }
+
+.project-card .thumb {
+  aspect-ratio: 4/3;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--rule);
+  overflow: hidden;
+  position: relative;
+  transition: border-color .25s ease;
+}
+.project-card .thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.project-card .meta-row {
+  display: flex; align-items: center;
+  gap: 12px;
+  margin-top: 2px;
+}
+.project-card .tag {
+  font-family: 'Geist Mono', monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  color: var(--terracotta);
+}
+.project-card .year {
+  font-family: 'Geist Mono', monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  color: var(--clay);
+  opacity: .65;
+}
+.project-card h3 {
+  font-family: 'Bricolage Grotesque', serif;
+  font-size: 22px;
+  letter-spacing: -.015em;
+  line-height: 1.15;
+  font-weight: 500;
+  margin: 0;
+}
+.project-card .summary {
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--ink);
+  opacity: .65;
+  max-width: 44ch;
+  margin: 0;
+}
