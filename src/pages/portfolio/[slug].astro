@@ -229,14 +229,39 @@ const productSchemaData = productSchema({
 </Base>
 
 <script>
-  // Sticky product bar — show after hero scrolls out of view
+  // Sticky product bar — slides in below the nav once the hero scrolls past it.
+  const nav = document.querySelector('.nav');
   const hero = document.getElementById('pdHero');
   const bar = document.getElementById('pdStickyBar');
+
   if (hero && bar) {
-    const io = new IntersectionObserver(
-      ([entry]) => bar.classList.toggle('is-stuck', !entry.isIntersecting),
-      { rootMargin: '-80px 0px 0px 0px', threshold: 0 }
-    );
-    io.observe(hero);
+    const navH = () => (nav ? Math.round(nav.getBoundingClientRect().height) : 60);
+
+    // Anchor the bar to the bottom edge of the nav, kept in sync on resize.
+    const place = () => bar.style.setProperty('--pd-bar-top', navH() + 'px');
+    place();
+
+    let io: IntersectionObserver | null = null;
+    const watch = () => {
+      io?.disconnect();
+      io = new IntersectionObserver(
+        ([entry]) => {
+          const stuck = !entry.isIntersecting;
+          bar.classList.toggle('is-stuck', stuck);
+          bar.setAttribute('aria-hidden', stuck ? 'false' : 'true');
+        },
+        // Trigger the moment the hero's bottom passes under the nav.
+        { rootMargin: `-${navH()}px 0px 0px 0px`, threshold: 0 }
+      );
+      io.observe(hero);
+    };
+    watch();
+
+    let t: number;
+    window.addEventListener('resize', () => {
+      place();
+      clearTimeout(t);
+      t = window.setTimeout(watch, 150);
+    });
   }
 </script>

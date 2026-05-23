@@ -419,8 +419,9 @@
 /* ---------- Sticky product bar ---------- */
 .pd-stickybar {
   position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 75;                 /* above .nav (z-index 80 when scrolled) but under modals */
+  top: var(--pd-bar-top, 60px); /* sits just below the sticky nav; JS sets exact nav height */
+  left: 0; right: 0;
+  z-index: 70;                  /* below .nav (z-index 80) so it stacks under it, not over it */
   background: var(--paper);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
