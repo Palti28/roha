@@ -96,7 +96,7 @@
 }
 .project-card:hover .thumb { border-color: var(--rule-strong); }
 .project-card .meta-row {
-  display: flex; justify-content: space-between; align-items: center;
+  display: flex; align-items: center;
   gap: 12px;
   margin-top: 2px;
 }
