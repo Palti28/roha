@@ -406,3 +406,9 @@ body.pv-lock { overflow: hidden; }
   .pv-foot { padding: 10px 12px; }
   .pv-foot-hint { display: none; }
 }
+
+@media (max-width: 640px) {
+  .pv-stage { padding: 0; }
+  .pv-modal { background: transparent; }
+  .pv-head { padding: 0; background: transparent; border-bottom: none; }
+}
