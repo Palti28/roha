@@ -83,12 +83,32 @@
     grid-template-columns: unset;
     display: flex;
     flex-wrap: nowrap;
-    gap: 16px;
+    gap: 12px;
   }
   .featured-grid .project-card {
-    flex: 0 0 78vw;
-    max-width: 340px;
+    flex: 0 0 70vw;
+    max-width: 280px;
     scroll-snap-align: start;
+  }
+  .featured-grid .project-card .thumb {
+    aspect-ratio: 4/3;
+    max-height: 200px;
+  }
+  .featured-grid .project-card h3 {
+    font-size: 16px;
+    margin-top: 8px;
+  }
+  .featured-grid .project-card .summary {
+    font-size: 12px;
+    line-height: 1.4;
+  }
+  .featured-grid .project-card .meta-row {
+    margin-top: 0;
+    gap: 8px;
+  }
+  .featured-grid .project-card .tag,
+  .featured-grid .project-card .year {
+    font-size: 9px;
   }
 }
 
