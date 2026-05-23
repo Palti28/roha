@@ -63,22 +63,30 @@ const idr = (n: number, currency = "IDR") =>
 
       <div class="principles-grid">
         <div class="principle" data-reveal>
-          <div class="num">01</div>
+          <div class="principle-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 3"/></svg>
+          </div>
           <h3>Quiet on the surface, considered underneath.</h3>
           <p>Design that doesn&rsquo;t shout, but every choice has a reason. Spacing, sizing, color — we can explain all of it.</p>
         </div>
         <div class="principle" data-reveal data-reveal-delay="100">
-          <div class="num">02</div>
+          <div class="principle-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
           <h3>Warmth is a discipline.</h3>
           <p>Warmth isn&rsquo;t an accident. It&rsquo;s chosen, measured, intentional — because we meant it, not by default.</p>
         </div>
         <div class="principle" data-reveal data-reveal-delay="200">
-          <div class="num">03</div>
+          <div class="principle-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+          </div>
           <h3>Systems, not decoration.</h3>
           <p>We build design systems, not one pretty page. Components, tokens, documentation — so it feels right a year from now.</p>
         </div>
         <div class="principle" data-reveal data-reveal-delay="300">
-          <div class="num">04</div>
+          <div class="principle-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </div>
           <h3>Ship it, don&rsquo;t polish it forever.</h3>
           <p>Shipped &gt; perfect. Better a 1.0 that&rsquo;s live than a 0.9 that&rsquo;s delayed. What matters is knowing what to improve next.</p>
         </div>
@@ -111,7 +119,7 @@ const idr = (n: number, currency = "IDR") =>
   </section>
 
   <!-- =================== TESTIMONIALS =================== -->
-  <section class="section">
+  <section class="section testimonials-section">
     <div class="wrap">
       <div class="h-block" data-reveal>
         <div class="left">
@@ -119,23 +127,48 @@ const idr = (n: number, currency = "IDR") =>
           <h2>What clients say.</h2>
         </div>
       </div>
+    </div>
 
-      <div class="testimonials-grid">
-        <div class="testimonial-card" data-reveal>
+    <div class="marquee-outer" aria-label="Client testimonials">
+      <div class="marquee-track">
+        <!-- original set -->
+        <div class="testimonial-card">
           <p class="quote">&ldquo;Roha didn&rsquo;t just build us a website — they built us a system. Every decision was intentional, and it shows.&rdquo;</p>
           <div class="testimonial-meta">
             <div class="testimonial-name">Sarah Chen</div>
             <div class="testimonial-role">Founder, Bloom Studio</div>
           </div>
         </div>
-        <div class="testimonial-card" data-reveal data-reveal-delay="100">
+        <div class="testimonial-card">
           <p class="quote">&ldquo;The design felt warm and approachable, exactly what we needed. Plus, the handoff documentation made it easy for our dev team.&rdquo;</p>
           <div class="testimonial-meta">
             <div class="testimonial-name">Adi Wijaya</div>
             <div class="testimonial-role">Product Lead, Startup ID</div>
           </div>
         </div>
-        <div class="testimonial-card" data-reveal data-reveal-delay="200">
+        <div class="testimonial-card">
+          <p class="quote">&ldquo;We loved the process. They asked the right questions, showed us multiple directions, and were transparent about tradeoffs.&rdquo;</p>
+          <div class="testimonial-meta">
+            <div class="testimonial-name">Maya Patel</div>
+            <div class="testimonial-role">CEO, Design Market</div>
+          </div>
+        </div>
+        <!-- duplicate for seamless loop -->
+        <div class="testimonial-card" aria-hidden="true">
+          <p class="quote">&ldquo;Roha didn&rsquo;t just build us a website — they built us a system. Every decision was intentional, and it shows.&rdquo;</p>
+          <div class="testimonial-meta">
+            <div class="testimonial-name">Sarah Chen</div>
+            <div class="testimonial-role">Founder, Bloom Studio</div>
+          </div>
+        </div>
+        <div class="testimonial-card" aria-hidden="true">
+          <p class="quote">&ldquo;The design felt warm and approachable, exactly what we needed. Plus, the handoff documentation made it easy for our dev team.&rdquo;</p>
+          <div class="testimonial-meta">
+            <div class="testimonial-name">Adi Wijaya</div>
+            <div class="testimonial-role">Product Lead, Startup ID</div>
+          </div>
+        </div>
+        <div class="testimonial-card" aria-hidden="true">
           <p class="quote">&ldquo;We loved the process. They asked the right questions, showed us multiple directions, and were transparent about tradeoffs.&rdquo;</p>
           <div class="testimonial-meta">
             <div class="testimonial-name">Maya Patel</div>
@@ -157,27 +190,29 @@ const idr = (n: number, currency = "IDR") =>
         <p class="right">Two projects — a small list, but each has a story. Pick one to read in detail.</p>
       </div>
 
-      <div class="featured-grid">
-        {
-          sortedWork.map((project, i) => {
-            const { title, summary, service, year, pattern, coverImage } = project.data;
-            return (
-              <a href={`/work/${project.id}`} class="project-card" data-reveal data-reveal-delay={i * 120}>
-                {coverImage ? (
-                  <img src={coverImage} alt={title} class="thumb" width={400} height={300} loading="lazy" />
-                ) : (
-                  <div class={`thumb ${pattern} pattern-wrap`} aria-hidden="true"></div>
-                )}
-                <div class="meta-row">
-                  <span class="tag">{service}</span>
-                  <span class="year">{year}</span>
-                </div>
-                <h3>{title}</h3>
-                <p class="summary">{summary}</p>
-              </a>
-            );
-          })
-        }
+      <div class="featured-scroll-outer">
+        <div class="featured-grid">
+          {
+            sortedWork.map((project, i) => {
+              const { title, summary, service, year, pattern, coverImage } = project.data;
+              return (
+                <a href={`/work/${project.id}`} class="project-card" data-reveal data-reveal-delay={i * 120}>
+                  {coverImage ? (
+                    <img src={coverImage} alt={title} class="thumb" width={400} height={300} loading="lazy" />
+                  ) : (
+                    <div class={`thumb ${pattern} pattern-wrap`} aria-hidden="true"></div>
+                  )}
+                  <div class="meta-row">
+                    <span class="tag">{service}</span>
+                    <span class="year">{year}</span>
+                  </div>
+                  <h3>{title}</h3>
+                  <p class="summary">{summary}</p>
+                </a>
+              );
+            })
+          }
+        </div>
       </div>
 
       <a href="/work" class="section-link" data-reveal>All Work <span class="arr">→</span></a>
