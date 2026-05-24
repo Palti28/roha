@@ -9,8 +9,6 @@ status: "available"
 buyUrl: "https://roha.mayar.id/professional-consultant-template"
 previewPath: "professional-consultant"
 pattern: "pat-grid"
-images:
-  - ""
 order: 8
 draft: false
 ---

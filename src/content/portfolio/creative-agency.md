@@ -9,8 +9,6 @@ status: "available"
 buyUrl: "https://roha.mayar.id/creative-agency-template"
 previewPath: "creative-agency"
 pattern: "pat-arcs"
-images:
-  - ""
 order: 5
 draft: false
 ---

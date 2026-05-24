@@ -9,8 +9,6 @@ status: "available"
 buyUrl: "https://roha.mayar.id/contractor-interior-template"
 previewPath: "contractor-interior"
 pattern: "pat-stripe"
-images:
-  - ""
 order: 6
 draft: false
 ---
