@@ -9,8 +9,6 @@ status: "available"
 buyUrl: "https://roha.mayar.id/clinic-healthcare-template"
 previewPath: "clinic-healthcare"
 pattern: "pat-grain"
-images:
-  - ""
 order: 7
 draft: false
 ---
