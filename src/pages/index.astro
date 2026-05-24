@@ -3,11 +3,17 @@ import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
 
+const byDate = (a: any, b: any) => {
+  const da = a.data.publishedAt?.getTime() ?? 0;
+  const db = b.data.publishedAt?.getTime() ?? 0;
+  return db - da;
+};
+
 const allWork = await getCollection('work', ({ data }) => !data.draft);
-const sortedWork = allWork.sort((a, b) => a.data.order - b.data.order).slice(0, 2);
+const sortedWork = allWork.sort(byDate).slice(0, 2);
 
 const allPortfolio = await getCollection('portfolio', ({ data }) => !data.draft);
-const sortedPortfolio = allPortfolio.sort((a, b) => b.data.order - a.data.order).slice(0, 4);
+const sortedPortfolio = allPortfolio.sort(byDate).slice(0, 4);
 ---
 
 <Base

@@ -10,6 +10,7 @@ buyUrl: "https://roha.mayar.id/professional-consultant-template"
 previewPath: "professional-consultant"
 pattern: "pat-grid"
 order: 8
+publishedAt: 2026-05-24
 draft: false
 ---
 
