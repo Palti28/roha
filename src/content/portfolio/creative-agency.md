@@ -10,6 +10,7 @@ buyUrl: "https://roha.mayar.id/creative-agency-template"
 previewPath: "creative-agency"
 pattern: "pat-arcs"
 order: 5
+publishedAt: 2026-05-24
 draft: false
 ---
 

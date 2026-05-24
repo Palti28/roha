@@ -14,6 +14,7 @@ images:
   - "https://ik.imagekit.io/gorat/eca-car-rental/rent-car-ss.avif"
 order: 3
 draft: false
+publishedAt: 2026-04-12
 ---
 
 ### 01 — Context

@@ -14,6 +14,7 @@ images:
   - "https://ik.imagekit.io/gorat/eca-car-rental/rent-car-ss.avif"
 order: 1
 draft: false
+publishedAt: 2026-02-20
 ---
 
 > **A self-initiated concept.** This redesign is not affiliated with, commissioned by, or endorsed by Otoritas Jasa Keuangan. It is an independent design exercise exploring public-sector UX, using only publicly available information.

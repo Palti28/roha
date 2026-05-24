@@ -13,6 +13,7 @@ pattern: "pat-block"
 images:
   - "https://ik.imagekit.io/gorat/myasnbkn.avif?updatedAt=1779433713313"
 order: 4
+publishedAt: 2026-04-01
 draft: false
 ---
 

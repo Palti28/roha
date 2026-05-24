@@ -12,6 +12,7 @@ pattern: "pat-confetti"
 images:
   - "https://ik.imagekit.io/gorat/myasnbkn.avif?updatedAt=1779433713313"
 order: 3
+publishedAt: 2026-03-05
 draft: false
 ---
 

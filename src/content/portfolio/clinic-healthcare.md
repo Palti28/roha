@@ -10,6 +10,7 @@ buyUrl: "https://roha.mayar.id/clinic-healthcare-template"
 previewPath: "clinic-healthcare"
 pattern: "pat-grain"
 order: 7
+publishedAt: 2026-05-24
 draft: false
 ---
 

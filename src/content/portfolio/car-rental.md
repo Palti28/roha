@@ -15,6 +15,7 @@ images:
   - "https://ik.imagekit.io/gorat/eca-car-rental/rent-car-ss.avif"
   - "https://ik.imagekit.io/gorat/eca-car-rental/rent-car-ss.avif"
 order: 1
+publishedAt: 2026-01-15
 draft: false
 ---
 
