@@ -7,7 +7,7 @@ currency: "IDR"
 format: "html"
 status: "available"
 buyUrl: "https://roha.mayar.id/creative-agency-template"
-previewPath: "/creative-agency"
+previewPath: "creative-agency"
 pattern: "pat-arcs"
 images:
   - ""
@@ -19,16 +19,29 @@ draft: false
 
 A website template for creative studios and digital agencies. Dark-mode first, with bold typography and sharp contrast designed to communicate craft and ambition before a word is read.
 
+The layout moves fast: a statement hero, a services overview, a curated work grid, social proof, and a direct contact section. Every section is built to hold attention, not fill space.
+
+Typography pairs Space Grotesk (display, body) with JetBrains Mono (labels, metadata). The lone accent color is a high-contrast lime that punches against the near-black background.
+
 ### 02 — What's inside
 
-- Single-page HTML template covering hero, services, work samples, team, and contact
-- Bold headline layout with accent color system
-- Scroll-triggered fade animations
+- Full-page HTML template: hero, services, work grid, team, testimonials, contact
+- Dark-mode color system with one accent (lime) applied consistently
+- Scroll-triggered fade animations on all key sections
+- Bold display headline with animated eyebrow tag
+- Services section with icon grid and feature callouts
+- Work portfolio grid with overlay hover state
+- Team section with role labels and social links
 - Fully responsive, mobile-first (320–1440)
-- Built with Space Grotesk and JetBrains Mono
+- Self-contained: all CSS and JS inlined, zero dependencies
 
 ### 03 — Spec & details
 
 - **Format**: HTML / CSS / JS
 - **Software**: Any code editor
+- **Font**: Space Grotesk, JetBrains Mono (Google Fonts)
 - **License**: Personal + Commercial
+
+### 04 — Who it's for
+
+Independent studios and agency teams that want a site that looks expensive without the custom build budget. Works equally well as a deployed site or as a pitch deck to show clients "this is our direction."
