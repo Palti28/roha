@@ -12,6 +12,7 @@ pattern: "pat-stripe"
 images:
   - "https://ik.imagekit.io/gorat/myasnbkn.avif?updatedAt=1779433713313"
 order: 2
+publishedAt: 2026-02-10
 draft: false
 ---
 

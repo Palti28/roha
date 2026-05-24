@@ -27,6 +27,7 @@ const work = defineCollection({
     // Controls listing order AND the "next project" sequence
     order: z.number().default(0),
     draft: z.boolean().default(false),
+    publishedAt: z.date().optional(),
   }),
 });
 
@@ -75,6 +76,7 @@ const portfolio = defineCollection({
     // Controls shop order AND the "related products" sequence
     order: z.number().default(0),
     draft: z.boolean().default(false),
+    publishedAt: z.date().optional(),
   }),
 });
 

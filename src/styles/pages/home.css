@@ -350,3 +350,57 @@
 }
 
 /* CTA wrap + compact panel styles moved to components.css (shared across pages). */
+
+/* ---------- Service tile price tag ---------- */
+.svc-price {
+  display: inline-block;
+  margin-top: auto;
+  padding-top: 14px;
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: .10em;
+  color: var(--terracotta);
+  opacity: .85;
+}
+
+/* ---------- Work card honest label ---------- */
+.work-label {
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  color: var(--ink);
+  opacity: .45;
+  padding: 2px 7px;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+}
+
+/* ---------- Why Roha manifesto ---------- */
+.why-roha-block {
+  max-width: 680px;
+  margin: 0 auto;
+  text-align: center;
+}
+.why-roha-quote {
+  font-family: 'Bricolage Grotesque', serif;
+  font-size: clamp(19px, 2.2vw, 24px);
+  font-weight: 400;
+  letter-spacing: -.02em;
+  line-height: 1.55;
+  color: var(--ink);
+  margin: 20px 0 16px;
+  padding: 0;
+  border: none;
+  opacity: .85;
+}
+.why-roha-sub {
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  color: var(--ink);
+  opacity: .45;
+  margin: 0;
+}

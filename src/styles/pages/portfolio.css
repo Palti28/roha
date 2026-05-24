@@ -183,8 +183,8 @@
 .pd-overview .eyebrow { margin-bottom: 18px; }
 .pd-overview .prose h2,
 .pd-overview .prose h3,
-.pd-overview .prose h4 { font-weight: 400; color: var(--ink); opacity: .7; }
-.pd-overview .prose p { font-weight: 400; color: var(--ink); opacity: .7; }
+.pd-overview .prose h4 { font-weight: 300; color: var(--ink); opacity: .7; }
+.pd-overview .prose p { font-weight: 300; color: var(--ink); opacity: .7; }
 .pd-highlights { position: sticky; top: 100px; }
 @media (max-width: 880px) { .pd-highlights { position: static; } }
 .pd-side-title {

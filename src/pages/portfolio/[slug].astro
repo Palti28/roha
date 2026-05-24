@@ -10,17 +10,21 @@ import { productSchema } from '../../utils/schema';
 import { site } from '../../data/site';
 
 export async function getStaticPaths() {
-  const all = (await getCollection('portfolio', ({ data }) => !data.draft))
-    .sort((a, b) => a.data.order - b.data.order);
+  const all = await getCollection('portfolio', ({ data }) => !data.draft);
 
-  return all.map((entry) => ({
-    params: { slug: entry.id },
-    props: {
-      entry,
-      // "Related" = up to 3 other portfolio items, in order, wrapping around.
-      related: all.filter((p) => p.id !== entry.id).slice(0, 3),
-    },
-  }));
+  const byRecency = (a: typeof all[0], b: typeof all[0]) =>
+    (b.data.publishedAt?.getTime() ?? 0) - (a.data.publishedAt?.getTime() ?? 0);
+
+  return all.map((entry) => {
+    const others = all.filter((p) => p.id !== entry.id);
+    // Same category first (most recent), then other categories (most recent) to fill up to 3.
+    const samecat = others.filter((p) => p.data.category === entry.data.category).sort(byRecency);
+    const rest    = others.filter((p) => p.data.category !== entry.data.category).sort(byRecency);
+    return {
+      params: { slug: entry.id },
+      props: { entry, related: [...samecat, ...rest].slice(0, 3) },
+    };
+  });
 }
 
 const { entry, related } = Astro.props;
