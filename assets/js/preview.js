@@ -90,17 +90,6 @@
           </div>
         </div>
 
-        <div class="pv-foot">
-          <div class="pv-foot-hint">
-            <span>Tekan</span>
-            <kbd>Esc</kbd>
-            <span>untuk tutup</span>
-          </div>
-          <div class="pv-foot-actions">
-            <a href="#" class="btn btn-secondary btn-sm" data-pv-detail>Lihat detail produk</a>
-            <a href="#" class="btn btn-primary btn-sm" data-pv-buy>Beli <span class="arr">→</span></a>
-          </div>
-        </div>
       </div>
     `;
     document.body.appendChild(backdrop);
