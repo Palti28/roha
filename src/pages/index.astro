@@ -7,7 +7,7 @@ const allWork = await getCollection('work', ({ data }) => !data.draft);
 const sortedWork = allWork.sort((a, b) => a.data.order - b.data.order).slice(0, 2);
 
 const allPortfolio = await getCollection('portfolio', ({ data }) => !data.draft);
-const sortedPortfolio = allPortfolio.sort((a, b) => a.data.order - b.data.order).slice(0, 3);
+const sortedPortfolio = allPortfolio.sort((a, b) => b.data.order - a.data.order).slice(0, 4);
 ---
 
 <Base
