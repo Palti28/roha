@@ -22,10 +22,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const FALLBACK_TIMEOUT_DEFAULT = 6000;
   const TRANSITION_MS = 320;
   const FOCUS_DELAY_MS = 80;
-  const DEFAULT_LABELS = {
-    detail: 'Lihat detail produk',
-    buy: 'Beli',
-  };
 
   let els = null;
   let lastFocus = null;
@@ -87,15 +83,6 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
           </div>
         </div>
-        <div class="pv-foot">
-          <div class="pv-foot-hint">
-            <span>Tekan</span><kbd>Esc</kbd><span>untuk tutup</span>
-          </div>
-          <div class="pv-foot-actions">
-            <a href="#" class="btn btn-secondary btn-sm" data-pv-detail>Lihat detail produk</a>
-            <a href="#" class="btn btn-primary btn-sm" data-pv-buy>Beli <span class="arr">→</span></a>
-          </div>
-        </div>
       </div>
     `;
     document.body.appendChild(backdrop);
@@ -110,8 +97,6 @@ document.addEventListener('DOMContentLoaded', () => {
       title: backdrop.querySelector('[data-pv-title]'),
       url: backdrop.querySelector('[data-pv-url]'),
       newtab: backdrop.querySelector('[data-pv-newtab]'),
-      detail: backdrop.querySelector('[data-pv-detail]'),
-      buy: backdrop.querySelector('[data-pv-buy]'),
       toggleBtns: backdrop.querySelectorAll('.pv-toggle button'),
       closeBtn: backdrop.querySelector('[data-pv-close]'),
     };
@@ -136,19 +121,11 @@ document.addEventListener('DOMContentLoaded', () => {
       ? trigger
       : trigger.closest('[data-preview-url]') || trigger;
     const d = host.dataset || {};
-    const fallbackHref = trigger.closest('a')?.getAttribute('href')
-      || host.getAttribute?.('href') || '';
-    const detail = (d.previewDetail !== undefined ? d.previewDetail : fallbackHref) || '';
-    const buy = d.previewBuy || detail || '';
     const timeoutAttr = parseInt(d.previewTimeout, 10);
     return {
       url: d.previewUrl || '',
       title: d.previewTitle || host.querySelector?.('.name')?.textContent.trim() || 'Preview',
       cat: d.previewCat || host.querySelector?.('.cat')?.textContent.trim() || 'Product',
-      detail,
-      buy,
-      detailLabel: d.previewDetailLabel || DEFAULT_LABELS.detail,
-      buyLabel: d.previewBuyLabel || DEFAULT_LABELS.buy,
       aspect: d.previewAspect || '',
       viewport: d.previewViewport || 'desktop',
       timeout: Number.isFinite(timeoutAttr) ? timeoutAttr : FALLBACK_TIMEOUT_DEFAULT,
@@ -184,8 +161,6 @@ document.addEventListener('DOMContentLoaded', () => {
       e.newtab.removeAttribute('href');
     }
 
-    applyAction(e.detail, data.detail, data.detailLabel);
-    applyAction(e.buy, data.buy, data.buyLabel + ' <span class="arr">→</span>', true);
     e.wrap.classList.remove('is-loaded', 'is-fallback');
     currentAspect = data.aspect;
     setViewport(data.viewport);
@@ -221,23 +196,6 @@ document.addEventListener('DOMContentLoaded', () => {
       els.wrap.classList.remove('is-loaded', 'is-fallback');
     }, TRANSITION_MS);
     lastFocus?.focus?.();
-  }
-
-  function applyAction(btn, href, html, isPrimary) {
-    if (href && href !== '#') {
-      btn.style.display = '';
-      btn.setAttribute('href', href);
-      btn.innerHTML = html;
-      if (isPrimary && /^https?:\/\//i.test(href)) {
-        btn.setAttribute('target', '_blank');
-        btn.setAttribute('rel', 'noopener');
-      } else {
-        btn.removeAttribute('target');
-        btn.removeAttribute('rel');
-      }
-    } else {
-      btn.style.display = 'none';
-    }
   }
 
   function setViewport(vp) {
