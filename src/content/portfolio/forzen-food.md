@@ -17,13 +17,13 @@ draft: false
 
 ### 01 — What it is
 
-A website template for frozen food brands — from established small businesses to home-based sellers who currently live entirely inside a WhatsApp catalogue.
+A website template for frozen food brands, from established small businesses to home-based sellers who currently live entirely inside a WhatsApp catalogue.
 
 It gives that kind of seller a real storefront: a homepage that builds trust, a browsable catalogue, clear product pages, and an order flow that hands off cleanly to WhatsApp.
 
 ### 02 — What's inside
 
-- Multi-page HTML template — home, catalogue, product, order
+- Multi-page HTML template covering home, catalogue, product, and order
 - Product catalogue and detail layouts
 - Order / WhatsApp enquiry flow
 - Fully responsive, mobile-first (320–1440)
@@ -31,11 +31,11 @@ It gives that kind of seller a real storefront: a homepage that builds trust, a 
 
 ### 03 — Spec & details
 
-- **Format** — HTML / CSS / JS
-- **Software** — Any code editor
-- **Size** — ~2 MB
-- **License** — Personal + Commercial
+- **Format**: HTML / CSS / JS
+- **Software**: Any code editor
+- **Size**: ~2 MB
+- **License**: Personal + Commercial
 
 ### Notes
 
-The repo folder is named `forzen-food` (typo) — slug kept as-is so the preview path doesn't break. Price, buyUrl, and lists are placeholders; confirm before publishing.
+The repo folder is named `forzen-food` (typo), so the slug is kept as-is so the preview path doesn't break. Price, buyUrl, and lists are placeholders; confirm before publishing.
