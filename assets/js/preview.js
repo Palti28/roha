@@ -23,11 +23,6 @@
   const FALLBACK_TIMEOUT_DEFAULT = 6000; // ms before fallback panel shows
   const TRANSITION_MS            = 320;  // matches CSS .pv-modal transition
   const FOCUS_DELAY_MS           = 80;   // wait for modal mount before focusing close btn
-  const DEFAULT_LABELS = {
-    detail: 'Lihat detail produk',
-    buy:    'Beli',
-  };
-
   // ---------- Lazy modal mount ----------
   let els = null;
   let lastFocus = null;
@@ -104,8 +99,6 @@
       title:     backdrop.querySelector('[data-pv-title]'),
       url:       backdrop.querySelector('[data-pv-url]'),
       newtab:    backdrop.querySelector('[data-pv-newtab]'),
-      detail:    backdrop.querySelector('[data-pv-detail]'),
-      buy:       backdrop.querySelector('[data-pv-buy]'),
       toggleBtns: backdrop.querySelectorAll('.pv-toggle button'),
       closeBtn:  backdrop.querySelector('[data-pv-close]'),
     };
@@ -134,25 +127,15 @@
       : trigger.closest('[data-preview-url]') || trigger;
 
     const d = host.dataset || {};
-    const fallbackHref = trigger.closest('a')?.getAttribute('href')
-                       || host.getAttribute?.('href')
-                       || '';
-
-    const detail = (d.previewDetail !== undefined ? d.previewDetail : fallbackHref) || '';
-    const buy    = d.previewBuy || detail || '';
     const timeoutAttr = parseInt(d.previewTimeout, 10);
 
     return {
-      url:         d.previewUrl   || '',
-      title:       d.previewTitle || host.querySelector?.('.name')?.textContent.trim() || 'Preview',
-      cat:         d.previewCat   || host.querySelector?.('.cat')?.textContent.trim() || 'Product',
-      detail,
-      buy,
-      detailLabel: d.previewDetailLabel || DEFAULT_LABELS.detail,
-      buyLabel:    d.previewBuyLabel    || DEFAULT_LABELS.buy,
-      aspect:      d.previewAspect      || '',
-      viewport:    d.previewViewport    || 'desktop',
-      timeout:     Number.isFinite(timeoutAttr) ? timeoutAttr : FALLBACK_TIMEOUT_DEFAULT,
+      url:      d.previewUrl   || '',
+      title:    d.previewTitle || host.querySelector?.('.name')?.textContent.trim() || 'Preview',
+      cat:      d.previewCat   || host.querySelector?.('.cat')?.textContent.trim() || 'Product',
+      aspect:   d.previewAspect   || '',
+      viewport: d.previewViewport || 'desktop',
+      timeout:  Number.isFinite(timeoutAttr) ? timeoutAttr : FALLBACK_TIMEOUT_DEFAULT,
     };
   }
 
@@ -173,10 +156,6 @@
       e.newtab.style.display = 'none';
       e.newtab.removeAttribute('href');
     }
-
-    // Footer buttons — show only those with a real URL
-    applyAction(e.detail, data.detail, data.detailLabel);
-    applyAction(e.buy,    data.buy,    data.buyLabel + ' <span class="arr">→</span>', true);
 
     // Reset state, configure viewport + custom aspect
     e.wrap.classList.remove('is-loaded', 'is-fallback');
@@ -216,24 +195,6 @@
       els.wrap.classList.remove('is-loaded', 'is-fallback');
     }, TRANSITION_MS);
     lastFocus?.focus?.();
-  }
-
-  function applyAction(btn, href, html, isPrimary) {
-    if (href && href !== '#') {
-      btn.style.display = '';
-      btn.setAttribute('href', href);
-      btn.innerHTML = html;
-      // External (http) buy links open in a new tab
-      if (isPrimary && /^https?:\/\//i.test(href)) {
-        btn.setAttribute('target', '_blank');
-        btn.setAttribute('rel', 'noopener');
-      } else {
-        btn.removeAttribute('target');
-        btn.removeAttribute('rel');
-      }
-    } else {
-      btn.style.display = 'none';
-    }
   }
 
   function setViewport(vp) {
