@@ -17,13 +17,13 @@ draft: false
 
 ### 01 — What it is
 
-A website template for homestays, guesthouses, and small lodging operators — the places that mostly rely on marketplace listings and need a site of their own to feel established.
+A website template for homestays, guesthouses, and small lodging operators, the places that mostly rely on marketplace listings and need a site of their own to feel established.
 
 It walks a guest from first impression to enquiry: a warm homepage, room listings, a gallery that does the selling, and a booking enquiry form.
 
 ### 02 — What's inside
 
-- Multi-page HTML template — home, rooms, gallery, booking
+- Multi-page HTML template covering home, rooms, gallery, and booking
 - Room listing and detail layouts
 - Photo gallery section
 - Booking enquiry form
@@ -32,10 +32,10 @@ It walks a guest from first impression to enquiry: a warm homepage, room listing
 
 ### 03 — Spec & details
 
-- **Format** — HTML / CSS / JS
-- **Software** — Any code editor
-- **Size** — ~2 MB
-- **License** — Personal + Commercial
+- **Format**: HTML / CSS / JS
+- **Software**: Any code editor
+- **Size**: ~2 MB
+- **License**: Personal + Commercial
 
 ### Notes
 

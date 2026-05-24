@@ -63,12 +63,12 @@
 /* =================== WORK CARD =================== */
 .work-card {
   display: flex; flex-direction: column;
-  gap: 16px;
+  gap: 12px;
   text-decoration: none; color: inherit;
 }
 .work-card .thumb {
   aspect-ratio: 4/5;
-  max-height: 350px;
+  max-height: 320px;
   border-radius: var(--radius-md);
   border: 1px solid var(--rule);
   overflow: hidden;
@@ -107,19 +107,22 @@
 }
 .work-card h3 {
   font-family: 'Bricolage Grotesque', serif;
-  font-size: 20px;
+  font-size: 18px;
   letter-spacing: -.015em;
   line-height: 1.15;
   font-weight: 500;
   margin: 0;
 }
 .work-card .summary {
-  font-size: 14px;
-  line-height: 1.55;
+  font-size: 13px;
+  line-height: 1.5;
   color: var(--ink);
   opacity: .65;
-  max-width: 50ch;
   margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 .work-card .meta-bottom {
   display: flex; align-items: center; gap: 8px;

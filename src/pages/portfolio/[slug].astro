@@ -27,6 +27,20 @@ const { entry, related } = Astro.props;
 const { Content } = await render(entry);
 const d = entry.data;
 
+const formatLabel = d.format === 'figma' ? 'Figma' : 'HTML / CSS / JS';
+const statusLabel =
+  d.status === 'available' ? 'Available' : d.status === 'soon' ? 'Coming soon' : 'Sold out';
+
+// Highlights checklist — grounded in the product's real attributes.
+const highlights = [
+  'Personal & commercial license',
+  'Well-documented & organized',
+  'Ready to adapt & customize',
+  'Fully responsive, mobile-first',
+  'Built on the Roha design system',
+  ...(d.previewPath ? ['Live preview available'] : []),
+];
+
 // Generate product schema
 const productSchemaData = productSchema({
   title: d.title,
@@ -68,60 +82,49 @@ const productSchemaData = productSchema({
       </div>
     </div>
 
-    {/* PRODUCT HERO */}
-    <section class="pd-hero" id="pdHero" style="padding: 32px 0px">
+    {/* PRODUCT HERO — full-width lead with actions on the right */}
+    <section class="pd-hero" id="pdHero">
       <div class="wrap">
-        <div class="pd-hero-grid">
-          {d.images && d.images.length > 0 ? (
-            <div class="pd-cover">
-              <img src={d.images[0]} alt={d.title} width={500} height={400} />
-            </div>
-          ) : (
-            <div class={`pd-cover ${d.pattern} pattern-wrap`} aria-hidden="true"></div>
-          )}
-          <div class="pd-info">
+        <div class="pd-hero-top">
+          <div class="pd-info pd-hero-lead">
             <span class="cat">{d.category}</span>
             <h1>{d.title}</h1>
             <p class="tagline">{d.tagline}</p>
-
-            <div class="pd-actions">
-              {d.previewPath && (
-                <button type="button" class="btn btn-primary"
-                  data-preview-trigger
-                  data-preview-url={`templates/${d.previewPath}/index.html`}
-                  data-preview-title={d.title}
-                  data-preview-cat={d.category}>
-                  Preview
-                </button>
-              )}
+            <div class="pd-hero-meta">
+              <span class="by"><span class="dot" aria-hidden="true"></span> by roha</span>
+              <span class="chip">{formatLabel}</span>
+              <span class={`chip chip--${d.status}`}>{statusLabel}</span>
             </div>
+          </div>
 
-            {d.format === 'figma' && d.figmaUrl && (
-              <div class="pd-actions-tertiary">
-                <a href={d.figmaUrl} class="btn btn-tertiary" target="_blank" rel="noopener">
-                  Figma Preview <span class="arr">→</span>
-                </a>
-              </div>
+          <div class="pd-hero-actions">
+            {d.previewPath && (
+              <button type="button" class="btn btn-primary btn-lg"
+                data-preview-trigger
+                data-preview-url={`templates/${d.previewPath}/index.html`}
+                data-preview-title={d.title}
+                data-preview-cat={d.category}>
+                Live Preview <span class="arr">→</span>
+              </button>
             )}
-
-            <div class="pd-trust">
-              <div><span class="ok">✓</span> Personal &amp; commercial license</div>
-              <div><span class="ok">✓</span> Well-documented &amp; organized</div>
-              <div><span class="ok">✓</span> Ready to adapt &amp; customize</div>
-            </div>
+            {d.format === 'figma' && d.figmaUrl && (
+              <a href={d.figmaUrl} class="btn btn-secondary btn-lg" target="_blank" rel="noopener">
+                Figma File
+              </a>
+            )}
           </div>
         </div>
       </div>
     </section>
 
-    {/* PREVIEW GALLERY — single column, full width */}
+    {/* PREVIEW GALLERY — 2×2 grid */}
     {d.images && d.images.length > 0 && (
-      <section class="section" id="preview-gallery">
+      <section class="section-tight">
         <div class="wrap">
-          <div class="preview-grid">
+          <div class="pd-gallery-grid">
             {d.images.map((img, i) => (
-              <div class="preview-item" data-reveal data-reveal-delay={i * 100}>
-                <img src={img} alt="Product preview" loading="lazy" width={600} height={400} />
+              <div class="pd-shot" data-reveal data-reveal-delay={i * 80}>
+                <img src={img} alt={`${d.title} preview ${i + 1}`} loading="lazy" width={720} height={540} />
               </div>
             ))}
           </div>
@@ -129,41 +132,51 @@ const productSchemaData = productSchema({
       </section>
     )}
 
-    {/* OVERVIEW & SPECS — Side by side layout */}
+    {/* LICENSE BANNER */}
+    <section class="section-tight">
+      <div class="wrap">
+        <div class="pd-banner" data-reveal>
+          <p><span class="ico" aria-hidden="true">✓</span> Personal &amp; commercial license, ready to ship.</p>
+          {d.previewPath && (
+            <button type="button" class="btn btn-ink btn-sm"
+              data-preview-trigger
+              data-preview-url={`templates/${d.previewPath}/index.html`}
+              data-preview-title={d.title}
+              data-preview-cat={d.category}>
+              Live Preview <span class="arr">→</span>
+            </button>
+          )}
+        </div>
+      </div>
+    </section>
+
+    {/* OVERVIEW + HIGHLIGHTS — two columns */}
     <section class="section" id="product-details">
       <div class="wrap">
-        <div class="product-details-grid">
-          <div class="product-overview" data-reveal>
+        <div class="pd-detail-grid">
+          <div class="pd-overview" data-reveal>
+            <div class="eyebrow">Overview</div>
             <div class="prose">
               <Content />
             </div>
           </div>
 
-          <aside class="product-specs" data-reveal data-reveal-delay="150">
-            <div class="specs-card">
-              <div class="specs-header">
-                <h3>What's Included</h3>
-              </div>
-              <div class="specs-body">
-                <div class="spec-item">
-                  <span class="spec-label">Format</span>
-                  <span class="spec-value">{d.format === 'figma' ? 'Figma' : 'HTML/CSS/JS'}</span>
-                </div>
-                <div class="spec-item">
-                  <span class="spec-label">Status</span>
-                  <span class="spec-value">{d.status === 'available' ? '✓ Available' : d.status === 'soon' ? 'Coming Soon' : 'Sold Out'}</span>
-                </div>
-                {d.previewPath && (
-                  <div class="spec-item">
-                    <span class="spec-label">Preview</span>
-                    <span class="spec-value">Live Preview</span>
-                  </div>
-                )}
-                <div class="spec-item">
-                  <span class="spec-label">License</span>
-                  <span class="spec-value">Personal & Commercial</span>
-                </div>
-              </div>
+          <aside class="pd-highlights" data-reveal data-reveal-delay="150">
+            <h3 class="pd-side-title">Highlights</h3>
+            <ul class="pd-checklist">
+              {highlights.map((h) => (
+                <li><span class="ck" aria-hidden="true">✓</span> {h}</li>
+              ))}
+            </ul>
+
+            <h3 class="pd-side-title">Details</h3>
+            <div class="pd-meta-list">
+              <div class="row"><span class="k">Format</span><span class="v">{formatLabel}</span></div>
+              <div class="row"><span class="k">Status</span><span class="v">{statusLabel}</span></div>
+              <div class="row"><span class="k">License</span><span class="v">Personal &amp; Commercial</span></div>
+              {d.previewPath && (
+                <div class="row"><span class="k">Preview</span><span class="v">Live</span></div>
+              )}
             </div>
           </aside>
         </div>
@@ -176,8 +189,8 @@ const productSchemaData = productSchema({
         <div class="wrap">
           <div class="h-block">
             <div class="left">
-              <div class="eyebrow">Other Products</div>
-              <h2>You might like these too.</h2>
+              <div class="eyebrow">More Templates</div>
+              <h2>You may also like.</h2>
             </div>
             <p class="right">
               <a href="/portfolio/" class="section-link" style="margin-top:0;">
@@ -216,14 +229,39 @@ const productSchemaData = productSchema({
 </Base>
 
 <script>
-  // Sticky product bar — show after hero scrolls out of view
+  // Sticky product bar — slides in below the nav once the hero scrolls past it.
+  const nav = document.querySelector('.nav');
   const hero = document.getElementById('pdHero');
   const bar = document.getElementById('pdStickyBar');
+
   if (hero && bar) {
-    const io = new IntersectionObserver(
-      ([entry]) => bar.classList.toggle('is-stuck', !entry.isIntersecting),
-      { rootMargin: '-80px 0px 0px 0px', threshold: 0 }
-    );
-    io.observe(hero);
+    const navH = () => (nav ? Math.round(nav.getBoundingClientRect().height) : 60);
+
+    // Anchor the bar to the bottom edge of the nav, kept in sync on resize.
+    const place = () => bar.style.setProperty('--pd-bar-top', navH() + 'px');
+    place();
+
+    let io: IntersectionObserver | null = null;
+    const watch = () => {
+      io?.disconnect();
+      io = new IntersectionObserver(
+        ([entry]) => {
+          const stuck = !entry.isIntersecting;
+          bar.classList.toggle('is-stuck', stuck);
+          bar.setAttribute('aria-hidden', stuck ? 'false' : 'true');
+        },
+        // Trigger the moment the hero's bottom passes under the nav.
+        { rootMargin: `-${navH()}px 0px 0px 0px`, threshold: 0 }
+      );
+      io.observe(hero);
+    };
+    watch();
+
+    let t: number;
+    window.addEventListener('resize', () => {
+      place();
+      clearTimeout(t);
+      t = window.setTimeout(watch, 150);
+    });
   }
 </script>
