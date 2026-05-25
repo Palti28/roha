@@ -140,7 +140,7 @@
 .project-card:hover .thumb { border-color: var(--rule-strong); }
 
 .project-card .thumb {
-  aspect-ratio: 4/3;
+  aspect-ratio: 3/2;
   border-radius: var(--radius-sm);
   border: 1px solid var(--rule);
   overflow: hidden;
@@ -152,7 +152,9 @@
   height: 100%;
   object-fit: cover;
   display: block;
+  transition: transform .5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
+.project-card:hover .thumb img { transform: scale(1.02); }
 
 .project-card .meta-row {
   display: flex; align-items: center;
@@ -176,17 +178,9 @@
 }
 .project-card h3 {
   font-family: 'Bricolage Grotesque', serif;
-  font-size: 22px;
+  font-size: 20px;
   letter-spacing: -.015em;
   line-height: 1.15;
   font-weight: 500;
-  margin: 0;
-}
-.project-card .summary {
-  font-size: 13.5px;
-  line-height: 1.55;
-  color: var(--ink);
-  opacity: .65;
-  max-width: 44ch;
   margin: 0;
 }
