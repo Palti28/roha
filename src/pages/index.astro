@@ -25,28 +25,33 @@ const sortedPortfolio = allPortfolio.sort(byDate).slice(0, 6);
   <!-- =================== HERO =================== -->
   <section class="home-hero">
     <div class="wrap">
-      <div class="eyebrow">Design Studio</div>
-
       <div class="home-hero-grid">
-        <h1 class="display">Digital design<br/>made <em class="italic-accent">warm</em>,<br/>shipped tidy.</h1>
 
-        <div class="home-hero-meta">
-          <p>Roha is a small studio that helps founders and indie makers build websites, UI/UX, and brands that feel real, not just thrown together.</p>
+        <div class="home-hero-left">
+          <div class="eyebrow">Design Studio</div>
+          <h1 class="display">Digital design<br/>made <em class="italic-accent">warm</em>,<br/>shipped tidy.</h1>
+          <p class="hero-sub">Roha is a small studio that helps founders and indie makers build websites, UI/UX, and brands that feel real, not just thrown together.</p>
+          <div class="hero-tags" aria-hidden="true">
+            <span>UI/UX</span>
+            <span>Web</span>
+            <span>Brand</span>
+          </div>
           <div class="btn-row">
             <a href="/work" class="btn btn-primary">See Our Work <span class="arr">→</span></a>
-            <a href="/about#contact" class="btn btn-secondary">Contact Us</a>
+            <a href="/about#contact" class="btn btn-secondary">Start a Project</a>
           </div>
         </div>
-      </div>
 
-      <div class="hero-stripe" aria-hidden="true">
-        <span style="background:var(--terracotta)"></span>
-        <span style="background:var(--terracotta-soft)"></span>
-        <span style="background:var(--mustard)"></span>
-        <span style="background:var(--sand)"></span>
-        <span style="background:var(--cream)"></span>
-        <span style="background:var(--clay)"></span>
-        <span style="background:var(--ink)"></span>
+        <div class="home-hero-right">
+          <div class="hero-illus-wrap">
+            <!--
+              Place hero image at: public/hero.jpg
+              Recommended: portrait, min 960×1200px
+            -->
+            <img src="/hero.jpg" alt="" class="hero-illus" width="480" height="600" loading="eager" />
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -245,7 +250,9 @@ const sortedPortfolio = allPortfolio.sort(byDate).slice(0, 6);
               <path d="M48.5 46 L40.5 51" opacity=".5"/>
             </svg>
           </div>
-          <p>Considered at every scale.</p>
+          <span class="principle-num">01</span>
+          <h4>Scale intentionally.</h4>
+          <p>Every detail gets the same attention, from a single button to the full user flow.</p>
         </div>
         <div class="principle" data-reveal data-reveal-delay="100">
           <div class="principle-illus" aria-hidden="true">
@@ -263,7 +270,9 @@ const sortedPortfolio = allPortfolio.sort(byDate).slice(0, 6);
               <circle cx="32" cy="32" r="2.5" fill="currentColor" stroke="none"/>
             </svg>
           </div>
-          <p>Warmth by design, not default.</p>
+          <span class="principle-num">02</span>
+          <h4>Warmth by design.</h4>
+          <p>Character comes from deliberate choices, not defaults or template presets.</p>
         </div>
         <div class="principle" data-reveal data-reveal-delay="200">
           <div class="principle-illus" aria-hidden="true">
@@ -287,7 +296,9 @@ const sortedPortfolio = allPortfolio.sort(byDate).slice(0, 6);
               <line x1="41" y1="52" x2="48" y2="52" opacity=".35"/>
             </svg>
           </div>
-          <p>Systems outlast single pages.</p>
+          <span class="principle-num">03</span>
+          <h4>Build for longevity.</h4>
+          <p>Design systems that work beyond the first page, built to outlast the initial brief.</p>
         </div>
         <div class="principle" data-reveal data-reveal-delay="300">
           <div class="principle-illus" aria-hidden="true">
@@ -301,7 +312,9 @@ const sortedPortfolio = allPortfolio.sort(byDate).slice(0, 6);
               <line x1="42" y1="13" x2="47" y2="8" opacity=".5"/>
             </svg>
           </div>
-          <p>Ship first, refine after.</p>
+          <span class="principle-num">04</span>
+          <h4>Ship, then sharpen.</h4>
+          <p>Get to live early, learn from real use, then improve with intent.</p>
         </div>
       </div>
     </div>
