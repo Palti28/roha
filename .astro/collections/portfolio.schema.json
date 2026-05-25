@@ -5,46 +5,58 @@
     "title": {
       "type": "string"
     },
+    "category": {
+      "type": "string"
+    },
+    "tagline": {
+      "type": "string"
+    },
     "summary": {
       "type": "string"
     },
-    "category": {
-      "type": "string",
-      "enum": [
-        "web",
-        "uiux",
-        "branding"
-      ]
-    },
-    "service": {
-      "type": "string"
-    },
-    "duration": {
-      "type": "string"
-    },
-    "year": {
+    "price": {
       "type": "number"
     },
-    "client": {
+    "priceOriginal": {
+      "type": "number"
+    },
+    "currency": {
+      "default": "IDR",
       "type": "string"
     },
-    "concept": {
-      "default": false,
-      "type": "boolean"
+    "format": {
+      "type": "string",
+      "enum": [
+        "figma",
+        "html"
+      ]
     },
-    "cover": {
-      "type": "string"
+    "status": {
+      "default": "available",
+      "type": "string",
+      "enum": [
+        "available",
+        "soon",
+        "sold-out"
+      ]
+    },
+    "buyUrl": {
+      "type": "string",
+      "format": "uri"
+    },
+    "figmaUrl": {
+      "type": "string",
+      "format": "uri"
     },
     "previewPath": {
+      "type": "string"
+    },
+    "cover": {
       "type": "string"
     },
     "pattern": {
       "default": "pat-arcs",
       "type": "string"
-    },
-    "coverImage": {
-      "type": "string",
-      "format": "uri"
     },
     "images": {
       "type": "array",
@@ -71,11 +83,9 @@
   },
   "required": [
     "title",
-    "summary",
     "category",
-    "service",
-    "duration",
-    "year",
-    "client"
+    "tagline",
+    "summary",
+    "format"
   ]
 }
