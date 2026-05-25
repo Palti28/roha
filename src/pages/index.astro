@@ -10,7 +10,7 @@ const byDate = (a: any, b: any) => {
 };
 
 const allWork = await getCollection('work', ({ data }) => !data.draft);
-const sortedWork = allWork.sort(byDate).slice(0, 2);
+const sortedWork = allWork.sort(byDate).slice(0, 3);
 
 const allPortfolio = await getCollection('portfolio', ({ data }) => !data.draft);
 const sortedPortfolio = allPortfolio.sort(byDate).slice(0, 6);
