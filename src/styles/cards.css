@@ -134,53 +134,78 @@
 
 /* =================== PROJECT CARD (Featured work di homepage) =================== */
 .project-card {
+  position: relative;
   display: block;
-  text-decoration: none; color: inherit;
+  text-decoration: none;
+  color: inherit;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--rule);
+  background: var(--paper-tint);
+  transition: transform .35s cubic-bezier(.2,.7,.2,1);
+  cursor: pointer;
+  height: 100%;
 }
-.project-card:hover .thumb { border-color: var(--rule-strong); }
+.project-card:first-child { grid-row: span 2; }
+.project-card:hover { transform: translateY(-5px); }
 
 .project-card .thumb {
-  aspect-ratio: 3/2;
-  border-radius: var(--radius-sm);
-  border: 1px solid var(--rule);
-  overflow: hidden;
-  position: relative;
-  transition: border-color .25s ease;
-}
-.project-card .thumb img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform .5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
-.project-card:hover .thumb img { transform: scale(1.02); }
+@media (max-width: 760px) {
+  .project-card:first-child { grid-row: auto; }
+}
 
+.project-info {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  padding: 26px;
+  background: linear-gradient(to top, rgba(26, 22, 17, 0.92) 0%, rgba(26, 22, 17, 0.4) 60%, transparent 100%);
+  color: var(--cream);
+}
 .project-card .meta-row {
-  display: flex; align-items: center;
+  display: flex;
+  align-items: center;
   gap: 12px;
-  margin-top: 8px;
+  margin-bottom: 8px;
 }
 .project-card .tag {
   font-family: 'Geist Mono', monospace;
   font-size: 10px;
   text-transform: uppercase;
   letter-spacing: .12em;
-  color: var(--terracotta);
+  color: var(--terracotta-soft);
 }
 .project-card .year {
   font-family: 'Geist Mono', monospace;
   font-size: 10px;
   text-transform: uppercase;
   letter-spacing: .12em;
-  color: var(--clay);
+  color: var(--cream);
   opacity: .65;
+}
+.project-card .work-label {
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  color: var(--cream);
+  opacity: .5;
+  padding: 2px 7px;
+  border: 1px solid rgba(246, 239, 224, 0.3);
+  border-radius: 999px;
 }
 .project-card h3 {
   font-family: 'Bricolage Grotesque', serif;
-  font-size: 20px;
+  font-size: 22px;
   letter-spacing: -.015em;
   line-height: 1.15;
   font-weight: 500;
   margin: 0;
+  color: var(--cream);
 }
