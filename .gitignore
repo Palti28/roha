@@ -6,4 +6,3 @@
 !.env.example
 node_modules/
 dist/
-.astro/

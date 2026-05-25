@@ -93,22 +93,31 @@
 /* ---------- Services as cards (Notion-style) ---------- */
 .svc-card-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 12px;
 }
-@media (max-width: 980px) { .svc-card-grid { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 600px) { .svc-card-grid { grid-template-columns: 1fr 1fr; gap: 8px; } }
+.svc-card-grid .svc-tile:last-child {
+  grid-column: span 1;
+}
+@media (max-width: 980px) {
+  .svc-card-grid { grid-template-columns: 1fr 1fr; }
+  .svc-card-grid .svc-tile:last-child { grid-column: span 2; }
+}
+@media (max-width: 600px) {
+  .svc-card-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .svc-card-grid .svc-tile:last-child { grid-column: span 2; }
+}
 
 .svc-tile {
   background: var(--paper-tint);
   border: 1px solid var(--rule);
   border-radius: var(--radius-sm);
-  padding: 18px 18px 16px;
+  padding: 18px 18px 20px;
   text-decoration: none;
   color: inherit;
   display: flex; flex-direction: column;
-  gap: 8px;
-  min-height: 180px;
+  gap: 10px;
+  min-height: 220px;
   transition: background .2s ease, border-color .2s ease;
   position: relative;
 }
@@ -117,8 +126,9 @@
   border-color: var(--rule-strong);
 }
 .svc-tile .top {
-  display: flex; justify-content: space-between; align-items: center;
-  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 2px;
 }
 .svc-tile .num {
   font-family: 'Geist Mono', monospace;
@@ -128,15 +138,6 @@
   color: var(--clay);
   opacity: .8;
 }
-.svc-tile .icon {
-  width: 28px; height: 28px;
-  border-radius: 8px;
-  background: var(--paper);
-  border: 1px solid var(--rule);
-  display: inline-flex; align-items: center; justify-content: center;
-  color: var(--terracotta);
-}
-.svc-tile .icon svg { width: 14px; height: 14px; }
 .svc-tile h3 {
   font-family: 'Bricolage Grotesque', serif;
   font-size: 18px;
@@ -152,20 +153,30 @@
   opacity: .66;
   margin: 0;
 }
-.svc-tile .price {
-  margin-top: auto;
-  padding-top: 12px;
-  border-top: 1px dashed var(--rule);
-  display: flex; justify-content: space-between; align-items: center;
-  font-family: 'Geist Mono', monospace;
-  font-size: 10.5px;
-  text-transform: uppercase;
-  letter-spacing: .12em;
-  color: var(--clay);
+.svc-illus {
+  color: var(--terracotta);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 0 2px;
 }
-.svc-tile .price .amount { color: var(--ink); font-weight: 500; }
-.svc-tile .price .arr { color: var(--terracotta); transition: transform .2s ease; }
-.svc-tile:hover .price .arr { transform: translateX(3px); }
+.svc-illus svg {
+  width: 56px;
+  height: 56px;
+}
+
+.svc-tile-dark {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--cream);
+}
+.svc-tile-dark:hover {
+  background: #2a2318;
+  border-color: var(--ink);
+}
+.svc-tile-dark h3 { color: var(--cream); }
+.svc-tile-dark p { color: var(--cream); opacity: .65; }
+
 @media (max-width: 600px) {
   .svc-tile {
     min-height: unset;
@@ -175,6 +186,7 @@
   .svc-tile h3 { font-size: 15px; }
   .svc-tile p { font-size: 12px; display: none; }
   .svc-tile .top { margin-bottom: 2px; }
+  .svc-illus svg { width: 44px; height: 44px; }
 }
 
 /* ---------- Mini about ---------- */
@@ -350,19 +362,6 @@
 }
 
 /* CTA wrap + compact panel styles moved to components.css (shared across pages). */
-
-/* ---------- Service tile price tag ---------- */
-.svc-price {
-  display: inline-block;
-  margin-top: auto;
-  padding-top: 14px;
-  font-family: 'Geist Mono', ui-monospace, monospace;
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: .10em;
-  color: var(--terracotta);
-  opacity: .85;
-}
 
 /* ---------- Work card honest label ---------- */
 .work-label {
