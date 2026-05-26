@@ -40,6 +40,9 @@
   position: relative;
   margin: 24px 0 32px;
 }
+.wd-tag-row {
+  margin-top: 14px;
+}
 .wd-header h1 {
   font-family: 'Bricolage Grotesque', serif;
   font-size: clamp(32px, 5vw, 60px);

@@ -2,6 +2,7 @@
 import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 import Base from "../layouts/Base.astro";
+import CaseTag from "../components/CaseTag.astro";
 
 // 1. Ambil data collection 'work' & filter out draft
 const allWork = await getCollection("work", ({ data }) => {
@@ -50,6 +51,8 @@ const sortedWork = allWork.sort((a, b) => a.data.order - b.data.order);
                 client,
                 pattern,
                 coverImage,
+                concept,
+                tagLabel,
               } = project.data;
               return (
                 <a
@@ -60,7 +63,7 @@ const sortedWork = allWork.sort((a, b) => a.data.order - b.data.order);
                   data-reveal-delay={idx * 120}
                 >
                   {coverImage ? (
-                    <img src={coverImage} alt={title} class="thumb" width={400} height={300} loading="lazy" />
+                    <img src={coverImage} alt={`${title} — case study cover`} class="thumb" width={400} height={300} loading="lazy" />
                   ) : (
                     <div
                       class={`thumb ${pattern} pattern-wrap`}
@@ -71,6 +74,7 @@ const sortedWork = allWork.sort((a, b) => a.data.order - b.data.order);
                   <div class="meta-row">
                     <span class="tag">{service}</span>
                     <span class="meta-tag">{year}</span>
+                    <CaseTag concept={concept} label={tagLabel} tone="light" />
                   </div>
 
                   <h3>{title}</h3>
@@ -99,18 +103,15 @@ const sortedWork = allWork.sort((a, b) => a.data.order - b.data.order);
             > project?
           </h2>
           <p>
-            Roha&rsquo;s project slots are limited, usually a maximum of 2 in
-            parallel. Send your brief first.
+            Roha takes on a limited number of projects at once, so each one gets
+            full attention. Send your brief first.
           </p>
           <div class="btn-row">
-            <a href="/about" class="btn btn-cream"
-              >Send a Brief <span class="arr">→</span></a
+            <a href="/about#contact" class="btn btn-cream"
+              >Start a Project <span class="arr">→</span></a
             >
-            <a
-              href="https://wa.me/[NO_WA]?text=Hi%20Roha"
-              class="btn btn-outline-cream"
-              target="_blank"
-              rel="noopener">Chat on WhatsApp</a
+            <a href="mailto:hello@rohaworks.com" class="btn btn-outline-cream"
+              >Email Us</a
             >
           </div>
           <div class="arcs-deco" aria-hidden="true"></div>

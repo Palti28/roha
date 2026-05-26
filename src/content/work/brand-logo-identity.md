@@ -19,7 +19,7 @@ publishedAt: 2026-04-12
 
 ### 01 — Context
 
-A brand identity isn't just a logo. It's a complete system that tells the world who you are at every touchpoint. This project started with a simple question: how do we create a visual language that feels warm, intentional, and unmistakably ours?
+A brand identity isn't just a logo. It's a complete system that tells the world who you are at every touchpoint. This project started with a simple question: how do we create a visual language that feels considered, intentional, and unmistakably ours?
 
 The client came to us with a strong foundation: a clear mission, a defined audience, and an understanding that visual identity is more than aesthetics. What they needed was a system that could carry that clarity into every interaction, from business cards to billboards, from app icons to invoice headers.
 

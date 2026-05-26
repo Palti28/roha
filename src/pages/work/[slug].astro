@@ -6,6 +6,7 @@
 import { Image } from 'astro:assets';
 import { getCollection, render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
+import CaseTag from '../../components/CaseTag.astro';
 import { creativeWorkSchema } from '../../utils/schema';
 import { site } from '../../data/site';
 
@@ -53,6 +54,9 @@ const workSchema = creativeWorkSchema({
       <div class="wrap">
         <div class="wd-header">
           <div class="eyebrow">Case Study · {d.year}</div>
+          <div class="wd-tag-row">
+            <CaseTag concept={d.concept} label={d.tagLabel} tone="light" />
+          </div>
           <h1>{d.title}.</h1>
           <p class="section-lede">{d.summary}</p>
           {d.concept && (
@@ -64,7 +68,7 @@ const workSchema = creativeWorkSchema({
 
         {d.coverImage ? (
           <div class="wd-cover-frame wd-cover-image">
-            <img src={d.coverImage} alt={d.title} loading="lazy" width={800} height={500} />
+            <img src={d.coverImage} alt={`${d.title} — case study cover`} loading="lazy" width={800} height={500} />
           </div>
         ) : (
           <div class={`wd-cover-frame ${d.pattern} pattern-wrap`} aria-hidden="true"></div>
@@ -86,7 +90,7 @@ const workSchema = creativeWorkSchema({
           <div class="wd-images-grid">
             {d.images.map((img) => (
               <div class="wd-image-item">
-                <img src={img} alt="Project showcase" loading="lazy" width={600} height={400} />
+                <img src={img} alt={`${d.title} — project showcase`} loading="lazy" width={600} height={400} />
               </div>
             ))}
           </div>

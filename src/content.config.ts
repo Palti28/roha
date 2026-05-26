@@ -16,6 +16,9 @@ const work = defineCollection({
     client: z.string(),
     // true = unsolicited/spec redesign, not a real client engagement
     concept: z.boolean().default(false),
+    // Overrides the case tag text, e.g. "Frontend Build" for a real client build.
+    // When omitted: concept ? "Concept" : "Client Project".
+    tagLabel: z.string().optional(),
     cover: z.string().optional(),
     previewPath: z.string().optional(),
     // Pattern class for the cover frame, e.g. "pat-arcs"

@@ -2,6 +2,7 @@
 import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
+import CaseTag from '../components/CaseTag.astro';
 
 const byDate = (a: any, b: any) => {
   const da = a.data.publishedAt?.getTime() ?? 0;
@@ -18,7 +19,7 @@ const sortedPortfolio = allPortfolio.sort(byDate).slice(0, 6);
 
 <Base
   title="Roha"
-  description="Roha is a small studio that helps founders and indie makers build websites, UI/UX, and brands that feel real, not just thrown together."
+  description="Roha is a design studio building websites, UI/UX, and brand systems that are considered, durable, and ready to ship."
 >
   <main id="main">
 
@@ -31,8 +32,8 @@ const sortedPortfolio = allPortfolio.sort(byDate).slice(0, 6);
           <div class="eyebrow">Design Studio · Indonesia</div>
           <h1 class="display">Purposeful design,<br/>built to <em class="italic-accent">last</em>,<br/>ready to ship.</h1>
           <div class="btn-row">
-            <a href="/work" class="btn btn-primary">See Our Work <span class="arr">→</span></a>
-            <a href="/about#contact" class="btn btn-secondary">Start a Project</a>
+            <a href="/about#contact" class="btn btn-primary">Start a Project <span class="arr">→</span></a>
+            <a href="/work" class="btn btn-secondary">See Our Work</a>
           </div>
           <div class="hero-meta">
             <div class="hero-meta-item">
@@ -484,16 +485,16 @@ const sortedPortfolio = allPortfolio.sort(byDate).slice(0, 6);
     <div class="wrap">
       <dl class="studio-stats">
         <div class="stat-item">
-          <dt>20+</dt>
-          <dd>Projects delivered</dd>
+          <dt>2021</dt>
+          <dd>Studio founded</dd>
         </div>
         <div class="stat-item">
           <dt>UI/UX · Web · Brand</dt>
           <dd>Core disciplines</dd>
         </div>
         <div class="stat-item">
-          <dt>2021</dt>
-          <dd>Studio founded</dd>
+          <dt>1–2 weeks</dt>
+          <dd>Typical turnaround</dd>
         </div>
         <div class="stat-item">
           <dt>Indonesia</dt>
@@ -622,12 +623,11 @@ const sortedPortfolio = allPortfolio.sort(byDate).slice(0, 6);
         <div class="featured-grid">
           {
             sortedWork.map((project, i) => {
-              const { title, summary, service, year, pattern, coverImage, concept } = project.data;
-              const workLabel = concept ? 'Concept work' : 'Studio project';
+              const { title, summary, service, year, pattern, coverImage, concept, tagLabel } = project.data;
               return (
                 <a href={`/work/${project.id}`} class="project-card" data-reveal data-reveal-delay={i * 120}>
                   {coverImage ? (
-                    <img src={coverImage} alt={title} class="thumb" width={400} height={300} loading="lazy" />
+                    <img src={coverImage} alt={`${title} — case study cover`} class="thumb" width={400} height={300} loading="lazy" />
                   ) : (
                     <div class={`thumb ${pattern} pattern-wrap`} aria-hidden="true"></div>
                   )}
@@ -635,7 +635,7 @@ const sortedPortfolio = allPortfolio.sort(byDate).slice(0, 6);
                     <div class="meta-row">
                       <span class="tag">{service}</span>
                       <span class="year">{year}</span>
-                      <span class="work-label">{workLabel}</span>
+                      <CaseTag concept={concept} label={tagLabel} tone="dark" />
                     </div>
                     <h3>{title}</h3>
                   </div>
@@ -656,9 +656,9 @@ const sortedPortfolio = allPortfolio.sort(byDate).slice(0, 6);
       <div class="why-roha-block" data-reveal>
         <div class="eyebrow">Why Roha</div>
         <blockquote class="why-roha-quote">
-          Too many founders end up with websites assembled from a template store, technically functional but hollow. Roha exists to close that gap: a one-person studio with a fintech design background, focused on helping small founders build things that feel considered, not just finished.
+          Too many sites end up assembled from a template store: technically functional, but hollow. Roha exists to close that gap. We treat every project as a system to be reasoned through, not a layout to be filled in, so the result feels considered, not just finished.
         </blockquote>
-        <p class="why-roha-sub">One designer. Deliberate process. No padding.</p>
+        <p class="why-roha-sub">Deliberate process. Clear decisions. No padding.</p>
       </div>
     </div>
   </section>
@@ -694,8 +694,8 @@ const sortedPortfolio = allPortfolio.sort(byDate).slice(0, 6);
               <path d="M20 4 V9 M20 31 V36 M4 20 H9 M31 20 H36 M8.5 8.5 L12 12 M31.5 8.5 L28 12 M8.5 31.5 L12 28 M31.5 31.5 L28 28" stroke="var(--terracotta-soft)" stroke-width="2" stroke-linecap="round"/>
             </svg>
           </div>
-          <h4>Warmth by design, not default</h4>
-          <p>Friendly interfaces don&rsquo;t happen by accident. Warmth is a deliberate craft decision.</p>
+          <h4>Craft is in the details</h4>
+          <p>Interfaces that feel right don&rsquo;t happen by accident. Every state and edge case is a deliberate decision.</p>
         </div>
         <div class="how-card" data-reveal data-reveal-delay="200">
           <div class="how-illus" aria-hidden="true">
@@ -798,8 +798,8 @@ const sortedPortfolio = allPortfolio.sort(byDate).slice(0, 6);
         <h2>Got a project? <em class="italic-accent" style="color:var(--ink)">Let&rsquo;s talk.</em></h2>
         <p>Send us a brief or just tell us your idea. We reply within 1&times;24 hours (business hours).</p>
         <div class="btn-row">
-          <a href="mailto:halo@roha.design" class="btn btn-cream">Email Us <span class="arr">→</span></a>
-          <a href="/about#contact" class="btn btn-outline-cream">Contact Page</a>
+          <a href="/about#contact" class="btn btn-cream">Start a Project <span class="arr">→</span></a>
+          <a href="mailto:hello@rohaworks.com" class="btn btn-outline-cream">Email Us</a>
         </div>
         <div class="arcs-deco" aria-hidden="true"></div>
       </div>
