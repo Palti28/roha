@@ -81,10 +81,10 @@
   height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform .5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: transform .6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 .work-card:hover .thumb { border-color: var(--rule-strong); }
-.work-card:hover .thumb img { transform: scale(1.02); }
+.work-card:hover .thumb img { transform: scale(1.07); }
 
 .work-card .meta-row {
   display: flex; align-items: center;
@@ -165,7 +165,7 @@
   position: absolute;
   left: 0; right: 0; bottom: 0;
   padding: 26px;
-  background: linear-gradient(to top, rgba(26, 22, 17, 0.92) 0%, rgba(26, 22, 17, 0.4) 60%, transparent 100%);
+  background: linear-gradient(to top, rgba(26, 22, 17, 0.96) 0%, rgba(26, 22, 17, 0.65) 55%, rgba(26, 22, 17, 0.1) 100%);
   color: var(--cream);
 }
 .project-card .meta-row {

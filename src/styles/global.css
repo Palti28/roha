@@ -178,7 +178,7 @@ button {
   font-family: 'Geist Mono', ui-monospace, monospace;
   text-transform: uppercase;
   letter-spacing: .12em;
-  font-size: 10.5px;
+  font-size: 11px;
   color: var(--clay);
   display: inline-flex;
   align-items: center;
