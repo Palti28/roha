@@ -8,7 +8,7 @@
 }
 .home-hero-grid {
   display: grid;
-  grid-template-columns: 1.55fr 1fr;
+  grid-template-columns: 1fr 1.4fr;
   gap: 56px;
   align-items: center;
 }
