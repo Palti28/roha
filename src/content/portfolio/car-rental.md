@@ -10,10 +10,10 @@ buyUrl: "https://roha.mayar.id/car-rental-template"
 previewPath: "/car-rental"
 pattern: "pat-arcs"
 images:
-  - "https://ik.imagekit.io/gorat/eca-car-rental/compressed_1779632139619.webp?updatedAt=1779632246264"
-  - "https://ik.imagekit.io/gorat/eca-car-rental/compressed_1779632139619.webp?updatedAt=1779632246264"
-  - "https://ik.imagekit.io/gorat/eca-car-rental/compressed_1779632139619.webp?updatedAt=1779632246264"
-  - "https://ik.imagekit.io/gorat/eca-car-rental/compressed_1779632139619.webp?updatedAt=1779632246264"
+  - "https://ik.imagekit.io/gorat/eca-car-rental/roha-protfolio-cover_converted.avif"
+  - "https://ik.imagekit.io/gorat/eca-car-rental/car-rent-shot-1.avif"
+  - "https://ik.imagekit.io/gorat/eca-car-rental/car-rent-shot-3.avif"
+  - "https://ik.imagekit.io/gorat/eca-car-rental/car-rent-shot-2.avif"
 order: 1
 publishedAt: 2026-01-15
 draft: false
