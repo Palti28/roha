@@ -812,4 +812,61 @@ const sortedPortfolio = allPortfolio.sort(byDate).slice(0, 6);
   -->
 
 </main>
+
+<script>
+(function () {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  function sel(cls) { return document.querySelector('.' + cls); }
+
+  const ENTRY = (delay, fade) => ({
+    frames: fade
+      ? [{ opacity: 0, transform: 'translateY(14px)' }, { opacity: 1, transform: 'translateY(0)' }]
+      : [{ transform: 'translateY(14px)' }, { transform: 'translateY(0)' }],
+    opts: { duration: 700, delay, fill: 'forwards', easing: 'cubic-bezier(0.22,1,0.36,1)' }
+  });
+
+  const entries = [
+    { cls: 'hi-hex-a',    delay: 100,  fade: false },
+    { cls: 'hi-hex-b',    delay: 150,  fade: false },
+    { cls: 'hi-browser',  delay: 200,  fade: true  },
+    { cls: 'hi-palette',  delay: 300,  fade: true  },
+    { cls: 'hi-code-dark',delay: 350,  fade: true  },
+    { cls: 'hi-product',  delay: 400,  fade: true  },
+    { cls: 'hi-code-light',delay: 450, fade: true  },
+    { cls: 'hi-case',     delay: 500,  fade: true  },
+    { cls: 'hi-brand',    delay: 550,  fade: true  },
+    { cls: 'hi-handle',   delay: 750,  fade: false },
+  ];
+
+  const floats = [
+    { cls: 'hi-code-dark',  dy: -6, dur: 7000,  delay: 1050 },
+    { cls: 'hi-code-light', dy:  5, dur: 8000,  delay: 1150 },
+    { cls: 'hi-palette',    dy: -4, dur: 9000,  delay: 1000 },
+    { cls: 'hi-case',       dy: -6, dur: 10000, delay: 1200 },
+    { cls: 'hi-brand',      dy:  5, dur: 7500,  delay: 1250 },
+    { cls: 'hi-product',    dy: -4, dur: 8500,  delay: 1100 },
+    { cls: 'hi-hex-a',      dy: -6, dur: 9000,  delay: 700  },
+    { cls: 'hi-hex-b',      dy:  5, dur: 11000, delay: 750  },
+  ];
+
+  entries.forEach(({ cls, delay, fade }) => {
+    const el = sel(cls);
+    if (!el) return;
+    const e = ENTRY(delay, fade);
+    el.animate(e.frames, e.opts);
+  });
+
+  floats.forEach(({ cls, dy, dur, delay }) => {
+    const el = sel(cls);
+    if (!el) return;
+    setTimeout(() => {
+      el.animate(
+        [{ transform: 'translateY(0px)' }, { transform: `translateY(${dy}px)` }, { transform: 'translateY(0px)' }],
+        { duration: dur, iterations: Infinity, easing: 'ease-in-out' }
+      );
+    }, delay);
+  });
+})();
+</script>
 </Base>
