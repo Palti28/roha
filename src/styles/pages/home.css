@@ -59,7 +59,7 @@
 }
 .hero-illus-wrap {
   width: 100%;
-  aspect-ratio: 860 / 810;
+  aspect-ratio: 2 / 1;
   border-radius: var(--radius-lg);
   overflow: hidden;
 }
