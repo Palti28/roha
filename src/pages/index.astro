@@ -52,11 +52,210 @@ const sortedPortfolio = allPortfolio.sort(byDate).slice(0, 6);
 
         <div class="home-hero-right">
           <div class="hero-illus-wrap">
-            <!--
-              Place hero image at: public/hero.jpg
-              Recommended: portrait, min 960×1200px
-            -->
-            <img src="/hero.jpg" alt="" class="hero-illus" width="480" height="600" loading="eager" />
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="720 60 860 810" class="hero-illus" role="img" aria-label="Ilustrasi alat desain dan pengembangan web">
+              <defs>
+                <linearGradient id="hbg" x1="0" y1="0" x2="0.4" y2="1">
+                  <stop offset="0" stop-color="#F7F6F5"/>
+                  <stop offset="1" stop-color="#EFEEEC"/>
+                </linearGradient>
+                <pattern id="hdots" width="44" height="44" patternUnits="userSpaceOnUse">
+                  <circle cx="2" cy="2" r="1.4" fill="#E3E2E0"/>
+                </pattern>
+                <filter id="hss" x="-30%" y="-30%" width="160%" height="160%">
+                  <feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#111111" flood-opacity="0.10"/>
+                </filter>
+                <filter id="hts" x="-40%" y="-40%" width="180%" height="180%">
+                  <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#111111" flood-opacity="0.10"/>
+                </filter>
+                <style>
+                  .hl{font-family:'Bricolage Grotesque',Helvetica,Arial,sans-serif;font-weight:700;fill:#111111}
+                  .hc{font-family:'Geist Mono','SFMono-Regular',Consolas,monospace}
+                </style>
+              </defs>
+
+              <rect width="1760" height="880" fill="url(#hbg)"/>
+              <rect width="1760" height="880" fill="url(#hdots)" opacity="0.55"/>
+
+              <g stroke="#C9583B" stroke-width="3.5" stroke-linecap="round" opacity="0.6">
+                <path d="M1232 78 v22 M1221 89 h22"/>
+                <path d="M905 690 v16 M897 698 h16"/>
+              </g>
+
+              <g stroke="#E07B5C" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-dasharray="2 9" opacity="0.85">
+                <path d="M905 666 C 940 700 980 706 1010 686"/>
+                <path d="M1430 706 C 1470 736 1520 740 1560 720"/>
+              </g>
+
+              <!-- Browser mockup -->
+              <g filter="url(#hss)">
+                <rect x="880" y="170" width="540" height="470" rx="20" fill="#FFFFFF" stroke="#ECECEC" stroke-width="1.5"/>
+                <circle cx="912" cy="202" r="6.5" fill="#C9583B"/>
+                <circle cx="934" cy="202" r="6.5" fill="#F2C94C"/>
+                <circle cx="956" cy="202" r="6.5" fill="#6FCF97"/>
+                <line x1="900" y1="226" x2="1400" y2="226" stroke="#ECECEC" stroke-width="1.5"/>
+                <g fill="none" stroke="#BFBFBF" stroke-width="2" opacity="0.9">
+                  <rect x="918" y="240" width="16" height="16" rx="3"/>
+                  <path d="M952 256 l8 -16 l8 16 z"/>
+                  <circle cx="990" cy="248" r="8"/>
+                  <path d="M1020 256 l16 -16"/>
+                  <rect x="1058" y="240" width="16" height="16" rx="3"/>
+                  <rect x="1094" y="240" width="16" height="16" rx="3"/>
+                  <rect x="1130" y="240" width="16" height="16" rx="3"/>
+                  <path d="M1170 240 v16 M1162 248 h16"/>
+                  <circle cx="1300" cy="248" r="8"/>
+                  <circle cx="1336" cy="248" r="8"/>
+                </g>
+                <text x="1218" y="254" class="hl" font-size="15">T</text>
+                <rect x="912" y="276" width="476" height="338" rx="10" fill="#FBFAF9" stroke="#ECECEC" stroke-width="1.5"/>
+                <rect x="946" y="300" width="150" height="116" rx="6" fill="#FFFFFF" stroke="#BFBFBF" stroke-width="1.6"/>
+                <path d="M946 300 L1096 416 M1096 300 L946 416" stroke="#D7D7D7" stroke-width="1.6"/>
+                <rect x="1132" y="306" width="210" height="11" rx="5.5" fill="#D7D7D7"/>
+                <rect x="1132" y="330" width="232" height="9" rx="4.5" fill="#E6E6E6"/>
+                <rect x="1132" y="348" width="232" height="9" rx="4.5" fill="#E6E6E6"/>
+                <rect x="1132" y="366" width="180" height="9" rx="4.5" fill="#E6E6E6"/>
+                <rect x="1132" y="392" width="104" height="30" rx="15" fill="#C9583B"/>
+                <rect x="1156" y="405" width="56" height="5" rx="2.5" fill="#FFFFFF"/>
+                <rect x="946" y="440" width="418" height="150" rx="8" fill="none" stroke="#C9583B" stroke-width="1.6" stroke-dasharray="6 5"/>
+                <g>
+                  <rect x="966" y="458" width="118" height="114" rx="7" fill="#FFFFFF" stroke="#ECECEC" stroke-width="1.5"/>
+                  <circle cx="1004" cy="492" r="16" fill="#E07B5C"/>
+                  <rect x="980" y="522" width="90" height="8" rx="4" fill="#E2E2E2"/>
+                  <rect x="980" y="538" width="68" height="8" rx="4" fill="#E2E2E2"/>
+                  <rect x="1096" y="458" width="118" height="114" rx="7" fill="#FFFFFF" stroke="#ECECEC" stroke-width="1.5"/>
+                  <circle cx="1134" cy="492" r="16" fill="#E07B5C"/>
+                  <rect x="1110" y="522" width="90" height="8" rx="4" fill="#E2E2E2"/>
+                  <rect x="1110" y="538" width="68" height="8" rx="4" fill="#E2E2E2"/>
+                  <rect x="1226" y="458" width="118" height="114" rx="7" fill="#FFFFFF" stroke="#ECECEC" stroke-width="1.5"/>
+                  <circle cx="1264" cy="492" r="16" fill="#E07B5C"/>
+                  <rect x="1240" y="522" width="90" height="8" rx="4" fill="#E2E2E2"/>
+                  <rect x="1240" y="538" width="68" height="8" rx="4" fill="#E2E2E2"/>
+                </g>
+                <g fill="#C9583B">
+                  <rect x="940" y="434" width="11" height="11" rx="2"/>
+                  <rect x="1359" y="434" width="11" height="11" rx="2"/>
+                  <rect x="940" y="585" width="11" height="11" rx="2"/>
+                  <rect x="1359" y="585" width="11" height="11" rx="2"/>
+                </g>
+                <path d="M1372 560 l0 30 l8 -8 l6 13 l6 -3 l-6 -12 l11 -1 z" fill="#111111"/>
+              </g>
+
+              <!-- Resize handle -->
+              <g stroke="#111111" stroke-width="2.2" stroke-linecap="round" fill="none" opacity="0.65">
+                <path d="M860 200 v74 M853 209 l7 -9 l7 9 M853 265 l7 9 l7 -9"/>
+              </g>
+
+              <!-- HTML card (partial left edge) -->
+              <g filter="url(#hss)" transform="translate(708 122) rotate(-4)">
+                <rect width="132" height="160" rx="16" fill="#FFFFFF" stroke="#ECECEC" stroke-width="1.5"/>
+                <text x="66" y="42" text-anchor="middle" class="hl" font-size="20">HTML</text>
+                <g transform="translate(38 60)">
+                  <path d="M0 0 h56 l-5 60 l-23 8 l-23 -8 z" fill="#C9583B"/>
+                  <path d="M28 6 v56 l18 -6 l4 -50 z" fill="#A84030"/>
+                  <path d="M14 18 h28 l-1 9 h-18 l1 8 h16 l-1 18 l-11 4 l-11 -4 l-1 -10 h8 l0 5 l5 2 l5 -2 l1 -8 h-20 z" fill="#FFFFFF"/>
+                </g>
+              </g>
+
+              <!-- CSS dark card (partial right edge) -->
+              <g filter="url(#hss)" transform="translate(1378 56) rotate(3)">
+                <rect width="306" height="232" rx="20" fill="#111111"/>
+                <rect x="22" y="24" width="56" height="30" rx="8" fill="#4A90E2"/>
+                <text x="50" y="44" text-anchor="middle" class="hl" font-size="14" fill="#FFFFFF">CSS</text>
+                <g class="hc" font-size="14.5">
+                  <text x="26" y="92"  fill="#E07B5C">.btn {"{"}</text>
+                  <text x="42" y="118" fill="#9BB7D4">background:<tspan fill="#C9583B"> #C9583B;</tspan></text>
+                  <text x="42" y="144" fill="#9BB7D4">color:<tspan fill="#E0E0E0"> #fff;</tspan></text>
+                  <text x="42" y="170" fill="#9BB7D4">padding:<tspan fill="#E0E0E0"> 12px 24px;</tspan></text>
+                  <text x="26" y="196" fill="#E07B5C">{"}"}</text>
+                </g>
+              </g>
+
+              <!-- Tool palette -->
+              <g filter="url(#hts)" transform="translate(796 330)">
+                <rect width="56" height="278" rx="16" fill="#FFFFFF" stroke="#ECECEC" stroke-width="1.5"/>
+                <path d="M22 24 l0 22 l6 -6 l4 8 l4 -2 l-4 -8 l7 -1 z" fill="#111111"/>
+                <g stroke="#9A9A9A" stroke-width="2" fill="none">
+                  <rect x="18" y="66" width="20" height="20" rx="3"/>
+                  <rect x="18" y="108" width="20" height="20"/>
+                  <circle cx="28" cy="160" r="11"/>
+                </g>
+                <text x="28" y="214" text-anchor="middle" class="hl" font-size="17">T</text>
+                <path d="M20 244 l14 -14 l6 6 l-14 14 z M20 244 l6 0 l0 -6 z" fill="#9A9A9A"/>
+                <g fill="#9A9A9A">
+                  <circle cx="20" cy="268" r="2"/><circle cx="28" cy="268" r="2"/><circle cx="36" cy="268" r="2"/>
+                  <circle cx="20" cy="276" r="2"/><circle cx="28" cy="276" r="2"/><circle cx="36" cy="276" r="2"/>
+                </g>
+              </g>
+
+              <!-- Logo Concepts (partial lower-left) -->
+              <g filter="url(#hss)" transform="translate(556 600) rotate(-2)">
+                <rect width="280" height="208" rx="18" fill="#FFFFFF" stroke="#ECECEC" stroke-width="1.5"/>
+                <text x="34" y="48" class="hl" font-size="17">Logo Concepts</text>
+                <g transform="translate(74 108)" fill="#C9583B">
+                  <circle cx="0" cy="-14" r="12"/><circle cx="0" cy="14" r="12"/>
+                  <circle cx="-14" cy="0" r="12"/><circle cx="14" cy="0" r="12"/>
+                  <circle cx="0" cy="0" r="6" fill="#E07B5C"/>
+                </g>
+                <g transform="translate(140 108)">
+                  <path d="M0 -26 L23 -13 L23 13 L0 26 L-23 13 L-23 -13 Z" fill="#111111"/>
+                  <path d="M0 -12 L11 -6 L11 6 L0 12 L-11 6 L-11 -6 Z" fill="none" stroke="#FFFFFF" stroke-width="3"/>
+                  <circle cx="0" cy="0" r="4" fill="#FFFFFF"/>
+                </g>
+                <g transform="translate(206 108)">
+                  <text x="0" y="14" text-anchor="middle" class="hl" font-size="48" fill="#C9583B">R</text>
+                  <circle cx="16" cy="-12" r="4" fill="#E07B5C"/>
+                </g>
+                <g fill="#D7D7D7">
+                  <circle cx="124" cy="170" r="4"/><circle cx="140" cy="170" r="4"/><circle cx="156" cy="170" r="4"/>
+                </g>
+              </g>
+
+              <!-- Typography Aa -->
+              <g filter="url(#hts)" transform="translate(916 718) rotate(4)">
+                <rect width="116" height="116" rx="18" fill="#FFFFFF" stroke="#ECECEC" stroke-width="1.5"/>
+                <text x="58" y="78" text-anchor="middle" font-family="'Instrument Serif',Georgia,serif" font-style="italic" font-size="52" fill="#C9583B">Aa</text>
+              </g>
+
+              <!-- Branding card -->
+              <g filter="url(#hss)" transform="translate(1112 624) rotate(-3)">
+                <rect width="248" height="222" rx="18" fill="#FFFFFF" stroke="#ECECEC" stroke-width="1.5"/>
+                <text x="34" y="46" class="hl" font-size="17">Branding</text>
+                <g transform="translate(124 116)">
+                  <g stroke="#E6E6E6" stroke-width="1" fill="none">
+                    <circle cx="0" cy="0" r="46"/>
+                    <line x1="-52" y1="0" x2="52" y2="0"/>
+                    <line x1="0" y1="-52" x2="0" y2="52"/>
+                    <line x1="-46" y1="-46" x2="46" y2="46"/>
+                    <line x1="46" y1="-46" x2="-46" y2="46"/>
+                  </g>
+                  <text x="-4" y="26" text-anchor="middle" class="hl" font-size="78">A</text>
+                  <circle cx="34" cy="20" r="7" fill="#C9583B"/>
+                </g>
+                <g>
+                  <rect x="34"  y="166" width="34" height="34" rx="8" fill="#C9583B"/>
+                  <rect x="78"  y="166" width="34" height="34" rx="8" fill="#E07B5C"/>
+                  <rect x="122" y="166" width="34" height="34" rx="8" fill="#E6E6E6"/>
+                  <rect x="166" y="166" width="34" height="34" rx="8" fill="#111111"/>
+                </g>
+              </g>
+
+              <!-- UI/UX mobile (partial right edge) -->
+              <g filter="url(#hss)" transform="translate(1474 560) rotate(3)">
+                <rect width="186" height="290" rx="20" fill="#FFFFFF" stroke="#ECECEC" stroke-width="1.5"/>
+                <text x="28" y="44" class="hl" font-size="17">UI/UX</text>
+                <rect x="28" y="58" width="130" height="208" rx="14" fill="#FBFAF9" stroke="#ECECEC" stroke-width="1.5"/>
+                <circle cx="48" cy="82" r="9" fill="#E0E0E0"/>
+                <rect x="64" y="76" width="58" height="7" rx="3.5" fill="#E0E0E0"/>
+                <rect x="64" y="88" width="40" height="6" rx="3" fill="#EAEAEA"/>
+                <rect x="42" y="108" width="102" height="64" rx="8" fill="#F2CBB8"/>
+                <circle cx="68" cy="134" r="11" fill="#C9583B"/>
+                <path d="M86 156 l16 -20 l14 18 l10 -10 l8 12 z" fill="#E07B5C"/>
+                <rect x="42" y="184" width="92" height="7" rx="3.5" fill="#E0E0E0"/>
+                <rect x="42" y="198" width="72" height="6" rx="3" fill="#EAEAEA"/>
+                <rect x="42" y="210" width="80" height="6" rx="3" fill="#EAEAEA"/>
+                <rect x="42" y="230" width="64" height="24" rx="12" fill="#C9583B"/>
+                <rect x="58" y="240" width="32" height="4" rx="2" fill="#FFFFFF"/>
+              </g>
+            </svg>
           </div>
         </div>
 
