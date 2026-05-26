@@ -68,6 +68,50 @@
   height: 100%;
   display: block;
 }
+
+/* ---------- Hero illustration animations ---------- */
+@keyframes hi-in {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes hi-slide {
+  from { transform: translateY(14px); }
+  to   { transform: translateY(0); }
+}
+@keyframes hi-fa {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-6px); }
+}
+@keyframes hi-fb {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(5px); }
+}
+@keyframes hi-fc {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-4px); }
+}
+.hi-hex-a, .hi-hex-b, .hi-browser, .hi-handle,
+.hi-code-dark, .hi-code-light, .hi-palette,
+.hi-case, .hi-brand, .hi-product {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+.hi-hex-a    { animation: hi-slide .6s ease-out .10s both, hi-fa  9s   ease-in-out  .70s infinite; }
+.hi-hex-b    { animation: hi-slide .6s ease-out .15s both, hi-fb  11s  ease-in-out  .75s infinite; }
+.hi-browser  { animation: hi-in   .7s ease-out .20s both; }
+.hi-handle   { animation: hi-slide .5s ease-out .75s both; }
+.hi-code-dark  { animation: hi-in .7s ease-out .35s both, hi-fa  7s   ease-in-out 1.05s infinite; }
+.hi-code-light { animation: hi-in .7s ease-out .45s both, hi-fb  8s   ease-in-out 1.15s infinite; }
+.hi-palette    { animation: hi-in .7s ease-out .30s both, hi-fc  9s   ease-in-out 1.00s infinite; }
+.hi-case       { animation: hi-in .7s ease-out .50s both, hi-fa  10s  ease-in-out 1.20s infinite; }
+.hi-brand      { animation: hi-in .7s ease-out .55s both, hi-fb  7.5s ease-in-out 1.25s infinite; }
+.hi-product    { animation: hi-in .7s ease-out .40s both, hi-fc  8.5s ease-in-out 1.10s infinite; }
+@media (prefers-reduced-motion: reduce) {
+  .hi-hex-a, .hi-hex-b, .hi-browser, .hi-handle,
+  .hi-code-dark, .hi-code-light, .hi-palette,
+  .hi-case, .hi-brand, .hi-product { animation: none; }
+}
+
 @media (max-width: 880px) {
   .home-hero-grid { grid-template-columns: 1fr; gap: 28px; }
   .home-hero-right { display: none; }
