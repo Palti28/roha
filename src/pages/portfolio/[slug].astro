@@ -136,24 +136,6 @@ const productSchemaData = productSchema({
       </section>
     )}
 
-    {/* LICENSE BANNER */}
-    <section class="section-tight">
-      <div class="wrap">
-        <div class="pd-banner" data-reveal>
-          <p><span class="ico" aria-hidden="true">✓</span> Personal &amp; commercial license, ready to ship.</p>
-          {d.previewPath && (
-            <button type="button" class="btn btn-ink btn-sm"
-              data-preview-trigger
-              data-preview-url={`templates/${d.previewPath}/index.html`}
-              data-preview-title={d.title}
-              data-preview-cat={d.category}>
-              Live Preview <span class="arr">→</span>
-            </button>
-          )}
-        </div>
-      </div>
-    </section>
-
     {/* OVERVIEW + HIGHLIGHTS — two columns */}
     <section class="section" id="product-details">
       <div class="wrap">
