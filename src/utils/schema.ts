@@ -27,13 +27,12 @@ export function organizationSchema(siteUrl: string) {
     name: 'Roha',
     url: siteUrl,
     logo: 'https://ik.imagekit.io/gorat/roha.png?updatedAt=1779127109052',
-    description: 'A digital design studio made warm, shipped tidy.',
-    sameAs: [
-      'https://instagram.com/roha.works',
-    ],
+    description: 'A design studio building websites, interfaces, and brand systems that hold up.',
+    // Social profiles added once the Roha feeds are ready.
+    sameAs: [],
     contact: {
       '@type': 'ContactPoint',
-      email: 'halo@roha.design',
+      email: 'hello@rohaworks.com',
       contactType: 'Business',
     },
     address: {

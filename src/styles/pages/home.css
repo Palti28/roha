@@ -68,6 +68,8 @@
   height: 100%;
   display: block;
 }
+
+
 @media (max-width: 880px) {
   .home-hero-grid { grid-template-columns: 1fr; gap: 28px; }
   .home-hero-right { display: none; }

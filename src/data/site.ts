@@ -1,8 +1,8 @@
 export const site = {
   name: 'Roha',
-  tagline: 'A digital design studio made warm, shipped tidy.',
+  tagline: 'A design studio building websites, interfaces, and brand systems that hold up.',
   url: 'https://rohaworks.com',
-  email: 'halo@roha.design',
+  email: 'hello@rohaworks.com',
   wa: '[NO_WA]',
   ogImage: 'https://ik.imagekit.io/gorat/roha.png?updatedAt=1779127109052',
   social: {

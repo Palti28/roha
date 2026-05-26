@@ -1,0 +1,14 @@
+---
+// Reusable case-study label. Two kinds: CLIENT PROJECT vs CONCEPT.
+// `label` overrides the default text (e.g. "Frontend Build" for a real build).
+// `tone` adapts colors to the card background (light = paper, dark = image overlay).
+interface Props {
+  concept?: boolean;
+  label?: string;
+  tone?: 'light' | 'dark';
+}
+const { concept = false, label, tone = 'light' } = Astro.props;
+const text = label ?? (concept ? 'Concept' : 'Client Project');
+const variant = concept ? 'concept' : 'client';
+---
+<span class={`case-tag case-tag--${variant} case-tag--${tone}`}>{text}</span>
