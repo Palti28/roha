@@ -239,8 +239,8 @@
 .svc-tile:hover {
   background: var(--cream);
   border-color: var(--terracotta-soft);
-  transform: translateY(-6px);
-  box-shadow: 0 22px 44px -22px rgba(28, 23, 20, 0.3);
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px -20px rgba(28, 23, 20, 0.28);
 }
 .svc-tile .top {
   display: flex;

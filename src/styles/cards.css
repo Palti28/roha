@@ -81,10 +81,10 @@
   height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform .5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: transform .6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 .work-card:hover .thumb { border-color: var(--rule-strong); }
-.work-card:hover .thumb img { transform: scale(1.02); }
+.work-card:hover .thumb img { transform: scale(1.07); }
 
 .work-card .meta-row {
   display: flex; align-items: center;
