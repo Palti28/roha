@@ -74,12 +74,12 @@ const productSchemaData = productSchema({
         </div>
         <div class="pd-stickybar-actions">
           {d.previewPath && (
-            <button type="button" class="btn btn-primary btn-sm"
+            <button type="button" class="btn btn-secondary btn-sm"
               data-preview-trigger
               data-preview-url={`templates/${d.previewPath}/index.html`}
               data-preview-title={d.title}
               data-preview-cat={d.category}>
-              Preview
+              Preview <span class="arr" aria-hidden="true">↗</span>
             </button>
           )}
         </div>
