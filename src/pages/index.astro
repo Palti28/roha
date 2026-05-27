@@ -878,6 +878,22 @@ const sortedPortfolio = allPortfolio.sort(byDate).slice(0, 6);
       );
     }, delay);
   });
+
+  // hi-case hover: override float animation temporarily via WAAPI
+  const caseEl = sel('hi-case');
+  if (caseEl) {
+    let hoverAnim = null;
+    caseEl.addEventListener('mouseenter', () => {
+      if (hoverAnim) hoverAnim.cancel();
+      hoverAnim = caseEl.animate(
+        [{ transform: 'translateY(-8px) scale(1.07)' }],
+        { duration: 500, fill: 'forwards', easing: 'cubic-bezier(0.34, 1.56, 0.64, 1)' }
+      );
+    });
+    caseEl.addEventListener('mouseleave', () => {
+      if (hoverAnim) { hoverAnim.cancel(); hoverAnim = null; }
+    });
+  }
 })();
 </script>
 </Base>
