@@ -10,7 +10,7 @@ buyUrl: "https://roha.mayar.id/contractor-interior-template"
 previewPath: "contractor-interior"
 pattern: "pat-stripe"
 images:
-  - "https://ik.imagekit.io/gorat/northwood/cover.avif"
+  - "https://ik.imagekit.io/gorat/northwood/northwood-cover.avif"
   - "https://ik.imagekit.io/gorat/northwood/anchor-02.avif"
   - "https://ik.imagekit.io/gorat/northwood/anchor-03.avif"
   - "https://ik.imagekit.io/gorat/northwood/anchor-04.avif"
