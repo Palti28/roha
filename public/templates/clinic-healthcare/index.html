@@ -8,7 +8,7 @@
 /* Scroll fade-in base styles */
 [data-fade] {
   opacity: 0;
-  transform: translate3d(0, var(--fade-y, 24px), 0);
+  transform: translate3d(0, var(--fade-y, 40px), 0);
   transition: opacity 800ms cubic-bezier(0.22, 1, 0.36, 1) var(--fade-delay, 0ms),
     transform 900ms cubic-bezier(0.22, 1, 0.36, 1) var(--fade-delay, 0ms);
   will-change: opacity, transform;
@@ -628,10 +628,10 @@
   </div>
 </nav>
 
-<a class="back-link" href="../index.html">← Portfolio</a>
+<a class="back-link" href="../index.html" data-fade>← Portfolio</a>
 
 <!-- HERO -->
-<section class="hero" id="top">
+<section class="hero" id="top" data-fade>
   <div class="grid">
     <div>
       <span class="eyebrow" data-fade>Aesthetic clinic · est. 2014 · Jakarta</span>
@@ -648,7 +648,7 @@
     </div>
     <div data-fade data-fade-delay="160">
       <div class="img-card">
-        <img src="https://picsum.photos/seed/clinic-hero/900/1100" alt="" />
+        <img src="https://ik.imagekit.io/gorat/dental/dentist-(8).avif" alt="" />
         <div class="badge">
           <div>
             <div class="t">4.96 average rating</div>
@@ -669,7 +669,7 @@
 </section>
 
 <!-- DOCTORS -->
-<section class="section full doctors-section" id="doctors">
+<section class="section full doctors-section" id="doctors" data-fade>
   <div class="inner">
     <div class="section-head">
       <div class="left" data-fade>
@@ -683,16 +683,16 @@
 
     <div class="doctors">
       <article class="doctor" data-fade>
-        <div class="img" style="background-image:url('https://picsum.photos/seed/clinic-doc1/800/1000')"></div>
+        <div class="img" style="background-image:url('https://ik.imagekit.io/gorat/dental/dentist-(2).avif')"></div>
         <div class="body">
-          <h3 class="name">dr. Anjani Pratiwi, Sp.KK</h3>
+          <h3 class="name">dr. Rio Parna, Sp.KK</h3>
           <div class="credentials">Dermatologist · PERDOSKI · 14 yrs</div>
           <p class="spec">Lead clinician for medical-grade facials, acne pathways, and pigmentation correction. Trained at Yonsei University, Seoul.</p>
           <div class="tags"><span class="tag">Dermatology</span><span class="tag">Laser</span><span class="tag">Pigmentation</span></div>
         </div>
       </article>
       <article class="doctor" data-fade data-fade-delay="100">
-        <div class="img" style="background-image:url('https://picsum.photos/seed/clinic-doc2/800/1000')"></div>
+        <div class="img" style="background-image:url('https://ik.imagekit.io/gorat/dental/dentist-(6).avif')"></div>
         <div class="body">
           <h3 class="name">dr. Bayu Hartanto, M.Biomed</h3>
           <div class="credentials">Aesthetic medicine · INAAMS · 11 yrs</div>
@@ -701,7 +701,7 @@
         </div>
       </article>
       <article class="doctor" data-fade data-fade-delay="200">
-        <div class="img" style="background-image:url('https://picsum.photos/seed/clinic-doc3/800/1000')"></div>
+        <div class="img" style="background-image:url('https://ik.imagekit.io/gorat/dental/dentist-(9).avif');"></div>
         <div class="body">
           <h3 class="name">drg. Maria Suprapto, Sp.KGA</h3>
           <div class="credentials">Dental aesthetics · PDGI · 9 yrs</div>
@@ -714,7 +714,7 @@
 </section>
 
 <!-- TREATMENTS -->
-<section class="section" id="treatments">
+<section class="section" id="treatments" data-fade>
   <div class="section-head">
     <div class="left" data-fade>
       <span class="eyebrow">Treatments</span>
@@ -766,7 +766,7 @@
 </section>
 
 <!-- FACILITIES + BEFORE/AFTER -->
-<section class="section full facility-section" id="facilities">
+<section class="section full facility-section" id="facilities" data-fade>
   <div class="inner">
     <div class="section-head">
       <div class="left" data-fade>
@@ -780,23 +780,23 @@
 
     <div class="facility-grid">
       <div class="facility a" data-fade>
-        <div class="img" style="background-image:url('https://picsum.photos/seed/clinic-f1/1200/800')"></div>
+        <div class="img" style="background-image:url('https://ik.imagekit.io/gorat/dental/dentist-(5).avif');     aspect-ratio: 16 / 11.3;"></div>
         <div class="cap">Reception &amp; lounge</div>
       </div>
       <div class="facility b" data-fade data-fade-delay="80">
-        <div class="img" style="background-image:url('https://picsum.photos/seed/clinic-f2/900/600')"></div>
+        <div class="img" style="background-image:url('https://ik.imagekit.io/gorat/dental/dentist-(7).avif');     aspect-ratio:1"></div>
         <div class="cap">Treatment suite 02</div>
       </div>
       <div class="facility c" data-fade>
-        <div class="img" style="background-image:url('https://picsum.photos/seed/clinic-f3/800/800')"></div>
+        <div class="img" style="background-image:url('https://ik.imagekit.io/gorat/dental/dentist-(4).avif')"></div>
         <div class="cap">Laser room</div>
       </div>
       <div class="facility d" data-fade data-fade-delay="80">
-        <div class="img" style="background-image:url('https://picsum.photos/seed/clinic-f4/800/800')"></div>
+        <div class="img" style="background-image:url('https://ik.imagekit.io/gorat/dental/dentist-(3).avif')"></div>
         <div class="cap">Dental studio</div>
       </div>
       <div class="facility e" data-fade data-fade-delay="160">
-        <div class="img" style="background-image:url('https://picsum.photos/seed/clinic-f5/800/800')"></div>
+        <div class="img" style="background-image:url('https://ik.imagekit.io/gorat/dental/dentist-(3).avif')"></div>
         <div class="cap">Recovery room</div>
       </div>
     </div>
@@ -838,7 +838,7 @@
 </section>
 
 <!-- FAQ -->
-<section class="section faq-section" id="faq">
+<section class="section faq-section" id="faq" data-fade>
   <div class="section-head">
     <div class="left" data-fade>
       <span class="eyebrow">Frequently asked</span>
@@ -878,7 +878,7 @@
 </section>
 
 <!-- LOCATION + WA -->
-<section class="section full loc-section" id="location">
+<section class="section full loc-section" id="location" data-fade>
   <div class="inner">
     <div class="section-head">
       <div class="left" data-fade>
@@ -929,7 +929,7 @@
   </div>
 </section>
 
-<footer class="bottom">
+<footer class="bottom" data-fade>
   <div class="word" data-fade>Lumen<span class="ital">.</span></div>
   <div class="row">
     <div>
