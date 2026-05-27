@@ -83,6 +83,20 @@
   display: flex;
   justify-content: flex-end;
 }
+
+/* hi-case hover: float + expand */
+.hero-illus .hi-case {
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+  cursor: pointer;
+}
+.hero-illus .hi-case:hover {
+  transform: translateY(-8px) scale(1.07);
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-illus .hi-case { transition: none; }
+}
 .hero-illus-wrap {
   width: 100%;
   aspect-ratio: 491 / 423;
