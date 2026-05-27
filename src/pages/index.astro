@@ -826,6 +826,17 @@ const sortedPortfolio = allPortfolio.sort(byDate).slice(0, 6);
     opts: { duration: 700, delay, fill: 'forwards', easing: 'cubic-bezier(0.22,1,0.36,1)' }
   });
 
+  [
+    { q: '.home-hero-left .eyebrow',   delay:  60 },
+    { q: '.home-hero-left h1',         delay: 160 },
+    { q: '.home-hero-left .btn-row',   delay: 290 },
+    { q: '.home-hero-left .hero-meta', delay: 400 },
+  ].forEach(({ q, delay }) => {
+    const el = document.querySelector(q);
+    if (!el) return;
+    setTimeout(() => el.classList.add('is-visible'), delay);
+  });
+
   const entries = [
     { cls: 'hi-hex-a',    delay: 100,  fade: false },
     { cls: 'hi-hex-b',    delay: 150,  fade: false },
