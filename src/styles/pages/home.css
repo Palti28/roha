@@ -69,33 +69,6 @@
   display: block;
 }
 
-/* ---------- Hero illustration ---------- */
-
-/* Appear: opacity only — no transform conflict with hover, no clipping issue */
-@keyframes hi-fade {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-/* hex groups: inline opacity="0.55" must be the end value */
-@keyframes hi-hex-fade {
-  from { opacity: 0; }
-  to   { opacity: 0.55; }
-}
-
-.hero-illus .hi-browser    { animation: hi-fade     0.6s ease 0.05s both; }
-.hero-illus .hi-code-dark  { animation: hi-fade     0.5s ease 0.2s  both; }
-.hero-illus .hi-code-light { animation: hi-fade     0.5s ease 0.32s both; }
-.hero-illus .hi-handle     { animation: hi-fade     0.5s ease 0.42s both; }
-.hero-illus .hi-palette    { animation: hi-fade     0.5s ease 0.52s both; }
-.hero-illus .hi-case       { animation: hi-fade     0.5s ease 0.62s both; }
-.hero-illus .hi-brand      { animation: hi-fade     0.5s ease 0.72s both; }
-.hero-illus .hi-product    { animation: hi-fade     0.5s ease 0.82s both; }
-.hero-illus .hi-hex-a      { animation: hi-hex-fade 0.6s ease 0.92s both; }
-.hero-illus .hi-hex-b      { animation: hi-hex-fade 0.6s ease 1.02s both; }
-
-@media (prefers-reduced-motion: reduce) {
-  .hero-illus g[class^="hi-"] { animation: none; }
-}
 
 @media (max-width: 880px) {
   .home-hero-grid { grid-template-columns: 1fr; gap: 28px; }
