@@ -69,46 +69,49 @@
   display: block;
 }
 
-/* ---------- Hero illustration hover ---------- */
+/* ---------- Hero illustration ---------- */
+@keyframes hi-appear {
+  from { opacity: 0; transform: scale(0.92); }
+  to   { opacity: 1; transform: scale(1); }
+}
+/* hex groups have inline opacity="0.55" — end keyframe must match */
+@keyframes hi-hex-appear {
+  from { opacity: 0; transform: scale(0.9); }
+  to   { opacity: 0.55; transform: scale(1); }
+}
+
 .hero-illus g[class^="hi-"] {
   transform-box: fill-box;
   transform-origin: center;
   transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-.hero-illus .hi-browser:hover {
-  transform: translateY(-4px);
-}
-.hero-illus .hi-handle:hover {
-  transform: rotate(12deg) translateY(-2px);
-}
-.hero-illus .hi-code-dark:hover {
-  transform: translateX(-5px) translateY(-3px);
-}
-.hero-illus .hi-code-light:hover {
-  transform: translateX(5px) translateY(-3px);
-}
-.hero-illus .hi-palette:hover {
-  transform: rotate(-10deg) scale(1.06);
-}
-.hero-illus .hi-case:hover {
-  transform: translateY(-6px) scale(1.05);
-}
-.hero-illus .hi-brand:hover {
-  transform: scale(1.08) rotate(4deg);
-}
-.hero-illus .hi-product:hover {
-  transform: translateY(-5px) scale(1.06);
-}
-.hero-illus .hi-hex-a:hover {
-  transform: rotate(60deg) scale(1.1);
-}
-.hero-illus .hi-hex-b:hover {
-  transform: rotate(-60deg) scale(1.1);
-}
+.hero-illus .hi-browser    { animation: hi-appear     0.5s  cubic-bezier(0.22, 1, 0.36, 1) 0.05s both; }
+.hero-illus .hi-code-dark  { animation: hi-appear     0.45s cubic-bezier(0.22, 1, 0.36, 1) 0.2s  both; }
+.hero-illus .hi-code-light { animation: hi-appear     0.45s cubic-bezier(0.22, 1, 0.36, 1) 0.32s both; }
+.hero-illus .hi-handle     { animation: hi-appear     0.4s  cubic-bezier(0.22, 1, 0.36, 1) 0.42s both; }
+.hero-illus .hi-palette    { animation: hi-appear     0.4s  cubic-bezier(0.34, 1.56, 0.64, 1) 0.52s both; }
+.hero-illus .hi-case       { animation: hi-appear     0.4s  cubic-bezier(0.34, 1.56, 0.64, 1) 0.6s  both; }
+.hero-illus .hi-brand      { animation: hi-appear     0.4s  cubic-bezier(0.34, 1.56, 0.64, 1) 0.68s both; }
+.hero-illus .hi-product    { animation: hi-appear     0.4s  cubic-bezier(0.34, 1.56, 0.64, 1) 0.76s both; }
+.hero-illus .hi-hex-a      { animation: hi-hex-appear 0.5s  ease 0.86s both; }
+.hero-illus .hi-hex-b      { animation: hi-hex-appear 0.5s  ease 0.96s both; }
+
+/* hover states */
+.hero-illus .hi-browser:hover    { transform: translateY(-4px); }
+.hero-illus .hi-handle:hover     { transform: rotate(12deg) translateY(-2px); }
+.hero-illus .hi-code-dark:hover  { transform: translateX(-5px) translateY(-3px); }
+.hero-illus .hi-code-light:hover { transform: translateX(5px) translateY(-3px); }
+.hero-illus .hi-palette:hover    { transform: rotate(-10deg) scale(1.06); }
+.hero-illus .hi-case:hover       { transform: translateY(-6px) scale(1.05); }
+.hero-illus .hi-brand:hover      { transform: scale(1.08) rotate(4deg); }
+.hero-illus .hi-product:hover    { transform: translateY(-5px) scale(1.06); }
+.hero-illus .hi-hex-a:hover      { transform: rotate(60deg) scale(1.1); }
+.hero-illus .hi-hex-b:hover      { transform: rotate(-60deg) scale(1.1); }
 
 @media (prefers-reduced-motion: reduce) {
   .hero-illus g[class^="hi-"] {
+    animation: none;
     transition: none;
   }
 }
