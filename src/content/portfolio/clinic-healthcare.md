@@ -9,6 +9,11 @@ status: "available"
 buyUrl: "https://roha.mayar.id/clinic-healthcare-template"
 previewPath: "clinic-healthcare"
 pattern: "pat-grain"
+images:
+  - "https://ik.imagekit.io/gorat/dental/cover-dental"
+  - "https://ik.imagekit.io/gorat/dental/shot-2.avif"
+  - "https://ik.imagekit.io/gorat/eca-car-rental/car-rent-shot-3.avif"
+  - "https://ik.imagekit.io/gorat/eca-car-rental/car-rent-shot-2.avif"
 order: 7
 publishedAt: 2026-05-24
 draft: false
