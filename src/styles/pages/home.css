@@ -69,64 +69,47 @@
   display: block;
 }
 
-/* ---------- Hero illustration entrance ---------- */
-@keyframes hi-fade-up {
-  from { opacity: 0; transform: translateY(14px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-@keyframes hi-fade-in {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-@keyframes hi-pop {
-  0%   { opacity: 0; transform: scale(0.88) translateY(8px); }
-  70%  { transform: scale(1.04) translateY(-2px); }
-  100% { opacity: 1; transform: scale(1) translateY(0); }
+/* ---------- Hero illustration hover ---------- */
+.hero-illus g[class^="hi-"] {
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-.hero-illus .hi-browser {
-  animation: hi-fade-up 0.55s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both;
+.hero-illus .hi-browser:hover {
+  transform: translateY(-4px);
 }
-.hero-illus .hi-handle {
-  animation: hi-fade-up 0.45s cubic-bezier(0.22, 1, 0.36, 1) 0.35s both;
+.hero-illus .hi-handle:hover {
+  transform: rotate(12deg) translateY(-2px);
 }
-.hero-illus .hi-code-dark {
-  animation: hi-fade-up 0.45s cubic-bezier(0.22, 1, 0.36, 1) 0.5s both;
+.hero-illus .hi-code-dark:hover {
+  transform: translateX(-5px) translateY(-3px);
 }
-.hero-illus .hi-code-light {
-  animation: hi-fade-up 0.45s cubic-bezier(0.22, 1, 0.36, 1) 0.62s both;
+.hero-illus .hi-code-light:hover {
+  transform: translateX(5px) translateY(-3px);
 }
-.hero-illus .hi-palette {
-  animation: hi-pop 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.75s both;
+.hero-illus .hi-palette:hover {
+  transform: rotate(-10deg) scale(1.06);
 }
-.hero-illus .hi-case {
-  animation: hi-pop 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.85s both;
+.hero-illus .hi-case:hover {
+  transform: translateY(-6px) scale(1.05);
 }
-.hero-illus .hi-brand {
-  animation: hi-pop 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.95s both;
+.hero-illus .hi-brand:hover {
+  transform: scale(1.08) rotate(4deg);
 }
-.hero-illus .hi-product {
-  animation: hi-pop 0.5s cubic-bezier(0.22, 1, 0.36, 1) 1.05s both;
+.hero-illus .hi-product:hover {
+  transform: translateY(-5px) scale(1.06);
 }
-.hero-illus .hi-hex-a {
-  animation: hi-fade-in 0.6s ease 1.15s both;
+.hero-illus .hi-hex-a:hover {
+  transform: rotate(60deg) scale(1.1);
 }
-.hero-illus .hi-hex-b {
-  animation: hi-fade-in 0.6s ease 1.25s both;
+.hero-illus .hi-hex-b:hover {
+  transform: rotate(-60deg) scale(1.1);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero-illus .hi-browser,
-  .hero-illus .hi-handle,
-  .hero-illus .hi-code-dark,
-  .hero-illus .hi-code-light,
-  .hero-illus .hi-palette,
-  .hero-illus .hi-case,
-  .hero-illus .hi-brand,
-  .hero-illus .hi-product,
-  .hero-illus .hi-hex-a,
-  .hero-illus .hi-hex-b {
-    animation: none;
+  .hero-illus g[class^="hi-"] {
+    transition: none;
   }
 }
 
