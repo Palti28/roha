@@ -21,7 +21,7 @@
 
 .shop-page-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 16px;
 }
 @media (max-width: 1100px) { .shop-page-grid { grid-template-columns: repeat(3, 1fr); } }
@@ -181,10 +181,6 @@
 }
 @media (max-width: 880px) { .pd-detail-grid { grid-template-columns: 1fr; gap: 40px; } }
 .pd-overview .eyebrow { margin-bottom: 18px; }
-.pd-overview .prose h2,
-.pd-overview .prose h3,
-.pd-overview .prose h4 { font-weight: 300; color: var(--ink); opacity: .7; }
-.pd-overview .prose p { font-weight: 300; color: var(--ink); opacity: .7; }
 .pd-highlights { position: sticky; top: 100px; }
 @media (max-width: 880px) { .pd-highlights { position: static; } }
 .pd-side-title {
