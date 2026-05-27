@@ -53,6 +53,32 @@
   color: var(--clay);
   margin-top: 4px;
 }
+.home-hero-left .eyebrow,
+.home-hero-left h1,
+.home-hero-left .btn-row,
+.home-hero-left .hero-meta {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.home-hero-left .eyebrow.is-visible,
+.home-hero-left h1.is-visible,
+.home-hero-left .btn-row.is-visible,
+.home-hero-left .hero-meta.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .home-hero-left .eyebrow,
+  .home-hero-left h1,
+  .home-hero-left .btn-row,
+  .home-hero-left .hero-meta {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
 .home-hero-right {
   display: flex;
   justify-content: flex-end;

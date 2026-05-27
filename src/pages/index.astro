@@ -818,7 +818,6 @@ const sortedPortfolio = allPortfolio.sort(byDate).slice(0, 6);
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
   function sel(cls) { return document.querySelector('.' + cls); }
-  function selq(q)   { return document.querySelector(q); }
 
   const ENTRY = (delay, fade) => ({
     frames: fade
@@ -833,10 +832,9 @@ const sortedPortfolio = allPortfolio.sort(byDate).slice(0, 6);
     { q: '.home-hero-left .btn-row',   delay: 290 },
     { q: '.home-hero-left .hero-meta', delay: 400 },
   ].forEach(({ q, delay }) => {
-    const el = selq(q);
+    const el = document.querySelector(q);
     if (!el) return;
-    const e = ENTRY(delay, true);
-    el.animate(e.frames, e.opts);
+    setTimeout(() => el.classList.add('is-visible'), delay);
   });
 
   const entries = [
