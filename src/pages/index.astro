@@ -879,21 +879,27 @@ const sortedPortfolio = allPortfolio.sort(byDate).slice(0, 6);
     }, delay);
   });
 
-  // hi-case hover: override float animation temporarily via WAAPI
-  const caseEl = sel('hi-case');
-  if (caseEl) {
-    let hoverAnim = null;
-    caseEl.addEventListener('mouseenter', () => {
-      if (hoverAnim) hoverAnim.cancel();
-      hoverAnim = caseEl.animate(
-        [{ transform: 'translateY(-8px) scale(1.07)' }],
-        { duration: 500, fill: 'forwards', easing: 'cubic-bezier(0.34, 1.56, 0.64, 1)' }
-      );
+  const SPRING = { duration: 500, fill: 'forwards', easing: 'cubic-bezier(0.34, 1.56, 0.64, 1)' };
+  const hovers = [
+    { cls: 'hi-case',       to: 'translateY(-8px) scale(1.07)' },
+    { cls: 'hi-browser',    to: 'translateY(-5px)' },
+    { cls: 'hi-product',    to: 'translateY(-7px) scale(1.06)' },
+    { cls: 'hi-code-dark',  to: 'translateX(-5px) translateY(-4px)' },
+    { cls: 'hi-code-light', to: 'translateX(5px) translateY(-4px)' },
+  ];
+
+  hovers.forEach(({ cls, to }) => {
+    const el = sel(cls);
+    if (!el) return;
+    let anim = null;
+    el.addEventListener('mouseenter', () => {
+      if (anim) anim.cancel();
+      anim = el.animate([{ transform: to }], SPRING);
     });
-    caseEl.addEventListener('mouseleave', () => {
-      if (hoverAnim) { hoverAnim.cancel(); hoverAnim = null; }
+    el.addEventListener('mouseleave', () => {
+      if (anim) { anim.cancel(); anim = null; }
     });
-  }
+  });
 })();
 </script>
 </Base>
