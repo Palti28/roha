@@ -1,6 +1,6 @@
 ---
 title: "Creative Agency"
-category: "Website Template"
+category: "Website"
 tagline: "A bold dark-mode site for digital and brand agencies."
 summary: "A high-impact website template for creative studios, social media agencies, and digital branding teams."
 currency: "IDR"

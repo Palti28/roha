@@ -1,6 +1,6 @@
 ---
 title: "Contractor & Interior"
-category: "Website Template"
+category: "Website"
 tagline: "A refined site for build, architecture, and interior firms."
 summary: "A professional website template for contractors, architects, and interior design studios."
 currency: "IDR"

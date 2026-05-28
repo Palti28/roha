@@ -1,6 +1,6 @@
 ---
 title: "Professional Consultant"
-category: "Website Template"
+category: "Website"
 tagline: "A serious, editorial site for law, finance, and advisory firms."
 summary: "A refined website template for professional service firms: legal, financial, and strategic advisory."
 currency: "IDR"

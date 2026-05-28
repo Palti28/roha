@@ -1,6 +1,6 @@
 ---
 title: "Clinic & Healthcare"
-category: "Website Template"
+category: "Website"
 tagline: "A calm, trustworthy site for clinics and aesthetic practices."
 summary: "A considered website template for healthcare providers, aesthetic clinics, and wellness practitioners."
 currency: "IDR"
