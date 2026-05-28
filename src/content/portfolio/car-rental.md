@@ -10,7 +10,7 @@ buyUrl: "https://roha.mayar.id/car-rental-template"
 previewPath: "/car-rental"
 pattern: "pat-arcs"
 images:
-  - "https://ik.imagekit.io/gorat/eca-car-rental/roha-protfolio-cover_converted.avif"
+  - "https://ik.imagekit.io/gorat/eca-car-rental/rent-car-cover_2.avif"
   - "https://ik.imagekit.io/gorat/eca-car-rental/car-rent-shot-1.avif"
   - "https://ik.imagekit.io/gorat/eca-car-rental/car-rent-shot-3.avif"
   - "https://ik.imagekit.io/gorat/eca-car-rental/car-rent-shot-2.avif"
