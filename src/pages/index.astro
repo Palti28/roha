@@ -891,6 +891,7 @@ const sortedPortfolio = allPortfolio.sort(byDate).slice(0, 6);
   hovers.forEach(({ cls, to }) => {
     const el = sel(cls);
     if (!el) return;
+    el.style.pointerEvents = 'bounding-box';
     let anim = null;
     el.addEventListener('mouseenter', () => {
       if (anim) anim.cancel();
