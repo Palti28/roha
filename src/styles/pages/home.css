@@ -68,17 +68,6 @@
   opacity: 1;
   transform: translateY(0);
 }
-@media (prefers-reduced-motion: reduce) {
-  .home-hero-left .eyebrow,
-  .home-hero-left h1,
-  .home-hero-left .btn-row,
-  .home-hero-left .hero-meta {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
-}
-
 .home-hero-right {
   display: flex;
   justify-content: flex-end;
@@ -89,9 +78,6 @@
 .home-hero-right.is-visible {
   opacity: 1;
   transform: translateY(0);
-}
-@media (prefers-reduced-motion: reduce) {
-  .home-hero-right { opacity: 1; transform: none; transition: none; }
 }
 
 .hero-illus-wrap {

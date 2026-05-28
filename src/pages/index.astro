@@ -815,8 +815,6 @@ const sortedPortfolio = allPortfolio.sort(byDate).slice(0, 6);
 
 <script>
 (function () {
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
   function sel(cls) { return document.querySelector('.' + cls); }
 
   const ENTRY = (delay, fade) => ({
