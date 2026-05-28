@@ -954,11 +954,3 @@ html body [data-reveal].is-revealed {
   opacity: 1;
   transform: translateY(0);
 }
-
-@media (prefers-reduced-motion: reduce) {
-  html body [data-reveal] {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
-}
