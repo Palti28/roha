@@ -1,5 +1,5 @@
 ---
-title: "Contractor & Interior"
+title: "Northwood - Contractor & Interior"
 category: "Website"
 tagline: "A refined site for build, architecture, and interior firms."
 summary: "A professional website template for contractors, architects, and interior design studios."

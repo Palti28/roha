@@ -1,5 +1,5 @@
 ---
-title: "Car Rental"
+title: "Jalanaja - Car Rental"
 category: "Website"
 tagline: "A clean booking site for vehicle hire businesses."
 summary: "A conversion-focused website template for car rental and vehicle hire businesses."
