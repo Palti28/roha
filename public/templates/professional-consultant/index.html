@@ -48,6 +48,20 @@
     --burgundy: #5a1f28;
   }
   * { box-sizing: border-box; }
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+  }
+  @media (max-width: 920px) {
+    html {
+      scroll-padding-top: 65px;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto !important;
+    }
+  }
   html, body { margin: 0; padding: 0; background: var(--paper); }
   body {
     color: var(--ink);
