@@ -1,6 +1,6 @@
 ---
 title: "Car Rental"
-category: "Website Template"
+category: "Website"
 tagline: "A clean booking site for vehicle hire businesses."
 summary: "A conversion-focused website template for car rental and vehicle hire businesses."
 currency: "IDR"

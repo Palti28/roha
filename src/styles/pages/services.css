@@ -18,6 +18,26 @@
   gap: 0;
   margin-top: 16px;
 }
+.launch-banner {
+  margin-bottom: 28px;
+}
+.launch-badge {
+  display: inline-block;
+  font-family: 'Geist Mono', monospace;
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  color: var(--terracotta);
+  border: 1px solid var(--terracotta);
+  border-radius: 99px;
+  padding: 5px 12px;
+}
+.launch-note {
+  margin-top: 10px;
+  font-size: 13px;
+  color: var(--ink-muted);
+}
+
 .svc-card {
   display: grid;
   grid-template-columns: 60px 1fr 1fr 140px;

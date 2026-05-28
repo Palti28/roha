@@ -1,6 +1,6 @@
 ---
 title: "Frozen Food"
-category: "Website Template"
+category: "Website"
 tagline: "A warm storefront for frozen food sellers."
 summary: "An appetising website template for frozen food brands and home-based food sellers."
 currency: "IDR"

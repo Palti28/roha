@@ -21,8 +21,15 @@
   font-size: clamp(36px, 5.4vw, 68px);
   line-height: 1;
   letter-spacing: -.035em;
-  margin: 12px 0 34px;
+  margin: 12px 0 16px;
   font-weight: 500;
+}
+.hero-sub {
+  font-size: 15px;
+  color: var(--ink-muted, #6b6560);
+  line-height: 1.6;
+  max-width: 38ch;
+  margin: 0 0 24px;
 }
 .home-hero-left .btn-row {
   display: flex;
