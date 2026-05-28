@@ -1,5 +1,5 @@
 ---
-title: "Homestay"
+title: "Balige Homestay - Book Motel"
 category: "Website"
 tagline: "A calm site for homestays and guesthouses."
 summary: "An inviting website template for homestays, guesthouses, and small lodging businesses."

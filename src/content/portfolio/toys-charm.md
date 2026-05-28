@@ -1,5 +1,5 @@
 ---
-title: "Toys Charm"
+title: "CTBA - Toys and Hobby"
 category: "Website"
 tagline: "A playful but tidy kit for toy & kids' brands."
 summary: "A Figma template for toy shops and children's product brands, playful but never cluttered."

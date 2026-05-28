@@ -1,5 +1,5 @@
 ---
-title: "Creative Agency"
+title: "Pixel Forge - Creative Agency"
 category: "Website"
 tagline: "A bold dark-mode site for digital and brand agencies."
 summary: "A high-impact website template for creative studios, social media agencies, and digital branding teams."

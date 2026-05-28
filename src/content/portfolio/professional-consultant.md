@@ -1,5 +1,5 @@
 ---
-title: "Professional Consultant"
+title: "HaldenMeridian - Professional Consultant"
 category: "Website"
 tagline: "A serious, editorial site for law, finance, and advisory firms."
 summary: "A refined website template for professional service firms: legal, financial, and strategic advisory."
@@ -9,6 +9,11 @@ status: "available"
 buyUrl: "https://roha.mayar.id/professional-consultant-template"
 previewPath: "professional-consultant"
 pattern: "pat-grid"
+images:
+  - "https://ik.imagekit.io/gorat/consultan/cover.avif"
+  - "https://ik.imagekit.io/gorat/consultan/image-4.avif"
+  - "https://ik.imagekit.io/gorat/consultan/image-3.avif"
+  - "https://ik.imagekit.io/gorat/consultan/image-2.avif"
 order: 8
 publishedAt: 2026-05-24
 draft: false
