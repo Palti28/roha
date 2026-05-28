@@ -1,6 +1,12 @@
 /* Work list + Work detail — compact */
 
 .work-hero { padding: clamp(56px, 7vw, 88px) 0 clamp(24px, 4vw, 48px); }
+.work-hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 56px;
+  align-items: center;
+}
 .work-hero h1 {
   font-family: 'Bricolage Grotesque', serif;
   font-size: clamp(36px, 5.4vw, 68px);
@@ -9,6 +15,17 @@
   margin: 14px 0 16px;
   max-width: 12ch;
   font-weight: 300;
+}
+.work-hero-figure { width: 100%; }
+.work-hero-figure .work-illus {
+  width: 100%;
+  height: auto;
+  display: block;
+  color: var(--ink);
+}
+@media (max-width: 880px) {
+  .work-hero-grid { grid-template-columns: 1fr; gap: 28px; }
+  .work-hero-figure { display: none; }
 }
 
 .work-filter {
@@ -21,12 +38,11 @@
 
 .work-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 36px 24px;
 }
 @media (max-width: 1100px) { .work-grid { grid-template-columns: repeat(3, 1fr); } }
-@media (max-width: 768px) { .work-grid { grid-template-columns: 1fr 1fr; gap: 28px 20px; } }
-@media (max-width: 480px) { .work-grid { grid-template-columns: 1fr; gap: 28px; } }
+@media (max-width: 768px) { .work-grid { grid-template-columns: 1fr; gap: 28px; } }
 
 /* =================== WORK DETAIL =================== */
 .wd-cover {
@@ -75,6 +91,15 @@
   font-weight: 300;
 }
 @media (max-width: 720px) { .wd-meta-grid { grid-template-columns: 1fr 1fr; gap: 18px; } }
+
+.wd-images-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.wd-image-item { border-radius: var(--radius-sm); overflow: hidden; }
+.wd-image-item img { width: 100%; height: auto; display: block; }
+@media (max-width: 768px) { .wd-images-grid { grid-template-columns: 1fr; } }
 
 .wd-section { max-width: 760px; }
 .wd-section h2 { font-size: clamp(24px, 2.8vw, 36px); }
