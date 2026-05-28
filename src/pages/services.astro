@@ -11,10 +11,59 @@ import Base from '../layouts/Base.astro';
     <!-- HERO -->
     <section class="svc-hero">
       <div class="wrap">
-        <div class="eyebrow">Services</div>
-        <h1 class="display" data-reveal>What we can help you <em class="italic-accent">build</em>.</h1>
-        <p class="section-lede" data-reveal data-reveal-delay="100">Four disciplines we focus on. Every project gets the same process: slow at the start,
-          quick at the end.</p>
+        <div class="svc-hero-grid">
+          <div class="svc-hero-left">
+            <div class="eyebrow">Services</div>
+            <h1 class="display" data-reveal>What we can help you <em class="italic-accent">build</em>.</h1>
+            <p class="section-lede" data-reveal data-reveal-delay="100">Four disciplines we focus on. Every project gets the same process: slow at the start,
+              quick at the end.</p>
+          </div>
+
+          <div class="svc-hero-figure" data-reveal data-reveal-delay="200">
+            <svg viewBox="0 0 460 380" fill="none" xmlns="http://www.w3.org/2000/svg" class="svc-illus" role="img" aria-label="Illustration of a design workspace: a webpage layout with a brand system card">
+              <!-- decorative accents -->
+              <path d="M356 40 a64 64 0 0 1 64 64" stroke="var(--terracotta-soft)" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+              <circle cx="428" cy="150" r="3" fill="var(--terracotta-soft)" opacity="0.6"/>
+              <circle cx="36" cy="298" r="3" fill="var(--terracotta-soft)" opacity="0.6"/>
+
+              <!-- main artboard / browser window -->
+              <rect x="40" y="56" width="286" height="210" rx="12" fill="var(--paper)" stroke="var(--rule)" stroke-width="1.5"/>
+              <line x1="40" y1="86" x2="326" y2="86" stroke="var(--rule)" stroke-width="1.5"/>
+              <circle cx="60" cy="71" r="3.5" fill="var(--terracotta)"/>
+              <circle cx="74" cy="71" r="3.5" fill="var(--rule)"/>
+              <circle cx="88" cy="71" r="3.5" fill="var(--rule)"/>
+
+              <!-- hero image block -->
+              <rect x="60" y="104" width="122" height="80" rx="6" fill="var(--paper-tint)" stroke="var(--rule)" stroke-width="1.5"/>
+              <circle cx="86" cy="128" r="9" stroke="var(--terracotta)" stroke-width="1.5"/>
+              <path d="M64 180 L96 150 L120 172 L140 156 L178 184" stroke="var(--ink)" stroke-width="1.5" stroke-linejoin="round" opacity="0.4"/>
+
+              <!-- copy + button -->
+              <rect x="198" y="108" width="104" height="9" rx="4.5" fill="var(--ink)" opacity="0.12"/>
+              <rect x="198" y="126" width="86" height="9" rx="4.5" fill="var(--ink)" opacity="0.12"/>
+              <rect x="198" y="144" width="96" height="9" rx="4.5" fill="var(--ink)" opacity="0.12"/>
+              <rect x="198" y="168" width="70" height="24" rx="6" fill="var(--terracotta)"/>
+              <line x1="212" y1="180" x2="244" y2="180" stroke="var(--paper)" stroke-width="1.5" stroke-linecap="round"/>
+
+              <!-- cursor -->
+              <path d="M250 176 L250 212 L260 203 L266 216 L271 214 L265 201 L278 200 Z" fill="var(--ink)" stroke="var(--paper)" stroke-width="1.5" stroke-linejoin="round"/>
+
+              <!-- bottom content lines inside window -->
+              <rect x="60" y="206" width="240" height="9" rx="4.5" fill="var(--ink)" opacity="0.08"/>
+              <rect x="60" y="224" width="180" height="9" rx="4.5" fill="var(--ink)" opacity="0.08"/>
+
+              <!-- floating brand-system card -->
+              <rect x="248" y="216" width="176" height="128" rx="12" fill="var(--paper)" stroke="var(--rule)" stroke-width="1.5"/>
+              <rect x="266" y="234" width="64" height="8" rx="4" fill="var(--ink)" opacity="0.14"/>
+              <text x="265" y="318" font-family="'Bricolage Grotesque', serif" font-size="44" font-weight="600" fill="var(--ink)">Aa</text>
+              <circle cx="356" cy="266" r="10" fill="var(--terracotta)"/>
+              <circle cx="382" cy="266" r="10" fill="var(--ink)"/>
+              <circle cx="408" cy="266" r="10" fill="var(--cream)" stroke="var(--rule)" stroke-width="1"/>
+              <rect x="346" y="294" width="62" height="8" rx="4" fill="var(--ink)" opacity="0.12"/>
+              <rect x="346" y="310" width="46" height="8" rx="4" fill="var(--ink)" opacity="0.12"/>
+            </svg>
+          </div>
+        </div>
       </div>
     </section>
 

@@ -1,6 +1,12 @@
 /* Services page — compact */
 
 .svc-hero { padding: clamp(56px, 7vw, 88px) 0 clamp(28px, 4vw, 56px); }
+.svc-hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 56px;
+  align-items: center;
+}
 .svc-hero h1 {
   font-family: 'Bricolage Grotesque', serif;
   font-size: clamp(36px, 5.4vw, 68px);
@@ -10,7 +16,19 @@
   max-width: 14ch;
   font-weight: 500;
 }
-.svc-hero .section-lede { max-width: 56ch; }
+.svc-hero .section-lede { max-width: 52ch; }
+.svc-hero-figure { width: 100%; }
+.svc-hero-figure .svc-illus {
+  width: 100%;
+  height: auto;
+  display: block;
+  color: var(--ink);
+}
+
+@media (max-width: 880px) {
+  .svc-hero-grid { grid-template-columns: 1fr; gap: 28px; }
+  .svc-hero-figure { display: none; }
+}
 
 /* Services list */
 .svc-cards {
