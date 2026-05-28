@@ -1,6 +1,12 @@
 /* Work list + Work detail — compact */
 
 .work-hero { padding: clamp(56px, 7vw, 88px) 0 clamp(24px, 4vw, 48px); }
+.work-hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 56px;
+  align-items: center;
+}
 .work-hero h1 {
   font-family: 'Bricolage Grotesque', serif;
   font-size: clamp(36px, 5.4vw, 68px);
@@ -9,6 +15,17 @@
   margin: 14px 0 16px;
   max-width: 12ch;
   font-weight: 300;
+}
+.work-hero-figure { width: 100%; }
+.work-hero-figure .work-illus {
+  width: 100%;
+  height: auto;
+  display: block;
+  color: var(--ink);
+}
+@media (max-width: 880px) {
+  .work-hero-grid { grid-template-columns: 1fr; gap: 28px; }
+  .work-hero-figure { display: none; }
 }
 
 .work-filter {
