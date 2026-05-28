@@ -1,0 +1,11 @@
+{
+    "chat.tools.terminal.autoApprove": {
+        "git add": true,
+        "git commit": true,
+        "gh": true,
+        "/^cd /workspaces/roha && git status --short --branch && git fetch origin dev$/": {
+            "approve": true,
+            "matchCommandLine": true
+        }
+    }
+}

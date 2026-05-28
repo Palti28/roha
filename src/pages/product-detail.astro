@@ -1,0 +1,295 @@
+---
+import Base from "../layouts/Base.astro";
+---
+
+<Base title="product-detail">
+    <main id="main">
+        <!-- STICKY PRODUCT BAR (appears after scrolling past hero) -->
+        <div class="pd-stickybar" id="pdStickyBar" aria-hidden="true">
+            <div class="wrap pd-stickybar-inner">
+                <div class="pd-stickybar-title">
+                    <span class="cat">Website Template</span>
+                    <h2>Sora Landing Kit</h2>
+                </div>
+                <div class="pd-stickybar-actions">
+                    <a
+                        href="[FIGMA_PREVIEW_LINK_1]"
+                        class="btn btn-secondary btn-sm"
+                        target="_blank"
+                        rel="noopener">Preview</a
+                    >
+                    <a
+                        href="[MAYAR_LINK_PRODUCT_1]"
+                        class="btn btn-primary btn-sm"
+                        target="_blank"
+                        rel="noopener">Buy <span class="arr">→</span></a
+                    >
+                </div>
+            </div>
+        </div>
+
+        <!-- PRODUCT HERO -->
+        <section class="pd-hero" id="pdHero" style="padding: 32px 0px">
+            <div class="wrap">
+                <div class="pd-hero-grid">
+                    <div
+                        class="pd-cover pat-arcs pattern-wrap"
+                        aria-hidden="true"
+                    >
+                    </div>
+                    <div class="pd-info">
+                        <span class="cat">Website Template</span>
+                        <h1>Sora Landing Kit</h1>
+                        <p class="tagline">
+                            A landing kit for founders in a hurry.
+                        </p>
+
+                        <div class="pd-actions">
+                            <!-- Replace [MAYAR_LINK_PRODUCT_1] with the Mayar product link -->
+                            <a
+                                href="[MAYAR_LINK_PRODUCT_1]"
+                                class="btn btn-primary"
+                                target="_blank"
+                                rel="noopener"
+                                >Buy on Mayar <span class="arr">→</span></a
+                            >
+                            <!-- HTML Preview — opens the live preview modal -->
+                            <button
+                                type="button"
+                                class="btn btn-secondary"
+                                data-preview-trigger
+                                data-preview-url="templates/sora-landing-kit/index.html"
+                                data-preview-title="Sora Landing Kit"
+                                data-preview-cat="Website Template"
+                                data-preview-buy="[MAYAR_LINK_PRODUCT_1]"
+                                data-preview-buy-label="Buy on Mayar"
+                            >
+                                HTML Preview
+                            </button>
+                        </div>
+
+                        <div class="pd-actions-tertiary">
+                            <!-- Replace [FIGMA_PREVIEW_LINK_1] with the Figma preview link -->
+                            <a
+                                href="[FIGMA_PREVIEW_LINK_1]"
+                                class="btn btn-tertiary"
+                                target="_blank"
+                                rel="noopener"
+                                >Figma Preview <span class="arr">→</span></a
+                            >
+                        </div>
+
+                        <div class="pd-trust">
+                            <div>
+                                <span class="ok">✓</span> Instant download after payment
+                            </div>
+                            <div>
+                                <span class="ok">✓</span> Free lifetime updates
+                            </div>
+                            <div>
+                                <span class="ok">✓</span> Personal &amp; commercial
+                                license
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PREVIEW -->
+        <section class="section">
+            <div class="wrap">
+                <div class="h-block">
+                    <div class="left">
+                        <div class="eyebrow">01 — Preview</div>
+                        <h2>A quick look inside.</h2>
+                    </div>
+                </div>
+
+                <div class="pd-gallery pd-gallery--stacked">
+                    <div class="frame pat-arcs pattern-wrap" aria-hidden="true">
+                    </div>
+                    <div class="frame pat-grid pattern-wrap" aria-hidden="true">
+                    </div>
+                    <div
+                        class="frame pat-stripe pattern-wrap"
+                        aria-hidden="true"
+                    >
+                    </div>
+                    <div
+                        class="frame pat-block pattern-wrap"
+                        aria-hidden="true"
+                    >
+                    </div>
+                    <div
+                        class="frame pat-confetti pattern-wrap"
+                        aria-hidden="true"
+                    >
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- INSIDE -->
+        <section class="section">
+            <div class="wrap">
+                <div class="h-block">
+                    <div class="left">
+                        <div class="eyebrow">02 — What&rsquo;s Inside</div>
+                        <h2>What you get.</h2>
+                    </div>
+                    <p class="right">
+                        Everything is built modular, plug, unplug, and swap
+                        sections as needed without breaking the layout.
+                    </p>
+                </div>
+
+                <ul class="pd-inside">
+                    <li>
+                        5 page designs (Home, About, Pricing, Blog, Contact)
+                    </li>
+                    <li>120+ modular components</li>
+                    <li>Auto-layout on every section</li>
+                    <li>Dark &amp; light mode ready</li>
+                    <li>Mobile responsive (320–1440)</li>
+                    <li>Complete design tokens (color, type, spacing)</li>
+                    <li>Free Google Fonts integration</li>
+                    <li>Well-structured component library</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- SPEC -->
+        <section class="section" style="padding: 32px 0px">
+            <div class="wrap">
+                <div class="h-block">
+                    <div class="left">
+                        <div class="eyebrow">03 — Spec &amp; Details</div>
+                        <h2>The technical short.</h2>
+                    </div>
+                </div>
+
+                <div class="pd-spec">
+                    <div class="item">
+                        <div class="k">Format</div><div class="v">
+                            Figma (.fig)
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="k">Software</div><div class="v">
+                            Figma (free OK)
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="k">Size</div><div class="v">12 MB</div>
+                    </div>
+                    <div class="item">
+                        <div class="k">License</div><div class="v">
+                            Personal + Commercial
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CUSTOM CTA -->
+        <section class="section-tight">
+            <div class="cta-wrap">
+                <div class="cta-panel cta-panel-compact pat-heat">
+                    <div class="eyebrow">Custom</div>
+                    <h2>
+                        Want this <em
+                            class="italic-accent"
+                            style="color:var(--ink)">customized</em
+                        >?
+                    </h2>
+                    <p>
+                        Send us a WhatsApp with your needs: copywriting, color
+                        palette, brand match. We quote within 1 business day.
+                    </p>
+                    <div class="btn-row">
+                        <a
+                            href="https://wa.me/[NO_WA]?text=Hi%20Roha%2C%20I%27d%20like%20to%20order%20a%20custom%20Sora%20Landing%20Kit"
+                            class="btn btn-cream"
+                            target="_blank"
+                            rel="noopener"
+                            >Order Custom via WhatsApp <span class="arr">→</span
+                            ></a
+                        >
+                    </div>
+                    <div class="arcs-deco" aria-hidden="true"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- RELATED -->
+        <section class="section">
+            <div class="wrap">
+                <div class="h-block">
+                    <div class="left">
+                        <div class="eyebrow">Other Products</div>
+                        <h2>You might like these too.</h2>
+                    </div>
+                    <p class="right">
+                        <a
+                            href="/portfolio"
+                            class="section-link"
+                            style="margin-top:0;"
+                            >See all products <span class="arr">→</span></a
+                        >
+                    </p>
+                </div>
+
+                <div class="pd-related">
+                    <a href="/portfolio" class="product-card">
+                        <div
+                            class="cover pat-confetti pattern-wrap"
+                            aria-hidden="true"
+                        >
+                        </div>
+                        <div class="body">
+                            <span class="cat">UI Kit</span>
+                            <h3 class="name">Nimbus UI Kit</h3>
+                        </div>
+                    </a>
+                    <a href="/portfolio" class="product-card">
+                        <div
+                            class="cover pat-block pattern-wrap"
+                            aria-hidden="true"
+                        >
+                        </div>
+                        <div class="body">
+                            <span class="cat">Brand Template</span>
+                            <h3 class="name">Terra Brand Pack</h3>
+                        </div>
+                    </a>
+                    <a href="/portfolio" class="product-card">
+                        <div
+                            class="cover pat-grid pattern-wrap"
+                            aria-hidden="true"
+                        >
+                        </div>
+                        <div class="body">
+                            <span class="cat">Figma Template</span>
+                            <h3 class="name">Paper Portfolio Kit</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>
+        // Sticky product bar — show after hero scrolls out of view
+        (() => {
+            const hero = document.getElementById("pdHero");
+            const bar = document.getElementById("pdStickyBar");
+            if (!hero || !bar) return;
+            const io = new IntersectionObserver(
+                ([entry]) =>
+                    bar.classList.toggle("is-stuck", !entry.isIntersecting),
+                { rootMargin: "-80px 0px 0px 0px", threshold: 0 },
+            );
+            io.observe(hero);
+        })();
+    </script>
+</Base>

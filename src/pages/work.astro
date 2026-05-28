@@ -1,0 +1,122 @@
+---
+import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
+import Base from "../layouts/Base.astro";
+import CaseTag from "../components/CaseTag.astro";
+
+// 1. Ambil data collection 'work' & filter out draft
+const allWork = await getCollection("work", ({ data }) => {
+  return import.meta.env.PROD ? !data.draft : true;
+});
+
+// 2. Urutkan berdasarkan property 'order'
+const sortedWork = allWork.sort((a, b) => a.data.order - b.data.order);
+---
+
+<Base
+  title="Work"
+  description="Case studies and projects from Roha, UI/UX, brand identity, and web design for founders and small teams."
+>
+  <main id="main">
+    <section class="work-hero">
+      <div class="wrap">
+        <div class="eyebrow">Work</div>
+        <h1 data-reveal>What we&rsquo;ve shipped.</h1>
+        <p class="section-lede" data-reveal data-reveal-delay="100">
+          A small list, but every project has a story. Pick one to read in
+          detail.
+        </p>
+
+        <div class="work-filter pills" data-work-filter>
+          <button class="pill active" data-filter="all">All</button>
+          <button class="pill" data-filter="uiux">UI/UX</button>
+          <button class="pill" data-filter="web">Web Dev</button>
+          <button class="pill" data-filter="branding">Branding</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-tight">
+      <div class="wrap">
+        <div class="work-grid">
+          {
+            sortedWork.map((project, idx) => {
+              const {
+                title,
+                summary,
+                category,
+                service,
+                duration,
+                year,
+                client,
+                pattern,
+                coverImage,
+                concept,
+                tagLabel,
+              } = project.data;
+              return (
+                <a
+                  href={`/work/${project.id}`}
+                  class="work-card"
+                  data-category={category}
+                  data-reveal
+                  data-reveal-delay={idx * 120}
+                >
+                  {coverImage ? (
+                    <img src={coverImage} alt={`${title} — case study cover`} class="thumb" width={400} height={300} loading="lazy" />
+                  ) : (
+                    <div
+                      class={`thumb ${pattern} pattern-wrap`}
+                      aria-hidden="true"
+                    />
+                  )}
+
+                  <div class="meta-row">
+                    <span class="tag">{service}</span>
+                    <span class="meta-tag">{year}</span>
+                    <CaseTag concept={concept} label={tagLabel} tone="light" />
+                  </div>
+
+                  <h3>{title}</h3>
+                  <p class="summary">{summary}</p>
+
+                  <div class="meta-bottom">
+                    <span>{client}</span>
+                    <span>·</span>
+                    <span>{duration}</span>
+                  </div>
+                </a>
+              );
+            })
+          }
+        </div>
+      </div>
+    </section>
+
+    <section class="section-tight">
+      <div class="cta-wrap">
+        <div class="cta-panel cta-panel-compact pat-heat">
+          <div class="eyebrow">Next Project</div>
+          <h2>
+            Want to be our <em class="italic-accent" style="color:var(--ink)"
+              >next</em
+            > project?
+          </h2>
+          <p>
+            Roha takes on a limited number of projects at once, so each one gets
+            full attention. Send your brief first.
+          </p>
+          <div class="btn-row">
+            <a href="/about#contact" class="btn btn-cream"
+              >Start a Project <span class="arr">→</span></a
+            >
+            <a href="mailto:hello@rohaworks.com" class="btn btn-outline-cream"
+              >Email Us</a
+            >
+          </div>
+          <div class="arcs-deco" aria-hidden="true"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+</Base>

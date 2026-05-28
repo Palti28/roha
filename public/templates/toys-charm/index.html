@@ -1,0 +1,1256 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Cute Things by Eca — Handmade Clay Keychain</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600;700&family=Caveat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --terracotta:#E8735A;
+    --terracotta-deep:#C75A42;
+    --cream:#F5E6D3;
+    --cream-soft:#FBF1E2;
+    --bg:#FDF8F3;
+    --sage:#7BAE91;
+    --sage-deep:#5C8A72;
+    --ink:#2A2522;
+    --ink-soft:#5A4F49;
+    --tape:rgba(255, 220, 120, 0.55);
+    --tape-pink:rgba(232, 115, 90, 0.32);
+    --shadow-card: 0 1px 2px rgba(42,37,34,.06), 0 8px 24px -10px rgba(42,37,34,.18);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+  }
+  @media (max-width: 920px) {
+    html {
+      scroll-padding-top: 65px;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto !important;
+    }
+  }
+  body{
+    font-family:'Inter', system-ui, sans-serif;
+    background:var(--bg);
+    color:var(--ink);
+    font-size:16px;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  img{max-width:100%;display:block}
+  a{color:inherit}
+  button{font-family:inherit;cursor:pointer;border:none;background:none}
+  h1,h2,h3,h4{font-family:'Fraunces',serif;font-weight:600;letter-spacing:-0.015em;margin:0;line-height:1.1}
+  h2{font-size:32px;font-weight:600}
+  h3{font-size:20px}
+  p{margin:0}
+  .hand{font-family:'Caveat',cursive;font-weight:600}
+
+  /* ---------- Page background paper texture ---------- */
+  body::before{
+    content:"";
+    position:fixed;inset:0;pointer-events:none;z-index:0;
+    background-image:
+      radial-gradient(circle at 20% 10%, rgba(232,115,90,.04), transparent 40%),
+      radial-gradient(circle at 90% 80%, rgba(123,174,145,.05), transparent 40%);
+  }
+  main{position:relative;z-index:1}
+
+  /* ---------- Navigation ---------- */
+  .nav{
+    position:sticky;top:0;z-index:40;
+    backdrop-filter:blur(12px);
+    background:rgba(253,248,243,.82);
+    border-bottom:1px solid rgba(42,37,34,.06);
+  }
+  .nav-inner{
+    max-width:1200px;margin:0 auto;
+    padding:14px 20px;
+    display:flex;align-items:center;justify-content:space-between;gap:16px;
+  }
+  .brand{
+    display:flex;align-items:center;gap:8px;
+    font-family:'Fraunces',serif;font-weight:600;font-size:18px;
+    letter-spacing:-0.01em;
+  }
+  .brand-mark{
+    width:30px;height:30px;border-radius:50%;
+    background:var(--terracotta);
+    display:grid;place-items:center;
+    color:var(--cream-soft);font-size:14px;
+    box-shadow:inset -3px -3px 0 rgba(0,0,0,.08);
+  }
+  .nav-cta{
+    display:inline-flex;align-items:center;gap:6px;
+    padding:9px 14px;border-radius:999px;
+    background:var(--ink);color:var(--cream-soft);
+    font-size:13px;font-weight:600;
+    transition:transform .15s ease, background .15s ease;
+  }
+  .nav-cta:hover{background:var(--terracotta);transform:translateY(-1px)}
+  .nav-cta svg{width:14px;height:14px}
+
+  /* ---------- Container ---------- */
+  .wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+
+  /* ---------- HERO (scrapbook) ---------- */
+  .hero{
+    padding:32px 0 60px;
+    position:relative;
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:36px;
+    align-items:center;
+  }
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    background:var(--cream);
+    padding:6px 12px;border-radius:999px;
+    font-size:12px;font-weight:600;letter-spacing:.04em;
+    color:var(--ink-soft);
+    text-transform:uppercase;
+  }
+  .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--sage);}
+  .hero h1{
+    font-size:44px;
+    font-weight:600;
+    margin-top:16px;
+    letter-spacing:-0.025em;
+  }
+  .hero h1 em{
+    font-style:italic;font-weight:500;
+    color:var(--terracotta);
+    position:relative;
+  }
+  .hero h1 .squiggle{
+    position:absolute;left:0;right:0;bottom:-6px;height:8px;
+    background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 8'><path d='M0 4 Q 12.5 0, 25 4 T 50 4 T 75 4 T 100 4' stroke='%23E8735A' stroke-width='2' fill='none' stroke-linecap='round'/></svg>") repeat-x;
+    background-size:40px 8px;opacity:.55;
+  }
+  .hero p.lede{
+    margin-top:18px;
+    font-size:16px;
+    color:var(--ink-soft);
+    max-width:38ch;
+  }
+  .hero-actions{
+    margin-top:24px;
+    display:flex;flex-wrap:wrap;gap:10px;
+  }
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:14px 22px;border-radius:999px;
+    font-weight:600;font-size:15px;
+    transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
+    text-decoration:none;
+    white-space:nowrap;
+  }
+  .btn svg{width:16px;height:16px}
+  .btn-primary{
+    background:var(--terracotta);color:#fff;
+    box-shadow:0 1px 0 rgba(255,255,255,.3) inset, 0 6px 18px -6px rgba(232,115,90,.6);
+  }
+  .btn-primary:hover{background:var(--terracotta-deep);transform:translateY(-1px)}
+  .btn-secondary{
+    background:transparent;color:var(--ink);
+    border:1.5px solid var(--ink);
+  }
+  .btn-secondary:hover{background:var(--ink);color:var(--cream-soft);transform:translateY(-1px)}
+
+  .hero-meta{
+    margin-top:28px;
+    display:flex;flex-wrap:wrap;gap:16px 24px;
+    font-size:13px;color:var(--ink-soft);
+  }
+  .hero-meta b{color:var(--ink);font-weight:600}
+  .hero-meta .pip{display:flex;align-items:center;gap:6px}
+  .hero-meta .pip::before{
+    content:"";width:6px;height:6px;border-radius:50%;background:var(--sage);
+  }
+
+  /* Scrapbook collage */
+  .collage{
+    position:relative;
+    aspect-ratio: 4/4.2;
+    width:100%;
+    max-width:460px;
+    margin:0 auto;
+  }
+  .photo{
+    position:absolute;
+    background:#fff;
+    padding:10px 10px 36px;
+    box-shadow:var(--shadow-card);
+    border-radius:3px;
+    transition:transform .25s ease;
+  }
+  .photo .ph-img{
+    width:100%;aspect-ratio:1/1;
+    border-radius:2px;
+    background:linear-gradient(135deg, var(--cream) 0%, #F0D8B8 100%);
+    display:grid;place-items:center;
+    color:var(--ink-soft);font-size:32px;
+  }
+  .photo .ph-cap{
+    position:absolute;left:0;right:0;bottom:8px;
+    text-align:center;
+    font-family:'Caveat',cursive;font-weight:600;
+    color:var(--ink-soft);font-size:16px;
+  }
+  .photo .tape{
+    position:absolute;
+    width:64px;height:20px;
+    background:var(--tape);
+    box-shadow:0 1px 2px rgba(0,0,0,.05);
+  }
+  .photo:hover{transform:rotate(0deg) scale(1.03) !important;z-index:5}
+
+  .photo.p1{
+    width:60%;left:0;top:6%;transform:rotate(-6deg);
+    z-index:2;
+  }
+  .photo.p1 .ph-img{background:linear-gradient(135deg,#F4C7B5,#E8A088)}
+  .photo.p1 .tape{top:-8px;left:30%;transform:rotate(-8deg)}
+
+  .photo.p2{
+    width:54%;right:0;top:0;transform:rotate(5deg);
+    z-index:3;
+  }
+  .photo.p2 .ph-img{background:linear-gradient(135deg,#C9DDD0,#9CC2AC)}
+  .photo.p2 .tape{top:-8px;right:20%;transform:rotate(6deg);background:var(--tape-pink)}
+
+  .photo.p3{
+    width:46%;left:8%;bottom:0;transform:rotate(7deg);
+    z-index:4;
+  }
+  .photo.p3 .ph-img{background:linear-gradient(135deg,#F2D8B8,#D9A878)}
+  .photo.p3 .tape{top:-8px;left:35%;transform:rotate(2deg)}
+
+  .photo.p4{
+    width:42%;right:4%;bottom:6%;transform:rotate(-8deg);
+    z-index:3;
+  }
+  .photo.p4 .ph-img{background:linear-gradient(135deg,#E8D3F0,#C9A8DD)}
+  .photo.p4 .tape{top:-8px;right:25%;transform:rotate(-6deg);background:var(--tape-pink)}
+
+  /* Sticker doodles in collage */
+  .sticker{
+    position:absolute;
+    pointer-events:none;
+    font-family:'Caveat',cursive;font-weight:600;
+    color:var(--terracotta);
+    z-index:6;
+  }
+  .sticker.s-heart{top:48%;right:-2%;font-size:28px;transform:rotate(15deg)}
+  .sticker.s-star{bottom:38%;left:-4%;font-size:24px;color:var(--sage-deep);transform:rotate(-12deg)}
+  .sticker.s-arrow{top:35%;left:48%;font-size:14px;color:var(--ink-soft);transform:rotate(-25deg)}
+
+  /* ---------- Marquee strip ---------- */
+  .strip{
+    background:var(--ink);
+    color:var(--cream-soft);
+    padding:14px 0;
+    overflow:hidden;
+    border-top:1px solid rgba(255,255,255,.05);
+    border-bottom:1px solid rgba(255,255,255,.05);
+  }
+  .strip-track{
+    display:flex;gap:36px;
+    white-space:nowrap;
+    animation:scroll 32s linear infinite;
+    font-family:'Fraunces',serif;font-style:italic;font-weight:500;
+    font-size:18px;
+  }
+  .strip-track span{display:inline-flex;align-items:center;gap:36px}
+  .strip-track .sep{
+    display:inline-block;width:6px;height:6px;border-radius:50%;
+    background:var(--terracotta);
+  }
+  @keyframes scroll{
+    from{transform:translateX(0)}
+    to{transform:translateX(-50%)}
+  }
+
+  /* ---------- Section base ---------- */
+  section.block{
+    padding:64px 0;
+    position:relative;
+  }
+  .section-head{
+    margin-bottom:32px;
+    text-align:left;
+  }
+  .section-head .kicker{
+    display:inline-block;
+    font-family:'Caveat',cursive;font-weight:600;
+    color:var(--terracotta);
+    font-size:22px;
+    margin-bottom:4px;
+    transform:rotate(-2deg);
+  }
+  .section-head h2{
+    font-size:34px;
+    letter-spacing:-0.025em;
+  }
+  .section-head h2 em{font-style:italic;color:var(--terracotta);font-weight:500}
+  .section-head .sub{
+    margin-top:10px;
+    color:var(--ink-soft);
+    font-size:15px;
+    max-width:55ch;
+  }
+
+  /* ---------- Catalog ---------- */
+  .catalog-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:14px;
+  }
+  .product{
+    background:#fff;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:var(--shadow-card);
+    transition:transform .2s ease, box-shadow .2s ease;
+    display:flex;flex-direction:column;
+    border:1px solid rgba(42,37,34,.04);
+  }
+  .product:hover{
+    transform:translateY(-4px);
+    box-shadow:0 1px 2px rgba(42,37,34,.06), 0 18px 30px -12px rgba(42,37,34,.22);
+  }
+  .product .pic{
+    aspect-ratio:1/1;
+    position:relative;
+    background:var(--cream);
+    overflow:hidden;
+  }
+  .product .pic .placeholder-art{
+    position:absolute;inset:0;
+    display:grid;place-items:center;
+    font-size:48px;
+    background:linear-gradient(135deg,var(--c1),var(--c2));
+  }
+  .badge{
+    position:absolute;top:10px;left:10px;
+    background:rgba(253,248,243,.95);
+    backdrop-filter:blur(4px);
+    padding:5px 10px;border-radius:999px;
+    font-size:11px;font-weight:600;letter-spacing:.02em;
+    color:var(--ink);
+    border:1px solid rgba(42,37,34,.08);
+  }
+  .badge.custom{background:var(--terracotta);color:#fff;border-color:transparent}
+  .product .info{padding:14px 14px 14px}
+  .product .name{
+    font-family:'Fraunces',serif;font-weight:600;font-size:16px;
+    letter-spacing:-0.01em;line-height:1.25;
+    margin-bottom:4px;
+  }
+  .product .price{
+    color:var(--terracotta);font-weight:600;font-size:14px;
+    margin-bottom:12px;
+  }
+  .product .pesan{
+    display:flex;align-items:center;justify-content:center;gap:6px;
+    width:100%;
+    padding:10px;border-radius:10px;
+    background:var(--cream-soft);
+    color:var(--ink);
+    font-size:13px;font-weight:600;
+    text-decoration:none;
+    transition:background .15s ease, color .15s ease;
+  }
+  .product .pesan:hover{background:var(--ink);color:var(--cream-soft)}
+  .product .pesan svg{width:13px;height:13px}
+
+  .catalog-note{
+    margin-top:18px;
+    text-align:center;
+    color:var(--ink-soft);font-size:13px;
+    font-family:'Caveat',cursive;font-weight:500;font-size:18px;
+  }
+
+  /* ---------- Custom process ---------- */
+  .process{
+    background:var(--cream);
+    border-radius:24px;
+    padding:36px 24px;
+    position:relative;
+    overflow:hidden;
+  }
+  .process::before{
+    content:"";
+    position:absolute;top:-30px;right:-30px;
+    width:140px;height:140px;border-radius:50%;
+    background:rgba(232,115,90,.18);
+    filter:blur(8px);
+  }
+  .process::after{
+    content:"";
+    position:absolute;bottom:-40px;left:-30px;
+    width:160px;height:160px;border-radius:50%;
+    background:rgba(123,174,145,.18);
+    filter:blur(10px);
+  }
+  .steps{
+    display:grid;grid-template-columns:1fr;gap:14px;
+    position:relative;z-index:1;
+  }
+  .step{
+    background:#fff;
+    border-radius:16px;
+    padding:18px;
+    display:grid;
+    grid-template-columns:auto 1fr;
+    gap:14px;align-items:start;
+    box-shadow:0 1px 2px rgba(0,0,0,.04);
+  }
+  .step .num{
+    width:40px;height:40px;border-radius:50%;
+    background:var(--terracotta);color:#fff;
+    display:grid;place-items:center;
+    font-family:'Fraunces',serif;font-weight:600;font-size:18px;
+  }
+  .step .num.s2{background:var(--sage)}
+  .step .num.s3{background:var(--ink)}
+  .step .num.s4{background:#D9A878}
+  .step .step-title{
+    font-family:'Fraunces',serif;font-weight:600;font-size:17px;
+    margin-bottom:4px;
+  }
+  .step .step-desc{font-size:13.5px;color:var(--ink-soft);line-height:1.45}
+  .process .tl-note{
+    margin-top:18px;
+    text-align:center;
+    font-family:'Caveat',cursive;font-weight:600;color:var(--ink);
+    font-size:18px;
+  }
+  .process .cta-row{
+    margin-top:20px;display:flex;justify-content:center;
+  }
+
+  /* ---------- Pricing ---------- */
+  .pricing{
+    display:grid;grid-template-columns:1fr;gap:14px;
+  }
+  .price-card{
+    background:#fff;
+    border-radius:20px;
+    padding:24px;
+    border:1.5px solid rgba(42,37,34,.06);
+    position:relative;
+    box-shadow:var(--shadow-card);
+  }
+  .price-card.feature{
+    background:var(--ink);color:var(--cream-soft);
+    border-color:var(--ink);
+  }
+  .price-card .ptag{
+    display:inline-block;
+    font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+    padding:4px 10px;border-radius:999px;
+    background:var(--cream);color:var(--ink-soft);
+    margin-bottom:12px;
+  }
+  .price-card.feature .ptag{background:var(--terracotta);color:#fff}
+  .price-card h3{
+    font-size:24px;
+    font-weight:600;
+    margin-bottom:6px;
+  }
+  .price-card .from{
+    display:flex;align-items:baseline;gap:6px;
+    margin-bottom:6px;
+  }
+  .price-card .from .num{
+    font-family:'Fraunces',serif;font-size:34px;font-weight:600;
+    letter-spacing:-0.02em;
+  }
+  .price-card .from .label{
+    font-size:12px;color:var(--ink-soft);
+  }
+  .price-card.feature .from .label{color:rgba(245,230,211,.6)}
+  .price-card .lead{
+    font-size:13.5px;color:var(--ink-soft);margin-bottom:16px;
+  }
+  .price-card.feature .lead{color:rgba(245,230,211,.7)}
+  .price-card ul{
+    list-style:none;padding:0;margin:0 0 18px;
+    display:grid;gap:8px;
+  }
+  .price-card li{
+    display:grid;grid-template-columns:auto 1fr;gap:8px;align-items:start;
+    font-size:14px;
+  }
+  .price-card li svg{width:14px;height:14px;margin-top:4px;color:var(--sage-deep);flex-shrink:0}
+  .price-card.feature li svg{color:var(--terracotta)}
+  .price-card .guide{
+    border-top:1px dashed rgba(255,255,255,.15);
+    padding-top:14px;margin-bottom:16px;
+    font-size:13px;
+  }
+  .price-card .guide-row{
+    display:flex;justify-content:space-between;
+    padding:4px 0;
+  }
+  .price-card .btn-card{
+    display:inline-flex;align-items:center;justify-content:center;gap:6px;
+    width:100%;
+    padding:13px;border-radius:12px;
+    font-size:14px;font-weight:600;
+    text-decoration:none;
+    background:var(--terracotta);color:#fff;
+  }
+  .price-card.feature .btn-card{background:var(--terracotta);color:#fff}
+  .price-card .btn-card.ghost{background:var(--cream);color:var(--ink)}
+  .price-card .btn-card:hover{filter:brightness(1.05)}
+
+  .price-disclaimer{
+    margin-top:16px;
+    text-align:center;
+    color:var(--ink-soft);font-size:13px;
+    line-height:1.5;
+  }
+
+  /* ---------- Why us ---------- */
+  .why-grid{
+    display:grid;grid-template-columns:1fr;gap:12px;
+  }
+  .why-card{
+    background:#fff;border-radius:16px;
+    padding:18px;
+    display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:start;
+    border:1px solid rgba(42,37,34,.05);
+    transition:transform .15s ease;
+  }
+  .why-card:hover{transform:translateX(2px)}
+  .why-card .ic{
+    width:44px;height:44px;border-radius:12px;
+    background:var(--cream);
+    display:grid;place-items:center;font-size:20px;
+    color:var(--terracotta);
+    flex-shrink:0;
+  }
+  .why-card.alt .ic{background:rgba(123,174,145,.18);color:var(--sage-deep)}
+  .why-card .why-title{
+    font-family:'Fraunces',serif;font-weight:600;font-size:16px;
+    margin-bottom:2px;
+  }
+  .why-card .why-desc{font-size:13.5px;color:var(--ink-soft);line-height:1.45}
+
+  /* ---------- Testimonials marquee ---------- */
+  .testi-section{
+    background:var(--cream-soft);
+    padding:64px 0;
+    overflow:hidden;
+  }
+  .testi-stats{
+    display:flex;gap:12px;margin:0 20px 28px;
+    flex-wrap:wrap;
+  }
+  .stat-pill{
+    background:#fff;
+    padding:10px 16px;border-radius:999px;
+    font-size:13px;font-weight:500;
+    border:1px solid rgba(42,37,34,.06);
+    display:inline-flex;align-items:center;gap:8px;
+  }
+  .stat-pill b{font-family:'Fraunces',serif;font-weight:600;font-size:16px;color:var(--terracotta)}
+  .testi-marquee{
+    display:flex;gap:14px;
+    animation:scroll 40s linear infinite;
+    width:max-content;
+  }
+  .testi-marquee:hover{animation-play-state:paused}
+  .testi-card{
+    width:280px;flex-shrink:0;
+    background:#fff;border-radius:18px;padding:18px;
+    box-shadow:var(--shadow-card);
+    display:flex;flex-direction:column;gap:12px;
+  }
+  .testi-card .qmark{
+    font-family:'Fraunces',serif;font-size:40px;line-height:1;
+    color:var(--terracotta);font-weight:700;
+    margin-bottom:-12px;
+  }
+  .testi-card .quote{
+    font-size:14px;line-height:1.5;color:var(--ink);
+  }
+  .testi-card .who{
+    display:flex;align-items:center;gap:10px;
+    margin-top:auto;padding-top:8px;
+    border-top:1px solid rgba(42,37,34,.05);
+  }
+  .testi-card .av{
+    width:36px;height:36px;border-radius:50%;
+    background:linear-gradient(135deg,var(--c1),var(--c2));
+    display:grid;place-items:center;
+    color:#fff;font-weight:600;font-size:13px;
+    font-family:'Fraunces',serif;
+  }
+  .testi-card .who-meta{font-size:12.5px}
+  .testi-card .who-meta b{display:block;font-weight:600}
+  .testi-card .who-meta span{color:var(--ink-soft)}
+  .testi-card .stars{color:#E8A845;font-size:13px;letter-spacing:1px}
+
+  /* ---------- FAQ ---------- */
+  .faq{display:flex;flex-direction:column;gap:8px}
+  .faq details{
+    background:#fff;
+    border-radius:14px;
+    padding:0;
+    border:1px solid rgba(42,37,34,.06);
+    overflow:hidden;
+    transition:box-shadow .2s ease;
+  }
+  .faq details[open]{box-shadow:var(--shadow-card)}
+  .faq summary{
+    list-style:none;cursor:pointer;
+    padding:16px 18px;
+    display:flex;align-items:center;justify-content:space-between;gap:12px;
+    font-family:'Fraunces',serif;font-weight:600;font-size:15.5px;
+    line-height:1.35;
+  }
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary .pl{
+    width:24px;height:24px;border-radius:50%;
+    background:var(--cream);color:var(--terracotta);
+    display:grid;place-items:center;
+    font-size:14px;font-weight:600;
+    flex-shrink:0;
+    transition:transform .25s ease, background .15s ease;
+  }
+  .faq details[open] summary .pl{
+    transform:rotate(45deg);
+    background:var(--terracotta);color:#fff;
+  }
+  .faq .a{
+    padding:0 18px 18px;
+    font-size:14px;color:var(--ink-soft);line-height:1.55;
+  }
+
+  /* ---------- Final CTA ---------- */
+  .final-cta{
+    background:var(--terracotta);
+    color:#fff;
+    padding:60px 0;
+    position:relative;
+    overflow:hidden;
+  }
+  .final-cta::before{
+    content:"";position:absolute;
+    top:-60px;left:-40px;
+    width:200px;height:200px;border-radius:50%;
+    background:rgba(255,255,255,.08);
+  }
+  .final-cta::after{
+    content:"";position:absolute;
+    bottom:-80px;right:-50px;
+    width:240px;height:240px;border-radius:50%;
+    background:rgba(0,0,0,.08);
+  }
+  .final-cta .wrap{position:relative;z-index:1}
+  .final-cta h2{
+    font-size:36px;
+    letter-spacing:-0.025em;
+  }
+  .final-cta .sub2{
+    margin-top:10px;
+    font-size:15px;color:rgba(255,255,255,.85);
+    max-width:42ch;
+  }
+  .final-cta .btn-final{
+    display:inline-flex;align-items:center;gap:10px;
+    margin-top:24px;
+    padding:18px 26px;
+    background:#fff;color:var(--terracotta);
+    border-radius:999px;
+    font-size:16px;font-weight:700;
+    text-decoration:none;
+    box-shadow:0 8px 24px -8px rgba(0,0,0,.3);
+    transition:transform .15s ease;
+  }
+  .final-cta .btn-final:hover{transform:translateY(-2px)}
+  .final-cta .btn-final svg{width:20px;height:20px}
+  .final-cta .ig{
+    margin-top:18px;
+    display:inline-flex;align-items:center;gap:8px;
+    color:rgba(255,255,255,.85);
+    font-size:14px;text-decoration:none;
+  }
+  .final-cta .ig:hover{color:#fff}
+  .final-cta .ig svg{width:16px;height:16px}
+
+  /* ---------- Footer ---------- */
+  footer{
+    background:var(--ink);color:var(--cream-soft);
+    padding:36px 0 28px;
+    text-align:center;
+  }
+  footer .f-brand{
+    font-family:'Fraunces',serif;font-weight:600;font-size:22px;
+    margin-bottom:6px;
+  }
+  footer .f-tag{
+    font-family:'Caveat',cursive;font-size:18px;
+    color:rgba(245,230,211,.7);margin-bottom:18px;
+  }
+  footer .f-links{
+    display:flex;gap:18px;justify-content:center;
+    margin-bottom:18px;flex-wrap:wrap;
+  }
+  footer .f-links a{
+    color:var(--cream-soft);text-decoration:none;
+    font-size:14px;
+    display:inline-flex;align-items:center;gap:6px;
+    padding:6px 12px;border-radius:999px;
+    border:1px solid rgba(245,230,211,.15);
+    transition:background .15s ease;
+  }
+  footer .f-links a:hover{background:rgba(245,230,211,.1)}
+  footer .f-copy{
+    font-size:12px;color:rgba(245,230,211,.5);
+    margin-top:6px;
+  }
+
+  /* ---------- Floating WA ---------- */
+  .float-wa{
+    position:fixed;
+    bottom:18px;right:18px;
+    z-index:100;
+    background:#25D366;
+    color:#fff;
+    width:58px;height:58px;border-radius:50%;
+    display:grid;place-items:center;
+    box-shadow:0 10px 28px -6px rgba(37,211,102,.55), 0 4px 10px rgba(0,0,0,.15);
+    text-decoration:none;
+    transition:transform .2s ease;
+  }
+  .float-wa:hover{transform:scale(1.08)}
+  .float-wa svg{width:30px;height:30px}
+  .float-wa::after{
+    content:"";
+    position:absolute;inset:-4px;border-radius:50%;
+    border:2px solid #25D366;opacity:.4;
+    animation:pulse 2s ease-out infinite;
+    pointer-events:none;
+  }
+  @keyframes pulse{
+    0%{transform:scale(1);opacity:.4}
+    70%{transform:scale(1.4);opacity:0}
+    100%{transform:scale(1.4);opacity:0}
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (min-width:720px){
+    h2{font-size:40px}
+    .hero{padding:60px 0 80px}
+    .hero-grid{grid-template-columns:1.05fr 1fr;gap:40px}
+    .hero h1{font-size:60px}
+    .hero p.lede{font-size:17px}
+    .section-head h2{font-size:42px}
+    .catalog-grid{grid-template-columns:repeat(3,1fr);gap:18px}
+    .pricing{grid-template-columns:1fr 1fr;gap:18px}
+    .why-grid{grid-template-columns:1fr 1fr;gap:14px}
+    .steps{grid-template-columns:1fr 1fr;gap:16px}
+    .process{padding:48px 36px}
+    section.block{padding:88px 0}
+    .testi-section{padding:88px 0}
+    .final-cta h2{font-size:48px}
+  }
+  @media (min-width:1000px){
+    .hero h1{font-size:72px}
+    .catalog-grid{grid-template-columns:repeat(4,1fr)}
+    .steps{grid-template-columns:repeat(4,1fr)}
+    .why-grid{grid-template-columns:repeat(3,1fr)}
+    .section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px}
+    .section-head .head-left{max-width:60%}
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <div class="brand">
+      <span class="brand-mark">✿</span>
+      <span>Cute Things <i style="font-style:italic;font-weight:400;color:var(--ink-soft)">by Eca</i></span>
+    </div>
+    <a class="nav-cta" href="#cta">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+      Chat
+    </a>
+  </div>
+</header>
+
+<main>
+
+<!-- ============== HERO ============== -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow"><span class="dot"></span>Handmade di Jakarta · since 2024</span>
+      <h1>
+        Gantungan kunci clay,<br>
+        <em>bikinan tangan<span class="squiggle"></span></em><br>
+        yang lucunya <em>nggak<span class="squiggle"></span></em> ada obat.
+      </h1>
+      <p class="lede">Dipesan, dibuat dengan sayang, dikirim dengan rapi. Custom apapun yang ada di kepala kamu — kucing kesayangan, karakter favorit, sampai gantungan kunci buat satu geng.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="https://wa.me/6281234567890?text=Halo%20Eca!%20Saya%20mau%20pesan%20custom%20keychain.%20Boleh%20diskusi%3F" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+          Pesan Custom
+        </a>
+        <a class="btn btn-secondary" href="#katalog">Lihat Katalog →</a>
+      </div>
+      <div class="hero-meta">
+        <span class="pip"><b>100+</b>&nbsp;pesanan</span>
+        <span class="pip"><b>4.9</b>&nbsp;rating</span>
+        <span class="pip"><b>5–7 hari</b>&nbsp;custom</span>
+      </div>
+    </div>
+
+    <div class="collage" aria-hidden="true">
+      <div class="photo p1">
+        <span class="tape"></span>
+        <div class="ph-img">🐱</div>
+        <div class="ph-cap">si oyen</div>
+      </div>
+      <div class="photo p2">
+        <span class="tape"></span>
+        <div class="ph-img">🌿</div>
+        <div class="ph-cap">matcha bun</div>
+      </div>
+      <div class="photo p3">
+        <span class="tape"></span>
+        <div class="ph-img">🐰</div>
+        <div class="ph-cap">bunny pal</div>
+      </div>
+      <div class="photo p4">
+        <span class="tape"></span>
+        <div class="ph-img">🌸</div>
+        <div class="ph-cap">peachy</div>
+      </div>
+      <span class="sticker s-heart">♥ ♥</span>
+      <span class="sticker s-star">✦ new!</span>
+      <span class="sticker s-arrow">→ pakai foto asli</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============== Marquee strip ============== -->
+<div class="strip" aria-hidden="true">
+  <div class="strip-track">
+    <span>
+      handmade with love <span class="sep"></span>
+      ready stock & custom <span class="sep"></span>
+      shipped from jakarta <span class="sep"></span>
+      no two are alike <span class="sep"></span>
+      sealed varnish, awet 2-3 tahun <span class="sep"></span>
+      packaging lucu <span class="sep"></span>
+    </span>
+    <span>
+      handmade with love <span class="sep"></span>
+      ready stock & custom <span class="sep"></span>
+      shipped from jakarta <span class="sep"></span>
+      no two are alike <span class="sep"></span>
+      sealed varnish, awet 2-3 tahun <span class="sep"></span>
+      packaging lucu <span class="sep"></span>
+    </span>
+  </div>
+</div>
+
+<!-- ============== KATALOG ============== -->
+<section class="block" id="katalog">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="head-left">
+        <span class="kicker">koleksi terbaru</span>
+        <h2>Katalog yang siap <em>dibawa pulang</em></h2>
+        <p class="sub">Semua produk handmade, foto asli tanpa filter berlebihan. Yang ready stock siap kirim 2–3 hari, yang custom bisa request apapun.</p>
+      </div>
+      <a class="btn btn-secondary" href="all-products.html" style="flex-shrink:0">Lihat semua →</a>
+    </div>
+
+    <div class="catalog-grid">
+      <!-- 1 -->
+      <a class="product" href="product.html?id=kucing-lucu" style="text-decoration:none;color:inherit">
+        <div class="pic">
+          <div class="placeholder-art" style="--c1:#F4C7B5;--c2:#E8A088">🐱</div>
+          <span class="badge">Ready Stock</span>
+        </div>
+        <div class="info">
+          <div class="name">Keychain Kucing Lucu</div>
+          <div class="price">Rp 25.000</div>
+          <span class="pesan">Lihat detail →</span>
+        </div>
+      </a>
+      <!-- 2 -->
+      <a class="product" href="product.html?id=kelinci-pastel" style="text-decoration:none;color:inherit">
+        <div class="pic">
+          <div class="placeholder-art" style="--c1:#F8DDE5;--c2:#E8B5C5">🐰</div>
+          <span class="badge">Ready Stock</span>
+        </div>
+        <div class="info">
+          <div class="name">Keychain Kelinci Pastel</div>
+          <div class="price">Rp 28.000</div>
+          <span class="pesan">Lihat detail →</span>
+        </div>
+      </a>
+      <!-- 3 -->
+      <a class="product" href="product.html?id=karakter-custom" style="text-decoration:none;color:inherit">
+        <div class="pic">
+          <div class="placeholder-art" style="--c1:#E8D3F0;--c2:#C9A8DD">✨</div>
+          <span class="badge custom">Custom</span>
+        </div>
+        <div class="info">
+          <div class="name">Keychain Karakter Custom</div>
+          <div class="price">Rp 45.000</div>
+          <span class="pesan">Lihat detail →</span>
+        </div>
+      </a>
+      <!-- 4 -->
+      <a class="product" href="product.html?id=couple-custom" style="text-decoration:none;color:inherit">
+        <div class="pic">
+          <div class="placeholder-art" style="--c1:#FFE2B5;--c2:#E8B45A">💑</div>
+          <span class="badge custom">Custom · 2 pcs</span>
+        </div>
+        <div class="info">
+          <div class="name">Keychain Couple Custom</div>
+          <div class="price">Rp 85.000</div>
+          <span class="pesan">Lihat detail →</span>
+        </div>
+      </a>
+      <!-- 5 -->
+      <a class="product" href="product.html?id=miniatur-hewan" style="text-decoration:none;color:inherit">
+        <div class="pic">
+          <div class="placeholder-art" style="--c1:#C9DDD0;--c2:#7BAE91">🐻</div>
+          <span class="badge">Ready Stock</span>
+        </div>
+        <div class="info">
+          <div class="name">Miniatur Hewan Clay</div>
+          <div class="price">Rp 35.000</div>
+          <span class="pesan">Lihat detail →</span>
+        </div>
+      </a>
+      <!-- 6 -->
+      <a class="product" href="product.html?id=nama-custom" style="text-decoration:none;color:inherit">
+        <div class="pic">
+          <div class="placeholder-art" style="--c1:#F2D8B8;--c2:#D9A878">🌸</div>
+          <span class="badge custom">Custom</span>
+        </div>
+        <div class="info">
+          <div class="name">Keychain Nama Custom</div>
+          <div class="price">Rp 42.000</div>
+          <span class="pesan">Lihat detail →</span>
+        </div>
+      </a>
+    </div>
+
+    <div style="text-align:center;margin-top:24px">
+      <a class="btn btn-primary" href="all-products.html">Lihat Semua Produk →</a>
+    </div>
+    <p class="catalog-note">↑ semua handmade, satu-satu, nggak ada yang sama persis ↑</p>
+  </div>
+</section>
+
+<!-- ============== CUSTOM PROCESS ============== -->
+<section class="block" id="custom" style="padding-top:0">
+  <div class="wrap">
+    <div class="process">
+      <div class="section-head" style="margin-bottom:24px">
+        <div class="head-left">
+          <span class="kicker">cara order</span>
+          <h2>Mau custom? <em>Gampang</em> kok.</h2>
+          <p class="sub">Empat langkah santai. Tidak ada formulir panjang, tidak ada drama. Cukup chat, kita ngobrol, dan keychain kamu jadi.</p>
+        </div>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="num s1">1</div>
+          <div>
+            <div class="step-title">Cerita idenya</div>
+            <div class="step-desc">Kirim konsep via WhatsApp, boleh foto referensi, mood board, atau gambar tangan sekalipun.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="num s2">2</div>
+          <div>
+            <div class="step-title">Diskusi design</div>
+            <div class="step-desc">Kami balas dalam 24 jam — diskusi detail warna, ukuran, sampai approval design.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="num s3">3</div>
+          <div>
+            <div class="step-title">Produksi</div>
+            <div class="step-desc">5–7 hari kerja. Kami kirim foto progress setiap 2–3 hari supaya kamu tetap update.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="num s4">4</div>
+          <div>
+            <div class="step-title">Terima & enjoy</div>
+            <div class="step-desc">Dikemas rapi, langsung bisa dijadikan hadiah. Tinggal tempel pita kalau mau ekstra cute.</div>
+          </div>
+        </div>
+      </div>
+      <div class="tl-note">total ~ 7–10 hari kerja dari approval design ✿</div>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="https://wa.me/6281234567890?text=Halo%20Eca!%20Saya%20mau%20mulai%20pesan%20custom.%20Boleh%20diskusi%3F" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654z"/></svg>
+          Mulai Custom Sekarang
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== PRICING ============== -->
+<section class="block" id="harga" style="padding-top:0">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="head-left">
+        <span class="kicker">harga</span>
+        <h2>Transparan, <em>nggak pakai kaget</em></h2>
+        <p class="sub">Semua harga kami pajang di sini. Pilih yang sesuai mood dan budget kamu.</p>
+      </div>
+    </div>
+
+    <div class="pricing">
+      <div class="price-card">
+        <span class="ptag">Ready Stock</span>
+        <h3>Yang siap kirim</h3>
+        <div class="from"><span class="num">Rp 20rb</span><span class="label">/ pcs ke atas</span></div>
+        <p class="lead">Pilih dari katalog, langsung dikemas, dan dikirim dalam 2–3 hari.</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg>Packaging standar yang lucu</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg>Siap kirim dari hari yang sama</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg>Sealed varnish, awet 2–3 tahun</li>
+        </ul>
+        <a class="btn-card ghost" href="#katalog">Lihat Katalog →</a>
+      </div>
+
+      <div class="price-card feature">
+        <span class="ptag">Custom Order</span>
+        <h3>Bikin sesuai imajinasi</h3>
+        <div class="from"><span class="num">Rp 40rb</span><span class="label">/ pcs ke atas</span></div>
+        <p class="lead">Apapun bentuknya, kami coba wujudkan. Termasuk 1× revisi gratis sebelum produksi.</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg>Design approval & 1× revisi gratis</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg>Foto progress setiap 2–3 hari</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg>Packaging lucu, siap jadi hadiah</li>
+        </ul>
+        <div class="guide">
+          <div class="guide-row"><span>Custom simple</span><b>Rp 40–50rb</b></div>
+          <div class="guide-row"><span>Custom detail</span><b>Rp 50–75rb</b></div>
+        </div>
+        <a class="btn-card" href="https://wa.me/6281234567890?text=Halo%20Eca!%20Saya%20mau%20pesan%20custom%20keychain.%20Boleh%20diskusi%3F" target="_blank" rel="noopener">
+          Pesan Custom →
+        </a>
+      </div>
+    </div>
+    <p class="price-disclaimer">harga belum termasuk ongkir · gratis ongkir Jabodetabek untuk order ≥ Rp 50.000</p>
+  </div>
+</section>
+
+<!-- ============== WHY US ============== -->
+<section class="block" style="padding-top:0">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="head-left">
+        <span class="kicker">kenapa kami?</span>
+        <h2>Bukan toko biasa, <em>bukan produksi massal.</em></h2>
+        <p class="sub">Setiap clay dibentuk satu-satu di meja kerja Eca, di Jakarta. Itu artinya tiap keychain punya jiwa kecil sendiri.</p>
+      </div>
+    </div>
+    <div class="why-grid">
+      <div class="why-card"><div class="ic">✋</div><div><div class="why-title">Handmade 100%</div><div class="why-desc">Dibuat satu per satu dengan tangan, tidak ada cetakan masal.</div></div></div>
+      <div class="why-card alt"><div class="ic">🎨</div><div><div class="why-title">Custom terbuka</div><div class="why-desc">Ceritakan apapun idenya — karakter, hewan, makanan kesukaan.</div></div></div>
+      <div class="why-card"><div class="ic">⚡</div><div><div class="why-title">Cepat selesai</div><div class="why-desc">Custom selesai dalam seminggu, bukan berbulan-bulan.</div></div></div>
+      <div class="why-card alt"><div class="ic">💪</div><div><div class="why-title">Tahan lama</div><div class="why-desc">Sealed varnish khusus, awet 2–3 tahun pemakaian normal.</div></div></div>
+      <div class="why-card"><div class="ic">📦</div><div><div class="why-title">Packaging lucu</div><div class="why-desc">Langsung bisa dikasih, tanpa perlu wrapping tambahan.</div></div></div>
+      <div class="why-card alt"><div class="ic">💌</div><div><div class="why-title">Chat santai</div><div class="why-desc">Kami bukan customer service kaku. Cerita aja, kayak ke teman.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== TESTIMONIALS (marquee) ============== -->
+<section class="testi-section" id="review">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="head-left">
+        <span class="kicker">yang mereka bilang</span>
+        <h2>Cerita dari <em>pembeli sebelumnya</em></h2>
+      </div>
+    </div>
+  </div>
+  <div class="testi-stats wrap">
+    <span class="stat-pill">⭐ <b>4.9/5</b> rating</span>
+    <span class="stat-pill">🛍️ <b>100+</b> pesanan</span>
+    <span class="stat-pill">🔁 <b>banyak</b> repeat order</span>
+  </div>
+  <div class="testi-marquee">
+    <!-- 6 cards then duplicated -->
+    <div class="testi-card">
+      <div class="qmark">"</div>
+      <div class="quote">Pesenan ke-3 nih dari Eca, gak pernah kecewa! Custom anjing peliharaan akhirnya jadi banget mirip 🥹</div>
+      <div class="who"><div class="av" style="--c1:#F4C7B5;--c2:#E8A088">N</div><div class="who-meta"><b>Nadia P.</b><span>Jakarta · ⭐⭐⭐⭐⭐</span></div></div>
+    </div>
+    <div class="testi-card">
+      <div class="qmark">"</div>
+      <div class="quote">Buat hadiah ulang tahun pacar, dia nangis pas buka. Worth banget harganya, packaging lucu pisan.</div>
+      <div class="who"><div class="av" style="--c1:#C9DDD0;--c2:#7BAE91">R</div><div class="who-meta"><b>Raka A.</b><span>Bandung · ⭐⭐⭐⭐⭐</span></div></div>
+    </div>
+    <div class="testi-card">
+      <div class="qmark">"</div>
+      <div class="quote">Komunikasinya enak, balasnya cepat, dan hasil customnya detail banget. Recommended pokoknya.</div>
+      <div class="who"><div class="av" style="--c1:#E8D3F0;--c2:#C9A8DD">S</div><div class="who-meta"><b>Sasha M.</b><span>Tangerang · ⭐⭐⭐⭐⭐</span></div></div>
+    </div>
+    <div class="testi-card">
+      <div class="qmark">"</div>
+      <div class="quote">Beli buat seserahan teman couple. Mereka happy banget pas terima, langsung dipajang di kunci motor 😆</div>
+      <div class="who"><div class="av" style="--c1:#FFE2B5;--c2:#E8B45A">D</div><div class="who-meta"><b>Dinda K.</b><span>Bekasi · ⭐⭐⭐⭐⭐</span></div></div>
+    </div>
+    <div class="testi-card">
+      <div class="qmark">"</div>
+      <div class="quote">Awalnya ragu order custom online, tapi Eca update progress terus. Hasilnya jauh lebih bagus dari ekspektasi.</div>
+      <div class="who"><div class="av" style="--c1:#F8DDE5;--c2:#E8B5C5">L</div><div class="who-meta"><b>Lila H.</b><span>Depok · ⭐⭐⭐⭐⭐</span></div></div>
+    </div>
+    <div class="testi-card">
+      <div class="qmark">"</div>
+      <div class="quote">Repeat order ke-5 buat oleh-oleh ke teman luar kota. Selalu jadi kado yang paling dipuji 💕</div>
+      <div class="who"><div class="av" style="--c1:#F2D8B8;--c2:#D9A878">A</div><div class="who-meta"><b>Anya R.</b><span>Bogor · ⭐⭐⭐⭐⭐</span></div></div>
+    </div>
+    <!-- duplicate -->
+    <div class="testi-card">
+      <div class="qmark">"</div>
+      <div class="quote">Pesenan ke-3 nih dari Eca, gak pernah kecewa! Custom anjing peliharaan akhirnya jadi banget mirip 🥹</div>
+      <div class="who"><div class="av" style="--c1:#F4C7B5;--c2:#E8A088">N</div><div class="who-meta"><b>Nadia P.</b><span>Jakarta · ⭐⭐⭐⭐⭐</span></div></div>
+    </div>
+    <div class="testi-card">
+      <div class="qmark">"</div>
+      <div class="quote">Buat hadiah ulang tahun pacar, dia nangis pas buka. Worth banget harganya, packaging lucu pisan.</div>
+      <div class="who"><div class="av" style="--c1:#C9DDD0;--c2:#7BAE91">R</div><div class="who-meta"><b>Raka A.</b><span>Bandung · ⭐⭐⭐⭐⭐</span></div></div>
+    </div>
+    <div class="testi-card">
+      <div class="qmark">"</div>
+      <div class="quote">Komunikasinya enak, balasnya cepat, dan hasil customnya detail banget. Recommended pokoknya.</div>
+      <div class="who"><div class="av" style="--c1:#E8D3F0;--c2:#C9A8DD">S</div><div class="who-meta"><b>Sasha M.</b><span>Tangerang · ⭐⭐⭐⭐⭐</span></div></div>
+    </div>
+    <div class="testi-card">
+      <div class="qmark">"</div>
+      <div class="quote">Beli buat seserahan teman couple. Mereka happy banget pas terima, langsung dipajang di kunci motor 😆</div>
+      <div class="who"><div class="av" style="--c1:#FFE2B5;--c2:#E8B45A">D</div><div class="who-meta"><b>Dinda K.</b><span>Bekasi · ⭐⭐⭐⭐⭐</span></div></div>
+    </div>
+    <div class="testi-card">
+      <div class="qmark">"</div>
+      <div class="quote">Awalnya ragu order custom online, tapi Eca update progress terus. Hasilnya jauh lebih bagus dari ekspektasi.</div>
+      <div class="who"><div class="av" style="--c1:#F8DDE5;--c2:#E8B5C5">L</div><div class="who-meta"><b>Lila H.</b><span>Depok · ⭐⭐⭐⭐⭐</span></div></div>
+    </div>
+    <div class="testi-card">
+      <div class="qmark">"</div>
+      <div class="quote">Repeat order ke-5 buat oleh-oleh ke teman luar kota. Selalu jadi kado yang paling dipuji 💕</div>
+      <div class="who"><div class="av" style="--c1:#F2D8B8;--c2:#D9A878">A</div><div class="who-meta"><b>Anya R.</b><span>Bogor · ⭐⭐⭐⭐⭐</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== FAQ ============== -->
+<section class="block" id="faq">
+  <div class="wrap" style="max-width:780px">
+    <div class="section-head">
+      <div class="head-left">
+        <span class="kicker">tanya jawab</span>
+        <h2>Sebelum kamu chat, <em>mungkin ini jawabannya.</em></h2>
+      </div>
+    </div>
+    <div class="faq">
+      <details>
+        <summary>Bisa custom karakter atau desain apapun?<span class="pl">+</span></summary>
+        <div class="a">Bisa banget! Selama tidak melanggar etika. Untuk karakter terkenal (anime, Disney, dsb), kami diskusi dulu — biasanya kami buat versi inspired, bukan replika persis.</div>
+      </details>
+      <details>
+        <summary>Kalau hasilnya nggak sesuai harapan?<span class="pl">+</span></summary>
+        <div class="a">Tenang — ada 1× revisi gratis sebelum produksi dimulai. Diskusikan saja di chat, kami pasti cari solusinya. Kepuasan kamu nomor satu.</div>
+      </details>
+      <details>
+        <summary>Berapa lama tahan lamanya?<span class="pl">+</span></summary>
+        <div class="a">Clay sudah kami sealed dengan varnish khusus, awet 2–3 tahun dengan pemakaian normal. Cuma hindari air terus-menerus dan jangan dijatuhkan dari tempat tinggi ya.</div>
+      </details>
+      <details>
+        <summary>Berapa ukurannya?<span class="pl">+</span></summary>
+        <div class="a">Standar 3–5 cm. Bisa request ukuran berbeda saat custom — tinggal sebut maunya seberapa besar.</div>
+      </details>
+      <details>
+        <summary>Ongkir kemana saja?<span class="pl">+</span></summary>
+        <div class="a">Seluruh Indonesia via JNE / SiCepat / J&T. Gratis ongkir Jabodetabek untuk order di atas Rp 50.000.</div>
+      </details>
+      <details>
+        <summary>Garansinya bagaimana?<span class="pl">+</span></summary>
+        <div class="a">Ada garansi cacat produksi dan kerusakan saat pengiriman. Kami buat ulang gratis — kirim foto saja ke chat.</div>
+      </details>
+      <details>
+        <summary>Cara bayarnya gimana?<span class="pl">+</span></summary>
+        <div class="a">Bisa transfer bank, GoPay, OVO, atau QRIS. Info rekening kami kirim setelah order dikonfirmasi via WhatsApp.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============== FINAL CTA ============== -->
+<section class="final-cta" id="cta">
+  <div class="wrap">
+    <h2>Siap pesan? <span class="hand" style="display:block;margin-top:6px;font-size:1.1em;color:rgba(255,255,255,.85);transform:rotate(-2deg);transform-origin:left">yuk chat sekarang ✿</span></h2>
+    <p class="sub2">Kami balas dalam 24 jam. Tidak perlu formal, chat santai aja. Bingung mau pesan apa? Cerita aja dulu, kami bantuin.</p>
+    <a class="btn-final" href="https://wa.me/6281234567890?text=Halo%20Eca!%20Saya%20melihat%20website%20dan%20mau%20tanya-tanya%20dulu%20%F0%9F%98%8A" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+      Chat WhatsApp
+    </a>
+    <br>
+    <a class="ig" href="https://instagram.com/cutethingsbyeca" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      @cutethingsbyeca
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="f-brand">Cute Things by Eca</div>
+    <div class="f-tag">Handmade with love from Jakarta ✿</div>
+    <div class="f-links">
+      <a href="https://wa.me/6281234567890" target="_blank" rel="noopener">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654z"/></svg>
+        WhatsApp
+      </a>
+      <a href="https://instagram.com/cutethingsbyeca" target="_blank" rel="noopener">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        Instagram
+      </a>
+    </div>
+    <div class="f-copy">© 2026 Cute Things by Eca · All rights reserved</div>
+  </div>
+</footer>
+
+</main>
+
+<a class="float-wa" href="https://wa.me/6281234567890?text=Halo%20Eca!%20Saya%20melihat%20website%20dan%20mau%20tanya-tanya%20dulu%20%F0%9F%98%8A" target="_blank" rel="noopener" aria-label="Chat WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884" fill="#fff"/></svg>
+</a>
+
+</body>
+</html>

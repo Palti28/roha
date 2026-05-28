@@ -1,0 +1,1041 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Northwood Build Co. — Architecture, Build &amp; Interior</title>
+<style>
+/* Scroll fade-in base styles */
+[data-fade] {
+  opacity: 0;
+  transform: translate3d(0, var(--fade-y, 24px), 0);
+  transition: opacity 800ms cubic-bezier(0.22, 1, 0.36, 1) var(--fade-delay, 0ms),
+    transform 900ms cubic-bezier(0.22, 1, 0.36, 1) var(--fade-delay, 0ms);
+  will-change: opacity, transform;
+}
+[data-fade].is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+/* If the user prefers reduced motion, drop the slide but keep a calm opacity fade. */
+@media (prefers-reduced-motion: reduce) {
+  [data-fade] {
+    transform: none;
+    transition: opacity 400ms ease var(--fade-delay, 0ms);
+  }
+  [data-fade].is-visible {
+    transform: none;
+  }
+}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --paper: #efe9dd;
+    --paper-soft: #f5f0e6;
+    --ink: #1a1612;
+    --ink-soft: #4a4239;
+    --muted: #7a7165;
+    --line: rgba(26, 22, 18, 0.16);
+    --line-soft: rgba(26, 22, 18, 0.08);
+    --forest: #1f3a30;
+    --forest-deep: #142420;
+    --brass: #b6884a;
+    --brass-soft: #d6b87a;
+  }
+  * { box-sizing: border-box; }
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+  }
+  @media (max-width: 920px) {
+    html {
+      scroll-padding-top: 65px;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto !important;
+    }
+  }
+  html, body { margin: 0; padding: 0; background: var(--paper); }
+  body {
+    color: var(--ink);
+    font-family: "Manrope", system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.55;
+    font-weight: 400;
+  }
+  a { color: inherit; text-decoration: none; }
+  img { display: block; max-width: 100%; }
+
+  .display { font-family: "Bricolage Grotesque", serif; font-weight: 500; letter-spacing: -0.02em; }
+  .eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 500;
+  }
+  .eyebrow::before {
+    content: "";
+    display: inline-block;
+    width: 24px; height: 1px;
+    background: currentColor;
+    vertical-align: middle;
+    margin-right: 12px;
+    transform: translateY(-2px);
+  }
+
+  /* Nav */
+  nav.top {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    padding: 22px 48px;
+    background: color-mix(in srgb, var(--paper) 88%, transparent);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--line-soft);
+  }
+  nav.top .brand {
+    display: flex; align-items: center; gap: 12px;
+    font-family: "Bricolage Grotesque", serif;
+    font-weight: 500;
+    font-size: 19px;
+    letter-spacing: -0.01em;
+  }
+  nav.top .brand .mark {
+    width: 32px; height: 32px;
+    border: 1.5px solid var(--ink);
+    display: grid; place-items: center;
+    font-family: "Bricolage Grotesque", serif;
+    font-size: 16px;
+  }
+  nav.top ul {
+    display: flex; justify-content: center; gap: 36px;
+    list-style: none; padding: 0; margin: 0;
+    font-size: 14px;
+  }
+  nav.top .right {
+    display: flex; justify-content: flex-end; align-items: center; gap: 22px;
+    font-size: 13px;
+  }
+  nav.top .cta {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 12px 22px;
+    border-radius: 0;
+    font-size: 13px;
+    letter-spacing: 0.04em;
+  }
+  nav.top .cta:hover { background: var(--forest); }
+  @media (max-width: 860px) {
+    nav.top { grid-template-columns: 1fr auto; padding: 16px 22px; }
+    nav.top ul { display: none; }
+  }
+
+  /* HERO */
+  .hero {
+    padding: 140px 48px 0;
+    max-width: 1480px;
+    margin: 0 auto;
+  }
+  .hero .head {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 24px;
+    align-items: end;
+    margin-bottom: 56px;
+  }
+  .hero .badge { grid-column: 1 / 5; }
+  .hero h1 {
+    grid-column: 1 / 11;
+    font-family: "Bricolage Grotesque", serif;
+    font-weight: 400;
+    font-size: clamp(56px, 8.8vw, 142px);
+    line-height: 0.94;
+    letter-spacing: -0.035em;
+    margin: 28px 0 0;
+  }
+  .hero h1 .italic { font-style: italic; font-weight: 400; color: var(--forest); }
+  .hero .meta-side {
+    grid-column: 11 / -1;
+    border-left: 1px solid var(--line);
+    padding-left: 24px;
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.6;
+  }
+  .hero .meta-side .label { display:block; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
+  .hero .meta-side .val { font-family: "Bricolage Grotesque", serif; font-size: 28px; line-height: 1; letter-spacing: -0.02em; color: var(--ink); }
+
+  .hero .image {
+    position: relative;
+    aspect-ratio: 21 / 10;
+    overflow: hidden;
+  }
+  .hero .image img { width: 100%; height: 100%; object-fit: cover; }
+  .hero .image .overlay {
+    position: absolute; bottom: 24px; left: 24px; right: 24px;
+    display: flex; justify-content: space-between; align-items: end;
+    color: #f5f0e6;
+    text-shadow: 0 2px 24px rgba(0,0,0,0.4);
+  }
+  .hero .image .overlay .proj {
+    font-family: "Bricolage Grotesque", serif;
+    font-size: 22px;
+    letter-spacing: -0.01em;
+  }
+  .hero .image .overlay .loc {
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    opacity: 0.85;
+  }
+  .hero .image .corner {
+    position: absolute; top: 24px; right: 24px;
+    background: rgba(245, 240, 230, 0.92);
+    backdrop-filter: blur(8px);
+    padding: 14px 18px;
+    color: var(--ink);
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .hero .lower {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 24px;
+    align-items: start;
+    padding: 48px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .hero .lower p {
+    grid-column: 1 / 7;
+    font-size: 20px;
+    line-height: 1.5;
+    color: var(--ink);
+    max-width: 50ch;
+    margin: 0;
+  }
+  .hero .lower .pillars { grid-column: 8 / -1; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; padding-top: 4px; }
+  .hero .pillar .num { font-family: "Bricolage Grotesque", serif; font-size: 44px; line-height: 1; color: var(--forest); letter-spacing: -0.02em; }
+  .hero .pillar .l { font-size: 13px; color: var(--ink-soft); margin-top: 6px; line-height: 1.4; }
+
+  @media (max-width: 860px) {
+    .hero { padding: 110px 22px 0; }
+    .hero h1, .hero .meta-side, .hero .lower p, .hero .lower .pillars, .hero .badge { grid-column: 1 / -1; }
+    .hero .meta-side { border-left: 0; padding-left: 0; border-top: 1px solid var(--line); padding-top: 20px; margin-top: 20px; }
+    .hero .image { aspect-ratio: 4 / 5; }
+  }
+
+  /* Section base */
+  section.section { padding: 140px 48px; max-width: 1480px; margin: 0 auto; }
+  section.section.dark { max-width: 100%; padding: 140px 48px; background: var(--forest-deep); color: var(--paper); }
+  section.section.dark .inner { max-width: 1480px; margin: 0 auto; }
+  .section-head {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 24px;
+    margin-bottom: 80px;
+    align-items: start;
+  }
+  .section-head h2 {
+    font-family: "Bricolage Grotesque", serif;
+    font-weight: 400;
+    font-size: clamp(42px, 5.6vw, 80px);
+    line-height: 0.98;
+    letter-spacing: -0.03em;
+    margin: 18px 0 0;
+    max-width: 14ch;
+  }
+  .section-head h2 .italic { font-style: italic; color: var(--forest); }
+  .section.dark .section-head h2 .italic { color: var(--brass-soft); }
+  .section-head .desc {
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    max-width: 50ch;
+    padding-top: 32px;
+  }
+  .section.dark .section-head .desc { color: rgba(245,240,230,0.7); }
+  @media (max-width: 860px) {
+    section.section, section.section.dark { padding: 80px 22px; }
+    .section-head { grid-template-columns: 1fr; gap: 16px; margin-bottom: 48px; }
+    .section-head .desc { padding-top: 0; }
+  }
+
+  /* ABOUT */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 5fr 7fr;
+    gap: 48px;
+    align-items: center;
+  }
+  .about-grid .img-stack { position: relative; }
+  .about-grid .img-stack .a {
+    aspect-ratio: 4 / 5;
+    background-size: cover; background-position: center;
+  }
+  .about-grid .img-stack .b {
+    position: absolute; bottom: -60px; right: -40px;
+    width: 50%;
+    aspect-ratio: 4 / 5;
+    background-size: cover; background-position: center;
+    border: 8px solid var(--paper);
+  }
+  .about-grid .copy h3 {
+    font-family: "Bricolage Grotesque", serif;
+    font-weight: 400;
+    font-size: 36px;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    margin: 0 0 24px;
+  }
+  .about-grid .copy p {
+    font-size: 17px;
+    line-height: 1.65;
+    color: var(--ink-soft);
+    margin: 0 0 18px;
+  }
+  .about-grid .copy .signature {
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+    display: flex; align-items: center; gap: 16px;
+  }
+  .about-grid .copy .sig-img {
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    background-size: cover; background-position: center;
+  }
+  .about-grid .copy .sig-name {
+    font-family: "Bricolage Grotesque", serif;
+    font-size: 18px;
+  }
+  .about-grid .copy .sig-role {
+    font-size: 13px; color: var(--muted); letter-spacing: 0.06em; text-transform: uppercase;
+  }
+  @media (max-width: 860px) {
+    .about-grid { grid-template-columns: 1fr; gap: 60px; }
+    .about-grid .img-stack .b { width: 60%; right: 0; bottom: -40px; }
+  }
+
+  /* SERVICES */
+  .services {
+    border-top: 1px solid rgba(245,240,230,0.18);
+  }
+  .service-row {
+    display: grid;
+    grid-template-columns: 64px 1fr 2fr 1fr 80px;
+    gap: 24px;
+    padding: 32px 0;
+    align-items: center;
+    border-bottom: 1px solid rgba(245,240,230,0.14);
+    transition: padding 280ms ease;
+    cursor: pointer;
+  }
+  .service-row:hover { padding-left: 16px; padding-right: 16px; background: rgba(245,240,230,0.04); }
+  .service-row .num {
+    font-family: "Bricolage Grotesque", serif;
+    font-size: 22px;
+    color: var(--brass-soft);
+    letter-spacing: 0;
+  }
+  .service-row .name {
+    font-family: "Bricolage Grotesque", serif;
+    font-size: 30px;
+    letter-spacing: -0.02em;
+    font-weight: 400;
+  }
+  .service-row .desc {
+    font-size: 14px;
+    line-height: 1.55;
+    color: rgba(245,240,230,0.7);
+    max-width: 56ch;
+  }
+  .service-row .tag {
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--brass-soft);
+    text-align: right;
+  }
+  .service-row .arrow {
+    text-align: right;
+    font-size: 18px;
+    transition: transform 240ms ease;
+  }
+  .service-row:hover .arrow { transform: translateX(8px); }
+  @media (max-width: 860px) {
+    .service-row { grid-template-columns: 40px 1fr 32px; gap: 12px 16px; padding: 28px 0; }
+    .service-row .desc { grid-column: 2 / -1; }
+    .service-row .tag { grid-column: 2 / -1; text-align: left; }
+  }
+
+  /* PROJECTS */
+  .projects {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 16px;
+  }
+  .project { position: relative; overflow: hidden; }
+  .project .img {
+    width: 100%; height: 100%; aspect-ratio: 4 / 5;
+    background-size: cover; background-position: center;
+    transition: transform 900ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .project:hover .img { transform: scale(1.05); }
+  .project .info {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    padding: 32px 28px 28px;
+    color: #f5f0e6;
+    background: linear-gradient(to top, rgba(20, 22, 18, 0.85), transparent);
+  }
+  .project .info .t { font-family: "Bricolage Grotesque", serif; font-size: 22px; letter-spacing: -0.01em; line-height: 1.1; }
+  .project .info .s { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.85; margin-top: 8px; }
+  .project .corner {
+    position: absolute; top: 16px; left: 16px;
+    background: var(--paper);
+    color: var(--ink);
+    padding: 6px 12px;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .project.a { grid-column: span 6; }
+  .project.b { grid-column: span 6; }
+  .project.c { grid-column: span 4; }
+  .project.d { grid-column: span 4; }
+  .project.e { grid-column: span 4; }
+  .project.f { grid-column: span 8; }
+  .project.f .img { aspect-ratio: 16 / 9; }
+  .project.g { grid-column: span 4; }
+  @media (max-width: 760px) {
+    .project { grid-column: span 12 !important; }
+    .project.f .img { aspect-ratio: 4 / 5; }
+  }
+
+  /* CERTS */
+  .certs-section { background: var(--paper-soft); }
+  .certs-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 2fr;
+    gap: 60px;
+    align-items: start;
+  }
+  .certs-grid .copy h3 {
+    font-family: "Bricolage Grotesque", serif;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin: 0 0 20px;
+  }
+  .certs-grid .copy p { font-size: 16px; line-height: 1.6; color: var(--ink-soft); margin: 0 0 14px; }
+  .cert-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--line);
+  }
+  .cert {
+    padding: 24px 24px 24px 0;
+    border-bottom: 1px solid var(--line);
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    gap: 18px;
+    align-items: start;
+  }
+  .cert:nth-child(odd) { padding-right: 32px; border-right: 1px solid var(--line); padding-left: 0; }
+  .cert:nth-child(even) { padding-left: 32px; }
+  .cert .seal {
+    width: 56px; height: 56px;
+    border: 1.5px solid var(--ink);
+    border-radius: 50%;
+    display: grid; place-items: center;
+    font-family: "Bricolage Grotesque", serif;
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--ink);
+  }
+  .cert .name { font-family: "Bricolage Grotesque", serif; font-size: 18px; letter-spacing: -0.01em; }
+  .cert .meta { font-size: 13px; color: var(--muted); margin-top: 4px; }
+  @media (max-width: 860px) {
+    .certs-grid { grid-template-columns: 1fr; gap: 40px; }
+    .cert-list { grid-template-columns: 1fr; }
+    .cert, .cert:nth-child(odd), .cert:nth-child(even) { padding: 20px 0; border-right: 0; }
+  }
+
+  /* TESTIMONIALS */
+  .testimonials { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0; border-top: 1px solid var(--line); }
+  .testimonial {
+    padding: 48px 40px 40px;
+    border-bottom: 1px solid var(--line);
+    display: flex; flex-direction: column; gap: 24px;
+  }
+  .testimonial:nth-child(odd) { border-right: 1px solid var(--line); padding-left: 0; }
+  .testimonial:nth-child(even) { padding-right: 0; }
+  .testimonial blockquote {
+    margin: 0;
+    font-family: "Bricolage Grotesque", serif;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 1.35;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+  .testimonial .who { display: flex; align-items: center; gap: 14px; margin-top: auto; }
+  .testimonial .avatar { width: 48px; height: 48px; border-radius: 50%; background-size: cover; background-position: center; }
+  .testimonial .name { font-size: 15px; font-weight: 500; }
+  .testimonial .role { color: var(--muted); font-size: 13px; }
+  .testimonial .stars { color: var(--brass); letter-spacing: 4px; font-size: 14px; }
+  @media (max-width: 760px) {
+    .testimonials { grid-template-columns: 1fr; }
+    .testimonial, .testimonial:nth-child(odd), .testimonial:nth-child(even) { padding: 32px 0; border-right: 0; }
+  }
+
+  /* FORM */
+  .form-section { background: var(--forest-deep); color: var(--paper); }
+  .form-grid {
+    display: grid;
+    grid-template-columns: 5fr 7fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .form-grid .left h2 {
+    font-family: "Bricolage Grotesque", serif;
+    font-weight: 400;
+    font-size: clamp(40px, 5.6vw, 72px);
+    line-height: 0.98;
+    letter-spacing: -0.03em;
+    margin: 18px 0 28px;
+    max-width: 12ch;
+  }
+  .form-grid .left h2 .italic { font-style: italic; color: var(--brass-soft); }
+  .form-grid .left p { font-size: 16px; color: rgba(245,240,230,0.75); line-height: 1.6; max-width: 36ch; margin-bottom: 32px; }
+  .form-grid .left .contact {
+    border-top: 1px solid rgba(245,240,230,0.18);
+    padding-top: 24px;
+    font-size: 14px;
+    color: rgba(245,240,230,0.85);
+    line-height: 1.7;
+  }
+  .form-grid .left .contact strong { display: block; font-family: "Bricolage Grotesque", serif; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--brass-soft); margin-bottom: 4px; font-weight: 500; }
+  .form-grid .left .contact .row { margin-bottom: 18px; }
+
+  .form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border-top: 1px solid rgba(245,240,230,0.16);
+  }
+  .field {
+    display: flex; flex-direction: column;
+    border-bottom: 1px solid rgba(245,240,230,0.16);
+    padding: 20px 0 20px;
+  }
+  .field.full { grid-column: span 2; }
+  .field:nth-child(odd):not(.full) { padding-right: 24px; border-right: 1px solid rgba(245,240,230,0.16); }
+  .field:nth-child(even):not(.full) { padding-left: 24px; }
+  .field label {
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--brass-soft);
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+  .field input, .field select, .field textarea {
+    background: transparent;
+    border: 0;
+    color: var(--paper);
+    font-family: inherit;
+    font-size: 17px;
+    padding: 4px 0;
+    outline: none;
+    width: 100%;
+  }
+  .field textarea { resize: none; min-height: 80px; line-height: 1.5; }
+  .field input::placeholder, .field textarea::placeholder { color: rgba(245,240,230,0.4); }
+
+  .submit-row {
+    grid-column: span 2;
+    padding-top: 32px;
+    display: flex; justify-content: space-between; align-items: center; gap: 24px;
+  }
+  .submit-row .fine { font-size: 12px; color: rgba(245,240,230,0.55); max-width: 36ch; }
+  .submit {
+    background: var(--brass);
+    color: var(--forest-deep);
+    border: 0;
+    padding: 22px 36px;
+    font-family: "Bricolage Grotesque", serif;
+    font-size: 18px;
+    letter-spacing: -0.01em;
+    cursor: pointer;
+    transition: background 240ms ease;
+  }
+  .submit:hover { background: var(--brass-soft); }
+
+  @media (max-width: 860px) {
+    .form-grid { grid-template-columns: 1fr; gap: 40px; }
+    .form { grid-template-columns: 1fr; }
+    .field:nth-child(odd):not(.full), .field:nth-child(even):not(.full) { padding: 20px 0; border-right: 0; }
+    .field.full { grid-column: span 1; }
+    .submit-row { grid-column: span 1; flex-direction: column; align-items: stretch; }
+  }
+
+  /* Footer */
+  footer.bottom {
+    background: var(--paper);
+    padding: 80px 48px 40px;
+  }
+  footer .row { max-width: 1480px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 32px; padding-bottom: 60px; border-bottom: 1px solid var(--line); }
+  footer .word {
+    max-width: 1480px;
+    margin: 0 auto 60px;
+    font-family: "Bricolage Grotesque", serif;
+    font-weight: 400;
+    font-size: clamp(70px, 14vw, 220px);
+    letter-spacing: -0.05em;
+    line-height: 0.85;
+  }
+  footer h4 { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); margin: 0 0 16px; font-weight: 500; }
+  footer ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; font-size: 14px; }
+  footer .end {
+    max-width: 1480px;
+    margin: 32px auto 0;
+    display: flex; justify-content: space-between;
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  @media (max-width: 760px) {
+    footer.bottom { padding: 40px 22px; }
+    footer .row { grid-template-columns: 1fr 1fr; }
+  }
+
+  .back-link {
+    position: fixed; bottom: 22px; left: 22px;
+    z-index: 60;
+    background: var(--ink);
+    color: var(--paper);
+    padding: 10px 18px;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .back-link:hover { background: var(--forest); }
+</style>
+</head>
+<body>
+
+<nav class="top">
+  <a class="brand" href="#top"><span class="mark">N</span><span>Northwood</span></a>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#certs">Credentials</a></li>
+    <li><a href="#form">Contact</a></li>
+  </ul>
+  <div class="right">
+    <span style="color: var(--muted);">+62 21 5598 4422</span>
+    <a class="cta" href="#form">Request a quote</a>
+  </div>
+</nav>
+
+<a class="back-link" href="../index.html">← Portfolio</a>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="head">
+    <div class="badge eyebrow" data-fade>Northwood Build Co. — est. 2008</div>
+    <h1 data-fade data-fade-delay="120">
+      Homes built<br />
+      with <span class="italic">intent</span>,<br />
+      not in haste.
+    </h1>
+    <div class="meta-side" data-fade data-fade-delay="240">
+      <span class="label">Practice</span>
+      <span class="val">Architecture, build &amp; interior — under one roof, on one schedule.</span>
+    </div>
+  </div>
+
+  <div class="image" data-fade data-fade-delay="100">
+    <img src="https://picsum.photos/seed/interior-hero/1800/860" alt="" />
+    <div class="corner">Selected · Casa Lembah, 2025</div>
+    <div class="overlay">
+      <div>
+        <div class="proj">Casa Lembah — a hillside residence in Bandung</div>
+      </div>
+      <div class="loc">3,200 sq ft · 14 months</div>
+    </div>
+  </div>
+
+  <div class="lower">
+    <p data-fade>For eighteen years, we've handled architectural design, construction, and interior finishing as a single craft — so clients deal with one team, one schedule, and one set of standards.</p>
+    <div class="pillars" data-fade data-fade-delay="120">
+      <div class="pillar"><div class="num">82</div><div class="l">completed residences &amp; villas</div></div>
+      <div class="pillar"><div class="num">18yr</div><div class="l">continuous practice in Indonesia</div></div>
+      <div class="pillar"><div class="num">A++</div><div class="l">SBU &amp; LPJK certified contractor</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+  <div class="section-head">
+    <div data-fade><span class="eyebrow">§ 01 — About the practice</span></div>
+    <div data-fade data-fade-delay="100">
+      <h2>Architecture and craft <span class="italic">held together</span>, on one team.</h2>
+    </div>
+  </div>
+  <div class="about-grid">
+    <div class="img-stack" data-fade>
+      <div class="a" style="background-image:url('https://picsum.photos/seed/interior-about-a/800/1000')"></div>
+      <div class="b" style="background-image:url('https://picsum.photos/seed/interior-about-b/600/750')"></div>
+    </div>
+    <div class="copy" data-fade data-fade-delay="120">
+      <h3>An integrated design-and-build studio for considered residences.</h3>
+      <p>Northwood was founded by two siblings — an architect and a contractor — who were tired of watching beautiful drawings die on muddy sites. We bring the design table and the build site into the same room, the same Slack, and the same accountability.</p>
+      <p>Our clients are owners who care more about how a wall meets a floor than how a foyer photographs. We work slowly, we cost honestly, and we deliver homes that get more comfortable over time.</p>
+      <div class="signature">
+        <div class="sig-img" style="background-image:url('https://picsum.photos/seed/interior-founder/200/200')"></div>
+        <div>
+          <div class="sig-name">Adi &amp; Renata Northwood</div>
+          <div class="sig-role">Founding Partners</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section dark" id="services">
+  <div class="inner">
+    <div class="section-head">
+      <div data-fade><span class="eyebrow" style="color: var(--brass-soft);">§ 02 — Services</span></div>
+      <div data-fade data-fade-delay="100">
+        <h2>From first sketch to <span class="italic">final coat</span>.</h2>
+      </div>
+    </div>
+
+    <div class="services">
+      <div class="service-row" data-fade>
+        <div class="num">01</div>
+        <div class="name">Architectural design</div>
+        <div class="desc">Site analysis, schematic design, design development, and construction documentation. We work in 3D from week one so you live in the house before we pour concrete.</div>
+        <div class="tag">12 — 24 weeks</div>
+        <div class="arrow">→</div>
+      </div>
+      <div class="service-row" data-fade>
+        <div class="num">02</div>
+        <div class="name">Build &amp; main contracting</div>
+        <div class="desc">Licensed general contractor with in-house carpentry, MEP coordination, and on-site supervision daily. Fixed-price contracts after schematic — no scope-creep games.</div>
+        <div class="tag">10 — 18 months</div>
+        <div class="arrow">→</div>
+      </div>
+      <div class="service-row" data-fade>
+        <div class="num">03</div>
+        <div class="name">Interior design &amp; FF&amp;E</div>
+        <div class="desc">Material palettes, joinery design, lighting plans, furniture sourcing, and styling. Custom millwork built in our Cikarang workshop.</div>
+        <div class="tag">8 — 14 weeks</div>
+        <div class="arrow">→</div>
+      </div>
+      <div class="service-row" data-fade>
+        <div class="num">04</div>
+        <div class="name">Renovation &amp; restoration</div>
+        <div class="desc">Heritage homes, partial renovations, and adaptive reuse. We assess structural, mechanical, and aesthetic conditions before quoting.</div>
+        <div class="tag">3 — 9 months</div>
+        <div class="arrow">→</div>
+      </div>
+      <div class="service-row" data-fade>
+        <div class="num">05</div>
+        <div class="name">Commercial &amp; hospitality</div>
+        <div class="desc">Boutique cafés, small hotels, and creative offices. We treat them like residences — because the best ones feel that way.</div>
+        <div class="tag">By engagement</div>
+        <div class="arrow">→</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="section" id="projects">
+  <div class="section-head">
+    <div data-fade><span class="eyebrow">§ 03 — Project gallery</span></div>
+    <div data-fade data-fade-delay="100">
+      <h2>Selected work, <span class="italic">2019 — 2026</span>.</h2>
+    </div>
+  </div>
+
+  <div class="projects">
+    <div class="project a" data-fade>
+      <div class="img" style="background-image:url('https://picsum.photos/seed/interior-p1/1200/1500')"></div>
+      <div class="corner">2025 · Residence</div>
+      <div class="info">
+        <div class="t">Casa Lembah</div>
+        <div class="s">Bandung · 3,200 sqft</div>
+      </div>
+    </div>
+    <div class="project b" data-fade data-fade-delay="80">
+      <div class="img" style="background-image:url('https://picsum.photos/seed/interior-p2/1200/1500')"></div>
+      <div class="corner">2024 · Villa</div>
+      <div class="info">
+        <div class="t">Villa Anjali</div>
+        <div class="s">Bali · 4,800 sqft</div>
+      </div>
+    </div>
+    <div class="project c" data-fade>
+      <div class="img" style="background-image:url('https://picsum.photos/seed/interior-p3/900/1100')"></div>
+      <div class="corner">2024 · Renovation</div>
+      <div class="info">
+        <div class="t">Townhouse Menteng</div>
+        <div class="s">Jakarta · Heritage</div>
+      </div>
+    </div>
+    <div class="project d" data-fade data-fade-delay="80">
+      <div class="img" style="background-image:url('https://picsum.photos/seed/interior-p4/900/1100')"></div>
+      <div class="corner">2023 · Interior</div>
+      <div class="info">
+        <div class="t">Apt. Pacific Place</div>
+        <div class="s">Jakarta · 280 sqm</div>
+      </div>
+    </div>
+    <div class="project e" data-fade data-fade-delay="160">
+      <div class="img" style="background-image:url('https://picsum.photos/seed/interior-p5/900/1100')"></div>
+      <div class="corner">2023 · Café</div>
+      <div class="info">
+        <div class="t">Hutan Coffee Bar</div>
+        <div class="s">Bandung · Hospitality</div>
+      </div>
+    </div>
+    <div class="project f" data-fade>
+      <div class="img" style="background-image:url('https://picsum.photos/seed/interior-p6/1600/900')"></div>
+      <div class="corner">2022 · Residence</div>
+      <div class="info">
+        <div class="t">Rumah Bukit</div>
+        <div class="s">Bogor · 2,800 sqft</div>
+      </div>
+    </div>
+    <div class="project g" data-fade data-fade-delay="80">
+      <div class="img" style="background-image:url('https://picsum.photos/seed/interior-p7/900/1100')"></div>
+      <div class="corner">2022 · Office</div>
+      <div class="info">
+        <div class="t">North HQ</div>
+        <div class="s">Tangerang · Commercial</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section class="section certs-section" id="certs">
+  <div class="section-head">
+    <div data-fade><span class="eyebrow">§ 04 — Credentials</span></div>
+    <div data-fade data-fade-delay="100">
+      <h2>Licensed, insured, <span class="italic">accountable</span>.</h2>
+    </div>
+  </div>
+
+  <div class="certs-grid">
+    <div class="copy" data-fade>
+      <h3>The boring documents that make the work possible.</h3>
+      <p>Every Northwood project is built under a licensed general contractor with active SBU, NIB, and LPJK registrations. Our work carries a five-year structural warranty and a two-year defect-liability period.</p>
+      <p>We are happy to share full documentation, recent audits, and reference letters under NDA.</p>
+    </div>
+    <div class="cert-list" data-fade data-fade-delay="120">
+      <div class="cert"><div class="seal">SBU</div><div><div class="name">SBU Konstruksi Grade 5</div><div class="meta">Active · LPJK No. 12-099-3344</div></div></div>
+      <div class="cert"><div class="seal">ISO</div><div><div class="name">ISO 9001:2015</div><div class="meta">Quality Management — TÜV Rheinland</div></div></div>
+      <div class="cert"><div class="seal">K3</div><div><div class="name">SMK3 Certified</div><div class="meta">Construction safety · Kemnaker</div></div></div>
+      <div class="cert"><div class="seal">IAI</div><div><div class="name">IAI Member Studio</div><div class="meta">Ikatan Arsitek Indonesia · since 2010</div></div></div>
+      <div class="cert"><div class="seal">5yr</div><div><div class="name">Structural Warranty</div><div class="meta">Five years on all new builds</div></div></div>
+      <div class="cert"><div class="seal">PL</div><div><div class="name">Professional Liability</div><div class="meta">IDR 25 Bn cover · Allianz Indonesia</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section" id="voices">
+  <div class="section-head">
+    <div data-fade><span class="eyebrow">§ 05 — Testimonials</span></div>
+    <div data-fade data-fade-delay="100">
+      <h2>What our clients <span class="italic">say after</span> they've moved in.</h2>
+    </div>
+  </div>
+
+  <div class="testimonials">
+    <div class="testimonial" data-fade>
+      <div class="stars">★ ★ ★ ★ ★</div>
+      <blockquote>"They quoted firm, finished on time, and answered every single one of our questions in writing. After two prior bad experiences, working with Northwood felt like the way it was supposed to be."</blockquote>
+      <div class="who">
+        <div class="avatar" style="background-image:url('https://picsum.photos/seed/interior-c1/120/120')"></div>
+        <div>
+          <div class="name">Hartono &amp; Lisa Wijaya</div>
+          <div class="role">Casa Lembah · 2025</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial" data-fade data-fade-delay="80">
+      <div class="stars">★ ★ ★ ★ ★</div>
+      <blockquote>"Adi walks every site twice a week. Our project manager sends a daily photo log. Renata caught a tile defect we never would have noticed. This is the standard."</blockquote>
+      <div class="who">
+        <div class="avatar" style="background-image:url('https://picsum.photos/seed/interior-c2/120/120')"></div>
+        <div>
+          <div class="name">Made Sukarno</div>
+          <div class="role">Villa Anjali · 2024</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial" data-fade>
+      <div class="stars">★ ★ ★ ★ ★</div>
+      <blockquote>"We renovated a 1950s house with significant heritage constraints. They navigated the permits, kept the character, and delivered a home we will keep for decades."</blockquote>
+      <div class="who">
+        <div class="avatar" style="background-image:url('https://picsum.photos/seed/interior-c3/120/120')"></div>
+        <div>
+          <div class="name">Andien &amp; Faisal R.</div>
+          <div class="role">Townhouse Menteng · 2024</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial" data-fade data-fade-delay="80">
+      <div class="stars">★ ★ ★ ★ ★</div>
+      <blockquote>"Three years in, the millwork has not moved a millimeter. Whatever they're doing in that Cikarang workshop, it works."</blockquote>
+      <div class="who">
+        <div class="avatar" style="background-image:url('https://picsum.photos/seed/interior-c4/120/120')"></div>
+        <div>
+          <div class="name">Yohana Tanudjaja</div>
+          <div class="role">Apt. Pacific Place · 2023</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORM -->
+<section class="section form-section" id="form">
+  <div class="form-grid">
+    <div class="left">
+      <span class="eyebrow" style="color: var(--brass-soft);" data-fade>§ 06 — Consultation</span>
+      <h2 data-fade data-fade-delay="100">Tell us about your <span class="italic">project</span>.</h2>
+      <p data-fade data-fade-delay="180">A complimentary 45-minute consultation, in our studio or over Zoom. We'll discuss budget honestly, ballpark a timeline, and tell you whether we're the right fit — before either of us commits.</p>
+      <div class="contact" data-fade data-fade-delay="260">
+        <div class="row"><strong>Studio</strong>Jl. Senopati No. 84, Kebayoran Baru, Jakarta 12190</div>
+        <div class="row"><strong>Telephone</strong>+62 21 5598 4422</div>
+        <div class="row"><strong>Email</strong>build@northwood.co.id</div>
+        <div class="row"><strong>Hours</strong>Mon — Fri · 09.00 — 18.00 WIB</div>
+      </div>
+    </div>
+    <form class="form" onsubmit="event.preventDefault(); this.querySelector('.submit').textContent='Sent · we’ll reply within 1 business day';" data-fade data-fade-delay="120">
+      <div class="field">
+        <label>Your name</label>
+        <input type="text" placeholder="Full name" required />
+      </div>
+      <div class="field">
+        <label>Phone / WhatsApp</label>
+        <input type="tel" placeholder="+62 ..." required />
+      </div>
+      <div class="field">
+        <label>Email</label>
+        <input type="email" placeholder="you@email.com" required />
+      </div>
+      <div class="field">
+        <label>Project type</label>
+        <select>
+          <option>New residence</option>
+          <option>Villa or second home</option>
+          <option>Renovation / restoration</option>
+          <option>Interior only</option>
+          <option>Commercial</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Location</label>
+        <input type="text" placeholder="City, neighborhood, lot size" />
+      </div>
+      <div class="field">
+        <label>Indicative budget</label>
+        <select>
+          <option>Under IDR 2 Bn</option>
+          <option>IDR 2 — 5 Bn</option>
+          <option>IDR 5 — 12 Bn</option>
+          <option>IDR 12 Bn+</option>
+          <option>Prefer to discuss</option>
+        </select>
+      </div>
+      <div class="field full">
+        <label>Tell us about the project</label>
+        <textarea placeholder="Number of rooms, style direction, target completion, anything else useful." rows="3"></textarea>
+      </div>
+      <div class="submit-row">
+        <p class="fine">We respond to every enquiry in writing within one business day. Your information is kept confidential — we do not share project briefs.</p>
+        <button class="submit" type="submit">Send enquiry →</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<footer class="bottom">
+  <div class="word" data-fade>Northwood.</div>
+  <div class="row">
+    <div>
+      <div style="display:flex; align-items:center; gap:12px; font-family: 'Bricolage Grotesque', serif; font-size:20px;"><span style="width:30px; height:30px; border:1.5px solid var(--ink); display:grid; place-items:center;">N</span> Northwood Build Co.</div>
+      <p style="color:var(--muted); margin-top:14px; max-width:36ch; font-size:14px; line-height:1.55;">Architecture, build and interior — held together as one practice, since 2008.</p>
+    </div>
+    <div>
+      <h4>Studio</h4>
+      <ul><li><a href="#about">Practice</a></li><li><a href="#projects">Projects</a></li><li><a href="#certs">Credentials</a></li></ul>
+    </div>
+    <div>
+      <h4>Services</h4>
+      <ul><li><a href="#services">Design</a></li><li><a href="#services">Build</a></li><li><a href="#services">Interior</a></li></ul>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <ul><li><a href="#form">Enquiry form</a></li><li><a href="#">WhatsApp</a></li><li><a href="#">Email</a></li></ul>
+    </div>
+  </div>
+  <div class="end">
+    <span>© 2026 Northwood Build Co. — SBU 12-099-3344</span>
+    <span>Jakarta · Bandung · Bali</span>
+  </div>
+</footer>
+
+<script>
+// Simple scroll-triggered fade-in. Add [data-fade] to any element.
+// Optional: data-fade-delay="120" (ms), data-fade-y="40" (px offset).
+(function () {
+  const els = document.querySelectorAll('[data-fade]');
+  if (!('IntersectionObserver' in window)) {
+    els.forEach((el) => el.classList.add('is-visible'));
+    return;
+  }
+  els.forEach((el) => {
+    const y = el.dataset.fadeY || 24;
+    const d = el.dataset.fadeDelay || 0;
+    el.style.setProperty('--fade-y', y + 'px');
+    el.style.setProperty('--fade-delay', d + 'ms');
+  });
+  const io = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          e.target.classList.add('is-visible');
+          io.unobserve(e.target);
+        }
+      });
+    },
+    { threshold: 0.12, rootMargin: '0px 0px -8% 0px' }
+  );
+  els.forEach((el) => io.observe(el));
+})();
+</script>
+</body>
+</html>

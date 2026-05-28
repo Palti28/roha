@@ -1,0 +1,26 @@
+---
+import { getBreadcrumbs } from '../utils/schema';
+
+const currentPath = Astro.url.pathname;
+const { isHomepage, breadcrumbs, activeBreadcrumb } = getBreadcrumbs(currentPath);
+---
+
+{!isHomepage && (
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <div class="wrap">
+      <ol>
+        {breadcrumbs.map((crumb, index) => (
+          <li>
+            <a href={crumb.href}>{crumb.label}</a>
+            <span class="separator" aria-hidden="true">/</span>
+          </li>
+        ))}
+        {activeBreadcrumb && (
+          <li aria-current="page">
+            <span>{activeBreadcrumb.label}</span>
+          </li>
+        )}
+      </ol>
+    </div>
+  </nav>
+)}

@@ -1,0 +1,126 @@
+---
+// src/pages/work/[slug].astro
+// Replaces the static work-detail.html.
+// Structure & class names mirror the original so work.css applies as-is.
+
+import { Image } from 'astro:assets';
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import CaseTag from '../../components/CaseTag.astro';
+import { creativeWorkSchema } from '../../utils/schema';
+import { site } from '../../data/site';
+
+export async function getStaticPaths() {
+  const entries = (await getCollection('work', ({ data }) => !data.draft))
+    .sort((a, b) => a.data.order - b.data.order);
+
+  return entries.map((entry, i) => ({
+    params: { slug: entry.id },
+    props: {
+      entry,
+      // "Next project" = the next item by order, wrapping to the first.
+      next: entries[(i + 1) % entries.length],
+    },
+  }));
+}
+
+const { entry, next } = Astro.props;
+const { Content } = await render(entry);
+const d = entry.data;
+const nextSame = next.id === entry.id; // true only if there is just one entry
+
+// Generate creative work schema
+const workSchema = creativeWorkSchema({
+  title: d.title,
+  summary: d.summary,
+  category: d.service || d.category,
+  year: d.year,
+  image: d.coverImage,
+  url: `/work/${entry.id}/`,
+  siteUrl: site.url,
+});
+---
+
+<Base
+  title={`${d.title} — Case Study`}
+  description={d.summary}
+  image={d.coverImage}
+  schema={workSchema}
+>
+  <main id="main">
+
+    {/* HEADER + COVER */}
+    <section class="wd-cover">
+      <div class="wrap">
+        <div class="wd-header">
+          <div class="eyebrow">Case Study · {d.year}</div>
+          <div class="wd-tag-row">
+            <CaseTag concept={d.concept} label={d.tagLabel} tone="light" />
+          </div>
+          <h1>{d.title}.</h1>
+          <p class="section-lede">{d.summary}</p>
+          {d.concept && (
+            <p class="wd-concept-note">
+              Self-initiated concept, not a commissioned project.
+            </p>
+          )}
+        </div>
+
+        {d.coverImage ? (
+          <div class="wd-cover-frame wd-cover-image">
+            <img src={d.coverImage} alt={`${d.title} — case study cover`} loading="lazy" width={800} height={500} />
+          </div>
+        ) : (
+          <div class={`wd-cover-frame ${d.pattern} pattern-wrap`} aria-hidden="true"></div>
+        )}
+
+        <div class="wd-meta-grid">
+          <div><div class="k">Year</div><div class="v">{d.year}</div></div>
+          <div><div class="k">Client</div><div class="v">{d.client}</div></div>
+          <div><div class="k">Duration</div><div class="v">{d.duration}</div></div>
+          <div><div class="k">Service</div><div class="v">{d.service}</div></div>
+        </div>
+      </div>
+    </section>
+
+    {/* IMAGES SHOWCASE — if available */}
+    {d.images && d.images.length > 0 && (
+      <section class="section wd-images-section">
+        <div class="wrap">
+          <div class="wd-images-grid">
+            {d.images.map((img) => (
+              <div class="wd-image-item">
+                <img src={img} alt={`${d.title} — project showcase`} loading="lazy" width={600} height={400} />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
+
+    {/* BODY — sections, quote and metrics come from the markdown */}
+    <section class="section">
+      <div class="wrap">
+        <div class="wd-section prose">
+          <Content />
+        </div>
+      </div>
+    </section>
+
+    {/* NEXT PROJECT — auto, by order */}
+    {!nextSame && (
+      <section class="section-tight">
+        <div class="cta-wrap">
+          <a href={`/work/${next.id}/`} class="wd-next">
+            <div>
+              <div class="label">Next Project · {next.data.year}</div>
+              <h3>{next.data.title}</h3>
+            </div>
+            <span class="arr" aria-hidden="true">→</span>
+          </a>
+        </div>
+      </section>
+    )}
+
+  </main>
+</Base>

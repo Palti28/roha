@@ -1,0 +1,253 @@
+---
+// src/pages/portfolio/[slug].astro
+// Portfolio item detail page.
+// Structure & class names mirror the original so portfolio.css + preview.js apply as-is.
+
+import { Image } from 'astro:assets';
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import { productSchema } from '../../utils/schema';
+import { site } from '../../data/site';
+
+export async function getStaticPaths() {
+  const all = await getCollection('portfolio', ({ data }) => !data.draft);
+
+  const byRecency = (a: typeof all[0], b: typeof all[0]) =>
+    (b.data.publishedAt?.getTime() ?? 0) - (a.data.publishedAt?.getTime() ?? 0);
+
+  return all.map((entry) => {
+    const others = all.filter((p) => p.id !== entry.id);
+    // Same category first (most recent), then other categories (most recent) to fill up to 3.
+    const samecat = others.filter((p) => p.data.category === entry.data.category).sort(byRecency);
+    const rest    = others.filter((p) => p.data.category !== entry.data.category).sort(byRecency);
+    return {
+      params: { slug: entry.id },
+      props: { entry, related: [...samecat, ...rest].slice(0, 3) },
+    };
+  });
+}
+
+const { entry, related } = Astro.props;
+const { Content } = await render(entry);
+const d = entry.data;
+
+const formatLabel = d.format === 'figma' ? 'Figma' : 'HTML / CSS / JS';
+const statusLabel =
+  d.status === 'available' ? 'Available' : d.status === 'soon' ? 'Coming soon' : 'Sold out';
+
+// Highlights checklist — grounded in the product's real attributes.
+const highlights = [
+  'Personal & commercial license',
+  'Well-documented & organized',
+  'Ready to adapt & customize',
+  'Fully responsive, mobile-first',
+  'Built on the Roha design system',
+  ...(d.previewPath ? ['Live preview available'] : []),
+];
+
+// Generate product schema
+const productSchemaData = productSchema({
+  title: d.title,
+  summary: d.summary,
+  category: d.category,
+  image: d.images?.[0],
+  url: `/portfolio/${entry.id}/`,
+  siteUrl: site.url,
+});
+---
+
+<Base
+  title={`${d.title} — ${d.category}`}
+  description={d.summary}
+  image={d.images?.[0]}
+  type="product"
+  schema={productSchemaData}
+>
+  <main id="main">
+
+    {/* STICKY PRODUCT BAR */}
+    <div class="pd-stickybar" id="pdStickyBar" aria-hidden="true">
+      <div class="wrap pd-stickybar-inner">
+        <div class="pd-stickybar-title">
+          <span class="cat">{d.category}</span>
+          <h2>{d.title}</h2>
+        </div>
+        <div class="pd-stickybar-actions">
+          {d.previewPath && (
+            <button type="button" class="btn btn-secondary btn-sm"
+              data-preview-trigger
+              data-preview-url={`templates/${d.previewPath}/index.html`}
+              data-preview-title={d.title}
+              data-preview-cat={d.category}>
+              Preview <span class="arr" aria-hidden="true">↗</span>
+            </button>
+          )}
+        </div>
+      </div>
+    </div>
+
+    {/* PRODUCT HERO — full-width lead with actions on the right */}
+    <section class="pd-hero" id="pdHero">
+      <div class="wrap">
+        <div class="pd-hero-top">
+          <div class="pd-info pd-hero-lead">
+            <span class="cat">{d.category}</span>
+            <h1>{d.title}</h1>
+            <p class="tagline">{d.tagline}</p>
+            <div class="pd-hero-meta">
+              <span class="by"><span class="dot" aria-hidden="true"></span> by roha</span>
+              <span class="chip">{formatLabel}</span>
+              <span class={`chip chip--${d.status}`}>{statusLabel}</span>
+            </div>
+          </div>
+
+          <div class="pd-hero-actions">
+            {d.previewPath && (
+              <button type="button" class="btn btn-primary btn-lg"
+                data-preview-trigger
+                data-preview-url={`templates/${d.previewPath}/index.html`}
+                data-preview-title={d.title}
+                data-preview-cat={d.category}>
+                Live Preview <span class="arr">→</span>
+              </button>
+            )}
+            {d.format === 'figma' && d.figmaUrl && (
+              <a href={d.figmaUrl} class="btn btn-secondary btn-lg" target="_blank" rel="noopener">
+                Figma File
+              </a>
+            )}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* PREVIEW GALLERY — 2×2 grid */}
+    {d.images && d.images.length > 0 && (
+      <section class="section-tight">
+        <div class="wrap">
+          <div class="pd-gallery-grid">
+            {d.images.map((img, i) => (
+              <div class="pd-shot" data-reveal data-reveal-delay={i * 80}>
+                <img src={img} alt={`${d.title} preview ${i + 1}`} loading="lazy" width={720} height={540} />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
+
+    {/* OVERVIEW + HIGHLIGHTS — two columns */}
+    <section class="section" id="product-details">
+      <div class="wrap">
+        <div class="pd-detail-grid">
+          <div class="pd-overview" data-reveal>
+            <div class="eyebrow">Overview</div>
+            <div class="prose">
+              <Content />
+            </div>
+          </div>
+
+          <aside class="pd-highlights" data-reveal data-reveal-delay="150">
+            <h3 class="pd-side-title">Highlights</h3>
+            <ul class="pd-checklist">
+              {highlights.map((h) => (
+                <li><span class="ck" aria-hidden="true">✓</span> {h}</li>
+              ))}
+            </ul>
+
+            <h3 class="pd-side-title">Details</h3>
+            <div class="pd-meta-list">
+              <div class="row"><span class="k">Format</span><span class="v">{formatLabel}</span></div>
+              <div class="row"><span class="k">Status</span><span class="v">{statusLabel}</span></div>
+              <div class="row"><span class="k">License</span><span class="v">Personal &amp; Commercial</span></div>
+              {d.previewPath && (
+                <div class="row"><span class="k">Preview</span><span class="v">Live</span></div>
+              )}
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    {/* RELATED — auto, up to 3 other products */}
+    {related.length > 0 && (
+      <section class="section">
+        <div class="wrap">
+          <div class="h-block">
+            <div class="left">
+              <div class="eyebrow">More Templates</div>
+              <h2>You may also like.</h2>
+            </div>
+            <p class="right">
+              <a href="/portfolio/" class="section-link" style="margin-top:0;">
+                See all products <span class="arr">→</span>
+              </a>
+            </p>
+          </div>
+
+          <div class="pd-related">
+            {related.map((p) => {
+              const coverImage = p.data.images?.[0];
+              return (
+                <a href={`/portfolio/${p.id}/`} class="product-card">
+                  {coverImage ? (
+                    <div class="cover">
+                      <img src={coverImage} alt={p.data.title} width={350} height={280} loading="lazy" />
+                    </div>
+                  ) : (
+                    <div class={`cover ${p.data.pattern} pattern-wrap`} aria-hidden="true"></div>
+                  )}
+                  <div class="body">
+                    <span class="cat">{p.data.category}</span>
+                    <div class="name-row">
+                      <h3 class="name">{p.data.title}</h3>
+                    </div>
+                  </div>
+                </a>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+    )}
+
+  </main>
+</Base>
+
+<script>
+  // Sticky product bar — slides in below the nav once the hero scrolls past it.
+  const nav = document.querySelector('.nav');
+  const hero = document.getElementById('pdHero');
+  const bar = document.getElementById('pdStickyBar');
+
+  if (hero && bar) {
+    const navH = () => (nav ? Math.round(nav.getBoundingClientRect().height) : 60);
+
+    // Anchor the bar to the bottom edge of the nav, kept in sync on resize.
+    const place = () => bar.style.setProperty('--pd-bar-top', navH() + 'px');
+    place();
+
+    let io: IntersectionObserver | null = null;
+    const watch = () => {
+      io?.disconnect();
+      io = new IntersectionObserver(
+        ([entry]) => {
+          const stuck = !entry.isIntersecting;
+          bar.classList.toggle('is-stuck', stuck);
+          bar.setAttribute('aria-hidden', stuck ? 'false' : 'true');
+        },
+        // Trigger the moment the hero's bottom passes under the nav.
+        { rootMargin: `-${navH()}px 0px 0px 0px`, threshold: 0 }
+      );
+      io.observe(hero);
+    };
+    watch();
+
+    let t: number;
+    window.addEventListener('resize', () => {
+      place();
+      clearTimeout(t);
+      t = window.setTimeout(watch, 150);
+    });
+  }
+</script>

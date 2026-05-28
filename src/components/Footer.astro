@@ -1,0 +1,59 @@
+---
+import { site } from '../data/site.ts';
+---
+
+<!-- =================== FOOTER =================== -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+
+      <div class="footer-col footer-brand">
+        <a href="/" class="logo">roha<span class="dot">.</span></a>
+        <p class="tagline">Considered design, built to last.</p>
+        <p>A design studio in Indonesia. We build websites, UI/UX, and brand systems for people building something real.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Pages</h4>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/work">Case Studies</a></li>
+          <li><a href="/services">Services</a></li>
+          <li><a href="/portfolio">Work</a></li>
+          <li><a href="/about">About</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="/services#product-design">Product Design</a></li>
+          <li><a href="/services#web">Website</a></li>
+          <li><a href="/services#landing">Landing Page</a></li>
+          <li><a href="/services#brand">Brand &amp; Logo</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href={`mailto:${site.email}`}>{site.email}</a></li>
+        </ul>
+        <div class="footer-social">
+          <!-- Social links go live once the Roha feeds are ready. Slot kept intentionally.
+          <a href={site.social.instagram} aria-label="Instagram" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor"/></svg>
+          </a>
+          -->
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <span>&copy; 2026 ROHA &middot; MADE IN INDONESIA</span>
+      <span>v1.0</span>
+    </div>
+  </div>
+</footer>
+
