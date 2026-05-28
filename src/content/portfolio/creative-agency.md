@@ -9,6 +9,11 @@ status: "available"
 buyUrl: "https://roha.mayar.id/creative-agency-template"
 previewPath: "creative-agency"
 pattern: "pat-arcs"
+images:
+  - "https://ik.imagekit.io/gorat/agency/image-cover.avif?updatedAt=1779956283887"
+  - "https://ik.imagekit.io/gorat/agency/image-(2).avif?updatedAt=1779956283759f"
+  - "https://ik.imagekit.io/gorat/agency/image-(4).avif?updatedAt=1779956283717"
+  - "https://ik.imagekit.io/gorat/agency/image-(3).avif?updatedAt=1779956283690"
 order: 5
 publishedAt: 2026-05-24
 draft: false

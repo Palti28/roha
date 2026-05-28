@@ -1,5 +1,5 @@
 ---
-title: "Clinic & Healthcare"
+title: "Lumen - Clinic & Healthcare"
 category: "Website"
 tagline: "A calm, trustworthy site for clinics and aesthetic practices."
 summary: "A considered website template for healthcare providers, aesthetic clinics, and wellness practitioners."
@@ -12,8 +12,8 @@ pattern: "pat-grain"
 images:
   - "https://ik.imagekit.io/gorat/dental/cover-dental"
   - "https://ik.imagekit.io/gorat/dental/shot-2.avif"
-  - "https://ik.imagekit.io/gorat/eca-car-rental/car-rent-shot-3.avif"
-  - "https://ik.imagekit.io/gorat/eca-car-rental/car-rent-shot-2.avif"
+  - "https://ik.imagekit.io/gorat/dental/shot-3.avif"
+  - "https://ik.imagekit.io/gorat/dental/shot-1.avif"
 order: 7
 publishedAt: 2026-05-24
 draft: false
