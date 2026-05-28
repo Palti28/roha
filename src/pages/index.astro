@@ -831,6 +831,7 @@ const sortedPortfolio = allPortfolio.sort(byDate).slice(0, 6);
     { q: '.home-hero-left h1',         delay: 160 },
     { q: '.home-hero-left .btn-row',   delay: 290 },
     { q: '.home-hero-left .hero-meta', delay: 400 },
+    { q: '.home-hero-right',           delay: 200 },
   ].forEach(({ q, delay }) => {
     const el = document.querySelector(q);
     if (!el) return;
