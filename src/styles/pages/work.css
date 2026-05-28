@@ -25,8 +25,7 @@
   gap: 36px 24px;
 }
 @media (max-width: 1100px) { .work-grid { grid-template-columns: repeat(3, 1fr); } }
-@media (max-width: 768px) { .work-grid { grid-template-columns: 1fr 1fr; gap: 28px 20px; } }
-@media (max-width: 480px) { .work-grid { grid-template-columns: 1fr; gap: 28px; } }
+@media (max-width: 768px) { .work-grid { grid-template-columns: 1fr; gap: 28px; } }
 
 /* =================== WORK DETAIL =================== */
 .wd-cover {
