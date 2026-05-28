@@ -7,7 +7,7 @@ currency: "IDR"
 format: "html"
 status: "available"
 buyUrl: "https://roha.mayar.id/car-rental-template"
-previewPath: "/car-rental"
+previewPath: "car-rental"
 pattern: "pat-arcs"
 images:
   - "https://ik.imagekit.io/gorat/eca-car-rental/rent-car-cover_2.avif"

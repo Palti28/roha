@@ -40,4 +40,4 @@ It walks a guest from first impression to enquiry: a warm homepage, room listing
 
 ### Notes
 
-Price, buyUrl, and lists are placeholders; confirm against the real product before publishing.
+Price, buyUrl, and the lists above are placeholders. Confirm against the real product before publishing.

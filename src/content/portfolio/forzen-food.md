@@ -7,7 +7,7 @@ currency: "IDR"
 format: "html"
 status: "available"
 buyUrl: "https://roha.mayar.id/frozen-food-template"
-previewPath: "/forzen-food"
+previewPath: "forzen-food"
 pattern: "pat-stripe"
 images:
   - "https://ik.imagekit.io/gorat/myasnbkn.avif?updatedAt=1779433713313"
