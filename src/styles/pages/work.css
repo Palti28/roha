@@ -75,6 +75,15 @@
 }
 @media (max-width: 720px) { .wd-meta-grid { grid-template-columns: 1fr 1fr; gap: 18px; } }
 
+.wd-images-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.wd-image-item { border-radius: var(--radius-sm); overflow: hidden; }
+.wd-image-item img { width: 100%; height: auto; display: block; }
+@media (max-width: 768px) { .wd-images-grid { grid-template-columns: 1fr; } }
+
 .wd-section { max-width: 760px; }
 .wd-section h2 { font-size: clamp(24px, 2.8vw, 36px); }
 .wd-section p {
