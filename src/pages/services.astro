@@ -20,47 +20,74 @@ import Base from '../layouts/Base.astro';
           </div>
 
           <div class="svc-hero-figure" data-reveal data-reveal-delay="200">
-            <svg viewBox="0 0 460 380" fill="none" xmlns="http://www.w3.org/2000/svg" class="svc-illus" role="img" aria-label="Illustration of a design workspace: a webpage layout with a brand system card">
+            <svg viewBox="0 0 460 380" fill="none" xmlns="http://www.w3.org/2000/svg" class="svc-illus" role="img" aria-label="Ghost UI wireframe: anatomy of a service card with scope, deliverables, and timeline sections">
+
               <!-- decorative accents -->
-              <path d="M356 40 a64 64 0 0 1 64 64" stroke="var(--terracotta-soft)" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
-              <circle cx="428" cy="150" r="3" fill="var(--terracotta-soft)" opacity="0.6"/>
-              <circle cx="36" cy="298" r="3" fill="var(--terracotta-soft)" opacity="0.6"/>
+              <path d="M390 28 a48 48 0 0 1 48 48" stroke="var(--terracotta-soft)" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/>
+              <circle cx="428" cy="80" r="2" fill="var(--terracotta-soft)" opacity="0.5"/>
+              <circle cx="52" cy="52" r="3" fill="var(--terracotta-soft)" opacity="0.6"/>
+              <circle cx="416" cy="326" r="3" fill="var(--terracotta-soft)" opacity="0.5"/>
 
-              <!-- main artboard / browser window -->
-              <rect x="40" y="56" width="286" height="210" rx="12" fill="var(--paper)" stroke="var(--rule)" stroke-width="1.5"/>
-              <line x1="40" y1="86" x2="326" y2="86" stroke="var(--rule)" stroke-width="1.5"/>
-              <circle cx="60" cy="71" r="3.5" fill="var(--terracotta)"/>
-              <circle cx="74" cy="71" r="3.5" fill="var(--rule)"/>
-              <circle cx="88" cy="71" r="3.5" fill="var(--rule)"/>
+              <!-- main card wireframe (stroke only, no fill) -->
+              <rect x="84" y="28" width="242" height="318" rx="10" stroke="var(--ink)" stroke-width="1.5" fill="none" opacity="0.18"/>
 
-              <!-- hero image block -->
-              <rect x="60" y="104" width="122" height="80" rx="6" fill="var(--paper-tint)" stroke="var(--rule)" stroke-width="1.5"/>
-              <circle cx="86" cy="128" r="9" stroke="var(--terracotta)" stroke-width="1.5"/>
-              <path d="M64 180 L96 150 L120 172 L140 156 L178 184" stroke="var(--ink)" stroke-width="1.5" stroke-linejoin="round" opacity="0.4"/>
+              <!-- HEADER -->
+              <line x1="84" y1="84" x2="326" y2="84" stroke="var(--rule)" stroke-width="1"/>
+              <text x="100" y="52" font-family="'Geist Mono', monospace" font-size="8" fill="var(--terracotta)" letter-spacing=".12em">01</text>
+              <rect x="100" y="57" width="128" height="9" rx="4.5" fill="var(--ink)" opacity="0.13"/>
+              <rect x="100" y="72" width="84" height="7" rx="3.5" fill="var(--ink)" opacity="0.09"/>
+              <rect x="250" y="54" width="56" height="22" rx="5" stroke="var(--ink)" stroke-width="1" fill="none" opacity="0.18"/>
+              <line x1="263" y1="65" x2="293" y2="65" stroke="var(--ink)" stroke-width="1" stroke-linecap="round" opacity="0.18"/>
 
-              <!-- copy + button -->
-              <rect x="198" y="108" width="104" height="9" rx="4.5" fill="var(--ink)" opacity="0.12"/>
-              <rect x="198" y="126" width="86" height="9" rx="4.5" fill="var(--ink)" opacity="0.12"/>
-              <rect x="198" y="144" width="96" height="9" rx="4.5" fill="var(--ink)" opacity="0.12"/>
-              <rect x="198" y="168" width="70" height="24" rx="6" fill="var(--terracotta)"/>
-              <line x1="212" y1="180" x2="244" y2="180" stroke="var(--paper)" stroke-width="1.5" stroke-linecap="round"/>
+              <!-- SCOPE section -->
+              <text x="100" y="103" font-family="'Geist Mono', monospace" font-size="6.5" fill="var(--ink)" letter-spacing=".16em" opacity="0.38">SCOPE</text>
+              <rect x="100" y="110" width="172" height="7" rx="3.5" fill="var(--ink)" opacity="0.09"/>
+              <rect x="100" y="123" width="138" height="7" rx="3.5" fill="var(--ink)" opacity="0.09"/>
+              <rect x="100" y="136" width="158" height="7" rx="3.5" fill="var(--ink)" opacity="0.09"/>
+              <line x1="84" y1="158" x2="326" y2="158" stroke="var(--rule)" stroke-width="1"/>
 
-              <!-- cursor -->
-              <path d="M250 176 L250 212 L260 203 L266 216 L271 214 L265 201 L278 200 Z" fill="var(--ink)" stroke="var(--paper)" stroke-width="1.5" stroke-linejoin="round"/>
+              <!-- DELIVERABLES section -->
+              <text x="100" y="176" font-family="'Geist Mono', monospace" font-size="6.5" fill="var(--ink)" letter-spacing=".16em" opacity="0.38">DELIVERABLES</text>
+              <rect x="100" y="183" width="7" height="7" rx="1.5" stroke="var(--ink)" stroke-width="1" fill="none" opacity="0.22"/>
+              <rect x="113" y="185" width="102" height="5" rx="2.5" fill="var(--ink)" opacity="0.09"/>
+              <rect x="100" y="196" width="7" height="7" rx="1.5" stroke="var(--ink)" stroke-width="1" fill="none" opacity="0.22"/>
+              <rect x="113" y="198" width="82" height="5" rx="2.5" fill="var(--ink)" opacity="0.09"/>
+              <rect x="100" y="209" width="7" height="7" rx="1.5" fill="var(--terracotta)" opacity="0.65"/>
+              <path d="M101.5 212.5 L103.5 214.5 L106.5 210.5" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+              <rect x="113" y="211" width="118" height="5" rx="2.5" fill="var(--ink)" opacity="0.09"/>
+              <rect x="100" y="222" width="7" height="7" rx="1.5" fill="var(--terracotta)" opacity="0.65"/>
+              <path d="M101.5 225.5 L103.5 227.5 L106.5 223.5" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+              <rect x="113" y="224" width="68" height="5" rx="2.5" fill="var(--ink)" opacity="0.09"/>
+              <rect x="100" y="235" width="7" height="7" rx="1.5" stroke="var(--ink)" stroke-width="1" fill="none" opacity="0.22"/>
+              <rect x="113" y="237" width="92" height="5" rx="2.5" fill="var(--ink)" opacity="0.09"/>
+              <line x1="84" y1="256" x2="326" y2="256" stroke="var(--rule)" stroke-width="1"/>
 
-              <!-- bottom content lines inside window -->
-              <rect x="60" y="206" width="240" height="9" rx="4.5" fill="var(--ink)" opacity="0.08"/>
-              <rect x="60" y="224" width="180" height="9" rx="4.5" fill="var(--ink)" opacity="0.08"/>
+              <!-- TIMELINE section -->
+              <text x="100" y="274" font-family="'Geist Mono', monospace" font-size="6.5" fill="var(--ink)" letter-spacing=".16em" opacity="0.38">TIMELINE</text>
+              <line x1="100" y1="296" x2="308" y2="296" stroke="var(--ink)" stroke-width="1" opacity="0.12" stroke-linecap="round"/>
+              <line x1="100" y1="296" x2="169" y2="296" stroke="var(--terracotta)" stroke-width="2" stroke-linecap="round" opacity="0.55"/>
+              <circle cx="100" cy="296" r="3.5" stroke="var(--ink)" stroke-width="1.5" fill="var(--paper)" opacity="0.4"/>
+              <circle cx="169" cy="296" r="4" fill="var(--terracotta)" opacity="0.7"/>
+              <circle cx="238" cy="296" r="3.5" stroke="var(--ink)" stroke-width="1.5" fill="var(--paper)" opacity="0.4"/>
+              <circle cx="308" cy="296" r="3.5" stroke="var(--ink)" stroke-width="1.5" fill="var(--paper)" opacity="0.4"/>
+              <text x="94" y="310" font-family="'Geist Mono', monospace" font-size="6" fill="var(--ink)" opacity="0.28">W1</text>
+              <text x="163" y="310" font-family="'Geist Mono', monospace" font-size="6" fill="var(--terracotta)" opacity="0.6">W2</text>
+              <text x="232" y="310" font-family="'Geist Mono', monospace" font-size="6" fill="var(--ink)" opacity="0.28">W3</text>
+              <text x="302" y="310" font-family="'Geist Mono', monospace" font-size="6" fill="var(--ink)" opacity="0.28">W4</text>
 
-              <!-- floating brand-system card -->
-              <rect x="248" y="216" width="176" height="128" rx="12" fill="var(--paper)" stroke="var(--rule)" stroke-width="1.5"/>
-              <rect x="266" y="234" width="64" height="8" rx="4" fill="var(--ink)" opacity="0.14"/>
-              <text x="265" y="318" font-family="'Bricolage Grotesque', serif" font-size="44" font-weight="600" fill="var(--ink)">Aa</text>
-              <circle cx="356" cy="266" r="10" fill="var(--terracotta)"/>
-              <circle cx="382" cy="266" r="10" fill="var(--ink)"/>
-              <circle cx="408" cy="266" r="10" fill="var(--cream)" stroke="var(--rule)" stroke-width="1"/>
-              <rect x="346" y="294" width="62" height="8" rx="4" fill="var(--ink)" opacity="0.12"/>
-              <rect x="346" y="310" width="46" height="8" rx="4" fill="var(--ink)" opacity="0.12"/>
+              <!-- annotation callouts (right side) -->
+              <line x1="326" y1="121" x2="346" y2="121" stroke="var(--ink)" stroke-width="1" stroke-dasharray="3 2" opacity="0.22"/>
+              <text x="350" y="124" font-family="'Geist Mono', monospace" font-size="7" fill="var(--ink)" opacity="0.32" letter-spacing=".1em">SCOPE</text>
+              <line x1="326" y1="207" x2="346" y2="207" stroke="var(--ink)" stroke-width="1" stroke-dasharray="3 2" opacity="0.22"/>
+              <text x="350" y="210" font-family="'Geist Mono', monospace" font-size="7" fill="var(--ink)" opacity="0.32" letter-spacing=".1em">DELIVERABLES</text>
+              <line x1="326" y1="293" x2="346" y2="293" stroke="var(--ink)" stroke-width="1" stroke-dasharray="3 2" opacity="0.22"/>
+              <text x="350" y="296" font-family="'Geist Mono', monospace" font-size="7" fill="var(--ink)" opacity="0.32" letter-spacing=".1em">TIMELINE</text>
+
+              <!-- annotation dot at header divider -->
+              <circle cx="326" cy="84" r="3" fill="var(--terracotta)" opacity="0.6"/>
+
+              <!-- cursor (active editing state) -->
+              <path d="M54 230 L54 255 L60 248 L64 258 L68 256 L64 246 L72 245 Z" fill="var(--ink)" stroke="var(--paper)" stroke-width="1.5" stroke-linejoin="round" opacity="0.35"/>
             </svg>
           </div>
         </div>
