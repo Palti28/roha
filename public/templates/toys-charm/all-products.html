@@ -7,9 +7,9 @@
   <title>Semua Produk — Cute Things by Eca</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&family=Caveat:wght@400;500;600;700&display=swap"
-    rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles/shared.css" />
   <style>
     /* Toolbar */
@@ -201,14 +201,18 @@
         grid-template-columns: repeat(4, 1fr)
       }
     }
+    .product .pic img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      object-position:center;
+      display:block;
+    }
   </style>
 </head>
-
-<body>
-
   <header class="nav">
     <div class="nav-inner">
-      <a class="brand" href="Cute Things by Eca.html">
+      <a class="brand" href="index.html">
         <span class="brand-mark">✿</span>
         <span>Cute Things <i style="font-style:italic;font-weight:400;color:var(--ink-soft)">by Eca</i></span>
       </a>
@@ -300,18 +304,18 @@
 
   <script>
     const PRODUCTS = [
-      { id: 'kucing-lucu', name: 'Keychain Kucing Lucu', price: 25000, cat: ['ready', 'keychain'], status: 'Ready Stock', emoji: '🐱', c1: '#F4C7B5', c2: '#E8A088' },
-      { id: 'kelinci-pastel', name: 'Keychain Kelinci Pastel', price: 28000, cat: ['ready', 'keychain'], status: 'Ready Stock', emoji: '🐰', c1: '#F8DDE5', c2: '#E8B5C5' },
-      { id: 'karakter-custom', name: 'Keychain Karakter Custom', price: 45000, cat: ['custom', 'keychain'], status: 'Custom', emoji: '✨', c1: '#E8D3F0', c2: '#C9A8DD' },
-      { id: 'couple-custom', name: 'Keychain Couple Custom', price: 85000, cat: ['custom', 'keychain', 'couple'], status: 'Custom · 2 pcs', emoji: '💑', c1: '#FFE2B5', c2: '#E8B45A' },
-      { id: 'miniatur-hewan', name: 'Miniatur Hewan Clay', price: 35000, cat: ['ready', 'miniatur'], status: 'Ready Stock', emoji: '🐻', c1: '#C9DDD0', c2: '#7BAE91' },
-      { id: 'nama-custom', name: 'Keychain Nama Custom', price: 42000, cat: ['custom', 'keychain'], status: 'Custom', emoji: '🌸', c1: '#F2D8B8', c2: '#D9A878' },
-      { id: 'matcha-bun', name: 'Keychain Matcha Bun', price: 24000, cat: ['ready', 'keychain'], status: 'Ready Stock', emoji: '🍵', c1: '#D8E8D0', c2: '#9CC2AC' },
-      { id: 'panda-mini', name: 'Miniatur Panda Mini', price: 38000, cat: ['ready', 'miniatur'], status: 'Ready Stock', emoji: '🐼', c1: '#EFEFEF', c2: '#A8A8A8' },
-      { id: 'foto-pet', name: 'Keychain Foto Hewan Peliharaan', price: 55000, cat: ['custom', 'keychain'], status: 'Custom', emoji: '🐶', c1: '#FFD8B5', c2: '#E89F60' },
-      { id: 'family-set', name: 'Keychain Family Set', price: 120000, cat: ['custom', 'keychain', 'couple'], status: 'Custom · 3-4 pcs', emoji: '👨‍👩‍👧', c1: '#F4C7B5', c2: '#C75A42' },
-      { id: 'donut-pastel', name: 'Keychain Donut Pastel', price: 22000, cat: ['ready', 'keychain'], status: 'Ready Stock', emoji: '🍩', c1: '#FBD3DB', c2: '#E89BAA' },
-      { id: 'bunny-mini', name: 'Miniatur Kelinci Mini', price: 32000, cat: ['ready', 'miniatur'], status: 'Ready Stock', emoji: '🐇', c1: '#FFF0DD', c2: '#E8C898' },
+      { id: 'kucing-lucu', name: 'Keychain Kucing Lucu', price: 25000, cat: ['ready', 'keychain'], status: 'Ready Stock', emoji: '🐱', c1: '#F4C7B5', c2: '#E8A088', image: 'https://ik.imagekit.io/gorat/ctba/kc-2.avif' },
+      { id: 'kelinci-pastel', name: 'Keychain Kelinci Pastel', price: 28000, cat: ['ready', 'keychain'], status: 'Ready Stock', emoji: '🐰', c1: '#F8DDE5', c2: '#E8B5C5', image: 'https://ik.imagekit.io/gorat/ctba/kc-1.avif' },
+      { id: 'karakter-custom', name: 'Keychain Karakter Custom', price: 45000, cat: ['custom', 'keychain'], status: 'Custom', emoji: '✨', c1: '#E8D3F0', c2: '#C9A8DD', image: 'https://ik.imagekit.io/gorat/ctba/kc-3.avif' },
+      { id: 'couple-custom', name: 'Keychain Couple Custom', price: 85000, cat: ['custom', 'keychain', 'couple'], status: 'Custom · 2 pcs', emoji: '💑', c1: '#FFE2B5', c2: '#E8B45A', image: 'https://ik.imagekit.io/gorat/ctba/kc-4.avif' },
+      { id: 'miniatur-hewan', name: 'Miniatur Hewan Clay', price: 35000, cat: ['ready', 'miniatur'], status: 'Ready Stock', emoji: '🐻', c1: '#C9DDD0', c2: '#7BAE91', image: 'https://ik.imagekit.io/gorat/ctba/kc-5.avif' },
+      { id: 'nama-custom', name: 'Keychain Nama Custom', price: 42000, cat: ['custom', 'keychain'], status: 'Custom', emoji: '🌸', c1: '#F2D8B8', c2: '#D9A878', image: 'https://ik.imagekit.io/gorat/ctba/kc-6.avif' },
+      { id: 'matcha-bun', name: 'Keychain Matcha Bun', price: 24000, cat: ['ready', 'keychain'], status: 'Ready Stock', emoji: '🍵', c1: '#D8E8D0', c2: '#9CC2AC', image: 'https://ik.imagekit.io/gorat/ctba/kc-5.avif' },
+      { id: 'panda-mini', name: 'Miniatur Panda Mini', price: 38000, cat: ['ready', 'miniatur'], status: 'Ready Stock', emoji: '🐼', c1: '#EFEFEF', c2: '#A8A8A8', image: 'https://ik.imagekit.io/gorat/ctba/kc-2.avif' },
+      { id: 'foto-pet', name: 'Keychain Foto Hewan Peliharaan', price: 55000, cat: ['custom', 'keychain'], status: 'Custom', emoji: '🐶', c1: '#FFD8B5', c2: '#E89F60', image: 'https://ik.imagekit.io/gorat/ctba/kc-4.avif' },
+      { id: 'family-set', name: 'Keychain Family Set', price: 120000, cat: ['custom', 'keychain', 'couple'], status: 'Custom · 3-4 pcs', emoji: '👨‍👩‍👧', c1: '#F4C7B5', c2: '#C75A42', image: 'https://ik.imagekit.io/gorat/ctba/kc-5.avif' },
+      { id: 'donut-pastel', name: 'Keychain Donut Pastel', price: 22000, cat: ['ready', 'keychain'], status: 'Ready Stock', emoji: '🍩', c1: '#FBD3DB', c2: '#E89BAA', image: 'https://ik.imagekit.io/gorat/ctba/kc-1.avif' },
+      { id: 'bunny-mini', name: 'Miniatur Kelinci Mini', price: 32000, cat: ['ready', 'miniatur'], status: 'Ready Stock', emoji: '🐇', c1: '#FFF0DD', c2: '#E8C898', image: 'https://ik.imagekit.io/gorat/ctba/kc-5.avif' },
     ];
 
     const grid = document.getElementById('grid');
@@ -351,7 +355,7 @@
       grid.innerHTML = list.map(p => `
     <a class="product" href="product.html?id=${p.id}">
       <div class="pic">
-        <div class="placeholder-art" style="--c1:${p.c1};--c2:${p.c2}">${p.emoji}</div>
+        ${p.image ? `<img src="${p.image}" alt="${p.name}">` : `<div class="placeholder-art" style="--c1:${p.c1};--c2:${p.c2}">${p.emoji}</div>`}
         <span class="badge ${p.cat.includes('custom') ? 'custom' : ''}">${p.status}</span>
       </div>
       <div class="info">
