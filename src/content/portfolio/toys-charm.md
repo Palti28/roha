@@ -11,7 +11,10 @@ figmaUrl: "https://figma.com/community/file/REPLACE_ME"
 previewPath: "toys-charm"
 pattern: "pat-block"
 images:
-  - "https://ik.imagekit.io/gorat/myasnbkn.avif?updatedAt=1779433713313"
+  - "https://ik.imagekit.io/gorat/ctba/img-cover.avif"
+  - "https://ik.imagekit.io/gorat/ctba/img-1.avif"
+  - "https://ik.imagekit.io/gorat/ctba/img-2.avif"
+  - "https://ik.imagekit.io/gorat/ctba/img-4.avif"
 order: 4
 publishedAt: 2026-04-01
 draft: false
