@@ -191,7 +191,7 @@ const sortedPortfolio = allPortfolio.sort(byDate).slice(0, 6);
   </section>
 
   <!-- =================== FEATURED WORK =================== -->
-  <section class="section case-section" id="work-preview">
+  <section class="section" id="work-preview">
     <div class="wrap">
       <div class="h-block" data-reveal>
         <div class="left">
@@ -201,31 +201,28 @@ const sortedPortfolio = allPortfolio.sort(byDate).slice(0, 6);
         <p class="right">A mix of client projects and self-initiated work. Real process, honest labels.</p>
       </div>
 
-      <div class="featured-scroll-outer">
-        <div class="featured-grid">
-          {
-            sortedWork.map((project, i) => {
-              const { title, summary, service, year, pattern, coverImage, concept, tagLabel } = project.data;
-              return (
-                <a href={`/work/${project.id}`} class="project-card" data-reveal data-reveal-delay={i * 120}>
-                  {coverImage ? (
-                    <img src={coverImage} alt={`${title} — case study cover`} class="thumb" width={400} height={300} loading="lazy" />
-                  ) : (
-                    <div class={`thumb ${pattern} pattern-wrap`} aria-hidden="true"></div>
-                  )}
-                  <div class="project-info">
-                    <div class="meta-row">
-                      <span class="tag">{service}</span>
-                      <span class="year">{year}</span>
-                      <CaseTag concept={concept} label={tagLabel} tone="dark" />
-                    </div>
-                    <h3>{title}</h3>
-                  </div>
-                </a>
-              );
-            })
-          }
-        </div>
+      <div class="work-case-grid">
+        {
+          sortedWork.map((project, i) => {
+            const { title, summary, service, year, pattern, coverImage, concept, tagLabel } = project.data;
+            return (
+              <a href={`/work/${project.id}`} class="work-card" data-reveal data-reveal-delay={i * 120}>
+                {coverImage ? (
+                  <img src={coverImage} alt={`${title} — case study cover`} class="thumb" width={600} height={450} loading="lazy" />
+                ) : (
+                  <div class={`thumb ${pattern} pattern-wrap`} aria-hidden="true"></div>
+                )}
+                <div class="meta-row">
+                  <span class="tag">{service}</span>
+                  <span class="meta-tag">{year}</span>
+                  <CaseTag concept={concept} label={tagLabel} tone="light" />
+                </div>
+                <h3>{title}</h3>
+                <p class="summary">{summary}</p>
+              </a>
+            );
+          })
+        }
       </div>
 
       <a href="/work" class="section-link" data-reveal>ALL CASE STUDIES <span class="arr">→</span></a>
@@ -483,6 +480,77 @@ const sortedPortfolio = allPortfolio.sort(byDate).slice(0, 6);
       if (anim) { anim.cancel(); anim = null; }
     });
   });
+})();
+
+// -- Homepage interactions: 3D tilt, parallax, magnetic CTA --
+(function () {
+  const canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  if (!canHover) return;
+
+  // 3D tilt for service tiles
+  var SVC_BASE_TRANS = 'background .2s ease, border-color .2s ease, box-shadow .3s ease';
+  var SVC_FULL_TRANS = 'background .2s ease, border-color .2s ease, transform .3s cubic-bezier(.2,.7,.2,1), box-shadow .3s ease';
+
+  document.querySelectorAll('.svc-tile').forEach(function (card) {
+    var c = card as HTMLElement;
+    var shine = document.createElement('div');
+    shine.className = 'tilt-shine';
+    card.appendChild(shine);
+    var leaveTimer = 0;
+
+    card.addEventListener('mousemove', function (e) {
+      clearTimeout(leaveTimer);
+      c.style.transition = SVC_BASE_TRANS; // no transform transition = instant tracking
+      var r = card.getBoundingClientRect();
+      var x = (e.clientX - r.left) / r.width - 0.5;
+      var y = (e.clientY - r.top) / r.height - 0.5;
+      c.style.transform =
+        'perspective(700px) rotateY(' + (x * 10) + 'deg) rotateX(' + (-y * 10) + 'deg) translateZ(4px) translateY(-5px)';
+      shine.style.setProperty('--mx', ((x + 0.5) * 100) + '%');
+      shine.style.setProperty('--my', ((y + 0.5) * 100) + '%');
+    });
+
+    card.addEventListener('mouseleave', function () {
+      c.style.transition = SVC_FULL_TRANS; // restore transform transition for smooth spring-back
+      c.style.transform = '';
+      leaveTimer = window.setTimeout(function () { c.style.transition = ''; }, 350);
+    });
+  });
+
+  // Hero illustration parallax
+  var heroSection = document.querySelector('.home-hero') as HTMLElement | null;
+  var illusWrap = document.querySelector('.hero-illus-wrap') as HTMLElement | null;
+  if (heroSection && illusWrap) {
+    heroSection.addEventListener('mousemove', function (e) {
+      var r = heroSection!.getBoundingClientRect();
+      var x = (e.clientX - r.left - r.width / 2) / r.width;
+      var y = (e.clientY - r.top - r.height / 2) / r.height;
+      illusWrap!.style.transform = 'translate(' + (x * -16) + 'px,' + (y * -10) + 'px)';
+    });
+    heroSection.addEventListener('mouseleave', function () {
+      illusWrap!.style.transform = '';
+    });
+  }
+
+  // Magnetic primary CTA button
+  var cta = document.querySelector('.home-hero-left .btn-primary') as HTMLElement | null;
+  if (cta) {
+    var RANGE = 90;
+    document.addEventListener('mousemove', function (e) {
+      var r = cta!.getBoundingClientRect();
+      var cx = r.left + r.width / 2;
+      var cy = r.top + r.height / 2;
+      var dx = e.clientX - cx;
+      var dy = e.clientY - cy;
+      var dist = Math.sqrt(dx * dx + dy * dy);
+      if (dist < RANGE) {
+        var pull = (1 - dist / RANGE) * 0.35;
+        cta!.style.transform = 'translate(' + (dx * pull) + 'px,' + (dy * pull) + 'px)';
+      } else {
+        cta!.style.transform = '';
+      }
+    });
+  }
 })();
 </script>
 </Base>

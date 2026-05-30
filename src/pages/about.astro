@@ -7,12 +7,6 @@ import Base from '../layouts/Base.astro';
   description="Roha is a design studio building considered, durable digital products. Clear intent, systems that last, work that ships."
 >
 
-  <!-- Custom cursor (mouse devices only — shown via JS) -->
-  <div class="c-cursor" aria-hidden="true" id="cCursor">
-    <span class="c-dot" id="cDot"></span>
-    <span class="c-ring" id="cRing"></span>
-  </div>
-
   <main id="main">
 
     <!-- =================== HERO =================== -->
@@ -382,44 +376,6 @@ import Base from '../layouts/Base.astro';
     // ============================================================
 
     const canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
-
-    // ---- Custom cursor ----
-    if (canHover) {
-      const cursor = document.getElementById('cCursor');
-      const dot    = document.getElementById('cDot');
-      const ring   = document.getElementById('cRing');
-
-      if (cursor && dot && ring) {
-        cursor.style.display = 'block';
-
-        let mx = -300, my = -300;
-        let rx = -300, ry = -300;
-
-        document.addEventListener('mousemove', e => {
-          mx = e.clientX;
-          my = e.clientY;
-          dot.style.transform = `translate(calc(${mx}px - 50%), calc(${my}px - 50%))`;
-        });
-
-        (function tickRing() {
-          rx += (mx - rx) * 0.1;
-          ry += (my - ry) * 0.1;
-          ring.style.transform = `translate(calc(${rx}px - 50%), calc(${ry}px - 50%))`;
-          requestAnimationFrame(tickRing);
-        })();
-
-        const hoverTargets = 'a, button, .roha-char, .tilt-card, .lab-demo, .scramble-el, .stagger-replay';
-        document.querySelectorAll(hoverTargets).forEach(el => {
-          el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
-          el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
-        });
-
-        document.addEventListener('mousedown', () => cursor.classList.add('press'));
-        document.addEventListener('mouseup',   () => cursor.classList.remove('press'));
-        document.addEventListener('mouseleave', () => cursor.classList.add('away'));
-        document.addEventListener('mouseenter', () => cursor.classList.remove('away'));
-      }
-    }
 
     // ---- 3D tilt on principle cards ----
     if (canHover) {
