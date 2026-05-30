@@ -180,10 +180,6 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 28px 24px;
 }
-.work-case-grid .work-card .thumb {
-  aspect-ratio: 4/3;
-  max-height: unset;
-}
 @media (max-width: 880px) { .work-case-grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 560px) { .work-case-grid { grid-template-columns: 1fr; gap: 28px 0; } }
 
