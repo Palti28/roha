@@ -174,22 +174,18 @@
   align-self: flex-end;
 }
 
-/* ---------- Featured work grid ---------- */
-.featured-scroll-outer { overflow: visible; }
-.case-section { background: var(--cream); }
-.featured-grid {
+/* ---------- Work case study grid ---------- */
+.work-case-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-auto-rows: 350px;
-  gap: 24px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px 24px;
 }
-@media (max-width: 760px) {
-  .featured-grid {
-    grid-template-columns: 1fr;
-    grid-auto-rows: 280px;
-    gap: 16px;
-  }
+.work-case-grid .work-card .thumb {
+  aspect-ratio: 4/3;
+  max-height: unset;
 }
+@media (max-width: 880px) { .work-case-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 560px) { .work-case-grid { grid-template-columns: 1fr; gap: 28px 0; } }
 
 /* ---------- Shop preview cards ---------- */
 .shop-grid {
@@ -608,5 +604,3 @@
 /* ---------- Hero illustration parallax ---------- */
 .hero-illus-wrap { transition: transform .12s linear; will-change: transform; }
 
-/* ---------- Project card image parallax ---------- */
-.project-card .thumb { transition: transform .12s linear; }

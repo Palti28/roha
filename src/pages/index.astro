@@ -191,7 +191,7 @@ const sortedPortfolio = allPortfolio.sort(byDate).slice(0, 6);
   </section>
 
   <!-- =================== FEATURED WORK =================== -->
-  <section class="section case-section" id="work-preview">
+  <section class="section" id="work-preview">
     <div class="wrap">
       <div class="h-block" data-reveal>
         <div class="left">
@@ -201,31 +201,28 @@ const sortedPortfolio = allPortfolio.sort(byDate).slice(0, 6);
         <p class="right">A mix of client projects and self-initiated work. Real process, honest labels.</p>
       </div>
 
-      <div class="featured-scroll-outer">
-        <div class="featured-grid">
-          {
-            sortedWork.map((project, i) => {
-              const { title, summary, service, year, pattern, coverImage, concept, tagLabel } = project.data;
-              return (
-                <a href={`/work/${project.id}`} class="project-card" data-reveal data-reveal-delay={i * 120}>
-                  {coverImage ? (
-                    <img src={coverImage} alt={`${title} — case study cover`} class="thumb" width={400} height={300} loading="lazy" />
-                  ) : (
-                    <div class={`thumb ${pattern} pattern-wrap`} aria-hidden="true"></div>
-                  )}
-                  <div class="project-info">
-                    <div class="meta-row">
-                      <span class="tag">{service}</span>
-                      <span class="year">{year}</span>
-                      <CaseTag concept={concept} label={tagLabel} tone="dark" />
-                    </div>
-                    <h3>{title}</h3>
-                  </div>
-                </a>
-              );
-            })
-          }
-        </div>
+      <div class="work-case-grid">
+        {
+          sortedWork.map((project, i) => {
+            const { title, summary, service, year, pattern, coverImage, concept, tagLabel } = project.data;
+            return (
+              <a href={`/work/${project.id}`} class="work-card" data-reveal data-reveal-delay={i * 120}>
+                {coverImage ? (
+                  <img src={coverImage} alt={`${title} — case study cover`} class="thumb" width={600} height={450} loading="lazy" />
+                ) : (
+                  <div class={`thumb ${pattern} pattern-wrap`} aria-hidden="true"></div>
+                )}
+                <div class="meta-row">
+                  <span class="tag">{service}</span>
+                  <span class="meta-tag">{year}</span>
+                  <CaseTag concept={concept} label={tagLabel} tone="light" />
+                </div>
+                <h3>{title}</h3>
+                <p class="summary">{summary}</p>
+              </a>
+            );
+          })
+        }
       </div>
 
       <a href="/work" class="section-link" data-reveal>ALL CASE STUDIES <span class="arr">→</span></a>
@@ -534,27 +531,6 @@ const sortedPortfolio = allPortfolio.sort(byDate).slice(0, 6);
       illusWrap!.style.transform = '';
     });
   }
-
-  // 3D tilt + image parallax on work cards
-  document.querySelectorAll('.project-card').forEach(function (card) {
-    var thumb = card.querySelector('.thumb') as HTMLElement | null;
-
-    card.addEventListener('mousemove', function (e) {
-      var r = card.getBoundingClientRect();
-      var x = (e.clientX - r.left) / r.width - 0.5;
-      var y = (e.clientY - r.top) / r.height - 0.5;
-      (card as HTMLElement).style.transform =
-        'perspective(900px) rotateY(' + (x * 7) + 'deg) rotateX(' + (-y * 5) + 'deg) translateZ(8px) translateY(-5px)';
-      if (thumb) {
-        thumb.style.transform = 'scale(1.08) translate(' + (x * -14) + 'px,' + (y * -10) + 'px)';
-      }
-    });
-
-    card.addEventListener('mouseleave', function () {
-      (card as HTMLElement).style.transform = '';
-      if (thumb) thumb.style.transform = '';
-    });
-  });
 
   // Magnetic primary CTA button
   var cta = document.querySelector('.home-hero-left .btn-primary') as HTMLElement | null;
