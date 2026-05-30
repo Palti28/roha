@@ -526,6 +526,27 @@ const sortedPortfolio = allPortfolio.sort(byDate).slice(0, 6);
     });
   }
 
+  // 3D tilt + image parallax on work cards
+  document.querySelectorAll('.project-card').forEach(function (card) {
+    var thumb = card.querySelector('.thumb') as HTMLElement | null;
+
+    card.addEventListener('mousemove', function (e) {
+      var r = card.getBoundingClientRect();
+      var x = (e.clientX - r.left) / r.width - 0.5;
+      var y = (e.clientY - r.top) / r.height - 0.5;
+      (card as HTMLElement).style.transform =
+        'perspective(900px) rotateY(' + (x * 7) + 'deg) rotateX(' + (-y * 5) + 'deg) translateZ(8px) translateY(-5px)';
+      if (thumb) {
+        thumb.style.transform = 'scale(1.08) translate(' + (x * -14) + 'px,' + (y * -10) + 'px)';
+      }
+    });
+
+    card.addEventListener('mouseleave', function () {
+      (card as HTMLElement).style.transform = '';
+      if (thumb) thumb.style.transform = '';
+    });
+  });
+
   // Magnetic primary CTA button
   var cta = document.querySelector('.home-hero-left .btn-primary') as HTMLElement | null;
   if (cta) {

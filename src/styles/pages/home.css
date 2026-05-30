@@ -607,6 +607,5 @@
 /* ---------- Hero illustration parallax ---------- */
 .hero-illus-wrap { transition: transform .12s linear; will-change: transform; }
 
-/* ---------- Project card image zoom ---------- */
-.project-card .thumb { transition: transform .5s cubic-bezier(.2,.7,.2,1); }
-.project-card:hover .thumb { transform: scale(1.05); }
+/* ---------- Project card image parallax ---------- */
+.project-card .thumb { transition: transform .12s linear; }
