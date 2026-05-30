@@ -484,5 +484,67 @@ const sortedPortfolio = allPortfolio.sort(byDate).slice(0, 6);
     });
   });
 })();
+
+// -- Homepage interactions: 3D tilt, parallax, magnetic CTA --
+(function () {
+  const canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  if (!canHover) return;
+
+  // 3D tilt for service tiles
+  document.querySelectorAll('.svc-tile').forEach(function (card) {
+    var shine = document.createElement('div');
+    shine.className = 'tilt-shine';
+    card.appendChild(shine);
+
+    card.addEventListener('mousemove', function (e) {
+      var r = card.getBoundingClientRect();
+      var x = (e.clientX - r.left) / r.width - 0.5;
+      var y = (e.clientY - r.top) / r.height - 0.5;
+      (card as HTMLElement).style.transform =
+        'perspective(700px) rotateY(' + (x * 10) + 'deg) rotateX(' + (-y * 10) + 'deg) translateZ(4px) translateY(-5px)';
+      shine.style.setProperty('--mx', ((x + 0.5) * 100) + '%');
+      shine.style.setProperty('--my', ((y + 0.5) * 100) + '%');
+    });
+
+    card.addEventListener('mouseleave', function () {
+      (card as HTMLElement).style.transform = '';
+    });
+  });
+
+  // Hero illustration parallax
+  var heroSection = document.querySelector('.home-hero') as HTMLElement | null;
+  var illusWrap = document.querySelector('.hero-illus-wrap') as HTMLElement | null;
+  if (heroSection && illusWrap) {
+    heroSection.addEventListener('mousemove', function (e) {
+      var r = heroSection!.getBoundingClientRect();
+      var x = (e.clientX - r.left - r.width / 2) / r.width;
+      var y = (e.clientY - r.top - r.height / 2) / r.height;
+      illusWrap!.style.transform = 'translate(' + (x * -16) + 'px,' + (y * -10) + 'px)';
+    });
+    heroSection.addEventListener('mouseleave', function () {
+      illusWrap!.style.transform = '';
+    });
+  }
+
+  // Magnetic primary CTA button
+  var cta = document.querySelector('.home-hero-left .btn-primary') as HTMLElement | null;
+  if (cta) {
+    var RANGE = 90;
+    document.addEventListener('mousemove', function (e) {
+      var r = cta!.getBoundingClientRect();
+      var cx = r.left + r.width / 2;
+      var cy = r.top + r.height / 2;
+      var dx = e.clientX - cx;
+      var dy = e.clientY - cy;
+      var dist = Math.sqrt(dx * dx + dy * dy);
+      if (dist < RANGE) {
+        var pull = (1 - dist / RANGE) * 0.35;
+        cta!.style.transform = 'translate(' + (dx * pull) + 'px,' + (dy * pull) + 'px)';
+      } else {
+        cta!.style.transform = '';
+      }
+    });
+  }
+})();
 </script>
 </Base>

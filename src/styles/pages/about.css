@@ -2,45 +2,6 @@
    About page — styles
    ============================================================ */
 
-/* ---- Custom cursor ---- */
-.c-cursor {
-  display: none;
-  pointer-events: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 9999;
-}
-.c-dot {
-  position: fixed;
-  top: 0; left: 0;
-  width: 7px; height: 7px;
-  background: var(--terracotta);
-  border-radius: 50%;
-  pointer-events: none;
-  will-change: transform;
-  transition: width .18s, height .18s, background .18s;
-}
-.c-ring {
-  position: fixed;
-  top: 0; left: 0;
-  width: 30px; height: 30px;
-  border: 1.5px solid var(--terracotta);
-  border-radius: 50%;
-  pointer-events: none;
-  will-change: transform;
-  opacity: .4;
-  transition: width .22s cubic-bezier(.25,.46,.45,.94),
-              height .22s cubic-bezier(.25,.46,.45,.94),
-              opacity .2s;
-}
-.c-cursor.hover .c-dot  { width: 11px; height: 11px; }
-.c-cursor.hover .c-ring { width: 48px; height: 48px; opacity: .22; }
-.c-cursor.press .c-dot  { width: 5px; height: 5px; background: var(--terracotta-soft); }
-.c-cursor.press .c-ring { width: 22px; height: 22px; opacity: .5; }
-.c-cursor.away .c-dot,
-.c-cursor.away .c-ring  { opacity: 0; }
-
 /* ---- Hero ---- */
 .about-hero {
   padding: clamp(56px, 7vw, 88px) 0 clamp(40px, 5vw, 64px);

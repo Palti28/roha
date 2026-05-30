@@ -586,3 +586,27 @@
   opacity: .45;
   margin: 0;
 }
+
+/* ---------- Service tile 3D tilt interactions ---------- */
+.svc-tile { overflow: hidden; }
+.svc-tile .tilt-shine {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0;
+  transition: opacity .3s;
+  background: radial-gradient(circle at var(--mx, 50%) var(--my, 50%), rgba(255,255,255,.18) 0%, transparent 60%);
+}
+.svc-tile:hover .tilt-shine { opacity: 1; }
+
+/* ---------- How We Work illustration lift ---------- */
+.how-illus { transition: transform .35s cubic-bezier(.2,.7,.2,1); }
+.how-card:hover .how-illus { transform: translateY(-8px); }
+
+/* ---------- Hero illustration parallax ---------- */
+.hero-illus-wrap { transition: transform .12s linear; will-change: transform; }
+
+/* ---------- Project card image zoom ---------- */
+.project-card .thumb { transition: transform .5s cubic-bezier(.2,.7,.2,1); }
+.project-card:hover .thumb { transform: scale(1.05); }
