@@ -263,6 +263,7 @@
   min-height: 220px;
   transition: background .2s ease, border-color .2s ease, transform .3s cubic-bezier(.2,.7,.2,1), box-shadow .3s ease;
   position: relative;
+  will-change: transform;
 }
 .svc-tile:hover {
   background: var(--cream);

@@ -491,23 +491,32 @@ const sortedPortfolio = allPortfolio.sort(byDate).slice(0, 6);
   if (!canHover) return;
 
   // 3D tilt for service tiles
+  var SVC_BASE_TRANS = 'background .2s ease, border-color .2s ease, box-shadow .3s ease';
+  var SVC_FULL_TRANS = 'background .2s ease, border-color .2s ease, transform .3s cubic-bezier(.2,.7,.2,1), box-shadow .3s ease';
+
   document.querySelectorAll('.svc-tile').forEach(function (card) {
+    var c = card as HTMLElement;
     var shine = document.createElement('div');
     shine.className = 'tilt-shine';
     card.appendChild(shine);
+    var leaveTimer = 0;
 
     card.addEventListener('mousemove', function (e) {
+      clearTimeout(leaveTimer);
+      c.style.transition = SVC_BASE_TRANS; // no transform transition = instant tracking
       var r = card.getBoundingClientRect();
       var x = (e.clientX - r.left) / r.width - 0.5;
       var y = (e.clientY - r.top) / r.height - 0.5;
-      (card as HTMLElement).style.transform =
+      c.style.transform =
         'perspective(700px) rotateY(' + (x * 10) + 'deg) rotateX(' + (-y * 10) + 'deg) translateZ(4px) translateY(-5px)';
       shine.style.setProperty('--mx', ((x + 0.5) * 100) + '%');
       shine.style.setProperty('--my', ((y + 0.5) * 100) + '%');
     });
 
     card.addEventListener('mouseleave', function () {
-      (card as HTMLElement).style.transform = '';
+      c.style.transition = SVC_FULL_TRANS; // restore transform transition for smooth spring-back
+      c.style.transform = '';
+      leaveTimer = window.setTimeout(function () { c.style.transition = ''; }, 350);
     });
   });
 
