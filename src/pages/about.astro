@@ -149,20 +149,7 @@ import Base from '../layouts/Base.astro';
             <div class="lab-tech">RAF + char cycling</div>
           </div>
 
-          <!-- Demo 3: Cursor Fluid -->
-          <div class="lab-demo lab-demo--dark" id="fluidDemo">
-            <div class="lab-label">Cursor Fluid</div>
-            <div class="lab-body">
-              <p class="lab-hint">Move your cursor inside</p>
-              <div class="fluid-inner">
-                <div class="fluid-blob" id="fluidBlob"></div>
-                <span class="fluid-wordmark">roha.</span>
-              </div>
-            </div>
-            <div class="lab-tech">CSS custom properties + RAF</div>
-          </div>
-
-          <!-- Demo 4: Stagger Reveal -->
+          <!-- Demo 3: Stagger Reveal -->
           <div class="lab-demo">
             <div class="lab-label">Stagger Reveal</div>
             <div class="lab-body lab-body--stagger">
@@ -483,47 +470,6 @@ import Base from '../layouts/Base.astro';
         setTimeout(() => { active = false; }, 700);
       });
     });
-
-    // ---- Cursor fluid blob ----
-    const fluidDemo = document.getElementById('fluidDemo');
-    const fluidBlob = document.getElementById('fluidBlob');
-    if (fluidDemo && fluidBlob) {
-      let bx = 50, by = 50, tx = 50, ty = 50;
-      let rafBlob = null;
-
-      function tickBlob() {
-        bx += (tx - bx) * 0.07;
-        by += (ty - by) * 0.07;
-        fluidBlob.style.setProperty('--bx', bx.toFixed(2) + '%');
-        fluidBlob.style.setProperty('--by', by.toFixed(2) + '%');
-        rafBlob = requestAnimationFrame(tickBlob);
-      }
-
-      fluidDemo.addEventListener('mouseenter', () => { if (!rafBlob) tickBlob(); });
-      fluidDemo.addEventListener('mouseleave', () => {
-        cancelAnimationFrame(rafBlob);
-        rafBlob = null;
-      });
-      fluidDemo.addEventListener('mousemove', e => {
-        const r = fluidDemo.getBoundingClientRect();
-        tx = ((e.clientX - r.left) / r.width)  * 100;
-        ty = ((e.clientY - r.top)  / r.height) * 100;
-      });
-
-      // Touch support for the fluid demo
-      fluidDemo.addEventListener('touchmove', e => {
-        e.preventDefault();
-        const t = e.touches[0];
-        const r = fluidDemo.getBoundingClientRect();
-        tx = ((t.clientX - r.left) / r.width)  * 100;
-        ty = ((t.clientY - r.top)  / r.height) * 100;
-        if (!rafBlob) tickBlob();
-      }, { passive: false });
-      fluidDemo.addEventListener('touchend', () => {
-        cancelAnimationFrame(rafBlob);
-        rafBlob = null;
-      });
-    }
 
     // ---- Stagger reveal ----
     const staggerContainer = document.getElementById('staggerContainer');

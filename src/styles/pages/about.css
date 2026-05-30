@@ -252,13 +252,6 @@
 .lab-demo:hover {
   box-shadow: 0 8px 28px rgba(17,17,17,.07);
 }
-.lab-demo--dark {
-  background: var(--ink);
-  border-color: rgba(255,255,255,.07);
-}
-.lab-demo--dark:hover {
-  box-shadow: 0 8px 28px rgba(17,17,17,.3);
-}
 
 .lab-label {
   font-family: 'Geist Mono', monospace;
@@ -268,7 +261,6 @@
   opacity: .45;
   padding: 14px 18px 0;
 }
-.lab-demo--dark .lab-label { color: var(--paper); }
 
 .lab-body {
   flex: 1;
@@ -296,7 +288,6 @@
   letter-spacing: .04em;
   text-align: center;
 }
-.lab-demo--dark .lab-hint { color: var(--paper); }
 
 .lab-tech {
   font-family: 'Geist Mono', monospace;
@@ -307,10 +298,6 @@
   opacity: .8;
   padding: 10px 18px;
   border-top: 1px solid var(--rule);
-}
-.lab-demo--dark .lab-tech {
-  border-top-color: rgba(255,255,255,.07);
-  color: var(--terracotta-soft);
 }
 
 /* Magnetic button */
@@ -330,43 +317,6 @@
   color: var(--ink);
   text-align: center;
   font-variant-numeric: tabular-nums;
-}
-
-/* Fluid demo */
-.fluid-inner {
-  position: relative;
-  flex: 1;
-  border-radius: var(--radius-sm);
-  overflow: hidden;
-  min-height: 100px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.fluid-blob {
-  position: absolute;
-  inset: -20%;
-  background: radial-gradient(
-    circle at var(--bx, 50%) var(--by, 50%),
-    var(--terracotta) 0%,
-    var(--terracotta-soft) 20%,
-    transparent 60%
-  );
-  opacity: .55;
-  pointer-events: none;
-  filter: blur(24px);
-}
-.fluid-wordmark {
-  position: relative;
-  z-index: 1;
-  font-family: 'Bricolage Grotesque', serif;
-  font-size: 32px;
-  font-weight: 600;
-  letter-spacing: -.03em;
-  color: var(--paper);
-  opacity: .15;
-  pointer-events: none;
-  user-select: none;
 }
 
 /* Stagger reveal */
