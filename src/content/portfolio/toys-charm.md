@@ -22,16 +22,17 @@ draft: false
 
 ### 01 — What it is
 
-A Figma template for toy shops and children's product brands, playful in feel but built with the same tidiness as every other Roha product. Charm without chaos.
+A Figma design template for toy shops and children's product brands, playful in feel but built with the same tidiness as every other Roha product. Charm without chaos.
 
-It covers a small retail catalogue: a welcoming homepage, a browsable shop with categories, product detail pages, and a simple enquiry flow.
+It covers a small retail catalogue: a welcoming homepage that catches attention, a shop page with category browsing, individual product detail pages, and a contact flow. Color is bold and deliberate. Typography is friendly without being juvenile. Every component is auto-layout ready for easy customization.
 
 ### 02 — What's inside
 
-- 4 page designs covering home, shop, product, and contact
-- Modular components with auto-layout
-- Category browsing layout
-- Mobile responsive (320–1440)
+- 4 page designs covering home, shop, product detail, and contact
+- Modular components with auto-layout and named variants
+- Category tab browsing layout
+- Product card and detail page with price, description, and CTA
+- Mobile responsive frames (320–1440)
 - Complete design tokens for color, type, and spacing
 
 ### 03 — Spec & details
@@ -41,6 +42,6 @@ It covers a small retail catalogue: a welcoming homepage, a browsable shop with 
 - **Size**: ~10 MB
 - **License**: Personal + Commercial
 
-### Notes
+### 04 — Who it's for
 
-This one is set as `format: figma` to show the mixed-format setup, so it exposes a Figma Preview button. Replace `figmaUrl`, `buyUrl`, price, and lists with real values before publishing.
+Toy retailers, children's product brands, and educational toy makers who want a design system ready for a developer to build from, or a polished mockup to show stakeholders before committing to a build. Also works as a starting point for a no-code build in Framer or Webflow.

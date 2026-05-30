@@ -23,13 +23,14 @@ draft: false
 
 A ready-to-ship website template for car rental and vehicle hire businesses, the kind of small operator that needs a credible online presence without a custom build budget.
 
-The template covers the full path a customer takes: landing on the homepage, browsing the fleet, opening a vehicle's detail page, and sending a booking enquiry.
+The template covers the full path a customer takes: landing on the homepage, browsing the fleet, opening a vehicle detail page, and sending a booking enquiry. The layout is direct and conversion-focused: everything a customer needs to decide and act is within two clicks.
 
 ### 02 — What's inside
 
-- Multi-page HTML template covering home, fleet, booking, and contact
-- Vehicle listing and detail layouts
-- Booking enquiry form
+- Multi-page HTML template covering home, fleet listing, vehicle detail, and contact
+- Fleet grid with vehicle specs, availability indicator, and daily rate display
+- Vehicle detail page with photo carousel and booking enquiry form
+- WhatsApp fallback for enquiries
 - Fully responsive, mobile-first (320–1440)
 - Built on the Roha design system
 
@@ -40,6 +41,6 @@ The template covers the full path a customer takes: landing on the homepage, bro
 - **Size**: ~2 MB
 - **License**: Personal + Commercial
 
-### Notes
+### 04 — Who it's for
 
-Price, buyUrl, and the lists above are placeholders. Confirm against the real product before publishing.
+Car rental operators, vehicle hire companies, and small fleet owners who currently take bookings through WhatsApp or Instagram DM and want a proper site to look established. Works for a single-city operation or a multi-location business. Replace the placeholder fleet images and the template is ready to go live.
