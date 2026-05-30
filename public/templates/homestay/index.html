@@ -19,9 +19,9 @@
   --muted:     #A1A1AA;
   --line:      #E4E4E7;
   --line-soft: #F0F0F0;
-  --accent:    #C96B3B;
-  --accent-dk: #A3521F;
-  --accent-bg: #FEF4EE;
+  --accent:    #18181B;
+  --accent-dk: #000000;
+  --accent-bg: #F4F4F5;
   --white:     #FFFFFF;
   --green-wa:  #25D366;
 
@@ -257,85 +257,6 @@ nav.scrolled {
   color: rgba(255,255,255,.75);
   margin-bottom: 0;
   max-width: 480px;
-}
-
-/* -------- Inquiry Bar -------- */
-.inquiry-bar {
-  max-width: 1200px;
-  margin: -32px auto 0;
-  padding: 0 24px;
-  position: relative;
-  z-index: 10;
-}
-.inquiry-bar-inner {
-  background: var(--white);
-  border-radius: var(--r-lg);
-  box-shadow: var(--shadow-lg);
-  display: flex;
-  align-items: stretch;
-  overflow: hidden;
-  border: 1px solid var(--line);
-}
-.ib-field {
-  flex: 1;
-  padding: 14px 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-  cursor: pointer;
-  transition: background .15s;
-  min-width: 0;
-}
-.ib-field:hover { background: var(--bg-soft); }
-.ib-field + .ib-field { border-left: 1px solid var(--line); }
-.ib-field label {
-  font-size: 11px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: .1em;
-  color: var(--ink);
-  cursor: pointer;
-}
-.ib-field select,
-.ib-field input {
-  border: none;
-  background: none;
-  font-family: var(--sans);
-  font-size: 14px;
-  color: var(--ink-soft);
-  outline: none;
-  cursor: pointer;
-  width: 100%;
-  padding: 0;
-  appearance: none;
-  -webkit-appearance: none;
-}
-.ib-field input::placeholder { color: var(--muted); }
-.ib-btn {
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 0 28px;
-  background: var(--accent);
-  color: var(--white);
-  font-family: var(--sans);
-  font-size: 14px;
-  font-weight: 600;
-  border: none;
-  cursor: pointer;
-  transition: background .2s;
-  white-space: nowrap;
-}
-.ib-btn:hover { background: var(--accent-dk); }
-@media (max-width: 720px) {
-  .inquiry-bar-inner {
-    flex-direction: column;
-    border-radius: var(--r-md);
-  }
-  .ib-field { border-left: none !important; border-bottom: 1px solid var(--line); }
-  .ib-btn { padding: 16px; justify-content: center; }
-  .inquiry-bar { margin-top: -20px; }
 }
 
 /* ========== SECTION COMMON ========== */
@@ -931,31 +852,6 @@ footer {
     </div>
   </div>
 
-  <!-- Inquiry Bar -->
-  <div class="inquiry-bar">
-    <div class="inquiry-bar-inner">
-      <div class="ib-field">
-        <label for="ibRumah">Pilih Rumah</label>
-        <select id="ibRumah">
-          <option value="">Semua Rumah</option>
-          <option value="Rumah 1 (4 kamar)">Rumah 1 — 4 Kamar</option>
-          <option value="Rumah 2 (5 kamar)">Rumah 2 — 5 Kamar</option>
-        </select>
-      </div>
-      <div class="ib-field">
-        <label for="ibDate">Tanggal Masuk</label>
-        <input type="date" id="ibDate" />
-      </div>
-      <div class="ib-field">
-        <label for="ibGuests">Jumlah Tamu</label>
-        <input type="number" id="ibGuests" placeholder="Berapa orang?" min="1" max="30" />
-      </div>
-      <button class="ib-btn" id="ibSubmit">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.6 6.32A7.85 7.85 0 0 0 12.05 4a7.94 7.94 0 0 0-6.84 11.96L4 20l4.16-1.09a7.93 7.93 0 0 0 3.88 1h.01a7.94 7.94 0 0 0 5.55-13.59z"/></svg>
-        Cek Ketersediaan
-      </button>
-    </div>
-  </div>
 </section>
 
 <!-- ===== STATS ===== -->
@@ -1309,21 +1205,7 @@ footer {
     });
   });
 
-  // Inquiry bar → WA
-  document.getElementById('ibSubmit').addEventListener('click', function () {
-    var rumah = document.getElementById('ibRumah').value || 'homestay';
-    var date = document.getElementById('ibDate').value;
-    var guests = document.getElementById('ibGuests').value;
 
-    var msg = 'Halo, saya ingin menanyakan ketersediaan ' + rumah;
-    if (date) {
-      var d = new Date(date);
-      msg += ' untuk tanggal ' + d.toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' });
-    }
-    if (guests) msg += ', ' + guests + ' orang';
-
-    window.open('https://wa.me/6281932594187?text=' + encodeURIComponent(msg), '_blank');
-  });
 
   // Scroll reveal
   var io = new IntersectionObserver(function (entries) {
