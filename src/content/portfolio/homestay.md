@@ -18,16 +18,18 @@ draft: false
 
 ### 01 — What it is
 
-A website template for homestays, guesthouses, and small lodging operators, the places that mostly rely on marketplace listings and need a site of their own to feel established.
+A website template for homestays, guesthouses, and small lodging operators, the places that mostly rely on Booking.com or Traveloka listings and need a site of their own to feel established and take direct bookings.
 
-It walks a guest from first impression to enquiry: a warm homepage, room listings, a gallery that does the selling, and a booking enquiry form.
+It walks a guest from first impression to enquiry: a warm, inviting homepage, a room listing with rates and details, a gallery that does the selling, and a booking form that keeps the commission with the owner. The tone is personal and unhurried, right for a property where hospitality is the product.
 
 ### 02 — What's inside
 
 - Multi-page HTML template covering home, rooms, gallery, and booking
-- Room listing and detail layouts
-- Photo gallery section
-- Booking enquiry form
+- Room listing grid with type, capacity, rate, and amenities
+- Room detail page with photo carousel and availability note
+- Full-width photo gallery section
+- Direct booking enquiry form with WhatsApp fallback
+- Location section with map embed placeholder
 - Fully responsive, mobile-first (320–1440)
 - Built on the Roha design system
 
@@ -38,6 +40,6 @@ It walks a guest from first impression to enquiry: a warm homepage, room listing
 - **Size**: ~2 MB
 - **License**: Personal + Commercial
 
-### Notes
+### 04 — Who it's for
 
-Price, buyUrl, and the lists above are placeholders. Confirm against the real product before publishing.
+Homestay owners, guesthouse operators, and villa managers who want direct bookings without paying marketplace commission on every reservation. Works equally well for a single room or a small multi-room property. Replace the photography with your own shots and the template reads immediately as a real place worth staying.
