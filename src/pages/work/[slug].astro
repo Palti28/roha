@@ -87,15 +87,45 @@ const workSchema = creativeWorkSchema({
     {d.images && d.images.length > 0 && (
       <section class="section wd-images-section">
         <div class="wrap">
-          <div class="wd-images-grid">
-            {d.images.map((img) => (
-              <div class="wd-image-item">
-                <img src={img} alt={`${d.title} — project showcase`} loading="lazy" width={600} height={400} />
+          <div class="wd-images-grid" id="wdImageGrid">
+            {d.images.map((img, i) => (
+              <div class="wd-image-item" role="button" tabindex="0" aria-label={`View image ${i + 1}`} data-lb-index={i}>
+                <img src={img} alt={`${d.title} — photo ${i + 1}`} loading="lazy" width={600} height={400} />
               </div>
             ))}
           </div>
         </div>
       </section>
+    )}
+
+    {/* LIGHTBOX */}
+    {d.images && d.images.length > 0 && (
+      <div id="lb" class="lb" role="dialog" aria-modal="true" aria-label="Image viewer" tabindex="-1">
+        <button id="lb-close" class="lb-close" aria-label="Close">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+            <path d="M2 2l14 14M16 2L2 16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+        <div class="lb-stage">
+          <button id="lb-prev" class="lb-arrow lb-arrow--prev" aria-label="Previous image">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+              <path d="M11 3L5 9l6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="lb-frame">
+            <img id="lb-img" class="lb-img" src="" alt="" />
+          </div>
+          <button id="lb-next" class="lb-arrow lb-arrow--next" aria-label="Next image">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+              <path d="M7 3l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+        <div class="lb-caption">
+          <span id="lb-desc" class="lb-desc"></span>
+          <span id="lb-counter" class="lb-counter"></span>
+        </div>
+      </div>
     )}
 
     {/* BODY — sections, quote and metrics come from the markdown */}
@@ -124,3 +154,73 @@ const workSchema = creativeWorkSchema({
 
   </main>
 </Base>
+
+<script>
+(function () {
+  var lb = document.getElementById('lb') as HTMLElement | null;
+  if (!lb) return;
+
+  var lbImg    = document.getElementById('lb-img')     as HTMLImageElement | null;
+  var lbDesc   = document.getElementById('lb-desc')    as HTMLElement | null;
+  var lbCounter= document.getElementById('lb-counter') as HTMLElement | null;
+
+  var items = Array.from(document.querySelectorAll<HTMLElement>('#wdImageGrid .wd-image-item'));
+  var total = items.length;
+  var current = 0;
+  var prevFocus: HTMLElement | null = null;
+
+  function show(i: number) {
+    current = (i + total) % total;
+    var img = items[current].querySelector('img') as HTMLImageElement;
+    lbImg!.src = img.src;
+    lbImg!.alt = img.alt;
+    lbDesc!.textContent = img.alt;
+    lbCounter!.textContent = (current + 1) + ' / ' + total;
+    // reset scale so transition re-fires on each navigation
+    lbImg!.style.transform = 'scale(.96)';
+    requestAnimationFrame(function () {
+      lbImg!.style.transform = '';
+    });
+  }
+
+  function open(i: number) {
+    prevFocus = document.activeElement as HTMLElement;
+    show(i);
+    lb!.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+    lb!.focus();
+  }
+
+  function close() {
+    lb!.classList.remove('is-open');
+    document.body.style.overflow = '';
+    if (prevFocus) prevFocus.focus();
+  }
+
+  // Click on image items
+  items.forEach(function (item, i) {
+    item.addEventListener('click', function () { open(i); });
+    item.addEventListener('keydown', function (e) {
+      if ((e as KeyboardEvent).key === 'Enter' || (e as KeyboardEvent).key === ' ') {
+        e.preventDefault();
+        open(i);
+      }
+    });
+  });
+
+  document.getElementById('lb-close')!.addEventListener('click', close);
+  document.getElementById('lb-prev')!.addEventListener('click', function () { show(current - 1); });
+  document.getElementById('lb-next')!.addEventListener('click', function () { show(current + 1); });
+
+  // Backdrop click to close
+  lb.addEventListener('click', function (e) { if (e.target === lb) close(); });
+
+  // Keyboard navigation
+  lb.addEventListener('keydown', function (e) {
+    var key = (e as KeyboardEvent).key;
+    if (key === 'Escape')      close();
+    if (key === 'ArrowLeft')   show(current - 1);
+    if (key === 'ArrowRight')  show(current + 1);
+  });
+})();
+</script>
