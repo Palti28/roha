@@ -6,6 +6,13 @@ import Base from '../layouts/Base.astro';
   title="About"
   description="Roha is a design studio building considered, durable digital products. Clear intent, systems that last, work that ships."
 >
+
+  <!-- Custom cursor (mouse devices only — shown via JS) -->
+  <div class="c-cursor" aria-hidden="true" id="cCursor">
+    <span class="c-dot" id="cDot"></span>
+    <span class="c-ring" id="cRing"></span>
+  </div>
+
   <main id="main">
 
     <!-- =================== HERO =================== -->
@@ -14,10 +21,9 @@ import Base from '../layouts/Base.astro';
         <div class="eyebrow">About</div>
 
         <div class="about-hero-grid">
-          <h1 class="display">Roha. <em class="italic-accent">A</em> four-letter word that means a lot.</h1>
+          <h1 class="display" id="heroTitle">Roha. <em class="italic-accent">A</em> four-letter word that means a lot.</h1>
           <div class="about-hero-side">
-            <p class="pull"><em>"A</em> design studio that helps people building something real ship digital products that
-              feel considered."</p>
+            <p class="pull"><em>"A</em> design studio that helps people building something real ship digital products that feel considered."</p>
           </div>
         </div>
       </div>
@@ -28,6 +34,17 @@ import Base from '../layouts/Base.astro';
       <div class="wrap">
         <div class="eyebrow">01 — The Name</div>
         <h2 class="section-title">Not an acronym, not random.</h2>
+
+        <!-- Interactive R·O·H·A display -->
+        <div class="roha-display" aria-hidden="true">
+          <span class="roha-char">R</span>
+          <span class="roha-sep">·</span>
+          <span class="roha-char">O</span>
+          <span class="roha-sep">·</span>
+          <span class="roha-char">H</span>
+          <span class="roha-sep">·</span>
+          <span class="roha-char">A</span>
+        </div>
 
         <div class="name-grid">
           <div class="pull" data-reveal>
@@ -69,25 +86,29 @@ import Base from '../layouts/Base.astro';
         </div>
 
         <div class="principles-grid">
-          <div class="principle" data-reveal>
+          <div class="principle tilt-card" data-reveal>
+            <div class="tilt-shine"></div>
             <div class="num">01</div>
             <h3>Quiet on the surface, considered underneath.</h3>
             <p>Design that doesn&rsquo;t shout, but every choice has a reason. Spacing, sizing, color, we can explain
               all of it if you ask.</p>
           </div>
-          <div class="principle" data-reveal data-reveal-delay="100">
+          <div class="principle tilt-card" data-reveal data-reveal-delay="100">
+            <div class="tilt-shine"></div>
             <div class="num">02</div>
             <h3>Craft is a discipline.</h3>
             <p>The details that make work feel right aren&rsquo;t accidents. They&rsquo;re chosen, measured, and
               intentional, decided on purpose rather than left to default.</p>
           </div>
-          <div class="principle" data-reveal data-reveal-delay="200">
+          <div class="principle tilt-card" data-reveal data-reveal-delay="200">
+            <div class="tilt-shine"></div>
             <div class="num">03</div>
             <h3>Systems, not decoration.</h3>
             <p>We build design systems, not one pretty page that falls apart on the second update. Components, tokens,
               documentation, so it still feels right a year from now.</p>
           </div>
-          <div class="principle" data-reveal data-reveal-delay="300">
+          <div class="principle tilt-card" data-reveal data-reveal-delay="300">
+            <div class="tilt-shine"></div>
             <div class="num">04</div>
             <h3>Ship it, don&rsquo;t polish it forever.</h3>
             <p>Shipped &gt; perfect. Better a 1.0 that&rsquo;s live than a 0.9 that&rsquo;s delayed. What matters is
@@ -97,46 +118,135 @@ import Base from '../layouts/Base.astro';
       </div>
     </section>
 
+    <!-- =================== CRAFT LAB =================== -->
+    <section class="section lab-section">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">03 — Craft Lab</div>
+          <h2 class="section-title">Interactions, built from scratch.</h2>
+          <p class="section-lede">No animation libraries. Every interaction you see here is hand-coded, tuned for the exact feeling it creates.</p>
+        </div>
+
+        <div class="lab-grid">
+
+          <!-- Demo 1: Magnetic Pull -->
+          <div class="lab-demo" id="demoMagnetic">
+            <div class="lab-label">Magnetic Pull</div>
+            <div class="lab-body lab-body--center">
+              <p class="lab-hint">Move your cursor near the button</p>
+              <button class="btn btn-primary mag-btn" id="magBtn">Work with us →</button>
+            </div>
+            <div class="lab-tech">mousemove + transform</div>
+          </div>
+
+          <!-- Demo 2: Text Scramble -->
+          <div class="lab-demo">
+            <div class="lab-label">Text Scramble</div>
+            <div class="lab-body lab-body--center">
+              <p class="lab-hint">Hover the text</p>
+              <p class="scramble-el" data-original="Design is intent.">Design is intent.</p>
+            </div>
+            <div class="lab-tech">RAF + char cycling</div>
+          </div>
+
+          <!-- Demo 3: Cursor Fluid -->
+          <div class="lab-demo lab-demo--dark" id="fluidDemo">
+            <div class="lab-label">Cursor Fluid</div>
+            <div class="lab-body">
+              <p class="lab-hint">Move your cursor inside</p>
+              <div class="fluid-inner">
+                <div class="fluid-blob" id="fluidBlob"></div>
+                <span class="fluid-wordmark">roha.</span>
+              </div>
+            </div>
+            <div class="lab-tech">CSS custom properties + RAF</div>
+          </div>
+
+          <!-- Demo 4: Stagger Reveal -->
+          <div class="lab-demo">
+            <div class="lab-label">Stagger Reveal</div>
+            <div class="lab-body lab-body--stagger">
+              <div class="stagger-container" id="staggerContainer">
+                <div class="stag-line">Considered</div>
+                <div class="stag-line">at every</div>
+                <div class="stag-line">scale.</div>
+              </div>
+              <button class="stagger-replay" id="staggerReplay">&#8635; Replay</button>
+            </div>
+            <div class="lab-tech">CSS keyframes + JS stagger</div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
     <!-- =================== PROCESS =================== -->
     <section class="section">
       <div class="wrap">
         <div class="section-head">
-          <div class="eyebrow">03 — Process</div>
+          <div class="eyebrow">04 — Process</div>
           <h2 class="section-title">Five steps from brief<br />to handoff.</h2>
         </div>
 
-        <div class="process-steps">
-          <div class="process-step" data-reveal>
-            <div class="num">01</div>
-            <h4>Briefing</h4>
-            <div class="dur">1–2 days</div>
-            <p>Discovery call, scope alignment, deliverables. We make sure we understand the problem first, not jump
-              straight to a solution.</p>
+        <div class="process-acc">
+          <div class="acc-item open" data-acc-item>
+            <button class="acc-head" aria-expanded="true">
+              <span class="acc-num">01</span>
+              <span class="acc-name">Briefing</span>
+              <span class="acc-dur">1–2 days</span>
+              <svg class="acc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="acc-body">
+              <p>Discovery call, scope alignment, deliverables. We make sure we understand the problem first, not jump straight to a solution.</p>
+            </div>
           </div>
-          <div class="process-step" data-reveal data-reveal-delay="100">
-            <div class="num">02</div>
-            <h4>Exploration</h4>
-            <div class="dur">3–5 days</div>
-            <p>Mood board, wireframes, direction. We pick two or three directions to test before committing to one.</p>
+
+          <div class="acc-item" data-acc-item>
+            <button class="acc-head" aria-expanded="false">
+              <span class="acc-num">02</span>
+              <span class="acc-name">Exploration</span>
+              <span class="acc-dur">3–5 days</span>
+              <svg class="acc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="acc-body">
+              <p>Mood board, wireframes, direction. We pick two or three directions to test before committing to one.</p>
+            </div>
           </div>
-          <div class="process-step" data-reveal data-reveal-delay="200">
-            <div class="num">03</div>
-            <h4>Design</h4>
-            <div class="dur">1–3 weeks</div>
-            <p>Visual design, prototype, interaction details. The longest phase, with a weekly review rhythm.</p>
+
+          <div class="acc-item" data-acc-item>
+            <button class="acc-head" aria-expanded="false">
+              <span class="acc-num">03</span>
+              <span class="acc-name">Design</span>
+              <span class="acc-dur">1–3 weeks</span>
+              <svg class="acc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="acc-body">
+              <p>Visual design, prototype, interaction details. The longest phase, with a weekly review rhythm.</p>
+            </div>
           </div>
-          <div class="process-step" data-reveal data-reveal-delay="300">
-            <div class="num">04</div>
-            <h4>Iteration</h4>
-            <div class="dur">1 week</div>
-            <p>Revisions, refinement, polish. A big round of revisions, not little ping-pong loops that wear everyone
-              out.</p>
+
+          <div class="acc-item" data-acc-item>
+            <button class="acc-head" aria-expanded="false">
+              <span class="acc-num">04</span>
+              <span class="acc-name">Iteration</span>
+              <span class="acc-dur">1 week</span>
+              <svg class="acc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="acc-body">
+              <p>Revisions, refinement, polish. A big round of revisions, not little ping-pong loops that wear everyone out.</p>
+            </div>
           </div>
-          <div class="process-step" data-reveal data-reveal-delay="400">
-            <div class="num">05</div>
-            <h4>Handoff</h4>
-            <div class="dur">1–2 days</div>
-            <p>File delivery, documentation, 2 weeks of support. We make sure the dev team has everything they need.</p>
+
+          <div class="acc-item" data-acc-item>
+            <button class="acc-head" aria-expanded="false">
+              <span class="acc-num">05</span>
+              <span class="acc-name">Handoff</span>
+              <span class="acc-dur">1–2 days</span>
+              <svg class="acc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="acc-body">
+              <p>File delivery, documentation, 2 weeks of support. We make sure the dev team has everything they need.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -145,7 +255,7 @@ import Base from '../layouts/Base.astro';
     <!-- =================== TOOLS =================== -->
     <section class="section">
       <div class="wrap">
-        <div class="eyebrow">04 — Disciplines &amp; Tools</div>
+        <div class="eyebrow">05 — Disciplines &amp; Tools</div>
 
         <div class="tools-grid">
           <div data-reveal>
@@ -176,17 +286,14 @@ import Base from '../layouts/Base.astro';
     <section class="section" id="contact">
       <div class="wrap">
         <div class="section-head">
-          <div class="eyebrow">05 — Contact Us</div>
+          <div class="eyebrow">06 — Contact Us</div>
           <h2 class="section-title">Let&rsquo;s talk.</h2>
-          <p class="section-lede">Send a brief, a Notion link, or just a story. We reply within 1×24 hours (business
+          <p class="section-lede">Send a brief, a Notion link, or just a story. We reply within 1&times;24 hours (business
             hours).</p>
         </div>
 
         <div class="contact-grid">
 
-          <!-- FORM -->
-          <!-- Note: replace action with a Formspree/Web3Forms endpoint to make the form live.
-             Default fallback: mailto. Example Formspree endpoint: https://formspree.io/f/xyzpqrwt -->
           <form class="contact-form" data-contact-form data-reveal data-mailto="hello@rohaworks.com" novalidate>
 
             <div class="field-row">
@@ -238,48 +345,20 @@ import Base from '../layouts/Base.astro';
             <button type="submit" class="btn btn-primary btn-lg">Send Message <span class="arr">→</span></button>
           </form>
 
-          <!-- INFO -->
           <div class="contact-info" data-reveal data-reveal-delay="150">
             <div class="contact-info-block">
               <div class="k">Email</div>
               <div class="v"><a href="mailto:hello@rohaworks.com">hello@rohaworks.com</a></div>
             </div>
-
-            <!-- WhatsApp: add number to site.wa in src/data/site.ts to enable this block
-            <div class="contact-info-block">
-              <div class="k">WhatsApp</div>
-              <div class="v">
-                <a href="https://wa.me/[NO_WA]?text=Hi%20Roha%2C%20I%27d%20like%20to%20discuss%20a%20project"
-                  target="_blank" rel="noopener">Chat on WhatsApp →</a>
-              </div>
-            </div>
-            -->
-
             <div class="contact-info-block">
               <div class="k">Location</div>
               <div class="v">Indonesia</div>
             </div>
-
             <div class="contact-info-block">
               <div class="k">Working Hours</div>
               <div class="v">Mon–Fri, 09:00–17:00 WIB</div>
-              <p>We reply within 1×24 hours (business hours).</p>
+              <p>We reply within 1&times;24 hours (business hours).</p>
             </div>
-
-            <!-- Social slot: goes live once the Roha feeds are ready.
-            <div class="contact-info-block">
-              <div class="k">Social</div>
-              <div class="footer-social" style="margin-top:14px;">
-                <a href="https://instagram.com/roha.works" aria-label="Instagram" target="_blank" rel="noopener">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
-                    <rect x="3" y="3" width="18" height="18" rx="5" />
-                    <circle cx="12" cy="12" r="4" />
-                    <circle cx="17.5" cy="6.5" r=".8" fill="currentColor" />
-                  </svg>
-                </a>
-              </div>
-            </div>
-            -->
           </div>
 
         </div>
@@ -287,4 +366,217 @@ import Base from '../layouts/Base.astro';
     </section>
 
   </main>
+
+  <script>
+    // ============================================================
+    // About page — interactive layer
+    // ============================================================
+
+    const canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+    // ---- Custom cursor ----
+    if (canHover) {
+      const cursor = document.getElementById('cCursor');
+      const dot    = document.getElementById('cDot');
+      const ring   = document.getElementById('cRing');
+
+      if (cursor && dot && ring) {
+        cursor.style.display = 'block';
+
+        let mx = -300, my = -300;
+        let rx = -300, ry = -300;
+
+        document.addEventListener('mousemove', e => {
+          mx = e.clientX;
+          my = e.clientY;
+          dot.style.transform = `translate(calc(${mx}px - 50%), calc(${my}px - 50%))`;
+        });
+
+        (function tickRing() {
+          rx += (mx - rx) * 0.1;
+          ry += (my - ry) * 0.1;
+          ring.style.transform = `translate(calc(${rx}px - 50%), calc(${ry}px - 50%))`;
+          requestAnimationFrame(tickRing);
+        })();
+
+        const hoverTargets = 'a, button, .roha-char, .tilt-card, .lab-demo, .scramble-el, .stagger-replay';
+        document.querySelectorAll(hoverTargets).forEach(el => {
+          el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+          el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+        });
+
+        document.addEventListener('mousedown', () => cursor.classList.add('press'));
+        document.addEventListener('mouseup',   () => cursor.classList.remove('press'));
+        document.addEventListener('mouseleave', () => cursor.classList.add('away'));
+        document.addEventListener('mouseenter', () => cursor.classList.remove('away'));
+      }
+    }
+
+    // ---- 3D tilt on principle cards ----
+    if (canHover) {
+      document.querySelectorAll('.tilt-card').forEach(card => {
+        card.addEventListener('mousemove', e => {
+          const r  = card.getBoundingClientRect();
+          const cx = r.left + r.width  / 2;
+          const cy = r.top  + r.height / 2;
+          const dx = (e.clientX - cx) / (r.width  / 2);
+          const dy = (e.clientY - cy) / (r.height / 2);
+          card.style.transform = `perspective(700px) rotateX(${(-dy * 8).toFixed(2)}deg) rotateY(${(dx * 8).toFixed(2)}deg) translateZ(6px)`;
+          const shine = card.querySelector('.tilt-shine');
+          if (shine) {
+            const px = (((dx + 1) / 2) * 100).toFixed(1);
+            const py = (((dy + 1) / 2) * 100).toFixed(1);
+            shine.style.background = `radial-gradient(circle at ${px}% ${py}%, rgba(255,255,255,.2) 0%, transparent 65%)`;
+          }
+        });
+        card.addEventListener('mouseleave', () => {
+          card.style.transform = '';
+          const shine = card.querySelector('.tilt-shine');
+          if (shine) shine.style.background = '';
+        });
+      });
+    }
+
+    // ---- Magnetic button ----
+    if (canHover) {
+      const zone   = document.getElementById('demoMagnetic');
+      const magBtn = document.getElementById('magBtn');
+      if (zone && magBtn) {
+        zone.addEventListener('mousemove', e => {
+          const r  = magBtn.getBoundingClientRect();
+          const cx = r.left + r.width  / 2;
+          const cy = r.top  + r.height / 2;
+          magBtn.style.transform = `translate(${((e.clientX - cx) * 0.42).toFixed(1)}px, ${((e.clientY - cy) * 0.42).toFixed(1)}px)`;
+        });
+        zone.addEventListener('mouseleave', () => {
+          magBtn.style.transform = '';
+        });
+      }
+    }
+
+    // ---- Text scramble ----
+    const CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!@#$%&?';
+
+    function scramble(el) {
+      const original = el.dataset.original || el.textContent;
+      let frame = 0;
+      const total = 30;
+      function tick() {
+        el.textContent = original.split('').map((ch, i) => {
+          if (ch === ' ') return ' ';
+          if (frame / total > i / original.length) return ch;
+          return CHARS[Math.floor(Math.random() * CHARS.length)];
+        }).join('');
+        frame++;
+        if (frame <= total) requestAnimationFrame(tick);
+        else el.textContent = original;
+      }
+      tick();
+    }
+
+    document.querySelectorAll('.scramble-el').forEach(el => {
+      let active = false;
+      el.addEventListener('mouseenter', () => {
+        if (active) return;
+        active = true;
+        scramble(el);
+        setTimeout(() => { active = false; }, 700);
+      });
+    });
+
+    // ---- Cursor fluid blob ----
+    const fluidDemo = document.getElementById('fluidDemo');
+    const fluidBlob = document.getElementById('fluidBlob');
+    if (fluidDemo && fluidBlob) {
+      let bx = 50, by = 50, tx = 50, ty = 50;
+      let rafBlob = null;
+
+      function tickBlob() {
+        bx += (tx - bx) * 0.07;
+        by += (ty - by) * 0.07;
+        fluidBlob.style.setProperty('--bx', bx.toFixed(2) + '%');
+        fluidBlob.style.setProperty('--by', by.toFixed(2) + '%');
+        rafBlob = requestAnimationFrame(tickBlob);
+      }
+
+      fluidDemo.addEventListener('mouseenter', () => { if (!rafBlob) tickBlob(); });
+      fluidDemo.addEventListener('mouseleave', () => {
+        cancelAnimationFrame(rafBlob);
+        rafBlob = null;
+      });
+      fluidDemo.addEventListener('mousemove', e => {
+        const r = fluidDemo.getBoundingClientRect();
+        tx = ((e.clientX - r.left) / r.width)  * 100;
+        ty = ((e.clientY - r.top)  / r.height) * 100;
+      });
+
+      // Touch support for the fluid demo
+      fluidDemo.addEventListener('touchmove', e => {
+        e.preventDefault();
+        const t = e.touches[0];
+        const r = fluidDemo.getBoundingClientRect();
+        tx = ((t.clientX - r.left) / r.width)  * 100;
+        ty = ((t.clientY - r.top)  / r.height) * 100;
+        if (!rafBlob) tickBlob();
+      }, { passive: false });
+      fluidDemo.addEventListener('touchend', () => {
+        cancelAnimationFrame(rafBlob);
+        rafBlob = null;
+      });
+    }
+
+    // ---- Stagger reveal ----
+    const staggerContainer = document.getElementById('staggerContainer');
+    const replayBtn        = document.getElementById('staggerReplay');
+
+    function runStagger() {
+      const lines = staggerContainer?.querySelectorAll('.stag-line');
+      if (!lines) return;
+      lines.forEach(l => {
+        l.classList.remove('stag-in');
+        void (l as HTMLElement).offsetWidth; // force reflow
+      });
+      lines.forEach((l, i) => {
+        setTimeout(() => l.classList.add('stag-in'), i * 130 + 60);
+      });
+    }
+
+    runStagger();
+    replayBtn?.addEventListener('click', runStagger);
+
+    // ---- Process accordion ----
+    document.querySelectorAll('[data-acc-item]').forEach(item => {
+      const btn  = item.querySelector('.acc-head') as HTMLButtonElement | null;
+      const body = item.querySelector('.acc-body')  as HTMLElement | null;
+      if (!btn || !body) return;
+
+      // Set initial height
+      if (item.classList.contains('open')) {
+        body.style.maxHeight = body.scrollHeight + 'px';
+      } else {
+        body.style.maxHeight = '0px';
+      }
+
+      btn.addEventListener('click', () => {
+        const wasOpen = item.classList.contains('open');
+
+        // Close all items
+        document.querySelectorAll('[data-acc-item]').forEach(it => {
+          it.classList.remove('open');
+          const b = it.querySelector('.acc-head');
+          b?.setAttribute('aria-expanded', 'false');
+          const bd = it.querySelector('.acc-body') as HTMLElement | null;
+          if (bd) bd.style.maxHeight = '0px';
+        });
+
+        // Open the clicked one if it was closed
+        if (!wasOpen) {
+          item.classList.add('open');
+          btn.setAttribute('aria-expanded', 'true');
+          body.style.maxHeight = body.scrollHeight + 'px';
+        }
+      });
+    });
+  </script>
+
 </Base>
