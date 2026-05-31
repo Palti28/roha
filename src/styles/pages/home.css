@@ -104,6 +104,9 @@
   .home-hero-grid { grid-template-columns: 1fr; gap: 28px; }
   .home-hero-right { display: none; }
 }
+@media (max-width: 640px) {
+  .hero-meta { display: none; }
+}
 
 /* ---------- Studio stats strip ---------- */
 .studio-strip {
@@ -142,13 +145,14 @@
   margin: 0;
 }
 @media (max-width: 640px) {
-  .studio-stats { grid-template-columns: repeat(2, 1fr); }
-  .stat-item:nth-child(2) { border-right: 0; }
-  .stat-item:nth-child(3) {
-    padding-left: 0;
-    border-top: 1px solid var(--rule);
+  .studio-stats { grid-template-columns: repeat(4, 1fr); }
+  .stat-item {
+    padding: 14px 8px;
+    border-right: 1px solid var(--rule);
   }
-  .stat-item:nth-child(4) { border-top: 1px solid var(--rule); }
+  .stat-item:last-child { border-right: 0; }
+  .stat-item dt { font-size: 11.5px; line-height: 1.15; }
+  .stat-item dd { font-size: 8px; letter-spacing: .03em; }
 }
 
 /* ---------- Section heading util ---------- */
@@ -181,13 +185,14 @@
   gap: 28px 24px;
 }
 @media (max-width: 880px) { .work-case-grid { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 560px) { .work-case-grid { grid-template-columns: 1fr; gap: 28px 0; } }
+@media (max-width: 640px) { .work-case-grid { grid-template-columns: 1fr; gap: 28px 0; } }
 
 /* ---------- Shop preview cards ---------- */
 .shop-grid {
   display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
 }
 @media (max-width: 880px) { .shop-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 640px) { .shop-grid { grid-template-columns: 1fr; } }
 
 /* ---------- Services as cards (Notion-style) ---------- */
 .svc-card-grid {
@@ -429,9 +434,24 @@
   .how-card:nth-child(2n) { border-right: none; }
   .how-card:nth-child(odd) { padding-left: 0 !important; }
 }
-@media (max-width: 480px) {
-  .how-grid { grid-template-columns: 1fr; }
-  .how-card { border-right: none; padding-left: 0 !important; }
+@media (max-width: 640px) {
+  .how-grid {
+    grid-template-columns: repeat(4, 1fr);
+    border-top: 1px solid rgba(246, 239, 224, 0.14);
+  }
+  .how-card {
+    padding: 16px 6px !important;
+    border-bottom: none;
+    text-align: center;
+    align-items: center;
+  }
+  .how-card:nth-child(odd) { padding-left: 6px !important; }
+  .how-card:nth-child(2n) { border-right: 1px solid rgba(246, 239, 224, 0.14); }
+  .how-card:last-child { border-right: none; }
+  .how-card p { display: none; }
+  .how-card h4 { font-size: 11px; line-height: 1.25; margin: 0; }
+  .how-illus { margin-bottom: 10px; }
+  .how-illus svg { width: 26px; height: 26px; }
 }
 
 /* ---------- Stats grid ---------- */
