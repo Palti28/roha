@@ -7,300 +7,238 @@
   <meta name="description" content="Menu lengkap Tao Kopi: espresso, manual brew, cold brew, minuman non-kopi, makanan, dan dessert. Single origin Sumatera Utara." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Inter:wght@300;400;500;600&family=Inter+Tight:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Inter:wght@300;400;500&family=Inter+Tight:wght@500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --obsidian: #0D0F0E;
-      --deep:     #141918;
-      --surface:  #1E2421;
-      --mid:      #3D4842;
-      --fog:      #8A9490;
+      --obsidian: #0B0D0C;
+      --deep:     #131714;
+      --surface:  #1C221E;
+      --mid:      #394540;
+      --fog:      #7A8880;
       --cream:    #F5F0E8;
-      --warm:     #E8DDD0;
+      --warm:     #EDE8DF;
       --amber:    #C8922A;
-      --amber-s:  #E0A83A;
-      --terra:    #A85C3A;
-      --rule-d:   rgba(255,255,255,.08);
-      --nav-h:    68px;
-      --filter-h: 52px;
+      --amber-s:  #DFA030;
+      --ink:      #1C1A16;
+      --rule-d:   rgba(255,255,255,.07);
+      --rule-l:   rgba(28,26,22,.1);
+      --nav-h:    64px;
+      --sidebar-w: 240px;
       --maxw:     1200px;
-      --pad:      clamp(20px, 4vw, 64px);
+      --pad:      clamp(24px, 5vw, 80px);
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html {
-      scroll-behavior: smooth;
-      -webkit-font-smoothing: antialiased;
-    }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto !important; }
       .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
     }
-    body {
-      font-family: 'Inter', system-ui, sans-serif;
-      font-weight: 400;
-      background: var(--deep);
-      color: var(--cream);
-      line-height: 1.65;
-    }
-    .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--pad); }
+    body { font-family: 'Inter', system-ui, sans-serif; background: var(--deep); color: var(--cream); line-height: 1.65; }
 
     /* ── Reveal ─────────────────────────────────── */
-    .reveal {
-      opacity: 0; transform: translateY(22px);
-      transition: opacity .55s ease, transform .55s ease;
-    }
+    .reveal { opacity: 0; transform: translateY(14px); transition: opacity .5s ease, transform .5s ease; }
     .reveal.vis { opacity: 1; transform: none; }
-    .d1 { transition-delay: .08s; } .d2 { transition-delay: .16s; }
-    .d3 { transition-delay: .24s; } .d4 { transition-delay: .32s; }
+    .d1 { transition-delay: .06s; } .d2 { transition-delay: .12s; } .d3 { transition-delay: .18s; }
 
     /* ── Nav ────────────────────────────────────── */
-    .nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
-      height: var(--nav-h);
-      background: var(--obsidian); box-shadow: 0 1px 0 var(--rule-d);
-    }
-    .nav-inner {
-      max-width: var(--maxw); margin: 0 auto; padding: 0 var(--pad);
-      height: 100%; display: flex; align-items: center; gap: 32px;
-    }
-    .nav-logo {
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic; font-weight: 400; font-size: 22px;
-      color: var(--cream); text-decoration: none; flex-shrink: 0;
-      display: flex; align-items: center; gap: 6px; letter-spacing: .01em;
-    }
-    .nav-logo-dot { color: var(--amber); font-style: normal; font-size: 28px; line-height: 1; }
-    .nav-links {
-      display: flex; align-items: center; gap: 28px; list-style: none; margin: 0 auto;
-    }
-    .nav-links a {
-      font-family: 'Inter Tight', sans-serif;
-      font-size: 13px; font-weight: 600; letter-spacing: .04em;
-      color: rgba(245,240,232,.6); text-decoration: none; transition: color .15s;
-    }
-    .nav-links a:hover, .nav-links a.active { color: var(--cream); }
-    .nav-links a.active { color: var(--amber); }
-    .nav-cta {
-      font-family: 'Inter Tight', sans-serif;
-      font-size: 12px; font-weight: 700; letter-spacing: .06em;
-      background: var(--amber); color: var(--obsidian);
-      padding: 9px 20px; border-radius: 99px; text-decoration: none;
-      white-space: nowrap; transition: background .15s; flex-shrink: 0;
-    }
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 300; height: var(--nav-h); background: var(--obsidian); border-bottom: 1px solid var(--rule-d); }
+    .nav-inner { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--pad); height: 100%; display: flex; align-items: center; }
+    .nav-logo { font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 300; font-size: 20px; color: var(--cream); text-decoration: none; letter-spacing: .02em; display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+    .nav-logo-mark { width: 8px; height: 8px; border-radius: 50%; background: var(--amber); flex-shrink: 0; }
+    .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; margin: 0 auto; }
+    .nav-links a { font-family: 'Inter Tight', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: rgba(245,240,232,.5); text-decoration: none; transition: color .15s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--amber); }
+    .nav-cta { font-family: 'Inter Tight', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: .04em; color: var(--obsidian); background: var(--amber); padding: 8px 22px; border-radius: 2px; text-decoration: none; flex-shrink: 0; transition: background .15s; }
     .nav-cta:hover { background: var(--amber-s); }
-    .nav-burger {
-      display: none; margin-left: auto;
-      background: none; border: none; cursor: pointer; color: var(--cream); padding: 6px;
-    }
-    .nav-panel {
-      display: none; position: fixed; top: var(--nav-h); left: 0; right: 0;
-      background: var(--obsidian); border-top: 1px solid var(--rule-d);
-      z-index: 199; padding: 12px 0 20px;
-    }
+    .nav-burger { display: none; margin-left: auto; background: none; border: none; cursor: pointer; color: var(--cream); padding: 6px; }
+    .nav-panel { display: none; position: fixed; top: var(--nav-h); left: 0; right: 0; background: var(--obsidian); border-top: 1px solid var(--rule-d); z-index: 199; padding: 16px 0 24px; }
     .nav-panel.open { display: block; }
     .nav-panel ul { list-style: none; }
-    .nav-panel li a {
-      display: block; padding: 12px var(--pad);
-      font-family: 'Inter Tight', sans-serif; font-size: 15px; font-weight: 600;
-      color: rgba(245,240,232,.8); text-decoration: none;
-    }
+    .nav-panel li a { display: block; padding: 12px var(--pad); font-family: 'Inter Tight', sans-serif; font-size: 15px; font-weight: 600; color: rgba(245,240,232,.8); text-decoration: none; }
     .nav-panel-cta { padding: 12px var(--pad) 0; }
-    .nav-panel-cta a {
-      display: block; text-align: center; padding: 12px; border-radius: 99px;
-      background: var(--amber); color: var(--obsidian);
-      font-family: 'Inter Tight', sans-serif; font-size: 13px; font-weight: 700;
-      text-decoration: none;
+    .nav-panel-cta a { display: block; text-align: center; padding: 12px; border-radius: 2px; background: var(--amber); color: var(--obsidian); font-family: 'Inter Tight', sans-serif; font-size: 13px; font-weight: 700; text-decoration: none; }
+    @media (max-width: 860px) { .nav-links, .nav-cta { display: none; } .nav-burger { display: flex; align-items: center; } }
+
+    /* ── Page shell ─────────────────────────────── */
+    .page-shell {
+      display: grid;
+      grid-template-columns: var(--sidebar-w) 1fr;
+      min-height: 100vh;
+      padding-top: var(--nav-h);
     }
-    @media (max-width: 860px) {
-      .nav-links, .nav-cta { display: none; }
-      .nav-burger { display: flex; align-items: center; }
+    @media (max-width: 900px) { .page-shell { grid-template-columns: 1fr; } }
+
+    /* ── Sidebar ────────────────────────────────── */
+    .sidebar {
+      position: sticky; top: var(--nav-h); align-self: start;
+      height: calc(100vh - var(--nav-h));
+      overflow-y: auto; scrollbar-width: none;
+      background: var(--obsidian); border-right: 1px solid var(--rule-d);
+      display: flex; flex-direction: column;
+    }
+    .sidebar::-webkit-scrollbar { display: none; }
+    .sidebar-head {
+      padding: 36px 28px 20px;
+      border-bottom: 1px solid var(--rule-d);
+    }
+    .sidebar-eyebrow {
+      font-family: 'Inter Tight', sans-serif; font-size: 9px; font-weight: 700; letter-spacing: .22em; text-transform: uppercase;
+      color: rgba(245,240,232,.22); margin-bottom: 10px;
+    }
+    .sidebar-title {
+      font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 300; font-size: 22px;
+      color: var(--cream); letter-spacing: .01em;
+    }
+    .sidebar-nav { padding: 20px 0; flex-grow: 1; }
+    .sidebar-btn {
+      display: flex; align-items: center; justify-content: space-between;
+      width: 100%; padding: 11px 28px;
+      background: none; border: none; cursor: pointer;
+      font-family: 'Inter Tight', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: .04em;
+      color: rgba(245,240,232,.4); text-align: left;
+      transition: color .15s, background .15s;
+    }
+    .sidebar-btn:hover { color: var(--cream); background: rgba(255,255,255,.03); }
+    .sidebar-btn.active { color: var(--cream); background: rgba(255,255,255,.05); }
+    .sidebar-btn.active::before { content: ''; display: block; position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: var(--amber); border-radius: 0 1px 1px 0; }
+    .sidebar-btn { position: relative; }
+    .sidebar-count { font-family: 'Inter Tight', sans-serif; font-size: 10px; font-weight: 600; color: rgba(245,240,232,.2); }
+    .sidebar-btn.active .sidebar-count { color: var(--amber); }
+    .sidebar-footer {
+      padding: 20px 28px 28px;
+      border-top: 1px solid var(--rule-d);
+    }
+    .sidebar-info {
+      font-size: 11px; font-weight: 300; color: rgba(245,240,232,.28); line-height: 1.85;
+    }
+    @media (max-width: 900px) {
+      .sidebar {
+        position: static; height: auto;
+        border-right: none; border-bottom: 1px solid var(--rule-d);
+        flex-direction: row; overflow-x: auto; overflow-y: visible;
+      }
+      .sidebar-head, .sidebar-footer { display: none; }
+      .sidebar-nav { display: flex; flex-direction: row; padding: 0; flex-grow: 0; }
+      .sidebar-btn { padding: 14px 18px; white-space: nowrap; border-right: none; }
+      .sidebar-btn.active::before { width: 100%; height: 2px; top: auto; left: 0; right: 0; bottom: 0; border-radius: 1px 1px 0 0; }
+      .sidebar-count { display: none; }
     }
 
-    /* ── Eyebrow ────────────────────────────────── */
-    .eyebrow {
-      font-family: 'Inter Tight', sans-serif;
-      font-size: 10px; font-weight: 600; letter-spacing: .22em; text-transform: uppercase;
-      color: var(--amber); margin-bottom: 16px;
-    }
+    /* ── Main content ───────────────────────────── */
+    .menu-main { min-width: 0; }
 
-    /* ── Page Header ────────────────────────────── */
+    /* ── Page header ────────────────────────────── */
     .page-header {
-      padding: calc(var(--nav-h) + var(--filter-h) + 64px) var(--pad) 56px;
-      max-width: var(--maxw); margin: 0 auto;
+      padding: clamp(40px, 6vw, 72px) clamp(28px, 5vw, 64px) clamp(32px, 5vw, 56px);
+      border-bottom: 1px solid var(--rule-d);
+    }
+    .page-header-eyebrow {
+      font-family: 'Inter Tight', sans-serif; font-size: 9px; font-weight: 700; letter-spacing: .22em; text-transform: uppercase;
+      color: var(--amber); margin-bottom: 12px;
     }
     .page-header h1 {
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic; font-weight: 400;
-      font-size: clamp(48px, 7vw, 96px);
-      line-height: .9; letter-spacing: -.02em;
-      color: var(--cream); margin-bottom: 20px;
+      font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 300;
+      font-size: clamp(40px, 6vw, 80px); line-height: .88; letter-spacing: -.025em;
+      color: var(--cream); margin-bottom: 16px;
     }
-    .page-header p {
-      font-size: 15px; font-weight: 300;
-      color: rgba(245,240,232,.55); max-width: 56ch; line-height: 1.7;
+    .page-header p { font-size: 13px; font-weight: 300; color: rgba(245,240,232,.4); max-width: 58ch; line-height: 1.7; }
+
+    /* ── Menu section (one per category) ─────────── */
+    .menu-category { padding: 0; }
+    .menu-category[hidden] { display: none; }
+
+    .cat-header {
+      display: flex; align-items: baseline; gap: 20px;
+      padding: clamp(36px, 5vw, 56px) clamp(28px, 5vw, 64px) 20px;
+      border-bottom: 1px solid var(--rule-d);
+    }
+    .cat-header-name {
+      font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 300;
+      font-size: clamp(36px, 5vw, 60px); line-height: 1; letter-spacing: -.02em;
+      color: var(--cream);
+    }
+    .cat-header-count {
+      font-family: 'Inter Tight', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: .14em;
+      color: rgba(245,240,232,.22);
     }
 
-    /* ── Filter Bar ─────────────────────────────── */
-    .filter-bar {
-      position: fixed; top: var(--nav-h); left: 0; right: 0; z-index: 100;
-      height: var(--filter-h);
-      background: var(--obsidian); border-bottom: 1px solid var(--rule-d);
-      overflow: hidden;
-    }
-    .filter-inner {
-      max-width: var(--maxw); margin: 0 auto; padding: 0 var(--pad);
-      height: 100%; display: flex; align-items: center; gap: 4px;
-      overflow-x: auto; scrollbar-width: none; -ms-overflow-style: none;
-    }
-    .filter-inner::-webkit-scrollbar { display: none; }
-    .filter-btn {
-      flex-shrink: 0;
-      font-family: 'Inter Tight', sans-serif;
-      font-size: 12px; font-weight: 600; letter-spacing: .04em;
-      color: rgba(245,240,232,.45); background: transparent; border: none;
-      padding: 6px 14px; border-radius: 99px; cursor: pointer;
-      transition: color .15s, background .15s; white-space: nowrap;
-    }
-    .filter-btn:hover { color: var(--cream); background: rgba(255,255,255,.05); }
-    .filter-btn.active { color: var(--obsidian); background: var(--amber); }
+    .menu-rows { display: flex; flex-direction: column; }
 
-    /* ── Menu Grid ──────────────────────────────── */
-    .menu-section {
-      padding: 40px 0 80px;
-    }
-    .menu-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      background: var(--rule-d);
-      border: 1px solid var(--rule-d);
-      border-radius: 8px;
-      overflow: hidden;
-    }
-    @media (max-width: 900px) { .menu-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 520px)  { .menu-grid { grid-template-columns: 1fr; } }
-
-    .menu-item {
-      background: var(--surface);
-      padding: 24px 24px 22px;
-      display: flex; flex-direction: column; gap: 6px;
+    .menu-row {
+      display: grid; grid-template-columns: 1fr auto;
+      align-items: start; gap: 24px;
+      padding: clamp(20px, 3vw, 28px) clamp(28px, 5vw, 64px);
+      border-bottom: 1px solid var(--rule-d);
       transition: background .15s;
     }
-    .menu-item:hover { background: #242D29; }
-    .menu-item[hidden] { display: none; }
-
-    .mi-cat {
-      font-family: 'Inter Tight', sans-serif;
-      font-size: 9px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase;
-      color: rgba(245,240,232,.28); margin-bottom: 4px;
+    .menu-row:hover { background: rgba(255,255,255,.02); }
+    .menu-row-left { min-width: 0; }
+    .menu-row-name {
+      font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: clamp(18px, 2.2vw, 24px);
+      line-height: 1.1; color: var(--cream); margin-bottom: 5px;
     }
-    .mi-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 400; font-size: 22px; line-height: 1.1;
-      color: var(--cream); letter-spacing: -.01em;
+    .menu-row-desc {
+      font-size: 12px; font-weight: 300; color: rgba(245,240,232,.38); line-height: 1.6; max-width: 60ch;
     }
-    .mi-desc {
-      font-size: 12px; font-weight: 300; line-height: 1.55;
-      color: rgba(245,240,232,.45); margin-top: 2px; flex-grow: 1;
+    .menu-row-right { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; flex-shrink: 0; padding-top: 2px; }
+    .menu-row-price {
+      font-family: 'Inter Tight', sans-serif; font-size: 14px; font-weight: 700;
+      color: var(--amber); white-space: nowrap;
     }
-    .mi-footer {
-      display: flex; align-items: center; justify-content: space-between;
-      margin-top: 14px; padding-top: 14px;
-      border-top: 1px solid var(--rule-d);
-    }
-    .mi-price {
-      font-family: 'Inter Tight', sans-serif;
-      font-size: 14px; font-weight: 700; letter-spacing: .02em;
-      color: var(--amber);
-    }
-    .mi-badge {
-      font-family: 'Inter Tight', sans-serif;
-      font-size: 9px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
-      background: rgba(200,146,42,.15); color: var(--amber);
-      padding: 3px 8px; border-radius: 99px;
+    .menu-row-badge {
+      font-family: 'Inter Tight', sans-serif; font-size: 9px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+      color: rgba(200,146,42,.55);
+      border: 1px solid rgba(200,146,42,.25); padding: 2px 8px; border-radius: 1px;
     }
 
-    /* ── Empty state ────────────────────────────── */
+    /* ── Empty ───────────────────────────────────── */
     .menu-empty {
-      text-align: center; padding: 64px 0;
-      color: rgba(245,240,232,.35);
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic; font-size: 22px;
+      padding: clamp(56px, 8vw, 96px) clamp(28px, 5vw, 64px);
+      font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 22px;
+      color: rgba(245,240,232,.25); text-align: center;
     }
 
-    /* ── Category Section Labels ────────────────── */
-    .cat-label {
-      grid-column: 1/-1;
-      background: var(--deep);
-      padding: 20px 24px 14px;
-      font-family: 'Inter Tight', sans-serif;
-      font-size: 10px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase;
-      color: rgba(245,240,232,.28);
-      border-bottom: none;
-    }
-
-    /* ── WA Banner ──────────────────────────────── */
+    /* ── WA Banner ───────────────────────────────── */
     .wa-banner {
-      background: var(--obsidian);
       border-top: 1px solid var(--rule-d);
-      border-bottom: 1px solid var(--rule-d);
-      padding: 64px 0;
-    }
-    .wa-inner {
+      padding: clamp(48px, 7vw, 80px) clamp(28px, 5vw, 64px);
       display: flex; align-items: center; justify-content: space-between;
       gap: 40px; flex-wrap: wrap;
+      background: var(--obsidian);
     }
-    .wa-inner h2 {
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic; font-weight: 400;
-      font-size: clamp(30px, 4vw, 48px);
-      line-height: 1.1; color: var(--cream); margin-bottom: 0;
+    .wa-banner-text .eyebrow-a {
+      font-family: 'Inter Tight', sans-serif; font-size: 9px; font-weight: 700; letter-spacing: .22em; text-transform: uppercase;
+      color: var(--amber); margin-bottom: 10px;
     }
-    .btn-wa {
-      display: inline-flex; align-items: center; gap: 10px; flex-shrink: 0;
-      font-family: 'Inter Tight', sans-serif; font-size: 15px; font-weight: 700;
-      text-decoration: none; padding: 16px 36px; border-radius: 99px;
+    .wa-banner-text h2 {
+      font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 300;
+      font-size: clamp(28px, 4vw, 44px); line-height: .95; letter-spacing: -.02em;
+      color: var(--cream);
+    }
+    .wa-btn {
+      display: inline-flex; align-items: center; gap: 12px; flex-shrink: 0;
+      font-family: 'Inter Tight', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: .04em;
+      text-decoration: none; padding: 16px 32px; border-radius: 2px;
       background: var(--amber); color: var(--obsidian);
       transition: background .15s, transform .15s;
     }
-    .btn-wa:hover { background: var(--amber-s); transform: scale(1.02); }
+    .wa-btn:hover { background: var(--amber-s); transform: scale(1.02); }
 
     /* ── Footer ─────────────────────────────────── */
-    .footer { background: var(--obsidian); padding: 64px 0 0; }
-    .footer-main {
-      display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 48px;
-      padding-bottom: 56px;
-    }
-    .footer-logo {
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic; font-size: 22px; font-weight: 400;
-      color: var(--cream); text-decoration: none; display: block; margin-bottom: 12px;
-    }
-    .footer-tagline { font-size: 13px; font-weight: 300; color: rgba(245,240,232,.35); margin-bottom: 20px; }
-    .footer-social { display: flex; gap: 0; flex-wrap: wrap; }
-    .footer-social a {
-      font-size: 12px; font-weight: 300; color: rgba(245,240,232,.4);
-      text-decoration: none; transition: color .15s;
-      margin-right: 14px; margin-bottom: 6px;
-    }
+    .footer { background: var(--deep); border-top: 1px solid var(--rule-d); padding: 56px 0 0; }
+    .footer-main { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 40px; padding-bottom: 48px; margin: 0 auto; max-width: var(--maxw); padding-left: var(--pad); padding-right: var(--pad); }
+    .footer-logo { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 20px; font-weight: 300; color: var(--cream); text-decoration: none; display: block; margin-bottom: 10px; }
+    .footer-tagline { font-size: 12px; font-weight: 300; color: rgba(245,240,232,.3); margin-bottom: 20px; }
+    .footer-social { display: flex; flex-wrap: wrap; }
+    .footer-social a { font-size: 12px; font-weight: 300; color: rgba(245,240,232,.4); text-decoration: none; transition: color .15s; margin-right: 16px; margin-bottom: 6px; }
     .footer-social a:hover { color: var(--cream); }
-    .footer-col-hd {
-      font-family: 'Inter Tight', sans-serif;
-      font-size: 10px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase;
-      color: rgba(245,240,232,.28); margin-bottom: 16px;
-    }
+    .footer-col-hd { font-family: 'Inter Tight', sans-serif; font-size: 9px; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; color: rgba(245,240,232,.22); margin-bottom: 16px; }
     .footer-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-    .footer-list a {
-      font-size: 13px; font-weight: 300; color: rgba(245,240,232,.55);
-      text-decoration: none; transition: color .15s;
-    }
+    .footer-list a { font-size: 13px; font-weight: 300; color: rgba(245,240,232,.5); text-decoration: none; transition: color .15s; }
     .footer-list a:hover { color: var(--cream); }
-    .footer-info-line { font-size: 13px; font-weight: 300; color: rgba(245,240,232,.55); margin-bottom: 8px; }
-    .footer-bar {
-      border-top: 1px solid var(--rule-d); padding: 16px 0;
-      font-size: 11px; color: rgba(245,240,232,.25); text-align: center; letter-spacing: .05em;
-    }
-    @media (max-width: 900px) { .footer-main { grid-template-columns: 1fr 1fr; } .footer-brand { grid-column: 1/-1; } }
+    .footer-info { font-size: 12px; font-weight: 300; color: rgba(245,240,232,.5); line-height: 1.9; }
+    .footer-bar { border-top: 1px solid var(--rule-d); padding: 18px 0; font-family: 'Inter Tight', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: .1em; color: rgba(245,240,232,.18); text-align: center; }
+    @media (max-width: 900px) { .footer-main { grid-template-columns: 1fr 1fr; } .footer-brand { grid-column: 1 / -1; } }
     @media (max-width: 460px) { .footer-main { grid-template-columns: 1fr; } }
   </style>
 </head>
@@ -309,8 +247,8 @@
   <!-- NAV -->
   <nav class="nav" id="siteNav" aria-label="Navigasi utama">
     <div class="nav-inner">
-      <a href="index.html" class="nav-logo">
-        <span class="nav-logo-dot">·</span>
+      <a href="index.html" class="nav-logo" aria-label="Tao Kopi — Beranda">
+        <span class="nav-logo-mark" aria-hidden="true"></span>
         Tao Kopi
       </a>
       <ul class="nav-links" role="list">
@@ -319,10 +257,10 @@
         <li><a href="index.html#kunjungi">Kunjungi</a></li>
         <li><a href="index.html#reservasi">Reservasi</a></li>
       </ul>
-      <a href="https://wa.me/628120000000" class="nav-cta" target="_blank" rel="noopener">Pesan via WhatsApp</a>
+      <a href="https://wa.me/628120000000" class="nav-cta" target="_blank" rel="noopener">Pesan Sekarang</a>
       <button class="nav-burger" id="burgerBtn" aria-label="Buka menu" aria-expanded="false" aria-controls="navPanel">
-        <svg width="22" height="15" viewBox="0 0 22 15" fill="currentColor" aria-hidden="true">
-          <rect y="0" width="22" height="2"/><rect y="6.5" width="22" height="2"/><rect y="13" width="22" height="2"/>
+        <svg width="22" height="14" viewBox="0 0 22 14" fill="currentColor" aria-hidden="true">
+          <rect y="0" width="22" height="1.8"/><rect y="6" width="16" height="1.8"/><rect y="12" width="22" height="1.8"/>
         </svg>
       </button>
     </div>
@@ -337,464 +275,460 @@
     <div class="nav-panel-cta"><a href="https://wa.me/628120000000" target="_blank" rel="noopener">Pesan via WhatsApp</a></div>
   </div>
 
-  <!-- FILTER BAR -->
-  <div class="filter-bar" id="filterBar" role="navigation" aria-label="Filter menu">
-    <div class="filter-inner" role="list">
-      <button class="filter-btn active" data-cat="all" role="listitem">Semua</button>
-      <button class="filter-btn" data-cat="espresso" role="listitem">Espresso</button>
-      <button class="filter-btn" data-cat="manual-brew" role="listitem">Manual Brew</button>
-      <button class="filter-btn" data-cat="cold-brew" role="listitem">Cold Brew</button>
-      <button class="filter-btn" data-cat="non-coffee" role="listitem">Non-Coffee</button>
-      <button class="filter-btn" data-cat="makanan" role="listitem">Makanan</button>
-      <button class="filter-btn" data-cat="dessert" role="listitem">Kue &amp; Dessert</button>
-    </div>
-  </div>
+  <!-- PAGE SHELL (sidebar + main) -->
+  <div class="page-shell">
 
-  <!-- PAGE HEADER -->
-  <header class="page-header">
-    <div class="eyebrow">Menu Lengkap</div>
-    <h1>Yang kami<br>sajikan hari ini.</h1>
-    <p>Semua minuman diseduh dari biji kopi single origin Sumatera Utara. Harga belum termasuk pajak dan layanan.</p>
-  </header>
-
-  <!-- MENU GRID -->
-  <section class="menu-section" aria-label="Daftar menu">
-    <div class="wrap">
-      <div class="menu-grid" id="menuGrid">
-
-        <!-- ── ESPRESSO ──────────────────────────── -->
-        <div class="cat-label" data-cat-label="espresso">Espresso</div>
-
-        <div class="menu-item reveal" data-cat="espresso">
-          <div class="mi-cat">Espresso</div>
-          <div class="mi-name">Espresso</div>
-          <div class="mi-desc">Single shot, 25 ml. Sidikalang light-roast, caramel finish.</div>
-          <div class="mi-footer">
-            <div class="mi-price">Rp 22.000</div>
-          </div>
-        </div>
-
-        <div class="menu-item reveal" data-cat="espresso">
-          <div class="mi-cat">Espresso</div>
-          <div class="mi-name">Ristretto</div>
-          <div class="mi-desc">Short pull, concentrated. Intense, low bitterness.</div>
-          <div class="mi-footer">
-            <div class="mi-price">Rp 24.000</div>
-          </div>
-        </div>
-
-        <div class="menu-item reveal" data-cat="espresso">
-          <div class="mi-cat">Espresso</div>
-          <div class="mi-name">Americano</div>
-          <div class="mi-desc">Double espresso, hot water. Clean and straightforward.</div>
-          <div class="mi-footer">
-            <div class="mi-price">Rp 26.000</div>
-          </div>
-        </div>
-
-        <div class="menu-item reveal" data-cat="espresso">
-          <div class="mi-cat">Espresso</div>
-          <div class="mi-name">Cappuccino</div>
-          <div class="mi-desc">Double espresso, steamed milk, thick microfoam. 180 ml.</div>
-          <div class="mi-footer">
-            <div class="mi-price">Rp 32.000</div>
-          </div>
-        </div>
-
-        <div class="menu-item reveal" data-cat="espresso">
-          <div class="mi-cat">Espresso</div>
-          <div class="mi-name">Latte</div>
-          <div class="mi-desc">Double espresso, steamed milk, thin foam. Soft and milky. 280 ml.</div>
-          <div class="mi-footer">
-            <div class="mi-price">Rp 34.000</div>
-          </div>
-        </div>
-
-        <div class="menu-item reveal" data-cat="espresso">
-          <div class="mi-cat">Espresso</div>
-          <div class="mi-name">Tao Latte</div>
-          <div class="mi-desc">Espresso, palm sugar syrup, steamed full-cream milk. House signature.</div>
-          <div class="mi-footer">
-            <div class="mi-price">Rp 38.000</div>
-            <span class="mi-badge">Signature</span>
-          </div>
-        </div>
-
-        <div class="menu-item reveal" data-cat="espresso">
-          <div class="mi-cat">Espresso</div>
-          <div class="mi-name">Flat White</div>
-          <div class="mi-desc">Ristretto base, microfoam. Stronger coffee-to-milk ratio. 180 ml.</div>
-          <div class="mi-footer">
-            <div class="mi-price">Rp 34.000</div>
-          </div>
-        </div>
-
-        <div class="menu-item reveal" data-cat="espresso">
-          <div class="mi-cat">Espresso</div>
-          <div class="mi-name">Macchiato</div>
-          <div class="mi-desc">Espresso, small dollop of foamed milk. Bold and brief.</div>
-          <div class="mi-footer">
-            <div class="mi-price">Rp 28.000</div>
-          </div>
-        </div>
-
-        <!-- ── MANUAL BREW ───────────────────────── -->
-        <div class="cat-label" data-cat-label="manual-brew">Manual Brew</div>
-
-        <div class="menu-item reveal" data-cat="manual-brew">
-          <div class="mi-cat">Manual Brew</div>
-          <div class="mi-name">V60 Sidikalang</div>
-          <div class="mi-desc">Arabika Sidikalang, light roast. Floral, citrus, clean finish. 200 ml.</div>
-          <div class="mi-footer">
-            <div class="mi-price">Rp 42.000</div>
-            <span class="mi-badge">Favorit</span>
-          </div>
-        </div>
-
-        <div class="menu-item reveal" data-cat="manual-brew">
-          <div class="mi-cat">Manual Brew</div>
-          <div class="mi-name">V60 Mandheling</div>
-          <div class="mi-desc">Arabika Mandheling, medium roast. Dark chocolate, earthy, full body.</div>
-          <div class="mi-footer">
-            <div class="mi-price">Rp 42.000</div>
-          </div>
-        </div>
-
-        <div class="menu-item reveal" data-cat="manual-brew">
-          <div class="mi-cat">Manual Brew</div>
-          <div class="mi-name">Chemex Batak Highlands</div>
-          <div class="mi-desc">Blend Arabika dataran tinggi Batak, medium-light roast. Bright and layered.</div>
-          <div class="mi-footer">
-            <div class="mi-price">Rp 48.000</div>
-          </div>
-        </div>
-
-        <div class="menu-item reveal" data-cat="manual-brew">
-          <div class="mi-cat">Manual Brew</div>
-          <div class="mi-name">French Press</div>
-          <div class="mi-desc">Full immersion, coarse grind. Heavy body, bold, rustic. 300 ml.</div>
-          <div class="mi-footer">
-            <div class="mi-price">Rp 38.000</div>
-          </div>
-        </div>
-
-        <div class="menu-item reveal" data-cat="manual-brew">
-          <div class="mi-cat">Manual Brew</div>
-          <div class="mi-name">Aeropress</div>
-          <div class="mi-desc">Versatile brew method, smooth and low-acid. Ask for your preferred roast.</div>
-          <div class="mi-footer">
-            <div class="mi-price">Rp 40.000</div>
-          </div>
-        </div>
-
-        <div class="menu-item reveal" data-cat="manual-brew">
-          <div class="mi-cat">Manual Brew</div>
-          <div class="mi-name">Syphon Samosir</div>
-          <div class="mi-desc">Vacuum brewed, theatrical tableside. Sidikalang single origin. 200 ml.</div>
-          <div class="mi-footer">
-            <div class="mi-price">Rp 52.000</div>
-          </div>
-        </div>
-
-        <div class="menu-item reveal" data-cat="manual-brew">
-          <div class="mi-cat">Manual Brew</div>
-          <div class="mi-name">Pour Over Lintong</div>
-          <div class="mi-desc">Arabika Lintong Nihuta, washed process. Caramel, spice, winey.</div>
-          <div class="mi-footer">
-            <div class="mi-price">Rp 44.000</div>
-          </div>
-        </div>
-
-        <!-- ── COLD BREW ──────────────────────────── -->
-        <div class="cat-label" data-cat-label="cold-brew">Cold Brew</div>
-
-        <div class="menu-item reveal" data-cat="cold-brew">
-          <div class="mi-cat">Cold Brew</div>
-          <div class="mi-name">Cold Brew Classic</div>
-          <div class="mi-desc">18-hour cold steep, Mandheling blend. Smooth, low acid, naturally sweet.</div>
-          <div class="mi-footer">
-            <div class="mi-price">Rp 36.000</div>
-          </div>
-        </div>
-
-        <div class="menu-item reveal" data-cat="cold-brew">
-          <div class="mi-cat">Cold Brew</div>
-          <div class="mi-name">Cold Brew Tonic</div>
-          <div class="mi-desc">Cold brew over tonic water, lemon twist. Effervescent and sharp.</div>
-          <div class="mi-footer">
-            <div class="mi-price">Rp 40.000</div>
-          </div>
-        </div>
-
-        <div class="menu-item reveal" data-cat="cold-brew">
-          <div class="mi-cat">Cold Brew</div>
-          <div class="mi-name">Cold Brew Milk</div>
-          <div class="mi-desc">Cold brew, fresh milk, palm sugar. Rich, chilled, slightly sweet.</div>
-          <div class="mi-footer">
-            <div class="mi-price">Rp 38.000</div>
-          </div>
-        </div>
-
-        <div class="menu-item reveal" data-cat="cold-brew">
-          <div class="mi-cat">Cold Brew</div>
-          <div class="mi-name">Cold Brew Float</div>
-          <div class="mi-desc">Cold brew dengan satu scoop es krim vanila. Dessert in a glass.</div>
-          <div class="mi-footer">
-            <div class="mi-price">Rp 44.000</div>
-          </div>
-        </div>
-
-        <div class="menu-item reveal" data-cat="cold-brew">
-          <div class="mi-cat">Cold Brew</div>
-          <div class="mi-name">Nitro Cold Brew</div>
-          <div class="mi-desc">Nitrogen-infused cold brew on tap. Creamy head, velvety texture. No ice.</div>
-          <div class="mi-footer">
-            <div class="mi-price">Rp 46.000</div>
-            <span class="mi-badge">On Tap</span>
-          </div>
-        </div>
-
-        <!-- ── NON-COFFEE ─────────────────────────── -->
-        <div class="cat-label" data-cat-label="non-coffee">Non-Coffee</div>
-
-        <div class="menu-item reveal" data-cat="non-coffee">
-          <div class="mi-cat">Non-Coffee</div>
-          <div class="mi-name">Susu Jahe Toba</div>
-          <div class="mi-desc">Fresh milk, local ginger, palm sugar. Warm and grounding. Served hot.</div>
-          <div class="mi-footer">
-            <div class="mi-price">Rp 28.000</div>
-            <span class="mi-badge">Favorit</span>
-          </div>
-        </div>
-
-        <div class="menu-item reveal" data-cat="non-coffee">
-          <div class="mi-cat">Non-Coffee</div>
-          <div class="mi-name">Teh Danau</div>
-          <div class="mi-desc">Blue pea flower tea, lemon honey, crushed ice. Color changes before your eyes.</div>
-          <div class="mi-footer">
-            <div class="mi-price">Rp 26.000</div>
-          </div>
-        </div>
-
-        <div class="menu-item reveal" data-cat="non-coffee">
-          <div class="mi-cat">Non-Coffee</div>
-          <div class="mi-name">Lemon Mint</div>
-          <div class="mi-desc">Fresh lemon juice, mint leaves, cane sugar, sparkling water.</div>
-          <div class="mi-footer">
-            <div class="mi-price">Rp 28.000</div>
-          </div>
-        </div>
-
-        <div class="menu-item reveal" data-cat="non-coffee">
-          <div class="mi-cat">Non-Coffee</div>
-          <div class="mi-name">Cokelat Panas</div>
-          <div class="mi-desc">Single origin cacao, full-cream steamed milk. Bittersweet and deep.</div>
-          <div class="mi-footer">
-            <div class="mi-price">Rp 30.000</div>
-          </div>
-        </div>
-
-        <div class="menu-item reveal" data-cat="non-coffee">
-          <div class="mi-cat">Non-Coffee</div>
-          <div class="mi-name">Bandrek Toba</div>
-          <div class="mi-desc">Rempah tradisional: jahe, kayu manis, cengkeh, serai. Served hot.</div>
-          <div class="mi-footer">
-            <div class="mi-price">Rp 24.000</div>
-          </div>
-        </div>
-
-        <div class="menu-item reveal" data-cat="non-coffee">
-          <div class="mi-cat">Non-Coffee</div>
-          <div class="mi-name">Susu Kedelai Hangat</div>
-          <div class="mi-desc">Homemade soy milk, palm sugar, vanilla. Dairy-free and warming.</div>
-          <div class="mi-footer">
-            <div class="mi-price">Rp 26.000</div>
-          </div>
-        </div>
-
-        <!-- ── MAKANAN ────────────────────────────── -->
-        <div class="cat-label" data-cat-label="makanan">Makanan</div>
-
-        <div class="menu-item reveal" data-cat="makanan">
-          <div class="mi-cat">Makanan</div>
-          <div class="mi-name">Roti Bakar Srikaya</div>
-          <div class="mi-desc">Thick-cut toast, homemade pandan srikaya, cold salted butter. Served warm.</div>
-          <div class="mi-footer">
-            <div class="mi-price">Rp 32.000</div>
-            <span class="mi-badge">Favorit</span>
-          </div>
-        </div>
-
-        <div class="menu-item reveal" data-cat="makanan">
-          <div class="mi-cat">Makanan</div>
-          <div class="mi-name">Nasi Goreng Batak</div>
-          <div class="mi-desc">Nasi goreng bumbu andaliman, bawang goreng, telur ceplok, kerupuk udang.</div>
-          <div class="mi-footer">
-            <div class="mi-price">Rp 48.000</div>
-          </div>
-        </div>
-
-        <div class="menu-item reveal" data-cat="makanan">
-          <div class="mi-cat">Makanan</div>
-          <div class="mi-name">Mie Goreng Samosir</div>
-          <div class="mi-desc">Mie kuning, sayuran, cabai rawit, telur dadar. Simple dan memuaskan.</div>
-          <div class="mi-footer">
-            <div class="mi-price">Rp 44.000</div>
-          </div>
-        </div>
-
-        <div class="menu-item reveal" data-cat="makanan">
-          <div class="mi-cat">Makanan</div>
-          <div class="mi-name">Avocado Toast</div>
-          <div class="mi-desc">Sourdough, smashed avocado, poached egg, lemon zest, chili flakes.</div>
-          <div class="mi-footer">
-            <div class="mi-price">Rp 52.000</div>
-          </div>
-        </div>
-
-        <div class="menu-item reveal" data-cat="makanan">
-          <div class="mi-cat">Makanan</div>
-          <div class="mi-name">Telur Mata Sapi</div>
-          <div class="mi-desc">Two sunny-side-up eggs, buttered toast, pickled chili, sea salt.</div>
-          <div class="mi-footer">
-            <div class="mi-price">Rp 28.000</div>
-          </div>
-        </div>
-
-        <div class="menu-item reveal" data-cat="makanan">
-          <div class="mi-cat">Makanan</div>
-          <div class="mi-name">Pisang Goreng Batak</div>
-          <div class="mi-desc">Pisang kepok goreng crispy, siraman madu, taburan wijen. Comfort food.</div>
-          <div class="mi-footer">
-            <div class="mi-price">Rp 26.000</div>
-          </div>
-        </div>
-
-        <div class="menu-item reveal" data-cat="makanan">
-          <div class="mi-cat">Makanan</div>
-          <div class="mi-name">Risol Mayo</div>
-          <div class="mi-desc">Crispy pastry filled with chicken, vegetables, and creamy mayo.</div>
-          <div class="mi-footer">
-            <div class="mi-price">Rp 24.000</div>
-          </div>
-        </div>
-
-        <!-- ── DESSERT ────────────────────────────── -->
-        <div class="cat-label" data-cat-label="dessert">Kue &amp; Dessert</div>
-
-        <div class="menu-item reveal" data-cat="dessert">
-          <div class="mi-cat">Kue &amp; Dessert</div>
-          <div class="mi-name">Klepon Toba</div>
-          <div class="mi-desc">Glutinous rice balls, palm sugar center, pandan skin, grated coconut.</div>
-          <div class="mi-footer">
-            <div class="mi-price">Rp 28.000</div>
-            <span class="mi-badge">Tradisional</span>
-          </div>
-        </div>
-
-        <div class="menu-item reveal" data-cat="dessert">
-          <div class="mi-cat">Kue &amp; Dessert</div>
-          <div class="mi-name">Pandan Cake</div>
-          <div class="mi-desc">Soft pandan chiffon, coconut cream, light dusting of pandan powder.</div>
-          <div class="mi-footer">
-            <div class="mi-price">Rp 32.000</div>
-          </div>
-        </div>
-
-        <div class="menu-item reveal" data-cat="dessert">
-          <div class="mi-cat">Kue &amp; Dessert</div>
-          <div class="mi-name">Es Krim Gula Aren</div>
-          <div class="mi-desc">Two scoops vanilla ice cream, palm sugar drizzle, sea salt pinch.</div>
-          <div class="mi-footer">
-            <div class="mi-price">Rp 34.000</div>
-          </div>
-        </div>
-
-        <div class="menu-item reveal" data-cat="dessert">
-          <div class="mi-cat">Kue &amp; Dessert</div>
-          <div class="mi-name">Waffles Kopi</div>
-          <div class="mi-desc">Crispy waffle batter with espresso notes, served with maple syrup and cream.</div>
-          <div class="mi-footer">
-            <div class="mi-price">Rp 42.000</div>
-          </div>
-        </div>
-
-        <div class="menu-item reveal" data-cat="dessert">
-          <div class="mi-cat">Kue &amp; Dessert</div>
-          <div class="mi-name">Pisang Goreng Keju</div>
-          <div class="mi-desc">Banana fritter, grated cheese, condensed milk. Classic warung-style.</div>
-          <div class="mi-footer">
-            <div class="mi-price">Rp 26.000</div>
-          </div>
-        </div>
-
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar" aria-label="Filter kategori">
+      <div class="sidebar-head">
+        <div class="sidebar-eyebrow">Kategori</div>
+        <div class="sidebar-title">Menu</div>
       </div>
+      <nav class="sidebar-nav" role="navigation">
+        <button class="sidebar-btn active" data-cat="all">
+          Semua Menu <span class="sidebar-count">38</span>
+        </button>
+        <button class="sidebar-btn" data-cat="espresso">
+          Espresso <span class="sidebar-count">8</span>
+        </button>
+        <button class="sidebar-btn" data-cat="manual-brew">
+          Manual Brew <span class="sidebar-count">7</span>
+        </button>
+        <button class="sidebar-btn" data-cat="cold-brew">
+          Cold Brew <span class="sidebar-count">5</span>
+        </button>
+        <button class="sidebar-btn" data-cat="non-coffee">
+          Non-Coffee <span class="sidebar-count">6</span>
+        </button>
+        <button class="sidebar-btn" data-cat="makanan">
+          Makanan <span class="sidebar-count">7</span>
+        </button>
+        <button class="sidebar-btn" data-cat="dessert">
+          Kue &amp; Dessert <span class="sidebar-count">5</span>
+        </button>
+      </nav>
+      <div class="sidebar-footer">
+        <div class="sidebar-info">
+          Tuk Tuk Siadong<br>
+          Samosir, Danau Toba<br><br>
+          Selasa–Minggu<br>
+          08.00–21.00 WIB
+        </div>
+      </div>
+    </aside>
 
+    <!-- MAIN CONTENT -->
+    <main class="menu-main" id="menuMain">
+
+      <!-- Page header -->
+      <header class="page-header">
+        <div class="page-header-eyebrow">Menu Lengkap</div>
+        <h1>Yang kami<br>sajikan.</h1>
+        <p>Single origin Sumatera Utara. Semua harga belum termasuk pajak dan layanan.</p>
+      </header>
+
+      <!-- ESPRESSO -->
+      <section class="menu-category" id="cat-espresso" data-cat="espresso" aria-labelledby="lbl-espresso">
+        <div class="cat-header">
+          <h2 id="lbl-espresso" class="cat-header-name">Espresso</h2>
+          <span class="cat-header-count">8 item</span>
+        </div>
+        <div class="menu-rows">
+          <div class="menu-row reveal">
+            <div class="menu-row-left">
+              <div class="menu-row-name">Espresso</div>
+              <div class="menu-row-desc">Single shot, 25 ml. Sidikalang light-roast, caramel finish.</div>
+            </div>
+            <div class="menu-row-right"><span class="menu-row-price">Rp 22.000</span></div>
+          </div>
+          <div class="menu-row reveal">
+            <div class="menu-row-left">
+              <div class="menu-row-name">Ristretto</div>
+              <div class="menu-row-desc">Short pull, concentrated. Intense, low bitterness.</div>
+            </div>
+            <div class="menu-row-right"><span class="menu-row-price">Rp 24.000</span></div>
+          </div>
+          <div class="menu-row reveal">
+            <div class="menu-row-left">
+              <div class="menu-row-name">Americano</div>
+              <div class="menu-row-desc">Double espresso, hot water. Clean and straightforward.</div>
+            </div>
+            <div class="menu-row-right"><span class="menu-row-price">Rp 26.000</span></div>
+          </div>
+          <div class="menu-row reveal">
+            <div class="menu-row-left">
+              <div class="menu-row-name">Cappuccino</div>
+              <div class="menu-row-desc">Double espresso, steamed milk, thick microfoam. 180 ml.</div>
+            </div>
+            <div class="menu-row-right"><span class="menu-row-price">Rp 32.000</span></div>
+          </div>
+          <div class="menu-row reveal">
+            <div class="menu-row-left">
+              <div class="menu-row-name">Latte</div>
+              <div class="menu-row-desc">Double espresso, steamed milk, thin foam. Soft and milky. 280 ml.</div>
+            </div>
+            <div class="menu-row-right"><span class="menu-row-price">Rp 34.000</span></div>
+          </div>
+          <div class="menu-row reveal">
+            <div class="menu-row-left">
+              <div class="menu-row-name">Tao Latte</div>
+              <div class="menu-row-desc">Espresso, palm sugar syrup, steamed full-cream milk. House signature.</div>
+            </div>
+            <div class="menu-row-right">
+              <span class="menu-row-price">Rp 38.000</span>
+              <span class="menu-row-badge">Signature</span>
+            </div>
+          </div>
+          <div class="menu-row reveal">
+            <div class="menu-row-left">
+              <div class="menu-row-name">Flat White</div>
+              <div class="menu-row-desc">Ristretto base, microfoam. Stronger coffee-to-milk ratio. 180 ml.</div>
+            </div>
+            <div class="menu-row-right"><span class="menu-row-price">Rp 34.000</span></div>
+          </div>
+          <div class="menu-row reveal">
+            <div class="menu-row-left">
+              <div class="menu-row-name">Macchiato</div>
+              <div class="menu-row-desc">Espresso, small dollop of foamed milk. Bold and brief.</div>
+            </div>
+            <div class="menu-row-right"><span class="menu-row-price">Rp 28.000</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- MANUAL BREW -->
+      <section class="menu-category" id="cat-manual-brew" data-cat="manual-brew" aria-labelledby="lbl-manual">
+        <div class="cat-header">
+          <h2 id="lbl-manual" class="cat-header-name">Manual Brew</h2>
+          <span class="cat-header-count">7 item</span>
+        </div>
+        <div class="menu-rows">
+          <div class="menu-row reveal">
+            <div class="menu-row-left">
+              <div class="menu-row-name">V60 Sidikalang</div>
+              <div class="menu-row-desc">Arabika Sidikalang, light roast. Floral, citrus, clean finish. 200 ml.</div>
+            </div>
+            <div class="menu-row-right">
+              <span class="menu-row-price">Rp 42.000</span>
+              <span class="menu-row-badge">Favorit</span>
+            </div>
+          </div>
+          <div class="menu-row reveal">
+            <div class="menu-row-left">
+              <div class="menu-row-name">V60 Mandheling</div>
+              <div class="menu-row-desc">Arabika Mandheling, medium roast. Dark chocolate, earthy, full body.</div>
+            </div>
+            <div class="menu-row-right"><span class="menu-row-price">Rp 42.000</span></div>
+          </div>
+          <div class="menu-row reveal">
+            <div class="menu-row-left">
+              <div class="menu-row-name">Chemex Batak Highlands</div>
+              <div class="menu-row-desc">Blend Arabika dataran tinggi Batak, medium-light roast. Bright and layered.</div>
+            </div>
+            <div class="menu-row-right"><span class="menu-row-price">Rp 48.000</span></div>
+          </div>
+          <div class="menu-row reveal">
+            <div class="menu-row-left">
+              <div class="menu-row-name">French Press</div>
+              <div class="menu-row-desc">Full immersion, coarse grind. Heavy body, bold, rustic. 300 ml.</div>
+            </div>
+            <div class="menu-row-right"><span class="menu-row-price">Rp 38.000</span></div>
+          </div>
+          <div class="menu-row reveal">
+            <div class="menu-row-left">
+              <div class="menu-row-name">Aeropress</div>
+              <div class="menu-row-desc">Smooth and low-acid. Ask for your preferred roast level.</div>
+            </div>
+            <div class="menu-row-right"><span class="menu-row-price">Rp 40.000</span></div>
+          </div>
+          <div class="menu-row reveal">
+            <div class="menu-row-left">
+              <div class="menu-row-name">Syphon Samosir</div>
+              <div class="menu-row-desc">Vacuum brewed tableside. Sidikalang single origin. 200 ml.</div>
+            </div>
+            <div class="menu-row-right"><span class="menu-row-price">Rp 52.000</span></div>
+          </div>
+          <div class="menu-row reveal">
+            <div class="menu-row-left">
+              <div class="menu-row-name">Pour Over Lintong</div>
+              <div class="menu-row-desc">Arabika Lintong Nihuta, washed. Caramel, spice, winey.</div>
+            </div>
+            <div class="menu-row-right"><span class="menu-row-price">Rp 44.000</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- COLD BREW -->
+      <section class="menu-category" id="cat-cold-brew" data-cat="cold-brew" aria-labelledby="lbl-cold">
+        <div class="cat-header">
+          <h2 id="lbl-cold" class="cat-header-name">Cold Brew</h2>
+          <span class="cat-header-count">5 item</span>
+        </div>
+        <div class="menu-rows">
+          <div class="menu-row reveal">
+            <div class="menu-row-left">
+              <div class="menu-row-name">Cold Brew Classic</div>
+              <div class="menu-row-desc">18-hour cold steep, Mandheling blend. Smooth, low acid, naturally sweet.</div>
+            </div>
+            <div class="menu-row-right"><span class="menu-row-price">Rp 36.000</span></div>
+          </div>
+          <div class="menu-row reveal">
+            <div class="menu-row-left">
+              <div class="menu-row-name">Cold Brew Tonic</div>
+              <div class="menu-row-desc">Cold brew over tonic water, lemon twist. Effervescent and sharp.</div>
+            </div>
+            <div class="menu-row-right"><span class="menu-row-price">Rp 40.000</span></div>
+          </div>
+          <div class="menu-row reveal">
+            <div class="menu-row-left">
+              <div class="menu-row-name">Cold Brew Milk</div>
+              <div class="menu-row-desc">Cold brew, fresh milk, palm sugar. Rich, chilled, slightly sweet.</div>
+            </div>
+            <div class="menu-row-right"><span class="menu-row-price">Rp 38.000</span></div>
+          </div>
+          <div class="menu-row reveal">
+            <div class="menu-row-left">
+              <div class="menu-row-name">Cold Brew Float</div>
+              <div class="menu-row-desc">Cold brew dengan satu scoop es krim vanila. Dessert in a glass.</div>
+            </div>
+            <div class="menu-row-right"><span class="menu-row-price">Rp 44.000</span></div>
+          </div>
+          <div class="menu-row reveal">
+            <div class="menu-row-left">
+              <div class="menu-row-name">Nitro Cold Brew</div>
+              <div class="menu-row-desc">Nitrogen-infused cold brew on tap. Creamy head, velvety texture. No ice.</div>
+            </div>
+            <div class="menu-row-right">
+              <span class="menu-row-price">Rp 46.000</span>
+              <span class="menu-row-badge">On Tap</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- NON-COFFEE -->
+      <section class="menu-category" id="cat-non-coffee" data-cat="non-coffee" aria-labelledby="lbl-noncoffee">
+        <div class="cat-header">
+          <h2 id="lbl-noncoffee" class="cat-header-name">Non-Coffee</h2>
+          <span class="cat-header-count">6 item</span>
+        </div>
+        <div class="menu-rows">
+          <div class="menu-row reveal">
+            <div class="menu-row-left">
+              <div class="menu-row-name">Susu Jahe Toba</div>
+              <div class="menu-row-desc">Fresh milk, local ginger, palm sugar. Warm and grounding. Served hot.</div>
+            </div>
+            <div class="menu-row-right">
+              <span class="menu-row-price">Rp 28.000</span>
+              <span class="menu-row-badge">Favorit</span>
+            </div>
+          </div>
+          <div class="menu-row reveal">
+            <div class="menu-row-left">
+              <div class="menu-row-name">Teh Danau</div>
+              <div class="menu-row-desc">Blue pea flower tea, lemon honey, crushed ice. Color changes before your eyes.</div>
+            </div>
+            <div class="menu-row-right"><span class="menu-row-price">Rp 26.000</span></div>
+          </div>
+          <div class="menu-row reveal">
+            <div class="menu-row-left">
+              <div class="menu-row-name">Lemon Mint</div>
+              <div class="menu-row-desc">Fresh lemon juice, mint leaves, cane sugar, sparkling water.</div>
+            </div>
+            <div class="menu-row-right"><span class="menu-row-price">Rp 28.000</span></div>
+          </div>
+          <div class="menu-row reveal">
+            <div class="menu-row-left">
+              <div class="menu-row-name">Cokelat Panas</div>
+              <div class="menu-row-desc">Single origin cacao, full-cream steamed milk. Bittersweet and deep.</div>
+            </div>
+            <div class="menu-row-right"><span class="menu-row-price">Rp 30.000</span></div>
+          </div>
+          <div class="menu-row reveal">
+            <div class="menu-row-left">
+              <div class="menu-row-name">Bandrek Toba</div>
+              <div class="menu-row-desc">Rempah tradisional: jahe, kayu manis, cengkeh, serai. Served hot.</div>
+            </div>
+            <div class="menu-row-right"><span class="menu-row-price">Rp 24.000</span></div>
+          </div>
+          <div class="menu-row reveal">
+            <div class="menu-row-left">
+              <div class="menu-row-name">Susu Kedelai Hangat</div>
+              <div class="menu-row-desc">Homemade soy milk, palm sugar, vanilla. Dairy-free and warming.</div>
+            </div>
+            <div class="menu-row-right"><span class="menu-row-price">Rp 26.000</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- MAKANAN -->
+      <section class="menu-category" id="cat-makanan" data-cat="makanan" aria-labelledby="lbl-makanan">
+        <div class="cat-header">
+          <h2 id="lbl-makanan" class="cat-header-name">Makanan</h2>
+          <span class="cat-header-count">7 item</span>
+        </div>
+        <div class="menu-rows">
+          <div class="menu-row reveal">
+            <div class="menu-row-left">
+              <div class="menu-row-name">Roti Bakar Srikaya</div>
+              <div class="menu-row-desc">Thick-cut toast, homemade pandan srikaya, cold salted butter.</div>
+            </div>
+            <div class="menu-row-right">
+              <span class="menu-row-price">Rp 32.000</span>
+              <span class="menu-row-badge">Favorit</span>
+            </div>
+          </div>
+          <div class="menu-row reveal">
+            <div class="menu-row-left">
+              <div class="menu-row-name">Nasi Goreng Batak</div>
+              <div class="menu-row-desc">Nasi goreng bumbu andaliman, bawang goreng, telur ceplok, kerupuk udang.</div>
+            </div>
+            <div class="menu-row-right"><span class="menu-row-price">Rp 48.000</span></div>
+          </div>
+          <div class="menu-row reveal">
+            <div class="menu-row-left">
+              <div class="menu-row-name">Mie Goreng Samosir</div>
+              <div class="menu-row-desc">Mie kuning, sayuran, cabai rawit, telur dadar. Simple dan memuaskan.</div>
+            </div>
+            <div class="menu-row-right"><span class="menu-row-price">Rp 44.000</span></div>
+          </div>
+          <div class="menu-row reveal">
+            <div class="menu-row-left">
+              <div class="menu-row-name">Avocado Toast</div>
+              <div class="menu-row-desc">Sourdough, smashed avocado, poached egg, lemon zest, chili flakes.</div>
+            </div>
+            <div class="menu-row-right"><span class="menu-row-price">Rp 52.000</span></div>
+          </div>
+          <div class="menu-row reveal">
+            <div class="menu-row-left">
+              <div class="menu-row-name">Telur Mata Sapi</div>
+              <div class="menu-row-desc">Two sunny-side-up eggs, buttered toast, pickled chili, sea salt.</div>
+            </div>
+            <div class="menu-row-right"><span class="menu-row-price">Rp 28.000</span></div>
+          </div>
+          <div class="menu-row reveal">
+            <div class="menu-row-left">
+              <div class="menu-row-name">Pisang Goreng Batak</div>
+              <div class="menu-row-desc">Pisang kepok goreng crispy, siraman madu, taburan wijen.</div>
+            </div>
+            <div class="menu-row-right"><span class="menu-row-price">Rp 26.000</span></div>
+          </div>
+          <div class="menu-row reveal">
+            <div class="menu-row-left">
+              <div class="menu-row-name">Risol Mayo</div>
+              <div class="menu-row-desc">Crispy pastry filled with chicken, vegetables, and creamy mayo.</div>
+            </div>
+            <div class="menu-row-right"><span class="menu-row-price">Rp 24.000</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- DESSERT -->
+      <section class="menu-category" id="cat-dessert" data-cat="dessert" aria-labelledby="lbl-dessert">
+        <div class="cat-header">
+          <h2 id="lbl-dessert" class="cat-header-name">Kue &amp; Dessert</h2>
+          <span class="cat-header-count">5 item</span>
+        </div>
+        <div class="menu-rows">
+          <div class="menu-row reveal">
+            <div class="menu-row-left">
+              <div class="menu-row-name">Klepon Toba</div>
+              <div class="menu-row-desc">Glutinous rice balls, palm sugar center, pandan skin, grated coconut.</div>
+            </div>
+            <div class="menu-row-right">
+              <span class="menu-row-price">Rp 28.000</span>
+              <span class="menu-row-badge">Tradisional</span>
+            </div>
+          </div>
+          <div class="menu-row reveal">
+            <div class="menu-row-left">
+              <div class="menu-row-name">Pandan Cake</div>
+              <div class="menu-row-desc">Soft pandan chiffon, coconut cream, light dusting of pandan powder.</div>
+            </div>
+            <div class="menu-row-right"><span class="menu-row-price">Rp 32.000</span></div>
+          </div>
+          <div class="menu-row reveal">
+            <div class="menu-row-left">
+              <div class="menu-row-name">Es Krim Gula Aren</div>
+              <div class="menu-row-desc">Two scoops vanilla ice cream, palm sugar drizzle, sea salt pinch.</div>
+            </div>
+            <div class="menu-row-right"><span class="menu-row-price">Rp 34.000</span></div>
+          </div>
+          <div class="menu-row reveal">
+            <div class="menu-row-left">
+              <div class="menu-row-name">Waffles Kopi</div>
+              <div class="menu-row-desc">Crispy waffle with espresso notes, served with maple syrup and cream.</div>
+            </div>
+            <div class="menu-row-right"><span class="menu-row-price">Rp 42.000</span></div>
+          </div>
+          <div class="menu-row reveal">
+            <div class="menu-row-left">
+              <div class="menu-row-name">Pisang Goreng Keju</div>
+              <div class="menu-row-desc">Banana fritter, grated cheese, condensed milk. Classic warung-style.</div>
+            </div>
+            <div class="menu-row-right"><span class="menu-row-price">Rp 26.000</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Empty state (hidden by default) -->
       <div class="menu-empty" id="menuEmpty" hidden aria-live="polite">
         Tidak ada item dalam kategori ini.
       </div>
-    </div>
-  </section>
 
-  <!-- WA BANNER -->
-  <section class="wa-banner" aria-labelledby="wa-h2">
-    <div class="wrap">
-      <div class="wa-inner">
-        <div>
-          <div class="eyebrow">Reservasi &amp; Pertanyaan</div>
-          <h2 id="wa-h2">Ada yang ingin ditanyakan<br>atau ingin booking meja?</h2>
+      <!-- WA BANNER -->
+      <div class="wa-banner">
+        <div class="wa-banner-text">
+          <div class="eyebrow-a">Reservasi &amp; Pertanyaan</div>
+          <h2>Ada pertanyaan<br>atau ingin booking?</h2>
         </div>
-        <a href="https://wa.me/628120000000" class="btn-wa" target="_blank" rel="noopener">
-          <svg width="18" height="18" viewBox="0 0 18 18" fill="currentColor" aria-hidden="true"><path d="M9 0C4.03 0 0 4.03 0 9c0 1.59.42 3.08 1.14 4.38L0 18l4.72-1.12A8.98 8.98 0 009 18c4.97 0 9-4.03 9-9S13.97 0 9 0zm4.7 12.6c-.2.55-1.15 1.05-1.6 1.1-.43.05-.98.07-1.58-.1-.37-.1-.84-.25-1.44-.5C6.5 12.1 5 9.75 4.9 9.6c-.1-.15-.8-1.07-.8-2.04 0-.97.5-1.44.69-1.64.19-.2.4-.25.54-.25h.39c.12 0 .29-.04.45.35.17.4.58 1.4.63 1.5.05.1.08.22.02.35-.07.13-.1.21-.2.32-.1.1-.2.23-.3.31-.1.1-.2.2-.09.38.11.2.5.82 1.06 1.33.73.65 1.34.85 1.53.94.2.1.31.08.43-.05.12-.13.5-.58.63-.78.13-.2.27-.17.45-.1.18.07 1.15.54 1.35.64.2.1.33.15.38.23.05.09.05.5-.15 1.05z"/></svg>
+        <a href="https://wa.me/628120000000" class="wa-btn" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 18 18" fill="currentColor" aria-hidden="true"><path d="M9 0C4.03 0 0 4.03 0 9c0 1.59.42 3.08 1.14 4.38L0 18l4.72-1.12A8.98 8.98 0 009 18c4.97 0 9-4.03 9-9S13.97 0 9 0zm4.7 12.6c-.2.55-1.15 1.05-1.6 1.1-.43.05-.98.07-1.58-.1-.37-.1-.84-.25-1.44-.5C6.5 12.1 5 9.75 4.9 9.6c-.1-.15-.8-1.07-.8-2.04 0-.97.5-1.44.69-1.64.19-.2.4-.25.54-.25h.39c.12 0 .29-.04.45.35.17.4.58 1.4.63 1.5.05.1.08.22.02.35-.07.13-.1.21-.2.32-.1.1-.2.23-.3.31-.1.1-.2.2-.09.38.11.2.5.82 1.06 1.33.73.65 1.34.85 1.53.94.2.1.31.08.43-.05.12-.13.5-.58.63-.78.13-.2.27-.17.45-.1.18.07 1.15.54 1.35.64.2.1.33.15.38.23.05.09.05.5-.15 1.05z"/></svg>
           Chat WhatsApp
         </a>
       </div>
-    </div>
-  </section>
+
+    </main>
+  </div>
 
   <!-- FOOTER -->
   <footer class="footer" aria-label="Footer">
-    <div class="wrap">
-      <div class="footer-main">
-        <div class="footer-brand">
-          <a href="index.html" class="footer-logo">Tao Kopi</a>
-          <p class="footer-tagline">Kopi di tepi danau. Tenang, dalam, hangat.</p>
-          <div class="footer-social">
-            <a href="https://instagram.com/taokopi.toba" target="_blank" rel="noopener">@taokopi.toba</a>
-            <a href="https://wa.me/628120000000" target="_blank" rel="noopener">WhatsApp</a>
-          </div>
+    <div class="footer-main">
+      <div class="footer-brand">
+        <a href="index.html" class="footer-logo">Tao Kopi</a>
+        <p class="footer-tagline">Kopi di tepi danau. Tenang, dalam, hangat.</p>
+        <div class="footer-social">
+          <a href="https://instagram.com/taokopi.toba" target="_blank" rel="noopener">@taokopi.toba</a>
+          <a href="https://wa.me/628120000000" target="_blank" rel="noopener">WhatsApp</a>
         </div>
-        <div>
-          <div class="footer-col-hd">Menu</div>
-          <ul class="footer-list" role="list">
-            <li><a href="menu.html?cat=espresso">Espresso</a></li>
-            <li><a href="menu.html?cat=manual-brew">Manual Brew</a></li>
-            <li><a href="menu.html?cat=cold-brew">Cold Brew</a></li>
-            <li><a href="menu.html?cat=non-coffee">Non-Coffee</a></li>
-            <li><a href="menu.html?cat=makanan">Makanan</a></li>
-            <li><a href="menu.html?cat=dessert">Kue &amp; Dessert</a></li>
-          </ul>
+      </div>
+      <div>
+        <div class="footer-col-hd">Menu</div>
+        <ul class="footer-list" role="list">
+          <li><a href="menu.html?cat=espresso">Espresso</a></li>
+          <li><a href="menu.html?cat=manual-brew">Manual Brew</a></li>
+          <li><a href="menu.html?cat=cold-brew">Cold Brew</a></li>
+          <li><a href="menu.html?cat=non-coffee">Non-Coffee</a></li>
+          <li><a href="menu.html?cat=makanan">Makanan</a></li>
+          <li><a href="menu.html?cat=dessert">Kue &amp; Dessert</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-hd">Kunjungi</div>
+        <div class="footer-info">
+          Tuk Tuk Siadong<br>Samosir Island<br>Danau Toba<br><br>
+          <span style="color:rgba(245,240,232,.3);font-size:11px;">Selasa–Minggu · 08.00–21.00</span>
         </div>
-        <div>
-          <div class="footer-col-hd">Kunjungi</div>
-          <div class="footer-info-line">Tuk Tuk Siadong</div>
-          <div class="footer-info-line">Samosir Island, Danau Toba</div>
-          <div class="footer-info-line">Sumatera Utara</div>
-          <div class="footer-info-line" style="margin-top:12px;color:rgba(245,240,232,.35);font-size:12px;">
-            Selasa – Minggu<br>08.00 – 21.00 WIB<br><br>Senin tutup.
-          </div>
-        </div>
-        <div>
-          <div class="footer-col-hd">Kontak</div>
-          <div class="footer-info-line">+62 812-XXXX-XXXX</div>
-          <div class="footer-info-line">hello@taokopi.co.id</div>
-          <div class="footer-info-line" style="margin-top:12px;">
-            <a href="https://maps.google.com" target="_blank" rel="noopener" style="color:rgba(245,240,232,.55);font-size:13px;text-decoration:none;">Lihat di Maps →</a>
-          </div>
+      </div>
+      <div>
+        <div class="footer-col-hd">Kontak</div>
+        <div class="footer-info">
+          +62 812-XXXX-XXXX<br>hello@taokopi.co.id<br><br>
+          <a href="https://maps.google.com" target="_blank" rel="noopener" style="color:rgba(245,240,232,.5);font-size:12px;text-decoration:none;">Lihat di Maps →</a>
         </div>
       </div>
     </div>
-    <div class="footer-bar">&copy; 2024 Tao Kopi &nbsp;·&nbsp; Tuk Tuk, Samosir &nbsp;·&nbsp; Danau Toba</div>
+    <div class="footer-bar">© 2024 Tao Kopi &nbsp;·&nbsp; Tuk Tuk Siadong, Samosir &nbsp;·&nbsp; Danau Toba</div>
   </footer>
 
   <script>
@@ -811,10 +745,7 @@
       burger.setAttribute('aria-expanded', String(open));
     });
     panel.querySelectorAll('a').forEach(function (a) {
-      a.addEventListener('click', function () {
-        open = false; panel.classList.remove('open');
-        burger.setAttribute('aria-expanded', 'false');
-      });
+      a.addEventListener('click', function () { open = false; panel.classList.remove('open'); burger.setAttribute('aria-expanded', 'false'); });
     });
 
     /* ── Scroll reveal ───────────────────────── */
@@ -822,55 +753,43 @@
       entries.forEach(function (e) {
         if (e.isIntersecting) { e.target.classList.add('vis'); observer.unobserve(e.target); }
       });
-    }, { threshold: 0.06, rootMargin: '0px 0px -20px 0px' });
+    }, { threshold: 0.05, rootMargin: '0px 0px -16px 0px' });
     document.querySelectorAll('.reveal').forEach(function (el) { observer.observe(el); });
 
-    /* ── Category filter + URL sync ─────────── */
-    var btns    = document.querySelectorAll('.filter-btn');
-    var items   = document.querySelectorAll('.menu-item[data-cat]');
-    var labels  = document.querySelectorAll('.cat-label[data-cat-label]');
-    var empty   = document.getElementById('menuEmpty');
-    var current = 'all';
+    /* ── Filter + URL sync ───────────────────── */
+    var btns       = document.querySelectorAll('.sidebar-btn');
+    var categories = document.querySelectorAll('.menu-category');
+    var emptyEl    = document.getElementById('menuEmpty');
+    var current    = 'all';
 
     function applyFilter(cat) {
       current = cat;
       var count = 0;
 
-      items.forEach(function (item) {
-        var show = cat === 'all' || item.dataset.cat === cat;
-        item.hidden = !show;
+      categories.forEach(function (section) {
+        var show = cat === 'all' || section.dataset.cat === cat;
+        section.hidden = !show;
         if (show) count++;
       });
 
-      labels.forEach(function (label) {
-        var show = cat === 'all' || label.dataset.catLabel === cat;
-        label.hidden = !show;
-      });
-
-      empty.hidden = count > 0;
+      emptyEl.hidden = count > 0;
 
       btns.forEach(function (btn) {
         btn.classList.toggle('active', btn.dataset.cat === cat);
       });
 
       var url = new URL(window.location.href);
-      if (cat === 'all') {
-        url.searchParams.delete('cat');
-      } else {
-        url.searchParams.set('cat', cat);
-      }
+      if (cat === 'all') { url.searchParams.delete('cat'); }
+      else { url.searchParams.set('cat', cat); }
       history.replaceState(null, '', url.toString());
     }
 
     btns.forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        applyFilter(btn.dataset.cat);
-      });
+      btn.addEventListener('click', function () { applyFilter(btn.dataset.cat); });
     });
 
-    /* ── Init from URL query ─────────────────── */
-    var params = new URLSearchParams(window.location.search);
-    var initCat = params.get('cat');
+    /* ── Init from URL ───────────────────────── */
+    var initCat = new URLSearchParams(window.location.search).get('cat');
     if (initCat) {
       var valid = Array.from(btns).some(function (b) { return b.dataset.cat === initCat; });
       if (valid) applyFilter(initCat);
