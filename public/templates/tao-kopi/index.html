@@ -1,0 +1,700 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Tao Kopi — Lakeside Coffee House, Danau Toba</title>
+  <meta name="description" content="Kopi single origin Sumatera di tepi Danau Toba. Tuk Tuk Siadong, Samosir Island. Buka Selasa–Minggu." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Inter:wght@300;400;500;600&family=Inter+Tight:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --obsidian: #0D0F0E;
+      --deep:     #141918;
+      --surface:  #1E2421;
+      --mid:      #3D4842;
+      --fog:      #8A9490;
+      --cream:    #F5F0E8;
+      --warm:     #E8DDD0;
+      --amber:    #C8922A;
+      --amber-s:  #E0A83A;
+      --terra:    #A85C3A;
+      --white-bg: #FAFAF8;
+      --ink:      #1A1A18;
+      --rule-d:   rgba(255,255,255,.08);
+      --rule-l:   rgba(0,0,0,.1);
+      --nav-h:    68px;
+      --maxw:     1200px;
+      --pad:      clamp(20px, 4vw, 64px);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: var(--nav-h);
+      -webkit-font-smoothing: antialiased;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto !important; }
+      .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+      .scroll-arrow { animation: none !important; }
+    }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-weight: 400;
+      background: var(--deep);
+      color: var(--cream);
+      line-height: 1.65;
+    }
+    .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--pad); }
+
+    /* ── Reveal ─────────────────────────────────── */
+    .reveal {
+      opacity: 0; transform: translateY(22px);
+      transition: opacity .55s ease, transform .55s ease;
+    }
+    .reveal.vis { opacity: 1; transform: none; }
+    .d1 { transition-delay: .08s; } .d2 { transition-delay: .16s; }
+    .d3 { transition-delay: .24s; } .d4 { transition-delay: .32s; }
+
+    /* ── Nav ────────────────────────────────────── */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      height: var(--nav-h);
+      transition: background .25s, box-shadow .25s;
+    }
+    .nav.scrolled { background: var(--obsidian); box-shadow: 0 1px 0 var(--rule-d); }
+    .nav-inner {
+      max-width: var(--maxw); margin: 0 auto; padding: 0 var(--pad);
+      height: 100%; display: flex; align-items: center; gap: 32px;
+    }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic; font-weight: 400; font-size: 22px;
+      color: var(--cream); text-decoration: none; flex-shrink: 0;
+      display: flex; align-items: center; gap: 6px; letter-spacing: .01em;
+    }
+    .nav-logo-dot { color: var(--amber); font-style: normal; font-size: 28px; line-height: 1; }
+    .nav-links {
+      display: flex; align-items: center; gap: 28px; list-style: none; margin: 0 auto;
+    }
+    .nav-links a {
+      font-family: 'Inter Tight', sans-serif;
+      font-size: 13px; font-weight: 600; letter-spacing: .04em;
+      color: rgba(245,240,232,.6); text-decoration: none; transition: color .15s;
+    }
+    .nav-links a:hover { color: var(--cream); }
+    .nav-cta {
+      font-family: 'Inter Tight', sans-serif;
+      font-size: 12px; font-weight: 700; letter-spacing: .06em;
+      background: var(--amber); color: var(--obsidian);
+      padding: 9px 20px; border-radius: 99px; text-decoration: none;
+      white-space: nowrap; transition: background .15s; flex-shrink: 0;
+    }
+    .nav-cta:hover { background: var(--amber-s); }
+    .nav-burger {
+      display: none; margin-left: auto;
+      background: none; border: none; cursor: pointer; color: var(--cream); padding: 6px;
+    }
+    .nav-panel {
+      display: none; position: fixed; top: var(--nav-h); left: 0; right: 0;
+      background: var(--obsidian); border-top: 1px solid var(--rule-d);
+      z-index: 199; padding: 12px 0 20px;
+    }
+    .nav-panel.open { display: block; }
+    .nav-panel ul { list-style: none; }
+    .nav-panel li a {
+      display: block; padding: 12px var(--pad);
+      font-family: 'Inter Tight', sans-serif; font-size: 15px; font-weight: 600;
+      color: rgba(245,240,232,.8); text-decoration: none;
+    }
+    .nav-panel-cta { padding: 12px var(--pad) 0; }
+    .nav-panel-cta a {
+      display: block; text-align: center; padding: 12px; border-radius: 99px;
+      background: var(--amber); color: var(--obsidian);
+      font-family: 'Inter Tight', sans-serif; font-size: 13px; font-weight: 700;
+      text-decoration: none;
+    }
+    @media (max-width: 860px) {
+      .nav-links, .nav-cta { display: none; }
+      .nav-burger { display: flex; align-items: center; }
+    }
+
+    /* ── Buttons ────────────────────────────────── */
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: 'Inter Tight', sans-serif;
+      font-size: 13px; font-weight: 700; letter-spacing: .04em;
+      text-decoration: none; padding: 14px 28px; border-radius: 3px;
+      transition: all .16s ease; cursor: pointer; border: none; white-space: nowrap;
+    }
+    .btn-amber { background: var(--amber); color: var(--obsidian); }
+    .btn-amber:hover { background: var(--amber-s); transform: scale(1.02); }
+    .btn-ghost { background: transparent; color: var(--cream); border: 1px solid rgba(245,240,232,.3); }
+    .btn-ghost:hover { border-color: var(--cream); transform: scale(1.02); }
+    .btn-wa {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-family: 'Inter Tight', sans-serif; font-size: 15px; font-weight: 700;
+      text-decoration: none; padding: 16px 36px; border-radius: 99px;
+      background: var(--amber); color: var(--obsidian);
+      transition: background .15s, transform .15s;
+    }
+    .btn-wa:hover { background: var(--amber-s); transform: scale(1.02); }
+
+    /* ── Hero ───────────────────────────────────── */
+    .hero {
+      position: relative; min-height: 90vh; display: flex; align-items: center;
+      overflow: hidden; padding-top: var(--nav-h);
+      background:
+        radial-gradient(ellipse 80% 60% at 60% 40%, rgba(200,146,42,.12) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 80% at 20% 80%, rgba(168,92,58,.08) 0%, transparent 60%),
+        linear-gradient(170deg, #0D1A16 0%, #1A2B22 35%, #2A3828 55%, #1A1410 100%);
+    }
+    .hero-noise {
+      position: absolute; inset: 0; pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      opacity: .03;
+    }
+    .hero-content {
+      position: relative; z-index: 2; width: 100%;
+      max-width: var(--maxw); margin: 0 auto;
+      padding: clamp(72px, 10vw, 120px) var(--pad) clamp(80px, 10vw, 130px);
+    }
+    .hero-eyebrow {
+      font-family: 'Inter Tight', sans-serif;
+      font-size: 11px; font-weight: 600; letter-spacing: .22em; text-transform: uppercase;
+      color: var(--amber); margin-bottom: 24px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .hero-eyebrow::before { content: ''; display: block; width: 20px; height: 1px; background: var(--amber); }
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic; font-weight: 400;
+      font-size: clamp(64px, 9.5vw, 140px);
+      line-height: .88; letter-spacing: -.02em;
+      color: var(--cream); margin-bottom: 32px; max-width: 12ch;
+    }
+    .hero-sub {
+      font-size: clamp(15px, 1.6vw, 17px); font-weight: 300;
+      color: rgba(245,240,232,.68); max-width: 48ch;
+      margin-bottom: 40px; line-height: 1.7;
+    }
+    .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
+    .scroll-arrow {
+      position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 6px;
+      color: rgba(245,240,232,.3);
+      font-family: 'Inter Tight', sans-serif; font-size: 10px;
+      letter-spacing: .16em; text-transform: uppercase;
+      animation: arrowBounce 1.2s ease-in-out 3 forwards;
+    }
+    .scroll-arrow svg { display: block; }
+    @keyframes arrowBounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); opacity: .4; }
+      50%       { transform: translateX(-50%) translateY(9px); opacity: .7; }
+    }
+
+    /* ── Category strip ─────────────────────────── */
+    .cat-strip {
+      background: var(--obsidian);
+      border-top: 1px solid var(--rule-d);
+      border-bottom: 1px solid var(--rule-d);
+      padding: 0;
+      overflow-x: auto; scrollbar-width: none;
+    }
+    .cat-strip::-webkit-scrollbar { display: none; }
+    .cat-strip-inner {
+      max-width: var(--maxw); margin: 0 auto; padding: 0 var(--pad);
+      display: flex; align-items: center; justify-content: center;
+      gap: 0; white-space: nowrap; min-height: 50px; flex-wrap: nowrap;
+    }
+    .cat-strip-inner a {
+      font-family: 'Inter Tight', sans-serif;
+      font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
+      color: var(--fog); text-decoration: none; padding: 14px 14px;
+      transition: color .15s; flex-shrink: 0;
+    }
+    .cat-strip-inner a:hover { color: var(--amber); }
+    .cat-strip-inner .dot { color: var(--mid); padding: 0 2px; flex-shrink: 0; }
+
+    /* ── Section base ───────────────────────────── */
+    .section { padding: clamp(60px, 8vw, 100px) 0; }
+    .section-lt { background: var(--white-bg); }
+    .eyebrow {
+      font-family: 'Inter Tight', sans-serif;
+      font-size: 10px; font-weight: 600; letter-spacing: .22em; text-transform: uppercase;
+      color: var(--amber); margin-bottom: 12px;
+    }
+    .eyebrow-dk { color: var(--amber); }
+
+    /* ── About ──────────────────────────────────── */
+    .about { background: var(--deep); }
+    .about-grid {
+      display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(40px, 7vw, 96px);
+      align-items: start;
+    }
+    .about-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic; font-weight: 400;
+      font-size: clamp(32px, 4vw, 52px);
+      line-height: 1.15; letter-spacing: -.01em;
+      color: var(--cream);
+    }
+    .about-rule {
+      width: 48px; height: 2px; background: var(--amber);
+      margin-top: 24px;
+    }
+    .about-body {
+      font-size: 15px; font-weight: 300;
+      color: rgba(245,240,232,.65); line-height: 1.75;
+    }
+    .about-body p + p { margin-top: 16px; }
+    .about-link {
+      display: inline-block; margin-top: 24px;
+      font-family: 'Inter Tight', sans-serif;
+      font-size: 13px; font-weight: 600; letter-spacing: .04em;
+      color: var(--amber); text-decoration: none;
+      border-bottom: 1px solid rgba(200,146,42,.4);
+      padding-bottom: 2px; transition: border-color .15s;
+    }
+    .about-link:hover { border-color: var(--amber); }
+    @media (max-width: 760px) { .about-grid { grid-template-columns: 1fr; gap: 40px; } }
+
+    /* ── Photo Grid ─────────────────────────────── */
+    .photo-grid-section { background: var(--white-bg); }
+    .photo-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+    }
+    .pg-cell {
+      aspect-ratio: 1 / 1; border-radius: 4px; overflow: hidden;
+      position: relative;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .pg-label {
+      font-family: 'Inter Tight', sans-serif;
+      font-size: 11px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase;
+      color: rgba(255,255,255,.55);
+      position: relative; z-index: 2;
+    }
+    .pg-grid-meta {
+      margin-top: 16px; text-align: right;
+      font-family: 'Inter', monospace; font-size: 11px; font-weight: 300;
+      color: rgba(26,26,24,.4); letter-spacing: .08em;
+    }
+    @media (max-width: 520px) { .photo-grid { grid-template-columns: 1fr; } }
+
+    /* ── Menu Highlight ─────────────────────────── */
+    .menu-hl { background: var(--obsidian); }
+    .menu-hl-head { margin-bottom: clamp(28px, 4vw, 44px); }
+    .menu-hl-head h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic; font-weight: 400;
+      font-size: clamp(36px, 5vw, 60px);
+      line-height: 1; color: var(--cream); letter-spacing: -.015em;
+    }
+    .menu-hl-row {
+      display: flex; gap: 14px; overflow-x: auto;
+      padding-bottom: 8px; scrollbar-width: none;
+    }
+    .menu-hl-row::-webkit-scrollbar { display: none; }
+    .menu-hl-card {
+      flex: 0 0 220px; border: 1px solid var(--rule-d);
+      overflow: hidden; transition: transform .16s ease, box-shadow .16s ease;
+    }
+    .menu-hl-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,.35); }
+    .mhc-img {
+      height: 130px; position: relative;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .mhc-icon { color: rgba(255,255,255,.2); }
+    .mhc-icon svg { width: 44px; height: 44px; }
+    .mhc-body { padding: 14px 16px 16px; }
+    .mhc-cat {
+      font-family: 'Inter Tight', sans-serif;
+      font-size: 10px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase;
+      color: var(--fog); margin-bottom: 6px;
+    }
+    .mhc-name {
+      font-family: 'Inter Tight', sans-serif;
+      font-size: 15px; font-weight: 600; color: var(--cream); margin-bottom: 6px;
+    }
+    .mhc-price {
+      font-family: 'Inter Tight', sans-serif;
+      font-size: 14px; font-weight: 700; color: var(--amber);
+    }
+    .menu-hl-footer { margin-top: 28px; }
+    .menu-hl-footer a {
+      font-family: 'Inter Tight', sans-serif;
+      font-size: 13px; font-weight: 600; color: var(--amber);
+      text-decoration: none; border-bottom: 1px solid rgba(200,146,42,.4);
+      padding-bottom: 2px; transition: border-color .15s; letter-spacing: .03em;
+    }
+    .menu-hl-footer a:hover { border-color: var(--amber); }
+
+    /* ── Reservasi ──────────────────────────────── */
+    .reservasi {
+      background: var(--deep);
+      border-top: 1px solid var(--rule-d);
+      border-bottom: 1px solid var(--rule-d);
+    }
+    .reservasi-inner { max-width: 680px; margin: 0 auto; text-align: center; }
+    .reservasi-inner .eyebrow { display: flex; justify-content: center; margin-bottom: 16px; }
+    .reservasi h2 {
+      font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 400;
+      font-size: clamp(36px, 5vw, 60px); line-height: 1.05; color: var(--cream);
+      letter-spacing: -.015em; margin-bottom: 20px;
+    }
+    .reservasi-body {
+      font-size: 15px; font-weight: 300;
+      color: rgba(245,240,232,.62); max-width: 44ch; margin: 0 auto 36px;
+      line-height: 1.7;
+    }
+    .reservasi-note {
+      margin-top: 24px; font-size: 13px; font-weight: 300;
+      color: rgba(245,240,232,.35); line-height: 1.65;
+      letter-spacing: .02em;
+    }
+
+    /* ── Footer ─────────────────────────────────── */
+    .footer { background: var(--obsidian); border-top: 1px solid var(--rule-d); }
+    .footer-main {
+      padding: clamp(40px, 6vw, 68px) 0;
+      display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr;
+      gap: clamp(24px, 4vw, 48px);
+    }
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif; font-style: italic;
+      font-weight: 400; font-size: 20px; color: var(--cream);
+      text-decoration: none; display: inline-block; margin-bottom: 10px;
+    }
+    .footer-tagline {
+      font-size: 13px; font-weight: 300;
+      color: rgba(245,240,232,.38); max-width: 24ch; line-height: 1.6;
+      margin-bottom: 20px;
+    }
+    .footer-social a {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-family: 'Inter Tight', sans-serif;
+      font-size: 12px; font-weight: 600; letter-spacing: .06em;
+      color: var(--fog); text-decoration: none; transition: color .15s;
+      margin-right: 14px; margin-bottom: 6px;
+    }
+    .footer-social a:hover { color: var(--cream); }
+    .footer-col-hd {
+      font-family: 'Inter Tight', sans-serif;
+      font-size: 10px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase;
+      color: rgba(245,240,232,.28); margin-bottom: 16px;
+    }
+    .footer-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-list a {
+      font-size: 13px; font-weight: 300; color: rgba(245,240,232,.55);
+      text-decoration: none; transition: color .15s;
+    }
+    .footer-list a:hover { color: var(--cream); }
+    .footer-info-line { font-size: 13px; font-weight: 300; color: rgba(245,240,232,.55); margin-bottom: 8px; }
+    .footer-bar {
+      border-top: 1px solid var(--rule-d); padding: 16px 0;
+      font-size: 11px; color: rgba(245,240,232,.25); text-align: center; letter-spacing: .05em;
+    }
+    @media (max-width: 900px) { .footer-main { grid-template-columns: 1fr 1fr; } .footer-brand { grid-column: 1/-1; } }
+    @media (max-width: 460px) { .footer-main { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" id="siteNav" aria-label="Navigasi utama">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <span class="nav-logo-dot">·</span>
+        Tao Kopi
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="#tentang">Tentang</a></li>
+        <li><a href="#kunjungi">Kunjungi</a></li>
+        <li><a href="#reservasi">Reservasi</a></li>
+      </ul>
+      <a href="https://wa.me/628120000000" class="nav-cta" target="_blank" rel="noopener">Pesan via WhatsApp</a>
+      <button class="nav-burger" id="burgerBtn" aria-label="Buka menu" aria-expanded="false" aria-controls="navPanel">
+        <svg width="22" height="15" viewBox="0 0 22 15" fill="currentColor" aria-hidden="true">
+          <rect y="0" width="22" height="2"/><rect y="6.5" width="22" height="2"/><rect y="13" width="22" height="2"/>
+        </svg>
+      </button>
+    </div>
+  </nav>
+  <div class="nav-panel" id="navPanel" aria-label="Menu mobile">
+    <ul>
+      <li><a href="menu.html">Menu</a></li>
+      <li><a href="#tentang">Tentang</a></li>
+      <li><a href="#kunjungi">Kunjungi</a></li>
+      <li><a href="#reservasi">Reservasi</a></li>
+    </ul>
+    <div class="nav-panel-cta"><a href="https://wa.me/628120000000" target="_blank" rel="noopener">Pesan via WhatsApp</a></div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero" aria-labelledby="hero-h1">
+    <div class="hero-noise" aria-hidden="true"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow reveal">Lakeside Coffee House &nbsp;·&nbsp; Danau Toba</div>
+      <h1 id="hero-h1" class="reveal d1">
+        Kopi di tepi<br>danau yang<br>tenang.
+      </h1>
+      <p class="hero-sub reveal d2">
+        Kami menyeduh kopi single origin Sumatera di tepi Danau Toba —
+        di tempat di mana kabut pagi turun pelan dan waktu terasa lebih lambat.
+      </p>
+      <div class="hero-ctas reveal d3">
+        <a href="menu.html" class="btn btn-amber">Lihat Menu</a>
+        <a href="https://wa.me/628120000000" class="btn btn-ghost" target="_blank" rel="noopener">
+          Reservasi via WhatsApp <span aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+    <div class="scroll-arrow" aria-hidden="true">
+      <svg width="14" height="8" viewBox="0 0 14 8" fill="none">
+        <path d="M1 1l6 6 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- CATEGORY STRIP -->
+  <nav class="cat-strip" aria-label="Kategori menu">
+    <div class="cat-strip-inner">
+      <a href="menu.html?cat=espresso">Espresso</a>
+      <span class="dot" aria-hidden="true">·</span>
+      <a href="menu.html?cat=manual-brew">Manual Brew</a>
+      <span class="dot" aria-hidden="true">·</span>
+      <a href="menu.html?cat=cold-brew">Cold Brew</a>
+      <span class="dot" aria-hidden="true">·</span>
+      <a href="menu.html?cat=non-coffee">Non-Coffee</a>
+      <span class="dot" aria-hidden="true">·</span>
+      <a href="menu.html?cat=makanan">Makanan</a>
+      <span class="dot" aria-hidden="true">·</span>
+      <a href="menu.html?cat=dessert">Kue &amp; Dessert</a>
+      <span class="dot" aria-hidden="true">·</span>
+      <a href="menu.html">Paket</a>
+      <span class="dot" aria-hidden="true">·</span>
+      <a href="menu.html">Seasonal</a>
+    </div>
+  </nav>
+
+  <!-- ABOUT -->
+  <section class="about section" id="tentang" aria-labelledby="about-h2">
+    <div class="wrap">
+      <div class="about-grid">
+        <div class="reveal">
+          <blockquote class="about-quote">
+            "Kami percaya kopi yang baik tidak perlu berteriak."
+          </blockquote>
+          <div class="about-rule"></div>
+        </div>
+        <div class="reveal d1">
+          <div class="eyebrow eyebrow-dk">Tentang Tao Kopi</div>
+          <div class="about-body">
+            <p>Tao Kopi dibuka pada 2021 di Tuk Tuk Siadong, Samosir — sebuah titik kecil di tepi barat Danau Toba yang menghadap langsung ke perairan vulkanik terdalam di Asia Tenggara.</p>
+            <p>Nama kami berasal dari bahasa Batak Toba: <em>tao</em> berarti danau. Kami ada di sini, di tepinya, setiap pagi.</p>
+            <p>Kami menyajikan biji kopi single origin dari petani Sumatera Utara — kebanyakan dari Sidikalang, Lintong, dan Doloksanggul — diseduh dengan metode yang menonjolkan karakter aslinya.</p>
+          </div>
+          <a href="#kunjungi" class="about-link">Selengkapnya <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PHOTO GRID -->
+  <section class="photo-grid-section section" id="kunjungi" aria-label="Galeri tempat">
+    <div class="wrap">
+      <div class="photo-grid reveal">
+        <div class="pg-cell" style="background:linear-gradient(145deg,#0E1F18,#1A3028,#0A1510)" aria-label="Danau Toba">
+          <span class="pg-label">Danau Toba</span>
+        </div>
+        <div class="pg-cell" style="background:linear-gradient(145deg,#2A2010,#3D3018,#1A1408)" aria-label="Single Origin">
+          <span class="pg-label">Single Origin</span>
+        </div>
+        <div class="pg-cell" style="background:linear-gradient(145deg,#2A1810,#3D2418,#1A0E08)" aria-label="Tuk Tuk, Samosir">
+          <span class="pg-label">Tuk Tuk, Samosir</span>
+        </div>
+        <div class="pg-cell" style="background:radial-gradient(ellipse at 40% 40%, rgba(138,148,144,.12) 0%, transparent 70%), linear-gradient(145deg,#0E1210,#161A14,#0A0E0C)" aria-label="Open Since 2021">
+          <span class="pg-label">Open Since 2021</span>
+        </div>
+      </div>
+      <div class="pg-grid-meta reveal">Est. 2021 &nbsp;·&nbsp; Tuk Tuk, Samosir &nbsp;·&nbsp; Open Tue–Sun</div>
+    </div>
+  </section>
+
+  <!-- MENU HIGHLIGHT -->
+  <section class="menu-hl section" aria-labelledby="hl-h2">
+    <div class="wrap">
+      <div class="menu-hl-head">
+        <div class="eyebrow reveal">Yang Paling Banyak Dipesan</div>
+        <h2 id="hl-h2" class="reveal d1">Menu Favorit</h2>
+      </div>
+      <div class="menu-hl-row reveal" role="list">
+
+        <div class="menu-hl-card" role="listitem">
+          <div class="mhc-img" style="background:linear-gradient(135deg,#2A1F0E,#4A3218)">
+            <div class="mhc-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none"><path d="M12 20 L14 38 Q14 40 16 40 L32 40 Q34 40 34 38 L36 20 Z" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linejoin="round"/><ellipse cx="24" cy="42" rx="12" ry="3" stroke="currentColor" stroke-width="1.5"/><path d="M36 25 Q42 25 42 31 Q42 36 36 36" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M18 16 Q20 13 18 10" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><path d="M24 14 Q26 11 24 8" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><path d="M30 16 Q32 13 30 10" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+            </div>
+          </div>
+          <div class="mhc-body">
+            <div class="mhc-cat">Espresso</div>
+            <div class="mhc-name">Tao Latte</div>
+            <div class="mhc-price">Rp 38.000</div>
+          </div>
+        </div>
+
+        <div class="menu-hl-card" role="listitem">
+          <div class="mhc-img" style="background:linear-gradient(135deg,#1A1A0E,#3A3218)">
+            <div class="mhc-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none"><path d="M12 14 L24 40 L36 14 Z" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linejoin="round"/><line x1="10" y1="14" x2="38" y2="14" stroke="currentColor" stroke-width="1.5"/><line x1="24" y1="14" x2="24" y2="38" stroke="currentColor" stroke-width="1" opacity=".4"/><line x1="18" y1="14" x2="24" y2="38" stroke="currentColor" stroke-width="1" opacity=".35"/><line x1="30" y1="14" x2="24" y2="38" stroke="currentColor" stroke-width="1" opacity=".35"/><ellipse cx="24" cy="43" rx="8" ry="2.5" stroke="currentColor" stroke-width="1.5"/></svg>
+            </div>
+          </div>
+          <div class="mhc-body">
+            <div class="mhc-cat">Manual Brew</div>
+            <div class="mhc-name">Kopi Sidikalang V60</div>
+            <div class="mhc-price">Rp 42.000</div>
+          </div>
+        </div>
+
+        <div class="menu-hl-card" role="listitem">
+          <div class="mhc-img" style="background:linear-gradient(135deg,#0E2018,#1A3828)">
+            <div class="mhc-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none"><path d="M24 8 C30 8 36 14 36 22 C36 32 32 40 24 42 C16 40 12 32 12 22 C12 14 18 8 24 8 Z" stroke="currentColor" stroke-width="1.5" fill="none"/><line x1="24" y1="8" x2="24" y2="42" stroke="currentColor" stroke-width="1.2" opacity=".4"/><line x1="24" y1="18" x2="30" y2="22" stroke="currentColor" stroke-width="1" opacity=".5"/><line x1="24" y1="24" x2="30" y2="28" stroke="currentColor" stroke-width="1" opacity=".5"/><line x1="24" y1="18" x2="18" y2="22" stroke="currentColor" stroke-width="1" opacity=".5"/><line x1="24" y1="24" x2="18" y2="28" stroke="currentColor" stroke-width="1" opacity=".5"/></svg>
+            </div>
+          </div>
+          <div class="mhc-body">
+            <div class="mhc-cat">Non-Coffee</div>
+            <div class="mhc-name">Susu Jahe Toba</div>
+            <div class="mhc-price">Rp 28.000</div>
+          </div>
+        </div>
+
+        <div class="menu-hl-card" role="listitem">
+          <div class="mhc-img" style="background:linear-gradient(135deg,#2A1810,#3D2418)">
+            <div class="mhc-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="30" r="14" stroke="currentColor" stroke-width="1.5"/><circle cx="24" cy="30" r="9" stroke="currentColor" stroke-width="1" opacity=".4"/><line x1="16" y1="12" x2="16" y2="22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="14" y1="12" x2="14" y2="17" stroke="currentColor" stroke-width="1" stroke-linecap="round"/><line x1="18" y1="12" x2="18" y2="17" stroke="currentColor" stroke-width="1" stroke-linecap="round"/><line x1="32" y1="12" x2="32" y2="22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M32 12 Q35 16 32 18" stroke="currentColor" stroke-width="1" fill="none"/></svg>
+            </div>
+          </div>
+          <div class="mhc-body">
+            <div class="mhc-cat">Makanan</div>
+            <div class="mhc-name">Roti Bakar Srikaya</div>
+            <div class="mhc-price">Rp 32.000</div>
+          </div>
+        </div>
+
+      </div>
+      <div class="menu-hl-footer reveal">
+        <a href="menu.html">Lihat Semua Menu <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESERVASI -->
+  <section class="reservasi section" id="reservasi" aria-labelledby="res-h2">
+    <div class="wrap">
+      <div class="reservasi-inner">
+        <div class="eyebrow reveal">Reservasi &amp; Kunjungan</div>
+        <h2 id="res-h2" class="reveal">Meja tersedia.<br>Hubungi kami via WhatsApp.</h2>
+        <p class="reservasi-body reveal">
+          Kami tidak menyediakan sistem booking online. Untuk reservasi meja,
+          informasi kapasitas grup, atau acara privat — hubungi kami langsung.
+        </p>
+        <a href="https://wa.me/628120000000" class="btn-wa reveal" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="currentColor" aria-hidden="true"><path d="M9 0C4.03 0 0 4.03 0 9c0 1.59.42 3.08 1.14 4.38L0 18l4.72-1.12A8.98 8.98 0 009 18c4.97 0 9-4.03 9-9S13.97 0 9 0zm4.7 12.6c-.2.55-1.15 1.05-1.6 1.1-.43.05-.98.07-1.58-.1-.37-.1-.84-.25-1.44-.5C6.5 12.1 5 9.75 4.9 9.6c-.1-.15-.8-1.07-.8-2.04 0-.97.5-1.44.69-1.64.19-.2.4-.25.54-.25h.39c.12 0 .29-.04.45.35.17.4.58 1.4.63 1.5.05.1.08.22.02.35-.07.13-.1.21-.2.32-.1.1-.2.23-.3.31-.1.1-.2.2-.09.38.11.2.5.82 1.06 1.33.73.65 1.34.85 1.53.94.2.1.31.08.43-.05.12-.13.5-.58.63-.78.13-.2.27-.17.45-.1.18.07 1.15.54 1.35.64.2.1.33.15.38.23.05.09.05.5-.15 1.05z"/></svg>
+          Chat WhatsApp
+        </a>
+        <div class="reservasi-note reveal">
+          Tuk Tuk Siadong, Samosir Island<br>
+          +62 812-XXXX-XXXX &nbsp;·&nbsp; Buka Selasa–Minggu, 08.00–21.00 WIB
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer" aria-label="Footer">
+    <div class="wrap">
+      <div class="footer-main">
+        <div class="footer-brand">
+          <a href="index.html" class="footer-logo">Tao Kopi</a>
+          <p class="footer-tagline">Kopi di tepi danau. Tenang, dalam, hangat.</p>
+          <div class="footer-social">
+            <a href="https://instagram.com/taokopi.toba" target="_blank" rel="noopener">@taokopi.toba</a>
+            <a href="https://wa.me/628120000000" target="_blank" rel="noopener">WhatsApp</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-hd">Menu</div>
+          <ul class="footer-list" role="list">
+            <li><a href="menu.html?cat=espresso">Espresso</a></li>
+            <li><a href="menu.html?cat=manual-brew">Manual Brew</a></li>
+            <li><a href="menu.html?cat=cold-brew">Cold Brew</a></li>
+            <li><a href="menu.html?cat=non-coffee">Non-Coffee</a></li>
+            <li><a href="menu.html?cat=makanan">Makanan</a></li>
+            <li><a href="menu.html?cat=dessert">Kue &amp; Dessert</a></li>
+          </ul>
+        </div>
+        <div id="kunjungi-footer">
+          <div class="footer-col-hd">Kunjungi</div>
+          <div class="footer-info-line">Tuk Tuk Siadong</div>
+          <div class="footer-info-line">Samosir Island, Danau Toba</div>
+          <div class="footer-info-line">Sumatera Utara</div>
+          <div class="footer-info-line" style="margin-top:12px;color:rgba(245,240,232,.35);font-size:12px;">
+            Selasa – Minggu<br>08.00 – 21.00 WIB<br><br>Senin tutup.
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-hd">Kontak</div>
+          <div class="footer-info-line">+62 812-XXXX-XXXX</div>
+          <div class="footer-info-line">hello@taokopi.co.id</div>
+          <div class="footer-info-line" style="margin-top:12px;">
+            <a href="https://maps.google.com" target="_blank" rel="noopener" style="color:rgba(245,240,232,.55);font-size:13px;text-decoration:none;">Lihat di Maps →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bar">&copy; 2024 Tao Kopi &nbsp;·&nbsp; Tuk Tuk, Samosir &nbsp;·&nbsp; Danau Toba</div>
+  </footer>
+
+  <script>
+  (function () {
+    'use strict';
+
+    /* ── Nav scroll ───────────────────────────── */
+    var nav = document.getElementById('siteNav');
+    function syncNav() { nav.classList.toggle('scrolled', window.scrollY > 60); }
+    window.addEventListener('scroll', syncNav, { passive: true });
+    syncNav();
+
+    /* ── Hamburger ────────────────────────────── */
+    var burger = document.getElementById('burgerBtn');
+    var panel  = document.getElementById('navPanel');
+    var open   = false;
+    burger.addEventListener('click', function () {
+      open = !open;
+      panel.classList.toggle('open', open);
+      burger.setAttribute('aria-expanded', String(open));
+    });
+    panel.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () {
+        open = false; panel.classList.remove('open');
+        burger.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    /* ── Scroll reveal ────────────────────────── */
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('vis'); observer.unobserve(e.target); }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -32px 0px' });
+    document.querySelectorAll('.reveal').forEach(function (el) { observer.observe(el); });
+  }());
+  </script>
+
+</body>
+</html>
