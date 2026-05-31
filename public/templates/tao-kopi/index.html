@@ -33,7 +33,6 @@
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto !important; }
       .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
-      .marquee-track { animation: none !important; }
     }
     body { font-family: 'Inter', system-ui, sans-serif; background: var(--deep); color: var(--cream); line-height: 1.65; }
     .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--pad); }
@@ -141,24 +140,6 @@
     }
     .hero-scroll-label { font-family: 'Inter Tight', sans-serif; font-size: 9px; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; writing-mode: vertical-rl; }
     @media (max-width: 600px) { .hero-h1 { font-size: clamp(60px, 18vw, 80px); } .hero-footer-row { flex-direction: column; align-items: flex-start; } .hero-eyebrow-row { position: static; padding: calc(var(--nav-h) + 40px) 0 0; margin-bottom: 32px; } .hero-body { padding-top: 0; } }
-
-    /* ── Marquee ────────────────────────────────── */
-    .marquee {
-      background: var(--amber); overflow: hidden; padding: 14px 0; border-top: none; border-bottom: none;
-    }
-    .marquee-track {
-      display: inline-flex; white-space: nowrap; gap: 0;
-      animation: marquee 28s linear infinite;
-    }
-    .marquee-track span {
-      font-family: 'Inter Tight', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase;
-      color: var(--obsidian); padding: 0 28px;
-    }
-    .marquee-track .sep { color: rgba(11,13,12,.35); padding: 0; }
-    @keyframes marquee {
-      from { transform: translateX(0); }
-      to { transform: translateX(-50%); }
-    }
 
     /* ── About (cream section) ───────────────────── */
     .about {
@@ -410,28 +391,6 @@
       <div class="hero-scroll-line"></div>
     </div>
   </section>
-
-  <!-- MARQUEE -->
-  <div class="marquee" aria-hidden="true">
-    <div class="marquee-track">
-      <span>Espresso</span><span class="sep">·</span>
-      <span>Manual Brew</span><span class="sep">·</span>
-      <span>Cold Brew</span><span class="sep">·</span>
-      <span>Non-Coffee</span><span class="sep">·</span>
-      <span>Makanan</span><span class="sep">·</span>
-      <span>Kue &amp; Dessert</span><span class="sep">·</span>
-      <span>Single Origin</span><span class="sep">·</span>
-      <span>Danau Toba</span><span class="sep">·</span>
-      <span>Espresso</span><span class="sep">·</span>
-      <span>Manual Brew</span><span class="sep">·</span>
-      <span>Cold Brew</span><span class="sep">·</span>
-      <span>Non-Coffee</span><span class="sep">·</span>
-      <span>Makanan</span><span class="sep">·</span>
-      <span>Kue &amp; Dessert</span><span class="sep">·</span>
-      <span>Single Origin</span><span class="sep">·</span>
-      <span>Danau Toba</span><span class="sep">·</span>
-    </div>
-  </div>
 
   <!-- ABOUT -->
   <section class="about" id="tentang" aria-labelledby="about-h2">
