@@ -4,7 +4,7 @@
 
 /* ---------- Hero ---------- */
 .home-hero {
-  padding: clamp(48px, 6vw, 80px) 0 clamp(40px, 5vw, 64px);
+  padding: 64px 0 48px;
 }
 .home-hero-grid {
   display: grid;
@@ -701,7 +701,7 @@
 }
 
 /* ---------- Landing work grid ---------- */
-.lp-work { padding: 80px 0 96px; }
+.lp-work { padding: 64px 0 80px; }
 .lp-work-inner {
   max-width: 1200px;
   margin: 0 auto;
@@ -709,6 +709,13 @@
 }
 .lp-work-head { margin-bottom: 40px; }
 .lp-work-head .eyebrow { margin-bottom: 14px; }
+.lp-work-head-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
 .lp-work-title {
   font-family: 'Bricolage Grotesque', serif;
   font-size: clamp(28px, 4vw, 44px);
@@ -717,6 +724,7 @@
   line-height: 1;
   margin: 0;
 }
+.lp-work-all { flex-shrink: 0; }
 .lp-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

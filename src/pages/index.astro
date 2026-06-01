@@ -84,7 +84,10 @@ const portfolio = (await getCollection('portfolio', ({ data }) => !data.draft))
       <div class="lp-work-inner">
         <div class="lp-work-head">
           <div class="eyebrow"><span class="eyebrow-line" aria-hidden="true"></span>Selected Work</div>
-          <h2 class="lp-work-title">Projects &amp; Case Studies</h2>
+          <div class="lp-work-head-row">
+            <h2 class="lp-work-title">Projects &amp; Case Studies</h2>
+            <a href="/portfolio" class="btn btn-primary lp-work-all">View All Work <span class="arr">→</span></a>
+          </div>
         </div>
 
         <div class="lp-grid">

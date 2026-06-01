@@ -1,11 +1,51 @@
 ---
-// Simplified footer: wordmark left, studio meta right.
+import { site } from '../data/site.ts';
 ---
 
 <!-- =================== FOOTER =================== -->
 <footer class="site-footer">
   <div class="site-footer-inner">
-    <a href="/" class="logo" aria-label="Roha — Home">roha<span class="dot">.</span></a>
-    <span class="site-footer-meta">A digital design studio &middot; Indonesia &middot; 2026</span>
+
+    <div class="site-footer-brand">
+      <a href="/" class="logo" aria-label="Roha — Home">roha<span class="dot">.</span></a>
+      <p class="site-footer-tagline">Considered design, built to last.</p>
+    </div>
+
+    <nav class="site-footer-links" aria-label="Footer navigation">
+      <a href="/portfolio">Work</a>
+      <a href="/services">Services</a>
+      <a href="/work">Case Studies</a>
+      <a href="/about">About</a>
+    </nav>
+
+    <div class="site-footer-right">
+      <div class="site-footer-social">
+        <!-- Instagram -->
+        <a href="#" aria-label="Instagram" target="_blank" rel="noopener" class="social-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+            <rect x="2" y="2" width="20" height="20" rx="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="17.5" cy="6.5" r=".9" fill="currentColor" stroke="none"/>
+          </svg>
+        </a>
+        <!-- Dribbble -->
+        <a href="#" aria-label="Dribbble" target="_blank" rel="noopener" class="social-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M2 12c3.3-1 6.7-.5 10 2s5.5 6.5 6 9"/>
+            <path d="M22 12c-1.5-2-4-5.5-8-7"/>
+            <path d="M8 3c1 3 2 6.5 1 10"/>
+          </svg>
+        </a>
+        <!-- Facebook -->
+        <a href="#" aria-label="Facebook" target="_blank" rel="noopener" class="social-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+          </svg>
+        </a>
+      </div>
+      <p class="site-footer-copy">&copy; 2026 Roha &middot; Indonesia</p>
+    </div>
+
   </div>
 </footer>
