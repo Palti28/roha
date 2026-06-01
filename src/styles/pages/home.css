@@ -639,9 +639,9 @@
 /* ---------- Landing hero ---------- */
 .lp-hero { padding: 72px 0 8px; }
 .lp-hero-inner {
-  max-width: 1200px;
+  max-width: var(--maxw);
   margin: 0 auto;
-  padding: 0 40px;
+  padding: 0 var(--gutter);
 }
 .lp-hero .eyebrow { margin-bottom: 28px; }
 .lp-hero-title {
@@ -703,9 +703,9 @@
 /* ---------- Landing work grid ---------- */
 .lp-work { padding: 64px 0 80px; }
 .lp-work-inner {
-  max-width: 1200px;
+  max-width: var(--maxw);
   margin: 0 auto;
-  padding: 0 40px;
+  padding: 0 var(--gutter);
 }
 .lp-work-head { margin-bottom: 40px; }
 .lp-work-head .eyebrow { margin-bottom: 14px; }
@@ -817,9 +817,9 @@
 /* ---------- CTA banner ---------- */
 .lp-cta-wrap { padding: 0 0 96px; }
 .lp-cta-inner {
-  max-width: 1200px;
+  max-width: var(--maxw);
   margin: 0 auto;
-  padding: 0 40px;
+  padding: 0 var(--gutter);
 }
 .lp-cta-panel {
   background: linear-gradient(135deg, var(--terracotta) 0%, var(--clay) 100%);
