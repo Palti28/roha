@@ -57,7 +57,7 @@
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: .08em;
-  color: var(--clay);
+  color: var(--ink);
   margin-top: 4px;
 }
 .home-hero-left .eyebrow,
@@ -317,7 +317,7 @@
   will-change: transform;
 }
 .svc-tile:hover {
-  background: var(--cream);
+  background: #FFFFFF;
   border-color: var(--terracotta-soft);
   transform: translateY(-5px);
   box-shadow: 0 20px 40px -20px rgba(28, 23, 20, 0.28);
@@ -332,7 +332,7 @@
   font-size: 10.5px;
   text-transform: uppercase;
   letter-spacing: .12em;
-  color: var(--clay);
+  color: var(--ink);
   opacity: .8;
 }
 .svc-tile h3 {
@@ -441,14 +441,14 @@
 .svc-tile-dark {
   background: var(--ink);
   border-color: var(--ink);
-  color: var(--cream);
+  color: #FFFFFF;
 }
 .svc-tile-dark:hover {
   background: #2a2318;
   border-color: var(--ink);
 }
-.svc-tile-dark h3 { color: var(--cream); }
-.svc-tile-dark p { color: var(--cream); opacity: .65; }
+.svc-tile-dark h3 { color: #FFFFFF; }
+.svc-tile-dark p { color: #FFFFFF; opacity: .65; }
 
 @media (max-width: 600px) {
   .svc-tile {
@@ -494,21 +494,21 @@
   border-bottom: 1px solid var(--terracotta);
   transition: gap .2s ease, color .15s ease, border-color .15s ease;
 }
-.section-link:hover { gap: 10px; color: var(--clay); border-bottom-color: var(--clay); }
+.section-link:hover { gap: 10px; color: var(--ink); border-bottom-color: var(--ink); }
 
 /* ---------- How We Work dark strip ---------- */
 .how-section {
   background: var(--ink);
-  color: var(--cream);
+  color: #FFFFFF;
 }
 .how-section .eyebrow {
   color: var(--terracotta-soft);
 }
 .how-section .h-block .left h2 {
-  color: var(--cream);
+  color: #FFFFFF;
 }
 .how-section .h-block .right {
-  color: var(--cream);
+  color: #FFFFFF;
   opacity: .6;
 }
 .how-grid {
@@ -544,12 +544,12 @@
   letter-spacing: -.01em;
   line-height: 1.2;
   margin: 0 0 8px;
-  color: var(--cream);
+  color: #FFFFFF;
 }
 .how-card p {
   font-size: 13px;
   line-height: 1.6;
-  color: var(--cream);
+  color: #FFFFFF;
   opacity: .6;
   margin: 0;
 }
@@ -617,7 +617,7 @@
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: .08em;
-  color: var(--clay);
+  color: var(--ink);
   opacity: .8;
 }
 @media (max-width: 540px) {
@@ -683,7 +683,7 @@
   font-size: 10.5px;
   text-transform: uppercase;
   letter-spacing: .12em;
-  color: var(--clay);
+  color: var(--ink);
   opacity: .7;
 }
 
@@ -760,7 +760,7 @@
   display: inline-block;
   width: 18px;
   height: 1px;
-  background: var(--clay);
+  background: var(--ink);
   opacity: .6;
 }
 
@@ -823,7 +823,7 @@
   font-size: 9.5px;
   text-transform: uppercase;
   letter-spacing: .1em;
-  color: var(--clay);
+  color: var(--ink);
   margin: 6px 0 0;
   white-space: nowrap;
 }
@@ -893,7 +893,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, var(--terracotta) 0%, var(--clay) 100%);
+  background: linear-gradient(135deg, var(--terracotta) 0%, var(--ink) 100%);
 }
 .lp-thumb-fallback span {
   font-family: 'Bricolage Grotesque', serif;
@@ -950,7 +950,7 @@
   padding: 0 var(--gutter);
 }
 .lp-cta-panel {
-  background: linear-gradient(135deg, var(--terracotta) 0%, var(--clay) 100%);
+  background: linear-gradient(135deg, var(--terracotta) 0%, var(--ink) 100%);
   border-radius: 24px;
   padding: clamp(48px, 6vw, 80px) clamp(40px, 5vw, 72px);
   display: flex;
@@ -967,14 +967,14 @@
   font-weight: 500;
   letter-spacing: -.03em;
   line-height: .95;
-  color: var(--cream);
+  color: #FFFFFF;
   margin: 0 0 16px;
 }
 .lp-cta-title em { font-size: inherit; line-height: inherit; }
 .lp-cta-sub {
   font-family: 'Geist', sans-serif;
   font-size: 15px;
-  color: var(--cream);
+  color: #FFFFFF;
   opacity: .7;
   margin: 0;
   max-width: 46ch;
@@ -988,8 +988,8 @@
   flex-wrap: wrap;
 }
 .lp-btn-cream {
-  background: var(--cream);
-  color: var(--clay);
+  background: #FFFFFF;
+  color: var(--ink);
   font-family: 'Geist', sans-serif;
   font-size: 13.5px;
   font-weight: 500;
@@ -1004,7 +1004,7 @@
 .lp-btn-cream:hover { background: #fff; transform: translateY(-1px); }
 .lp-btn-outline {
   background: transparent;
-  color: var(--cream);
+  color: #FFFFFF;
   font-family: 'Geist', sans-serif;
   font-size: 13.5px;
   font-weight: 500;
@@ -1092,7 +1092,7 @@
   transition: background .18s ease, transform .2s cubic-bezier(.34, 1.56, .64, 1);
   white-space: nowrap;
 }
-.lp-btn-terra:hover { background: var(--clay); transform: translateY(-1px); }
+.lp-btn-terra:hover { background: var(--ink); transform: translateY(-1px); }
 .lp-btn-ghost {
   background: transparent;
   color: rgba(255, 255, 255, .65);

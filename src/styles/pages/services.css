@@ -102,7 +102,7 @@
   border-radius: 99px;
   background: var(--paper-tint);
   border: 1px solid var(--rule);
-  color: var(--clay);
+  color: var(--ink);
 }
 
 .svc-card .deliverables {
@@ -116,7 +116,7 @@
   font-size: 10.5px;
   text-transform: uppercase;
   letter-spacing: .12em;
-  color: var(--clay);
+  color: var(--ink);
   margin: 0 0 10px;
   font-weight: 500;
   opacity: .75;
@@ -214,7 +214,7 @@
   font-size: 10px;
   text-transform: uppercase;
   letter-spacing: .1em;
-  color: var(--clay);
+  color: var(--ink);
   opacity: .65;
 }
 .process-step h4 {
@@ -288,7 +288,7 @@
   letter-spacing: -.02em;
   font-weight: 500;
   margin: 0;
-  color: var(--cream);
+  color: #FFFFFF;
   max-width: 24ch;
   line-height: 1.1;
 }
@@ -333,7 +333,7 @@
 }
 
 .svc-card:hover {
-  background: var(--cream);
+  background: #F5F5F5;
 }
 
 .svc-card .num {
