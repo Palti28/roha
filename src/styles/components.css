@@ -43,9 +43,9 @@
   transition: background .25s ease, border-color .25s ease, backdrop-filter .25s ease;
 }
 .nav.scrolled {
-  background: color-mix(in oklab, var(--paper) 92%, transparent);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: hsla(0, 0%, 100%, .5);
+  backdrop-filter: blur(48px);
+  -webkit-backdrop-filter: blur(48px);
   border-bottom-color: var(--rule);
 }
 .nav-inner {
