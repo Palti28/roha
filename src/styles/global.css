@@ -190,14 +190,6 @@ button {
   opacity: .82;
 }
 
-.eyebrow::before {
-  content: "";
-  width: 14px;
-  height: 1px;
-  background: var(--clay);
-  opacity: .6;
-}
-
 .section-title {
   font-family: 'Bricolage Grotesque', serif;
   font-size: clamp(24px, 2.8vw, 36px);

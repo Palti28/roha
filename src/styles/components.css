@@ -486,7 +486,6 @@
 }
 .cta-panel.pat-heat { background: linear-gradient(135deg, var(--terracotta) 0%, var(--clay) 100%); }
 .cta-panel .eyebrow { color: var(--cream); opacity: .8; }
-.cta-panel .eyebrow::before { background: var(--cream); opacity: .6; }
 .cta-panel h2 {
   font-family: 'Bricolage Grotesque', serif;
   font-size: clamp(40px, 6vw, 80px);
