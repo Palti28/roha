@@ -15,7 +15,7 @@ const isActive = (href: string) =>
 <header class="site-header" role="banner" data-site-header>
   <div class="site-header-inner">
     <a href="/" class="logo site-header-logo" aria-label="Roha — Home">roha<span class="dot">.</span></a>
-    <div class="site-header-nav-scroll">
+    <nav class="site-header-nav" aria-label="Primary">
       <ul class="site-header-links">
         {navLinks.map((link) => (
           <li>
@@ -23,7 +23,8 @@ const isActive = (href: string) =>
           </li>
         ))}
       </ul>
-    </div>
+    </nav>
+    <a href="/about#contact" class="site-header-cta">Start a Project</a>
   </div>
 </header>
 
