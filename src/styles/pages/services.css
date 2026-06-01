@@ -30,6 +30,19 @@
   .svc-hero-figure { display: none; }
 }
 
+/* Service cover illustration */
+.svc-cover {
+  grid-column: 1 / -1;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  margin-bottom: 4px;
+}
+.svc-cover svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
 /* Services list */
 .svc-cards {
   display: flex; flex-direction: column;
