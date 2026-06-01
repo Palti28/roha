@@ -802,6 +802,15 @@
   color: var(--ink);
   margin-right: 2px;
 }
+.lp-tile-meta {
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: .09em;
+  color: var(--ink);
+  opacity: .4;
+  margin: 5px 0 0;
+}
 
 /* ---------- CTA banner ---------- */
 .lp-cta-wrap { padding: 0 0 96px; }
