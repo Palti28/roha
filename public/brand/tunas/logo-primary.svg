@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900">
+  <rect width="1200" height="900" fill="#F4EFE3"/>
+  <!-- Subtle grid texture -->
+  <pattern id="dot" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+    <circle cx="20" cy="20" r="1.2" fill="#1A3C1A" opacity="0.07"/>
+  </pattern>
+  <rect width="1200" height="900" fill="url(#dot)"/>
+
+  <!-- Corner leaf accents -->
+  <ellipse cx="60" cy="60" rx="18" ry="32" fill="#8CC968" opacity="0.25" transform="rotate(-30 60 60)"/>
+  <ellipse cx="1140" cy="840" rx="18" ry="32" fill="#3A7A30" opacity="0.2" transform="rotate(40 1140 840)"/>
+  <ellipse cx="1160" cy="50" rx="12" ry="22" fill="#8CC968" opacity="0.18" transform="rotate(20 1160 50)"/>
+
+  <!-- Logo mark — centered, large -->
+  <g transform="translate(600,380) scale(3.2)">
+    <!-- Badge circle -->
+    <circle cx="0" cy="0" r="48" fill="#1A3C1A"/>
+    <!-- Inner dashed ring -->
+    <circle cx="0" cy="0" r="43" fill="none" stroke="#8CC968" stroke-width=".9" stroke-dasharray="4 2.5" opacity="0.55"/>
+    <!-- Saucer -->
+    <rect x="-26" y="27" width="52" height="4" rx="2" fill="#F4EFE3" opacity="0.45"/>
+    <!-- Cup body -->
+    <rect x="-19" y="4" width="38" height="23" rx="3.5" fill="#F4EFE3"/>
+    <!-- Cup collar / rim -->
+    <rect x="-22" y="0" width="44" height="7" rx="3.5" fill="#F4EFE3"/>
+    <!-- Handle -->
+    <path d="M19 6 Q30 6 30 14 Q30 22 19 20" stroke="#F4EFE3" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+    <!-- Coffee surface -->
+    <ellipse cx="0" cy="17" rx="13" ry="3.5" fill="#1A3C1A" opacity="0.3"/>
+    <!-- Leaf emerging from cup -->
+    <path d="M0 0 C-8 -9 -9 -21 -5 -30 C-2 -37 0 -40 0 -40 C0 -40 2 -37 5 -30 C9 -21 8 -9 0 0 Z" fill="#8CC968"/>
+    <!-- Leaf midrib -->
+    <line x1="0" y1="-40" x2="0" y2="0" stroke="#1A3C1A" stroke-width="1" opacity="0.35"/>
+    <!-- Leaf highlights -->
+    <path d="M0 -40 C-3 -32 -5 -22 -3 -12" stroke="#F4EFE3" stroke-width=".8" fill="none" opacity="0.4"/>
+  </g>
+
+  <!-- Wordmark -->
+  <text x="600" y="600" font-family="'Trebuchet MS', 'Arial', sans-serif" font-size="88" font-weight="700" fill="#1A3C1A" text-anchor="middle" letter-spacing="22">TUNAS</text>
+  <!-- Underline rule -->
+  <rect x="360" y="616" width="480" height="1.5" fill="#3A7A30" opacity="0.4"/>
+  <!-- Sub label -->
+  <text x="600" y="648" font-family="'Trebuchet MS', 'Arial', sans-serif" font-size="16" font-weight="400" fill="#1A3C1A" text-anchor="middle" letter-spacing="9" opacity="0.55">COFFEE</text>
+
+  <!-- Tagline -->
+  <text x="600" y="730" font-family="Georgia, 'Times New Roman', serif" font-size="20" font-style="italic" fill="#1A3C1A" text-anchor="middle" opacity="0.5">Tumbuh dari tanah yang baik.</text>
+</svg>
