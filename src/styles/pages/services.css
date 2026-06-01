@@ -327,46 +327,6 @@
   animation-delay: calc(var(--i, 0) * 40ms);
 }
 
-/* ── Accordion (service row) ──────────────────────────────── */
-.deliverables-outer {
-  display: grid;
-  grid-template-rows: 1fr;
-  transition: grid-template-rows var(--dur) var(--ease-warm);
-}
-
-.deliverables-outer.is-collapsed {
-  grid-template-rows: 0fr;
-}
-
-.deliverables-outer > .deliverables {
-  overflow: hidden;
-  min-height: 0;
-}
-
-/* Toggle button */
-.svc-toggle {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 28px;
-  height: 28px;
-  border: 1px solid var(--rule);
-  border-radius: 50%;
-  background: none;
-  cursor: pointer;
-  font-size: 18px;
-  line-height: 1;
-  padding: 0;
-  color: var(--ink);
-  transition: border-color 240ms var(--ease-warm), color 240ms var(--ease-warm), background 240ms var(--ease-warm);
-  flex-shrink: 0;
-}
-
-.svc-toggle:hover {
-  border-color: var(--terracotta);
-  color: var(--terracotta);
-}
-
 /* ── Row hover ─────────────────────────────────────────────── */
 .svc-card {
   transition: background var(--dur) var(--ease-warm);
