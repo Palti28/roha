@@ -2,6 +2,7 @@
 import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 import Base from "../layouts/Base.astro";
+import Nav from "../components/Nav.astro";
 
 const portfolio = (
   await getCollection("portfolio", ({ data }) => !data.draft)
@@ -19,6 +20,7 @@ const filterMap: Record<string, string> = {
   title="Portfolio"
   description="Roha Design portfolio: design templates, UI kits, and digital products we've created. Explore our work and design examples."
 >
+  <Nav />
   <main id="main">
     <!-- HERO -->
     <section class="shop-hero">
