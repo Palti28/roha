@@ -350,6 +350,82 @@
   opacity: .66;
   margin: 0;
 }
+/* === Animated service icons === */
+.service-icon svg {
+  width: 58px;
+  height: 58px;
+  overflow: visible;
+  color: var(--terracotta);
+}
+.icon-bg   { fill: var(--paper-tint); }
+.gear-mask { fill: var(--paper-tint); }
+
+/* Icon 1 — Product Design: mobile card floats */
+@keyframes floatCard {
+  0%   { transform: translateY(0); }
+  40%  { transform: translateY(-9px); }
+  68%  { transform: translateY(1.5px); }
+  100% { transform: translateY(0); }
+}
+.svc-tile:hover .icon-mobile {
+  animation: floatCard .95s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+/* Icon 2 — Website Dev: brackets spread + slash bounce */
+.bracket-l, .bracket-r {
+  transition: transform .38s cubic-bezier(.34,1.56,.64,1);
+}
+.svc-tile:hover .bracket-l { transform: translateX(-8px); }
+.svc-tile:hover .bracket-r { transform: translateX(8px); }
+@keyframes slashBounce {
+  0%   { transform: translateY(0); }
+  33%  { transform: translateY(-8px); }
+  64%  { transform: translateY(2.5px); }
+  100% { transform: translateY(0); }
+}
+.svc-tile:hover .slash-ln {
+  animation: slashBounce .7s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+/* Icon 3 — Landing Page: cursor click + content scroll */
+@keyframes clickCursor {
+  0%   { transform: translate(0,0); }
+  22%  { transform: translate(4px,4px); }
+  58%  { transform: translate(4px,4px); }
+  84%  { transform: translate(1px,1px); }
+  100% { transform: translate(0,0); }
+}
+.cursor-arr {
+  transform-box: fill-box;
+  transform-origin: 0% 0%;
+}
+.svc-tile:hover .cursor-arr {
+  animation: clickCursor .75s ease-in-out both;
+}
+@keyframes scrollUp {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-5px); }
+  100% { transform: translateY(0); }
+}
+.svc-tile:hover .content-ln {
+  animation: scrollUp .75s ease-in-out both;
+}
+
+/* Icon 4 — Brand & Logo: gear rotates */
+@keyframes gearSpin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+.gear-grp {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: gearSpin 5s linear infinite;
+  animation-play-state: paused;
+}
+.svc-tile:hover .gear-grp {
+  animation-play-state: running;
+}
+
 .svc-illus {
   color: var(--terracotta);
   display: flex;
