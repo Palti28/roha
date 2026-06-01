@@ -6,7 +6,7 @@ import Base from '../layouts/Base.astro';
   title="Services"
   description="Design services from Roha: UI/UX, web design, brand identity, and Figma components, built for founders on a sprint."
 >
-<main id="main">
+<main id="main" class="svc-page">
 
     <!-- HERO -->
     <section class="svc-hero">
@@ -100,109 +100,118 @@ import Base from '../layouts/Base.astro';
 
         <div class="launch-banner" data-reveal>
           <span class="launch-badge">LAUNCH PRICING — STARTING RATES FOR PROJECTS BOOKED BEFORE SEPTEMBER 2026</span>
-          <p class="launch-note">These are starting rates for the basic scope. Final price depends on your needs — we'll quote it before we begin.</p>
+          <p class="launch-note">Starting rates for basic scope. Final price by quote.</p>
         </div>
 
         <div class="svc-cards">
 
           <!-- 01 Product Design -->
-          <article class="svc-card" id="product-design" data-reveal data-reveal-delay="0">
-            <div class="num">01</div>
+          <article class="svc-card" id="product-design" data-svc-card>
+            <div class="num reveal-child" style="--i:0">01</div>
             <div class="core">
-              <h3>Product Design (UI/UX)</h3>
-              <p>One full flow from research to developer handoff. For products chasing product-market fit, ones that
-                need a full redesign, or concepts ready to be turned into a consistent, shippable visual system.</p>
-              <span class="price-tag">FROM RP 3M · ~1 WEEK</span>
+              <h3 class="reveal-child" style="--i:1">Product Design (UI/UX)</h3>
+              <p class="reveal-child" style="--i:2">One full flow, from research to developer handoff. Built for products finding their fit, teams ready for a redesign, or concepts that need to become a real, shippable system.</p>
+              <span class="price-tag reveal-child" style="--i:3">FROM RP 3M · ~1 WEEK</span>
             </div>
-            <div class="deliverables">
-              <h4>Includes</h4>
-              <ul>
-                <li>Figma file</li>
-                <li>3 basic user journeys / user flows</li>
-                <li>UI/UX design</li>
-                <li>Simple prototype</li>
-                <li>Raw design data</li>
-                <li><em>Extras beyond basic scope → quoted separately</em></li>
-              </ul>
+            <div class="deliverables-outer reveal-child" style="--i:4">
+              <div class="deliverables">
+                <h4>What we cover</h4>
+                <ul>
+                  <li>Figma file</li>
+                  <li>User journeys &amp; flows</li>
+                  <li>UI/UX design</li>
+                  <li>Interactive prototype</li>
+                  <li>Design handoff &amp; tokens</li>
+                  <li>Raw working files</li>
+                </ul>
+                <p class="svc-footnote"><em>Extras beyond basic scope are quoted separately.</em></p>
+              </div>
             </div>
-            <div class="cta-col">
-              <a href="/about#contact" class="btn btn-secondary">Get a quote <span class="arr">→</span></a>
+            <div class="cta-col reveal-child" style="--i:5">
+              <button class="svc-toggle" data-svc-toggle aria-expanded="true">−</button>
+              <a href="/about#contact" class="btn btn-secondary btn-sm">Get a quote <span class="arr">→</span></a>
             </div>
           </article>
 
           <!-- 02 Web -->
-          <article class="svc-card" id="web" data-reveal data-reveal-delay="100">
-            <div class="num">02</div>
+          <article class="svc-card" id="web" data-svc-card>
+            <div class="num reveal-child" style="--i:0">02</div>
             <div class="core">
-              <h3>Website Development</h3>
-              <p>End-to-end website development. Good for company profiles, light dashboards, or web apps that need real
-                interactivity. We use a modern stack that&rsquo;s easy to maintain.</p>
-              <span class="price-tag">FROM RP 6M · 3–5 WEEKS</span>
+              <h3 class="reveal-child" style="--i:1">Website Development</h3>
+              <p class="reveal-child" style="--i:2">End-to-end builds for company profiles, light dashboards, or web apps that need real interactivity. A modern stack that stays easy to maintain.</p>
+              <span class="price-tag reveal-child" style="--i:3">FROM RP 6M · 3–5 WEEKS</span>
             </div>
-            <div class="deliverables">
-              <h4>Includes</h4>
-              <ul>
-                <li>Frontend + backend development</li>
-                <li>Back-office / admin panel</li>
-                <li>CMS / database integration</li>
-                <li>Responsive across devices</li>
-                <li>Performance optimization</li>
-                <li>Deployment + domain setup</li>
-              </ul>
+            <div class="deliverables-outer reveal-child" style="--i:4">
+              <div class="deliverables">
+                <h4>What we cover</h4>
+                <ul>
+                  <li>Frontend + backend</li>
+                  <li>Admin / back-office panel</li>
+                  <li>CMS &amp; database integration</li>
+                  <li>Responsive across devices</li>
+                  <li>Performance optimisation</li>
+                  <li>Deployment + domain setup</li>
+                </ul>
+              </div>
             </div>
-            <div class="cta-col">
-              <a href="/about#contact" class="btn btn-secondary">Get a quote <span class="arr">→</span></a>
+            <div class="cta-col reveal-child" style="--i:5">
+              <button class="svc-toggle" data-svc-toggle aria-expanded="true">−</button>
+              <a href="/about#contact" class="btn btn-secondary btn-sm">Get a quote <span class="arr">→</span></a>
             </div>
           </article>
 
           <!-- 03 Landing -->
-          <article class="svc-card" id="landing" data-reveal data-reveal-delay="200">
-            <div class="num">03</div>
+          <article class="svc-card" id="landing" data-svc-card>
+            <div class="num reveal-child" style="--i:0">03</div>
             <div class="core">
-              <h3>Landing Page Development</h3>
-              <p>A single-page landing that converts, from design to live in 1–2 weeks. For campaigns, product
-                launches, or new brands that need to be online fast.</p>
-              <span class="price-tag">FROM RP 2.5M · 1–2 WEEKS</span>
+              <h3 class="reveal-child" style="--i:1">Landing Page</h3>
+              <p class="reveal-child" style="--i:2">A single page, built to convert. From design to live in one to two weeks. For campaigns, launches, or new brands that need to be online fast.</p>
+              <span class="price-tag reveal-child" style="--i:3">FROM RP 2.5M · 1–2 WEEKS</span>
             </div>
-            <div class="deliverables">
-              <h4>Includes</h4>
-              <ul>
-                <li>1–5 pages</li>
-                <li>Domain + hosting (5GB)</li>
-                <li>Responsive (mobile + desktop)</li>
-                <li>2&times; revisions</li>
-                <li>Form integration</li>
-                <li>Analytics setup</li>
-                <li>Deploy</li>
-              </ul>
+            <div class="deliverables-outer reveal-child" style="--i:4">
+              <div class="deliverables">
+                <h4>What we cover</h4>
+                <ul>
+                  <li>Up to 5 sections</li>
+                  <li>Domain + hosting (5GB)</li>
+                  <li>Responsive build</li>
+                  <li>2&times; revisions</li>
+                  <li>Form integration</li>
+                  <li>Analytics setup</li>
+                  <li>Deploy</li>
+                </ul>
+              </div>
             </div>
-            <div class="cta-col">
-              <a href="/about#contact" class="btn btn-secondary">Get a quote <span class="arr">→</span></a>
+            <div class="cta-col reveal-child" style="--i:5">
+              <button class="svc-toggle" data-svc-toggle aria-expanded="true">−</button>
+              <a href="/about#contact" class="btn btn-secondary btn-sm">Get a quote <span class="arr">→</span></a>
             </div>
           </article>
 
           <!-- 04 Brand -->
-          <article class="svc-card" id="brand" data-reveal data-reveal-delay="300">
-            <div class="num">04</div>
+          <article class="svc-card" id="brand" data-svc-card>
+            <div class="num reveal-child" style="--i:0">04</div>
             <div class="core">
-              <h3>Brand &amp; Logo Guideline</h3>
-              <p>Logo, brand book, and a visual system that&rsquo;s ready to hand off to any team or vendor. Not just a
-                pretty logo, a system that keeps your brand consistent wherever it&rsquo;s used.</p>
-              <span class="price-tag">FROM RP 2M · ~1 WEEK</span>
+              <h3 class="reveal-child" style="--i:1">Brand &amp; Logo</h3>
+              <p class="reveal-child" style="--i:2">Logo, brand book, and a visual system ready to hand to any team. Not just a mark: a system that keeps the brand consistent wherever it shows up.</p>
+              <span class="price-tag reveal-child" style="--i:3">FROM RP 2M · ~1 WEEK</span>
             </div>
-            <div class="deliverables">
-              <h4>Includes</h4>
-              <ul>
-                <li>Logo design</li>
-                <li>Brand guideline</li>
-                <li>Color system</li>
-                <li>Typography system</li>
-                <li>2&times; revisions</li>
-                <li>Working files</li>
-              </ul>
+            <div class="deliverables-outer reveal-child" style="--i:4">
+              <div class="deliverables">
+                <h4>What we cover</h4>
+                <ul>
+                  <li>Logo design</li>
+                  <li>Brand guideline</li>
+                  <li>Colour system</li>
+                  <li>Typography system</li>
+                  <li>2&times; revisions</li>
+                  <li>Working files</li>
+                </ul>
+              </div>
             </div>
-            <div class="cta-col">
-              <a href="/about#contact" class="btn btn-secondary">Get a quote <span class="arr">→</span></a>
+            <div class="cta-col reveal-child" style="--i:5">
+              <button class="svc-toggle" data-svc-toggle aria-expanded="true">−</button>
+              <a href="/about#contact" class="btn btn-secondary btn-sm">Get a quote <span class="arr">→</span></a>
             </div>
           </article>
 
@@ -218,8 +227,11 @@ import Base from '../layouts/Base.astro';
           <h2 class="section-title">Slow at the start, <em class="italic-accent">quick</em> at the end.</h2>
         </div>
 
-        <div class="process-band pattern-wrap">
+        <div class="process-band pattern-wrap" data-process-band>
           <div class="pat-overlay" aria-hidden="true"></div>
+          <div class="process-track" aria-hidden="true">
+            <div class="process-track-fill"></div>
+          </div>
           <div class="process-steps">
 
             <div class="process-step" data-reveal data-reveal-delay="0">
@@ -243,7 +255,7 @@ import Base from '../layouts/Base.astro';
                   <span class="dur">1–2 days</span>
                 </div>
                 <h4>Briefing</h4>
-                <p>Discovery call, scope alignment. We make sure we understand the problem first.</p>
+                <p>Discovery call and scope alignment. We make sure we understand the problem first.</p>
               </div>
             </div>
 
@@ -267,7 +279,7 @@ import Base from '../layouts/Base.astro';
                   <span class="dur">3–5 days</span>
                 </div>
                 <h4>Exploration</h4>
-                <p>Mood board, wireframes, direction. Two or three directions to test before committing.</p>
+                <p>Mood board, wireframes, direction. Two or three options to test before committing.</p>
               </div>
             </div>
 
@@ -289,7 +301,7 @@ import Base from '../layouts/Base.astro';
                   <span class="dur">1–3 weeks</span>
                 </div>
                 <h4>Design</h4>
-                <p>Visual design, prototype, interaction details. Reviews every week.</p>
+                <p>Visual design, prototype, interaction detail. Reviews every week.</p>
               </div>
             </div>
 
@@ -309,7 +321,7 @@ import Base from '../layouts/Base.astro';
                   <span class="dur">1 week</span>
                 </div>
                 <h4>Iteration</h4>
-                <p>One big revision round, not small ping-pong loops that wear everyone out.</p>
+                <p>One focused revision round. Not the small back-and-forth that wears everyone out.</p>
               </div>
             </div>
 
@@ -331,7 +343,7 @@ import Base from '../layouts/Base.astro';
                   <span class="dur">1–2 days</span>
                 </div>
                 <h4>Handoff</h4>
-                <p>File delivery, documentation, and 2 weeks of handoff support.</p>
+                <p>File delivery, documentation, and two weeks of handoff support.</p>
               </div>
             </div>
 
@@ -438,3 +450,54 @@ import Base from '../layouts/Base.astro';
 
   </main>
 </Base>
+
+<script>
+  // Service card accordion
+  document.querySelectorAll<HTMLButtonElement>('[data-svc-toggle]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const card = btn.closest('[data-svc-card]') as HTMLElement;
+      const outer = card?.querySelector<HTMLElement>('.deliverables-outer');
+      if (!outer) return;
+      const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!isExpanded));
+      btn.textContent = isExpanded ? '+' : '−';
+      outer.classList.toggle('is-collapsed', isExpanded);
+    });
+  });
+
+  // Service card scroll reveal
+  if ('IntersectionObserver' in window) {
+    const cardIO = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-revealed');
+            cardIO.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15, rootMargin: '0px 0px -40px 0px' }
+    );
+    document.querySelectorAll('[data-svc-card]').forEach((el) => cardIO.observe(el));
+
+    // Process band reveal (for connecting line)
+    const bandEl = document.querySelector('[data-process-band]');
+    if (bandEl) {
+      const bandIO = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-revealed');
+              bandIO.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.2 }
+      );
+      bandIO.observe(bandEl);
+    }
+  } else {
+    document.querySelectorAll('[data-svc-card]').forEach((el) => el.classList.add('is-revealed'));
+    document.querySelector('[data-process-band]')?.classList.add('is-revealed');
+  }
+</script>
