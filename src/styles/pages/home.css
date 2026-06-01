@@ -732,8 +732,8 @@
 }
 .lp-tile.is-revealed { opacity: 1; transform: translateY(0); }
 .lp-tile.is-revealed:hover { transform: translateY(-4px); }
-/* Thumb handles 3D tilt separately */
-.lp-thumb { transition: transform .25s cubic-bezier(.2,.7,.2,1), box-shadow .25s ease; }
+/* Thumb: only transition box-shadow (cursor-follow shadow effect) */
+.lp-thumb { transition: box-shadow .2s ease; }
 .lp-thumb {
   position: relative;
   aspect-ratio: 4 / 3;

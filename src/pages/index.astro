@@ -183,22 +183,18 @@ const portfolio = (await getCollection('portfolio', ({ data }) => !data.draft))
       });
     }
 
-    // ── 4. Work card 3D tilt on hover (thumb only) ──
+    // ── 4. Work card — cursor-following shadow (no 3D transform, avoids border-radius glitch) ──
     if (canHover) {
       document.querySelectorAll<HTMLElement>('.lp-tile').forEach((card) => {
         const thumb = card.querySelector<HTMLElement>('.lp-thumb');
         if (!thumb) return;
         card.addEventListener('mousemove', (e) => {
-          const r = card.getBoundingClientRect();
+          const r = thumb.getBoundingClientRect();
           const x = (e.clientX - r.left) / r.width - 0.5;
           const y = (e.clientY - r.top) / r.height - 0.5;
-          thumb.style.transform = `perspective(900px) rotateY(${x * 6}deg) rotateX(${-y * 5}deg) scale(1.02)`;
-          thumb.style.boxShadow = `${x * -10}px ${y * -8}px 28px rgba(0,0,0,.10)`;
+          thumb.style.boxShadow = `${x * -14}px ${y * -10}px 32px rgba(0,0,0,.13), 0 2px 8px rgba(0,0,0,.06)`;
         });
-        card.addEventListener('mouseleave', () => {
-          thumb.style.transform = '';
-          thumb.style.boxShadow = '';
-        });
+        card.addEventListener('mouseleave', () => { thumb.style.boxShadow = ''; });
       });
     }
 
