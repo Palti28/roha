@@ -184,26 +184,17 @@
   .main-nav-scroll::before { display: none; }
 }
 
-/* Visible thin scrollbar track — clear affordance */
+/* Scrollbar hidden — clean look */
 .main-nav-links {
-  scrollbar-width: thin;
-  scrollbar-color: rgba(17, 17, 17, .18) transparent;
+  scrollbar-width: none;
 }
-.main-nav-links::-webkit-scrollbar { height: 2px; display: block; }
-.main-nav-links::-webkit-scrollbar-track { background: transparent; }
-.main-nav-links::-webkit-scrollbar-thumb {
-  background: rgba(17, 17, 17, .2);
-  border-radius: 99px;
-}
-.main-nav-links { padding-right: 52px; padding-bottom: 4px; }
+.main-nav-links::-webkit-scrollbar { display: none; }
+.main-nav-links { padding-right: 52px; padding-bottom: 0; }
 
 @media (min-width: 881px) {
   .main-nav-links {
-    scrollbar-width: none;
     padding-right: 0;
-    padding-bottom: 0;
   }
-  .main-nav-links::-webkit-scrollbar { display: none; }
 }
 
 @media (max-width: 720px) {
