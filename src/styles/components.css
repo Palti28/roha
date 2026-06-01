@@ -57,6 +57,31 @@
   color: var(--clay);
 }
 
+/* Desktop nav (hidden on mobile) */
+.topbar-nav { display: flex; }
+.topbar-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.topbar-nav-links a {
+  font-family: 'Geist', sans-serif;
+  font-size: 13.5px;
+  color: var(--ink);
+  opacity: .6;
+  padding: 6px 14px;
+  border-radius: 99px;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  display: inline-block;
+  transition: background .18s ease, border-color .18s ease, opacity .18s ease;
+}
+.topbar-nav-links a:hover { opacity: 1; background: var(--snow); border-color: var(--rule); }
+.topbar-nav-links a.active { opacity: 1; background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
 /* Hamburger — hidden on desktop */
 .topbar-burger {
   display: none;
@@ -205,8 +230,13 @@
 }
 
 @media (max-width: 640px) {
+  .topbar-nav { display: none; }
   .topbar-url { display: none; }
   .topbar-burger { display: flex; }
+}
+
+/* Nav.astro (scroll-then-sticky) hidden on mobile — header handles it */
+@media (max-width: 640px) {
   .main-nav-anchor { display: none; }
 }
 

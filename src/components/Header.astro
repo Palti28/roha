@@ -15,7 +15,21 @@ const isActive = (href: string) =>
 <header class="topbar" role="banner">
   <div class="topbar-inner">
     <a href="/" class="logo" aria-label="Roha — Home">roha<span class="dot">.</span></a>
+
+    <!-- Desktop nav -->
+    <nav class="topbar-nav" aria-label="Primary">
+      <ul class="topbar-nav-links">
+        {navLinks.map((link) => (
+          <li>
+            <a href={link.href} class={isActive(link.href) ? 'active' : ''}>{link.label}</a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+
     <span class="topbar-url">rohaworks.com</span>
+
+    <!-- Mobile hamburger -->
     <button class="topbar-burger" id="topbarBurger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="topbarMenu">
       <span></span>
       <span></span>
@@ -23,6 +37,7 @@ const isActive = (href: string) =>
     </button>
   </div>
 
+  <!-- Mobile menu -->
   <div class="topbar-menu" id="topbarMenu" aria-hidden="true">
     <nav aria-label="Mobile navigation">
       <ul class="topbar-menu-links">
@@ -73,7 +88,6 @@ const isActive = (href: string) =>
     a.addEventListener('click', close);
   });
 
-  // Close on Escape
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape' && menu.classList.contains('is-open')) close();
   });
