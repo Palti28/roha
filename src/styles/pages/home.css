@@ -870,11 +870,6 @@
 @media (max-width: 720px) {
   .lp-cta-panel { flex-direction: column; align-items: flex-start; gap: 32px; }
   .lp-cta-actions { width: 100%; }
-  /* Stats: 2-col on tablet */
-  .lp-stats { grid-template-columns: repeat(2, 1fr); }
-  .lp-stat:nth-child(2) { border-right: 0; padding-right: 0; }
-  .lp-stat:nth-child(3) { border-top: 1px solid var(--rule); padding-left: 0; }
-  .lp-stat:nth-child(4) { border-top: 1px solid var(--rule); border-right: 0; padding-right: 0; }
 }
 @media (max-width: 600px) {
   .lp-hero-inner,
@@ -884,5 +879,13 @@
   .lp-work { padding: 56px 0 56px; }
   .lp-cta-wrap { padding: 0 0 64px; }
   .lp-grid { grid-template-columns: 1fr; gap: 32px; }
+}
+/* Stats always 1 row — shrink padding and font on small screens */
+@media (max-width: 540px) {
+  .lp-stat { padding: 14px 8px; }
+  .lp-stat:first-child { padding-left: 0; }
+  .lp-stat:last-child { padding-right: 0; }
+  .lp-stat dt { font-size: 12px; }
+  .lp-stat dd { font-size: 8px; letter-spacing: .06em; }
 }
 
