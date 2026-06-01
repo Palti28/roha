@@ -2,7 +2,6 @@
 import { Image } from 'astro:assets';
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-import Breadcrumb from "../components/Breadcrumb.astro";
 import "../styles/global.css";
 import "../styles/cards.css";
 import "../styles/pages/about.css";
@@ -84,7 +83,6 @@ const breadcrumbListSchema = breadcrumbSchema(includeHomepage, site.url);
   </head>
   <body>
     <Header />
-    <Breadcrumb />
     <main>
       <slot />
     </main>

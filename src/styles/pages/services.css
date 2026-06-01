@@ -30,11 +30,33 @@
   .svc-hero-figure { display: none; }
 }
 
+/* Service cover illustration */
+.svc-cover {
+  grid-column: 1 / -1;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  margin-bottom: 4px;
+}
+.svc-cover svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
 /* Services list */
 .svc-cards {
   display: flex; flex-direction: column;
   gap: 0;
   margin-top: 16px;
+}
+.pricing-trust {
+  font-family: 'Geist', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--ink);
+  opacity: .65;
+  margin: 0 0 28px;
+  letter-spacing: -.01em;
 }
 .launch-banner {
   margin-bottom: 28px;

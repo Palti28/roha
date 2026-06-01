@@ -3,8 +3,7 @@
    White-base, brand-aligned, calm motion
    ============================================================ */
 
-/* Preview trigger button — sits on the product cover */
-.product-card { position: relative; }
+/* Preview trigger button — sits inside lp-thumb (position:relative) */
 .pv-trigger {
   position: absolute;
   top: 14px;
@@ -29,7 +28,7 @@
   opacity: 0;
   visibility: hidden;
 }
-.product-card:hover .pv-trigger {
+.lp-tile:hover .pv-trigger {
   opacity: 1;
   visibility: visible;
 }

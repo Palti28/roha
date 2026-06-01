@@ -53,7 +53,7 @@ const workSchema = creativeWorkSchema({
     <section class="wd-cover">
       <div class="wrap">
         <div class="wd-header">
-          <div class="eyebrow">Case Study · {d.year}</div>
+          <div class="eyebrow">{d.category === 'freebie' ? 'Free Resource' : 'Case Study'} · {d.year}</div>
           <div class="wd-tag-row">
             <CaseTag concept={d.concept} label={d.tagLabel} tone="light" />
           </div>
@@ -82,6 +82,20 @@ const workSchema = creativeWorkSchema({
         </div>
       </div>
     </section>
+
+    {/* FREEBIE PDF EMBED — shown when pdfUrl is set */}
+    {d.pdfUrl && (
+      <section class="section-tight wd-freebie">
+        <div class="wrap">
+          <div class="wd-freebie-actions">
+            <a href={d.pdfUrl} download class="btn btn-primary">Download PDF <span class="arr">↓</span></a>
+          </div>
+          <div class="wd-pdf-frame">
+            <iframe src={d.pdfUrl} title={`${d.title} — PDF`} loading="lazy" aria-label={`${d.title} document`}></iframe>
+          </div>
+        </div>
+      </section>
+    )}
 
     {/* IMAGES SHOWCASE — if available */}
     {d.images && d.images.length > 0 && (

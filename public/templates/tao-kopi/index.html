@@ -1,0 +1,620 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Tao Kopi — Lakeside Coffee House, Danau Toba</title>
+  <meta name="description" content="Kopi single origin Sumatera di tepi Danau Toba. Tuk Tuk Siadong, Samosir Island. Buka Selasa–Minggu." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Inter:wght@300;400;500&family=Inter+Tight:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --obsidian: #0B0D0C;
+      --deep:     #131714;
+      --surface:  #1C221E;
+      --mid:      #394540;
+      --fog:      #7A8880;
+      --cream:    #F5F0E8;
+      --warm:     #EDE8DF;
+      --paper:    #FAF8F4;
+      --amber:    #C8922A;
+      --amber-s:  #DFA030;
+      --terra:    #9E5230;
+      --ink:      #1C1A16;
+      --rule-d:   rgba(255,255,255,.07);
+      --rule-l:   rgba(28,26,22,.1);
+      --nav-h:    64px;
+      --maxw:     1200px;
+      --pad:      clamp(24px, 5vw, 80px);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto !important; }
+      .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+    }
+    body { font-family: 'Inter', system-ui, sans-serif; background: var(--deep); color: var(--cream); line-height: 1.65; }
+    .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--pad); }
+
+    /* ── Reveal ─────────────────────────────────── */
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.vis { opacity: 1; transform: none; }
+    .d1 { transition-delay: .1s; } .d2 { transition-delay: .2s; } .d3 { transition-delay: .3s; }
+
+    /* ── Nav ────────────────────────────────────── */
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; height: var(--nav-h); transition: background .3s, border-color .3s; border-bottom: 1px solid transparent; }
+    .nav.scrolled { background: rgba(11,13,12,.92); backdrop-filter: blur(12px); border-color: var(--rule-d); }
+    .nav-inner { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--pad); height: 100%; display: flex; align-items: center; }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 300; font-size: 20px;
+      color: var(--cream); text-decoration: none; letter-spacing: .02em;
+      display: flex; align-items: center; gap: 8px; flex-shrink: 0;
+    }
+    .nav-logo-mark { width: 8px; height: 8px; border-radius: 50%; background: var(--amber); flex-shrink: 0; }
+    .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; margin: 0 auto; }
+    .nav-links a {
+      font-family: 'Inter Tight', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
+      color: rgba(245,240,232,.5); text-decoration: none; transition: color .15s;
+    }
+    .nav-links a:hover { color: var(--cream); }
+    .nav-cta {
+      font-family: 'Inter Tight', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: .04em;
+      color: var(--obsidian); background: var(--amber); padding: 8px 22px; border-radius: 2px;
+      text-decoration: none; flex-shrink: 0; transition: background .15s;
+    }
+    .nav-cta:hover { background: var(--amber-s); }
+    .nav-burger { display: none; margin-left: auto; background: none; border: none; cursor: pointer; color: var(--cream); padding: 6px; }
+    .nav-panel { display: none; position: fixed; top: var(--nav-h); left: 0; right: 0; background: var(--obsidian); border-top: 1px solid var(--rule-d); z-index: 199; padding: 16px 0 24px; }
+    .nav-panel.open { display: block; }
+    .nav-panel ul { list-style: none; }
+    .nav-panel li a { display: block; padding: 12px var(--pad); font-family: 'Inter Tight', sans-serif; font-size: 15px; font-weight: 600; color: rgba(245,240,232,.8); text-decoration: none; }
+    .nav-panel-cta { padding: 12px var(--pad) 0; }
+    .nav-panel-cta a { display: block; text-align: center; padding: 12px; border-radius: 2px; background: var(--amber); color: var(--obsidian); font-family: 'Inter Tight', sans-serif; font-size: 13px; font-weight: 700; text-decoration: none; }
+    @media (max-width: 860px) { .nav-links, .nav-cta { display: none; } .nav-burger { display: flex; align-items: center; } }
+
+    /* ── Hero ───────────────────────────────────── */
+    .hero {
+      position: relative; min-height: 100vh; display: flex; flex-direction: column; justify-content: flex-end;
+      padding-top: var(--nav-h);
+      background: linear-gradient(160deg, #0B1812 0%, #152219 30%, #1C2E22 55%, #0F1A10 80%, #0B0D0C 100%);
+      overflow: hidden;
+    }
+    .hero-noise {
+      position: absolute; inset: 0; pointer-events: none; z-index: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      opacity: .025;
+    }
+    .hero-eyebrow-row {
+      position: absolute; top: calc(var(--nav-h) + 32px); left: var(--pad); right: var(--pad);
+      display: flex; align-items: center; justify-content: space-between;
+      z-index: 2;
+    }
+    .hero-badge {
+      font-family: 'Inter Tight', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase;
+      color: var(--amber); display: flex; align-items: center; gap: 10px;
+    }
+    .hero-badge::before { content: ''; display: block; width: 16px; height: 1px; background: var(--amber); }
+    .hero-time {
+      font-family: 'Inter Tight', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase;
+      color: rgba(245,240,232,.28);
+    }
+    .hero-body {
+      position: relative; z-index: 2;
+      padding: 0 var(--pad) clamp(56px, 8vw, 96px);
+    }
+    .hero-h1 {
+      font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 300;
+      font-size: clamp(80px, 14vw, 200px);
+      line-height: .84; letter-spacing: -.025em;
+      color: var(--cream); margin-bottom: 0;
+    }
+    .hero-h1 em { font-style: normal; color: rgba(245,240,232,.28); }
+    .hero-divider {
+      width: 100%; height: 1px; background: var(--rule-d); margin: 32px 0 28px;
+    }
+    .hero-footer-row {
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 24px;
+    }
+    .hero-sub {
+      font-size: 14px; font-weight: 300; color: rgba(245,240,232,.5); max-width: 44ch; line-height: 1.7;
+    }
+    .hero-ctas { display: flex; gap: 32px; align-items: center; flex-shrink: 0; }
+    .hero-link {
+      font-family: 'Inter Tight', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: .04em;
+      color: var(--cream); text-decoration: none;
+      display: flex; align-items: center; gap: 8px; transition: gap .2s;
+    }
+    .hero-link:hover { gap: 14px; }
+    .hero-link-ghost { color: rgba(245,240,232,.45); }
+    .hero-link-ghost:hover { color: var(--cream); }
+    .hero-scroll {
+      position: absolute; right: var(--pad); bottom: clamp(28px, 5vw, 48px); z-index: 2;
+      display: flex; flex-direction: column; align-items: center; gap: 10px;
+      color: rgba(245,240,232,.25);
+    }
+    .hero-scroll-line { width: 1px; height: 48px; background: currentColor; animation: scrollLine 2s ease-in-out 3 forwards; }
+    @keyframes scrollLine {
+      0%, 100% { transform: scaleY(1); opacity: .25; }
+      50% { transform: scaleY(.5); opacity: .5; }
+    }
+    .hero-scroll-label { font-family: 'Inter Tight', sans-serif; font-size: 9px; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; writing-mode: vertical-rl; }
+    @media (max-width: 600px) { .hero-h1 { font-size: clamp(60px, 18vw, 80px); } .hero-footer-row { flex-direction: column; align-items: flex-start; } .hero-eyebrow-row { position: static; padding: calc(var(--nav-h) + 40px) 0 0; margin-bottom: 32px; } .hero-body { padding-top: 0; } }
+
+    /* ── About (cream section) ───────────────────── */
+    .about {
+      background: var(--warm); color: var(--ink);
+      padding: clamp(64px, 10vw, 120px) 0;
+      position: relative; overflow: hidden;
+    }
+    .about-deco {
+      position: absolute; right: -40px; top: 50%; transform: translateY(-50%);
+      font-family: 'Cormorant Garamond', serif; font-weight: 300; font-style: italic;
+      font-size: clamp(200px, 30vw, 400px); line-height: 1; color: rgba(28,26,22,.04);
+      pointer-events: none; user-select: none; white-space: nowrap;
+    }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; position: relative; z-index: 1; }
+    .about-left {
+      padding-right: clamp(40px, 7vw, 96px);
+      border-right: 1px solid var(--rule-l);
+      display: flex; flex-direction: column; justify-content: center;
+    }
+    .about-right { padding-left: clamp(40px, 7vw, 96px); }
+    .about-quote {
+      font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 300;
+      font-size: clamp(28px, 3.5vw, 52px);
+      line-height: 1.2; letter-spacing: -.01em; color: var(--ink);
+      margin-bottom: 24px;
+    }
+    .about-quote-src {
+      font-family: 'Inter Tight', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase;
+      color: var(--amber);
+    }
+    .about-eyebrow {
+      font-family: 'Inter Tight', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase;
+      color: var(--amber); margin-bottom: 20px;
+    }
+    .about-body p { font-size: 15px; font-weight: 300; color: rgba(28,26,22,.75); line-height: 1.8; margin-bottom: 18px; }
+    .about-link {
+      display: inline-flex; align-items: center; gap: 8px; margin-top: 8px;
+      font-family: 'Inter Tight', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+      color: var(--ink); text-decoration: none; border-bottom: 1px solid rgba(28,26,22,.25);
+      padding-bottom: 2px; transition: border-color .15s, gap .2s;
+    }
+    .about-link:hover { border-color: var(--ink); gap: 14px; }
+    @media (max-width: 860px) { .about-grid { grid-template-columns: 1fr; } .about-left { border-right: none; border-bottom: 1px solid var(--rule-l); padding-right: 0; padding-bottom: clamp(40px, 7vw, 64px); margin-bottom: clamp(40px, 7vw, 64px); } .about-right { padding-left: 0; } }
+
+    /* ── Gallery (staggered) ────────────────────── */
+    .gallery { background: var(--obsidian); padding: 0; }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      grid-template-rows: 320px;
+      gap: 2px;
+    }
+    .gallery-cell {
+      position: relative; overflow: hidden;
+    }
+    .gallery-cell:first-child { grid-row: 1 / 3; height: auto; }
+    .gallery-grid { grid-template-rows: 220px 220px; }
+    .gallery-label {
+      position: absolute; bottom: 16px; left: 16px;
+      font-family: 'Inter Tight', sans-serif; font-size: 9px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase;
+      color: rgba(245,240,232,.55);
+      background: rgba(11,13,12,.5); padding: 5px 10px; border-radius: 1px;
+    }
+    @media (max-width: 700px) { .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: 180px 180px; } .gallery-cell:first-child { grid-column: 1 / -1; grid-row: 1; } }
+
+    /* ── Gallery meta row ───────────────────────── */
+    .gallery-meta {
+      background: var(--obsidian); border-top: 1px solid var(--rule-d);
+      padding: 20px var(--pad);
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .gallery-meta-text {
+      font-family: 'Inter Tight', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase;
+      color: rgba(245,240,232,.25);
+    }
+    .gallery-meta-link {
+      font-family: 'Inter Tight', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: .06em;
+      color: var(--amber); text-decoration: none; transition: opacity .15s;
+    }
+    .gallery-meta-link:hover { opacity: .7; }
+
+    /* ── Menu teaser (dark, editorial) ──────────── */
+    .menu-teaser { background: var(--deep); padding: clamp(64px, 9vw, 110px) 0; }
+    .menu-teaser-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: clamp(40px, 8vw, 120px); align-items: start; }
+    .menu-teaser-left .eyebrow-amber {
+      font-family: 'Inter Tight', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase;
+      color: var(--amber); margin-bottom: 20px;
+    }
+    .menu-teaser-h2 {
+      font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 300;
+      font-size: clamp(40px, 5.5vw, 72px); line-height: .9; letter-spacing: -.02em;
+      color: var(--cream); margin-bottom: 32px;
+    }
+    .menu-cat-list { list-style: none; display: flex; flex-direction: column; gap: 0; }
+    .menu-cat-item {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 0; border-bottom: 1px solid var(--rule-d);
+    }
+    .menu-cat-item:first-child { border-top: 1px solid var(--rule-d); }
+    .menu-cat-name {
+      font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 400;
+      font-size: 20px; color: rgba(245,240,232,.7); transition: color .15s;
+    }
+    .menu-cat-count {
+      font-family: 'Inter Tight', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: .1em;
+      color: rgba(245,240,232,.2);
+    }
+    a.menu-cat-item { text-decoration: none; }
+    a.menu-cat-item:hover .menu-cat-name { color: var(--cream); }
+    a.menu-cat-item:hover .menu-cat-count { color: var(--amber); }
+    .menu-teaser-cta {
+      display: inline-flex; align-items: center; gap: 10px; margin-top: 28px;
+      font-family: 'Inter Tight', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+      color: var(--amber); text-decoration: none; transition: gap .2s;
+    }
+    .menu-teaser-cta:hover { gap: 18px; }
+    .menu-teaser-right { display: flex; flex-direction: column; gap: 0; }
+    .featured-item {
+      padding: 28px 0; border-bottom: 1px solid var(--rule-d);
+      display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: start;
+    }
+    .featured-item:first-child { border-top: 1px solid var(--rule-d); }
+    .fi-cat {
+      font-family: 'Inter Tight', sans-serif; font-size: 9px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase;
+      color: rgba(245,240,232,.25); margin-bottom: 6px;
+    }
+    .fi-name {
+      font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 24px; line-height: 1.1;
+      color: var(--cream); margin-bottom: 6px;
+    }
+    .fi-desc { font-size: 12px; font-weight: 300; color: rgba(245,240,232,.4); line-height: 1.55; }
+    .fi-price {
+      font-family: 'Inter Tight', sans-serif; font-size: 14px; font-weight: 700;
+      color: var(--amber); white-space: nowrap;
+    }
+    .fi-badge {
+      display: block; text-align: right; margin-top: 6px;
+      font-family: 'Inter Tight', sans-serif; font-size: 9px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+      color: rgba(200,146,42,.5);
+    }
+    @media (max-width: 860px) { .menu-teaser-grid { grid-template-columns: 1fr; } }
+
+    /* ── Reservasi ───────────────────────────────── */
+    .reservasi { background: var(--obsidian); padding: clamp(64px, 9vw, 110px) 0; }
+    .reservasi-inner { max-width: 680px; margin: 0 auto; text-align: center; }
+    .reservasi-inner .eyebrow-amber {
+      font-family: 'Inter Tight', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase;
+      color: var(--amber); margin-bottom: 20px;
+    }
+    .reservasi-h2 {
+      font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 300;
+      font-size: clamp(36px, 5vw, 64px); line-height: .95; letter-spacing: -.02em;
+      color: var(--cream); margin-bottom: 24px;
+    }
+    .reservasi-body { font-size: 14px; font-weight: 300; color: rgba(245,240,232,.5); line-height: 1.75; margin-bottom: 40px; }
+    .reservasi-wa {
+      display: inline-flex; align-items: center; gap: 12px;
+      font-family: 'Inter Tight', sans-serif; font-size: 14px; font-weight: 700; letter-spacing: .02em;
+      text-decoration: none; padding: 18px 40px; border-radius: 2px;
+      background: var(--amber); color: var(--obsidian);
+      transition: background .15s, transform .15s;
+    }
+    .reservasi-wa:hover { background: var(--amber-s); transform: scale(1.02); }
+    .reservasi-note { margin-top: 28px; font-size: 12px; font-weight: 300; color: rgba(245,240,232,.28); line-height: 1.8; }
+
+    /* ── Footer ─────────────────────────────────── */
+    .footer { background: var(--deep); border-top: 1px solid var(--rule-d); padding: 64px 0 0; }
+    .footer-main { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 48px; padding-bottom: 56px; }
+    .footer-logo { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 20px; font-weight: 300; color: var(--cream); text-decoration: none; display: block; margin-bottom: 10px; }
+    .footer-tagline { font-size: 12px; font-weight: 300; color: rgba(245,240,232,.3); margin-bottom: 20px; }
+    .footer-social { display: flex; flex-wrap: wrap; gap: 0; }
+    .footer-social a { font-size: 12px; font-weight: 300; color: rgba(245,240,232,.4); text-decoration: none; transition: color .15s; margin-right: 16px; margin-bottom: 6px; }
+    .footer-social a:hover { color: var(--cream); }
+    .footer-col-hd { font-family: 'Inter Tight', sans-serif; font-size: 9px; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; color: rgba(245,240,232,.22); margin-bottom: 16px; }
+    .footer-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-list a { font-size: 13px; font-weight: 300; color: rgba(245,240,232,.5); text-decoration: none; transition: color .15s; }
+    .footer-list a:hover { color: var(--cream); }
+    .footer-info { font-size: 12px; font-weight: 300; color: rgba(245,240,232,.5); line-height: 1.9; }
+    .footer-bar { border-top: 1px solid var(--rule-d); padding: 18px 0; font-family: 'Inter Tight', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: .1em; color: rgba(245,240,232,.18); text-align: center; }
+    @media (max-width: 900px) { .footer-main { grid-template-columns: 1fr 1fr; } .footer-brand { grid-column: 1 / -1; } }
+    @media (max-width: 460px) { .footer-main { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" id="siteNav" aria-label="Navigasi utama">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="Tao Kopi — Beranda">
+        <span class="nav-logo-mark" aria-hidden="true"></span>
+        Tao Kopi
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="#tentang">Tentang</a></li>
+        <li><a href="#kunjungi">Kunjungi</a></li>
+        <li><a href="#reservasi">Reservasi</a></li>
+      </ul>
+      <a href="https://wa.me/628120000000" class="nav-cta" target="_blank" rel="noopener">Pesan Sekarang</a>
+      <button class="nav-burger" id="burgerBtn" aria-label="Buka menu" aria-expanded="false" aria-controls="navPanel">
+        <svg width="22" height="14" viewBox="0 0 22 14" fill="currentColor" aria-hidden="true">
+          <rect y="0" width="22" height="1.8"/><rect y="6" width="16" height="1.8"/><rect y="12" width="22" height="1.8"/>
+        </svg>
+      </button>
+    </div>
+  </nav>
+  <div class="nav-panel" id="navPanel" aria-label="Menu mobile">
+    <ul>
+      <li><a href="menu.html">Menu</a></li>
+      <li><a href="#tentang">Tentang</a></li>
+      <li><a href="#kunjungi">Kunjungi</a></li>
+      <li><a href="#reservasi">Reservasi</a></li>
+    </ul>
+    <div class="nav-panel-cta"><a href="https://wa.me/628120000000" target="_blank" rel="noopener">Pesan via WhatsApp</a></div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero" aria-labelledby="hero-h1">
+    <div class="hero-noise" aria-hidden="true"></div>
+
+    <div class="hero-eyebrow-row reveal">
+      <div class="hero-badge">Lakeside Coffee House &nbsp;·&nbsp; Danau Toba</div>
+      <div class="hero-time">Selasa – Minggu &nbsp;·&nbsp; 08.00–21.00</div>
+    </div>
+
+    <div class="hero-body">
+      <h1 id="hero-h1" class="hero-h1 reveal d1">
+        Kopi<br>
+        di tepi<br>
+        <em>danau.</em>
+      </h1>
+
+      <div class="hero-divider reveal d2"></div>
+
+      <div class="hero-footer-row reveal d3">
+        <p class="hero-sub">
+          Single origin Sumatera Utara, diseduh di tepi perairan vulkanik
+          Danau Toba. Tuk Tuk Siadong, Samosir Island.
+        </p>
+        <div class="hero-ctas">
+          <a href="menu.html" class="hero-link">Lihat Menu <span aria-hidden="true">→</span></a>
+          <a href="https://wa.me/628120000000" class="hero-link hero-link-ghost" target="_blank" rel="noopener">Reservasi</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-scroll" aria-hidden="true">
+      <span class="hero-scroll-label">Scroll</span>
+      <div class="hero-scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="tentang" aria-labelledby="about-h2">
+    <div class="wrap">
+      <div class="about-grid">
+        <div class="about-left reveal">
+          <blockquote class="about-quote">
+            "Kami percaya kopi yang baik tidak perlu berteriak."
+          </blockquote>
+          <div class="about-quote-src">Tao Kopi &nbsp;·&nbsp; Est. 2021</div>
+        </div>
+        <div class="about-right reveal d1">
+          <div class="about-eyebrow" id="about-h2">Tentang Kami</div>
+          <div class="about-body">
+            <p>Tao Kopi dibuka pada 2021 di Tuk Tuk Siadong, Samosir, sebuah titik kecil di tepi barat Danau Toba yang menghadap langsung ke perairan vulkanik terdalam di Asia Tenggara.</p>
+            <p>Nama kami berasal dari bahasa Batak Toba: <em>tao</em> berarti danau. Kami ada di sini, di tepinya, setiap pagi. Menyajikan biji kopi single origin dari petani Sumatera Utara, diseduh dengan metode yang menonjolkan karakter aslinya.</p>
+          </div>
+          <a href="#kunjungi" class="about-link">Kunjungi kami <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </div>
+    <div class="about-deco" aria-hidden="true">tao</div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="kunjungi" aria-label="Galeri tempat">
+    <div class="gallery">
+      <div class="gallery-grid">
+        <div class="gallery-cell" style="background:linear-gradient(145deg,#0E1F18 0%,#1A3028 40%,#243D30 70%,#0A1510 100%)" aria-label="Danau Toba">
+          <span class="gallery-label">Danau Toba</span>
+        </div>
+        <div class="gallery-cell" style="background:linear-gradient(145deg,#2A2010 0%,#3D3018 50%,#1A1408 100%)" aria-label="Single Origin">
+          <span class="gallery-label">Single Origin</span>
+        </div>
+        <div class="gallery-cell" style="background:linear-gradient(145deg,#2A1810 0%,#3D2418 50%,#1A0E08 100%)" aria-label="Tuk Tuk, Samosir">
+          <span class="gallery-label">Tuk Tuk, Samosir</span>
+        </div>
+        <div class="gallery-cell" style="background:radial-gradient(ellipse at 30% 40%,rgba(138,148,144,.1) 0%,transparent 60%),linear-gradient(145deg,#0E1210 0%,#161A14 60%,#0A0E0C 100%)" aria-label="Open Since 2021">
+          <span class="gallery-label">Open Since 2021</span>
+        </div>
+      </div>
+      <div class="gallery-meta">
+        <span class="gallery-meta-text">Est. 2021 &nbsp;·&nbsp; Tuk Tuk Siadong &nbsp;·&nbsp; Buka Selasa–Minggu</span>
+        <a href="#reservasi" class="gallery-meta-link">Reservasi &nbsp;→</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENU TEASER -->
+  <section class="menu-teaser" aria-labelledby="mt-h2">
+    <div class="wrap">
+      <div class="menu-teaser-grid">
+        <div class="menu-teaser-left">
+          <div class="eyebrow-amber reveal">Menu</div>
+          <h2 id="mt-h2" class="menu-teaser-h2 reveal d1">
+            Yang kami<br>sajikan.
+          </h2>
+          <ul class="menu-cat-list reveal d2">
+            <li><a href="menu.html?cat=espresso" class="menu-cat-item"><span class="menu-cat-name">Espresso</span><span class="menu-cat-count">8 item</span></a></li>
+            <li><a href="menu.html?cat=manual-brew" class="menu-cat-item"><span class="menu-cat-name">Manual Brew</span><span class="menu-cat-count">7 item</span></a></li>
+            <li><a href="menu.html?cat=cold-brew" class="menu-cat-item"><span class="menu-cat-name">Cold Brew</span><span class="menu-cat-count">5 item</span></a></li>
+            <li><a href="menu.html?cat=non-coffee" class="menu-cat-item"><span class="menu-cat-name">Non-Coffee</span><span class="menu-cat-count">6 item</span></a></li>
+            <li><a href="menu.html?cat=makanan" class="menu-cat-item"><span class="menu-cat-name">Makanan</span><span class="menu-cat-count">7 item</span></a></li>
+            <li><a href="menu.html?cat=dessert" class="menu-cat-item"><span class="menu-cat-name">Kue &amp; Dessert</span><span class="menu-cat-count">5 item</span></a></li>
+          </ul>
+          <a href="menu.html" class="menu-teaser-cta reveal d3">Lihat semua menu <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="menu-teaser-right">
+
+          <div class="featured-item reveal">
+            <div>
+              <div class="fi-cat">Espresso</div>
+              <div class="fi-name">Tao Latte</div>
+              <div class="fi-desc">Espresso, palm sugar syrup, steamed full-cream milk. House signature.</div>
+            </div>
+            <div>
+              <div class="fi-price">Rp 38.000</div>
+              <span class="fi-badge">Signature</span>
+            </div>
+          </div>
+
+          <div class="featured-item reveal d1">
+            <div>
+              <div class="fi-cat">Manual Brew</div>
+              <div class="fi-name">V60 Sidikalang</div>
+              <div class="fi-desc">Arabika Sidikalang, light roast. Floral, citrus, clean finish.</div>
+            </div>
+            <div>
+              <div class="fi-price">Rp 42.000</div>
+              <span class="fi-badge">Favorit</span>
+            </div>
+          </div>
+
+          <div class="featured-item reveal d2">
+            <div>
+              <div class="fi-cat">Non-Coffee</div>
+              <div class="fi-name">Susu Jahe Toba</div>
+              <div class="fi-desc">Fresh milk, local ginger, palm sugar. Warm and grounding.</div>
+            </div>
+            <div>
+              <div class="fi-price">Rp 28.000</div>
+              <span class="fi-badge">Favorit</span>
+            </div>
+          </div>
+
+          <div class="featured-item reveal d3">
+            <div>
+              <div class="fi-cat">Makanan</div>
+              <div class="fi-name">Roti Bakar Srikaya</div>
+              <div class="fi-desc">Thick-cut toast, homemade pandan srikaya, cold salted butter.</div>
+            </div>
+            <div>
+              <div class="fi-price">Rp 32.000</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESERVASI -->
+  <section class="reservasi" id="reservasi" aria-labelledby="res-h2">
+    <div class="reservasi-inner">
+      <div class="eyebrow-amber reveal">Reservasi &amp; Kunjungan</div>
+      <h2 id="res-h2" class="reservasi-h2 reveal d1">
+        Meja tersedia.<br>Hubungi kami.
+      </h2>
+      <p class="reservasi-body reveal d2">
+        Tidak ada sistem booking online. Untuk reservasi meja,
+        kapasitas grup, atau acara privat, hubungi kami langsung via WhatsApp.
+      </p>
+      <a href="https://wa.me/628120000000" class="reservasi-wa reveal d3" target="_blank" rel="noopener">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="currentColor" aria-hidden="true"><path d="M9 0C4.03 0 0 4.03 0 9c0 1.59.42 3.08 1.14 4.38L0 18l4.72-1.12A8.98 8.98 0 009 18c4.97 0 9-4.03 9-9S13.97 0 9 0zm4.7 12.6c-.2.55-1.15 1.05-1.6 1.1-.43.05-.98.07-1.58-.1-.37-.1-.84-.25-1.44-.5C6.5 12.1 5 9.75 4.9 9.6c-.1-.15-.8-1.07-.8-2.04 0-.97.5-1.44.69-1.64.19-.2.4-.25.54-.25h.39c.12 0 .29-.04.45.35.17.4.58 1.4.63 1.5.05.1.08.22.02.35-.07.13-.1.21-.2.32-.1.1-.2.23-.3.31-.1.1-.2.2-.09.38.11.2.5.82 1.06 1.33.73.65 1.34.85 1.53.94.2.1.31.08.43-.05.12-.13.5-.58.63-.78.13-.2.27-.17.45-.1.18.07 1.15.54 1.35.64.2.1.33.15.38.23.05.09.05.5-.15 1.05z"/></svg>
+        Chat WhatsApp
+      </a>
+      <div class="reservasi-note reveal">
+        Tuk Tuk Siadong, Samosir Island &nbsp;·&nbsp; +62 812-XXXX-XXXX<br>
+        Buka Selasa–Minggu, 08.00–21.00 WIB
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer" aria-label="Footer">
+    <div class="wrap">
+      <div class="footer-main">
+        <div class="footer-brand">
+          <a href="index.html" class="footer-logo">Tao Kopi</a>
+          <p class="footer-tagline">Kopi di tepi danau. Tenang, dalam, hangat.</p>
+          <div class="footer-social">
+            <a href="https://instagram.com/taokopi.toba" target="_blank" rel="noopener">@taokopi.toba</a>
+            <a href="https://wa.me/628120000000" target="_blank" rel="noopener">WhatsApp</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-hd">Menu</div>
+          <ul class="footer-list" role="list">
+            <li><a href="menu.html?cat=espresso">Espresso</a></li>
+            <li><a href="menu.html?cat=manual-brew">Manual Brew</a></li>
+            <li><a href="menu.html?cat=cold-brew">Cold Brew</a></li>
+            <li><a href="menu.html?cat=non-coffee">Non-Coffee</a></li>
+            <li><a href="menu.html?cat=makanan">Makanan</a></li>
+            <li><a href="menu.html?cat=dessert">Kue &amp; Dessert</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-hd">Kunjungi</div>
+          <div class="footer-info">
+            Tuk Tuk Siadong<br>
+            Samosir Island<br>
+            Danau Toba, Sumatera Utara<br>
+            <br>
+            <span style="color:rgba(245,240,232,.28);font-size:11px;">
+              Selasa–Minggu · 08.00–21.00<br>Senin tutup.
+            </span>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-hd">Kontak</div>
+          <div class="footer-info">
+            +62 812-XXXX-XXXX<br>
+            hello@taokopi.co.id<br>
+            <br>
+            <a href="https://maps.google.com" target="_blank" rel="noopener" style="color:rgba(245,240,232,.5);font-size:12px;text-decoration:none;">Lihat di Maps →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bar">© 2024 Tao Kopi &nbsp;·&nbsp; Tuk Tuk Siadong, Samosir &nbsp;·&nbsp; Danau Toba</div>
+  </footer>
+
+  <script>
+  (function () {
+    'use strict';
+
+    /* ── Nav ────────────────────────────────────── */
+    var nav = document.getElementById('siteNav');
+    function syncNav() { nav.classList.toggle('scrolled', window.scrollY > 40); }
+    window.addEventListener('scroll', syncNav, { passive: true });
+    syncNav();
+
+    /* ── Hamburger ──────────────────────────────── */
+    var burger = document.getElementById('burgerBtn');
+    var panel  = document.getElementById('navPanel');
+    var open   = false;
+    burger.addEventListener('click', function () {
+      open = !open;
+      panel.classList.toggle('open', open);
+      burger.setAttribute('aria-expanded', String(open));
+    });
+    panel.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () { open = false; panel.classList.remove('open'); burger.setAttribute('aria-expanded', 'false'); });
+    });
+
+    /* ── Scroll reveal ──────────────────────────── */
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('vis'); observer.unobserve(e.target); }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -24px 0px' });
+    document.querySelectorAll('.reveal').forEach(function (el) { observer.observe(el); });
+  }());
+  </script>
+
+</body>
+</html>

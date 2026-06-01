@@ -2,6 +2,7 @@
 import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 import Base from "../layouts/Base.astro";
+import Nav from "../components/Nav.astro";
 
 const portfolio = (
   await getCollection("portfolio", ({ data }) => !data.draft)
@@ -39,70 +40,50 @@ const filterMap: Record<string, string> = {
         </div>
       </div>
     </section>
+    <Nav />
 
     <!-- GRID -->
     <section class="section-tight">
       <div class="wrap">
-        <div class="shop-page-grid" data-shop-grid>
+        <div class="lp-grid" data-shop-grid>
           {
             portfolio.map((p, i) => {
               const d = p.data;
               const coverImage = d.images?.[0];
-              // Map category string to filter pill value
               const filterVal = filterMap[d.category] ?? "other";
+              const initial = d.title.trim().charAt(0).toUpperCase();
 
               return (
                 <a
                   href={`/portfolio/${p.id}/`}
-                  class="product-card"
+                  class="lp-tile"
                   data-category={filterVal}
                   data-reveal
                   data-reveal-delay={i * 80}
-                  data-preview-url={
-                    d.previewPath
-                      ? `templates/${d.previewPath}/index.html`
-                      : undefined
-                  }
+                  data-preview-url={d.previewPath ? `templates/${d.previewPath}/index.html` : undefined}
                   data-preview-title={d.title}
                   data-preview-cat={d.category}
                   data-preview-detail={`/portfolio/${p.id}/`}
                 >
-                  {d.previewPath && (
-                    <span
-                      class="pv-trigger"
-                      role="button"
-                      tabindex="0"
-                      data-preview-trigger
-                      aria-label={`Preview ${d.title}`}
-                    >
-                      <svg
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="1.8"
-                        aria-hidden="true"
-                      >
-                        <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z" />
-                        <circle cx="12" cy="12" r="3" />
-                      </svg>
-                      Preview
-                    </span>
-                  )}
-                  {coverImage ? (
-                    <div class="cover">
+                  <div class="lp-thumb">
+                    <span class="lp-tag">{d.category}</span>
+                    {d.previewPath && (
+                      <span class="pv-trigger" role="button" tabindex="0" data-preview-trigger aria-label={`Preview ${d.title}`}>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                          <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z" />
+                          <circle cx="12" cy="12" r="3" />
+                        </svg>
+                        Preview
+                      </span>
+                    )}
+                    {coverImage ? (
                       <img src={coverImage} alt={d.title} width={350} height={280} loading="lazy" />
-                    </div>
-                  ) : (
-                    <div
-                      class={`cover ${d.pattern} pattern-wrap`}
-                      aria-hidden="true"
-                    />
-                  )}
-                  <div class="body">
-                    <span class="cat">{d.category}</span>
-                    <div class="name-row">
-                      <h3 class="name">{d.title}</h3>
-                    </div>
+                    ) : (
+                      <div class="lp-thumb-fallback" aria-hidden="true"><span>{initial}</span></div>
+                    )}
+                  </div>
+                  <div class="lp-tile-body">
+                    <p class="lp-tile-desc"><span class="lp-tile-name">{d.title}.</span> {d.tagline}</p>
                   </div>
                 </a>
               );

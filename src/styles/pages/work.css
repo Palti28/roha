@@ -368,3 +368,24 @@
   color: var(--cream);
 }
 .wd-next .arr { font-size: 28px; color: var(--terracotta-soft); }
+
+/* =================== FREEBIE / PDF EMBED =================== */
+.wd-freebie { padding-top: 0; }
+.wd-freebie-actions { margin-bottom: 20px; }
+.wd-pdf-frame {
+  width: 100%;
+  aspect-ratio: 8.5 / 11;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--paper-tint);
+}
+.wd-pdf-frame iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+@media (max-width: 640px) {
+  .wd-pdf-frame { aspect-ratio: 3 / 4; }
+}

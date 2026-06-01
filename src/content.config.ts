@@ -8,7 +8,7 @@ const work = defineCollection({
   schema: z.object({
     title: z.string(),
     summary: z.string(),
-    category: z.enum(['web', 'uiux', 'branding']),
+    category: z.enum(['web', 'uiux', 'branding', 'freebie']),
     // Service label shown in the meta grid, e.g. "Web Design + Dev"
     service: z.string(),
     duration: z.string(),
@@ -29,6 +29,8 @@ const work = defineCollection({
     images: z.array(z.string().url()).optional(),
     // Controls listing order AND the "next project" sequence
     order: z.number().default(0),
+    // Optional PDF path for freebie items
+    pdfUrl: z.string().optional(),
     draft: z.boolean().default(false),
     publishedAt: z.date().optional(),
   }),
@@ -73,8 +75,8 @@ const portfolio = defineCollection({
     cover: z.string().optional(),
     // Pattern class for the cover frame, e.g. "pat-arcs"
     pattern: z.string().default('pat-arcs'),
-    // Image URLs for preview grid (up to 4 images for 2x2 grid)
-    images: z.array(z.string().url()).optional(),
+    // Image URLs or local paths for preview grid (up to 4 images for 2x2 grid)
+    images: z.array(z.string()).optional(),
 
     // Controls shop order AND the "related products" sequence
     order: z.number().default(0),

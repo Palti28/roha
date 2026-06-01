@@ -1,0 +1,61 @@
+---
+// Main Nav — scroll-then-sticky. Placed explicitly per page, after the hero.
+// Active state derives from the current path.
+const navLinks = [
+  { href: '/portfolio', label: 'Work' },
+  { href: '/services', label: 'Services' },
+  { href: '/about', label: 'About' },
+  { href: '/work', label: 'Case Studies' },
+];
+
+const path = Astro.url.pathname;
+const isActive = (href: string) =>
+  href === '/' ? path === '/' : path === href || path.startsWith(href + '/');
+---
+
+<!-- =================== MAIN NAV =================== -->
+<div class="main-nav-anchor" data-nav-anchor>
+  <nav class="main-nav" data-main-nav aria-label="Primary">
+    <div class="main-nav-inner">
+      <div class="main-nav-scroll">
+        <ul class="main-nav-links">
+          {navLinks.map((link) => (
+            <li>
+              <a href={link.href} class={isActive(link.href) ? 'active' : ''}>{link.label}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<script>
+(function () {
+  const anchor = document.querySelector('[data-nav-anchor]') as HTMLElement | null;
+  const nav    = document.querySelector('[data-main-nav]')   as HTMLElement | null;
+  if (!anchor || !nav) return;
+
+  let stuck = false;
+  let triggerTop = 0;
+
+  function measure() {
+    const wasStuck = stuck;
+    if (wasStuck) { nav.classList.remove('is-stuck'); anchor.style.height = ''; }
+    triggerTop = anchor.getBoundingClientRect().top + window.scrollY;
+    if (wasStuck) { anchor.style.height = nav.offsetHeight + 'px'; nav.classList.add('is-stuck'); }
+  }
+
+  function onScroll() {
+    if (window.scrollY >= triggerTop) {
+      if (!stuck) { stuck = true; anchor.style.height = nav.offsetHeight + 'px'; nav.classList.add('is-stuck'); }
+    } else if (stuck) {
+      stuck = false; nav.classList.remove('is-stuck'); anchor.style.height = '';
+    }
+  }
+
+  measure(); onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', () => { measure(); onScroll(); });
+})();
+</script>
