@@ -1,7 +1,6 @@
 ---
 import { getCollection } from "astro:content";
 import Base from "../layouts/Base.astro";
-import Nav from "../components/Nav.astro";
 
 // 1. Ambil data collection 'work' & filter out draft
 const allWork = await getCollection("work", ({ data }) => {
@@ -16,7 +15,6 @@ const sortedWork = allWork.sort((a, b) => a.data.order - b.data.order);
   title="Work"
   description="Case studies and projects from Roha, UI/UX, brand identity, and web design for founders and small teams."
 >
-  <Nav />
   <main id="main">
     <section class="work-hero">
       <div class="wrap">
