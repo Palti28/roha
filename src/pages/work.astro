@@ -1,5 +1,4 @@
 ---
-import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 import Base from "../layouts/Base.astro";
 import Nav from "../components/Nav.astro";
@@ -35,6 +34,7 @@ const sortedWork = allWork.sort((a, b) => a.data.order - b.data.order);
               <button class="pill" data-filter="uiux">UI/UX</button>
               <button class="pill" data-filter="web">Web Dev</button>
               <button class="pill" data-filter="branding">Branding</button>
+              <button class="pill" data-filter="freebie">Freebie</button>
             </div>
           </div>
 

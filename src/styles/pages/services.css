@@ -36,6 +36,15 @@
   gap: 0;
   margin-top: 16px;
 }
+.pricing-trust {
+  font-family: 'Geist', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--ink);
+  opacity: .65;
+  margin: 0 0 28px;
+  letter-spacing: -.01em;
+}
 .launch-banner {
   margin-bottom: 28px;
 }

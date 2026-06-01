@@ -939,6 +939,14 @@
   margin: 0 0 18px;
 }
 .lp-cta-em { color: var(--terracotta-soft) !important; }
+.lp-cta-ship {
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: .10em;
+  color: rgba(255,255,255,.28);
+  margin: 20px 0 0;
+}
 
 /* Buttons on dark CTA */
 .lp-btn-terra {

@@ -8,7 +8,7 @@ const work = defineCollection({
   schema: z.object({
     title: z.string(),
     summary: z.string(),
-    category: z.enum(['web', 'uiux', 'branding']),
+    category: z.enum(['web', 'uiux', 'branding', 'freebie']),
     // Service label shown in the meta grid, e.g. "Web Design + Dev"
     service: z.string(),
     duration: z.string(),
@@ -29,6 +29,8 @@ const work = defineCollection({
     images: z.array(z.string().url()).optional(),
     // Controls listing order AND the "next project" sequence
     order: z.number().default(0),
+    // Optional PDF path for freebie items
+    pdfUrl: z.string().optional(),
     draft: z.boolean().default(false),
     publishedAt: z.date().optional(),
   }),
