@@ -201,24 +201,25 @@ const sortedPortfolio = allPortfolio.sort(byDate).slice(0, 6);
         <p class="right">A mix of client projects and self-initiated work. Real process, honest labels.</p>
       </div>
 
-      <div class="work-case-grid">
+      <div class="lp-grid">
         {
           sortedWork.map((project, i) => {
-            const { title, summary, service, year, pattern, coverImage, concept, tagLabel } = project.data;
+            const { title, summary, service, year, pattern, coverImage, client } = project.data;
+            const initial = title.trim().charAt(0).toUpperCase();
             return (
-              <a href={`/work/${project.id}`} class="work-card" data-reveal data-reveal-delay={i * 120}>
-                {coverImage ? (
-                  <img src={coverImage} alt={`${title} — case study cover`} class="thumb" width={600} height={450} loading="lazy" />
-                ) : (
-                  <div class={`thumb ${pattern} pattern-wrap`} aria-hidden="true"></div>
-                )}
-                <div class="meta-row">
-                  <span class="tag">{service}</span>
-                  <span class="meta-tag">{year}</span>
-                  <CaseTag concept={concept} label={tagLabel} tone="light" />
+              <a href={`/work/${project.id}/`} class="lp-tile" data-reveal data-reveal-delay={i * 100}>
+                <div class="lp-thumb">
+                  <div class="lp-tag">{service}</div>
+                  {coverImage ? (
+                    <img src={coverImage} alt={`${title} — case study`} loading="lazy" width={600} height={450} />
+                  ) : (
+                    <div class={`lp-thumb-fallback ${pattern} pattern-wrap`} aria-hidden="true"><span>{initial}</span></div>
+                  )}
                 </div>
-                <h3>{title}</h3>
-                <p class="summary">{summary}</p>
+                <div class="lp-tile-body">
+                  <p class="lp-tile-desc"><span class="lp-tile-name">{title}.</span> {summary}</p>
+                  <p class="lp-tile-meta">{client} &middot; {year}</p>
+                </div>
               </a>
             );
           })
@@ -315,49 +316,38 @@ const sortedPortfolio = allPortfolio.sort(byDate).slice(0, 6);
         <p class="right">Sites and interfaces we&rsquo;ve built, ready to adapt.</p>
       </div>
 
-      <div class="shop-grid">
+      <div class="lp-grid" data-shop-grid>
         {
           sortedPortfolio.map((item, i) => {
             const d = item.data;
             const coverImage = d.images?.[0];
+            const initial = d.title.trim().charAt(0).toUpperCase();
             return (
               <a
-                href={`/portfolio/${item.id}`}
-                class="product-card"
+                href={`/portfolio/${item.id}/`}
+                class="lp-tile"
                 data-reveal
                 data-reveal-delay={i * 100}
-                data-preview-url={
-                  d.previewPath
-                    ? `/templates/${d.previewPath}/index.html`
-                    : undefined
-                }
+                data-preview-url={d.previewPath ? `/templates/${d.previewPath}/index.html` : undefined}
                 data-preview-title={d.title}
                 data-preview-cat={d.category}
               >
-                {d.previewPath && (
-                  <span
-                    class="pv-trigger"
-                    role="button"
-                    tabindex="0"
-                    data-preview-trigger
-                    aria-label={`Preview ${d.title}`}
-                  >
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>
-                    Preview
-                  </span>
-                )}
-                {coverImage ? (
-                  <div class="cover">
-                    <img src={coverImage} alt={d.title} width={350} height={280} loading="lazy" />
-                  </div>
-                ) : (
-                  <div class={`cover ${d.pattern} pattern-wrap`} aria-hidden="true"></div>
-                )}
-                <div class="body">
-                  <span class="cat">{d.category}</span>
-                  <div class="name-row">
-                    <h3 class="name">{d.title}</h3>
-                  </div>
+                <div class="lp-thumb">
+                  <div class="lp-tag">{d.category}</div>
+                  {d.previewPath && (
+                    <span class="pv-trigger" role="button" tabindex="0" data-preview-trigger aria-label={`Preview ${d.title}`}>
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>
+                      Preview
+                    </span>
+                  )}
+                  {coverImage ? (
+                    <img src={coverImage} alt={d.title} loading="lazy" width={600} height={450} />
+                  ) : (
+                    <div class={`lp-thumb-fallback ${d.pattern} pattern-wrap`} aria-hidden="true"><span>{initial}</span></div>
+                  )}
+                </div>
+                <div class="lp-tile-body">
+                  <p class="lp-tile-desc"><span class="lp-tile-name">{d.title}.</span> {d.tagline}</p>
                 </div>
               </a>
             );
