@@ -8,20 +8,20 @@
    Legacy var names (--cream/--sand/--mustard/--sage/--paper-tint) are
    kept as aliases so existing CSS keeps working after the palette shift. */
 :root {
-  /* Brand — terracotta is the only chromatic note */
+  /* Brand — black, white, terracotta accent */
   --terracotta: #C9583B;
   --terracotta-soft: #E07B5C;
   --clay: #7A2E1B;
 
-  /* Surface — pure white base, near-white cards, light stone tile */
+  /* Surface — pure black/white, grays for secondary */
   --paper: #FFFFFF;
-  --snow: #FAFAFA;
-  --stone: #F0F0EE;
-  --ink: #111111;
+  --snow: #F5F5F5;
+  --stone: #EBEBEB;
+  --ink: #000000;
 
   /* Neutral grays for secondary/tertiary copy */
-  --gray-60: #737373;
-  --gray-40: #A8A8A5;
+  --gray-60: #666666;
+  --gray-40: #999999;
 
   /* Legacy aliases (remapped to the new neutral palette) */
   --cream: var(--snow);
@@ -31,8 +31,8 @@
   --sage: var(--gray-40);
 
   /* Borders — hairline first, neutral ink */
-  --rule: rgba(17, 17, 17, .08);
-  --rule-strong: rgba(17, 17, 17, .16);
+  --rule: rgba(0, 0, 0, .08);
+  --rule-strong: rgba(0, 0, 0, .16);
 
   /* Layout */
   --maxw: 1240px;
