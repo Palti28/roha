@@ -18,7 +18,7 @@ const portfolio = (await getCollection('portfolio', ({ data }) => !data.draft))
       <div class="lp-hero-inner">
         <div class="eyebrow"><span class="eyebrow-line" aria-hidden="true"></span>Digital Design Studio &middot; Indonesia</div>
         <h1 class="lp-hero-title">The right place<br />to build your<br /><em class="italic-accent">next idea.</em></h1>
-        <p class="lp-hero-tagline">We design and build websites, landing pages, and brand identities for founders who want something considered — not just something quick.</p>
+        <p class="lp-hero-tagline">We design and build websites, landing pages, and brand identities for founders who want something considered, not just something quick.</p>
         <dl class="lp-stats">
           <div class="lp-stat">
             <dt>2021</dt>
@@ -60,6 +60,7 @@ const portfolio = (await getCollection('portfolio', ({ data }) => !data.draft))
               return (
                 <a href={`/portfolio/${item.id}`} class="lp-tile">
                   <div class="lp-thumb">
+                    <span class="lp-tag">{d.category}</span>
                     {cover ? (
                       <img src={cover} alt={d.title} width="400" height="400" loading="lazy" />
                     ) : (
@@ -67,9 +68,7 @@ const portfolio = (await getCollection('portfolio', ({ data }) => !data.draft))
                     )}
                   </div>
                   <div class="lp-tile-body">
-                    <span class="lp-tag">{d.category}</span>
-                    <h3 class="lp-tile-title">{d.title}</h3>
-                    <p class="lp-tile-desc">{d.tagline}</p>
+                    <p class="lp-tile-desc"><span class="lp-tile-name">{d.title}.</span> {d.tagline}</p>
                   </div>
                 </a>
               );

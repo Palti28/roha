@@ -661,38 +661,42 @@
   margin: 0 0 56px;
 }
 .lp-stats {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
+  flex-wrap: nowrap;
   border-top: 1px solid var(--rule);
   border-bottom: 1px solid var(--rule);
   margin: 0;
 }
 .lp-stat {
-  padding: 24px 0;
+  flex: 1;
+  min-width: 0;
+  padding: 20px 24px;
   border-right: 1px solid var(--rule);
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-left: 0;
-  padding-right: 0;
 }
-.lp-stat:not(:first-child) { padding-left: 28px; }
-.lp-stat:last-child { border-right: 0; }
+.lp-stat:first-child { padding-left: 0; }
+.lp-stat:last-child { padding-right: 0; border-right: 0; }
 .lp-stat dt {
   font-family: 'Bricolage Grotesque', serif;
-  font-size: clamp(18px, 2.2vw, 28px);
+  font-size: clamp(15px, 1.8vw, 24px);
   font-weight: 500;
   line-height: 1;
   letter-spacing: -.02em;
   margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .lp-stat dd {
   font-family: 'Geist Mono', ui-monospace, monospace;
-  font-size: 10px;
+  font-size: 9.5px;
   text-transform: uppercase;
   letter-spacing: .1em;
   color: var(--clay);
-  margin: 7px 0 0;
+  margin: 6px 0 0;
+  white-space: nowrap;
 }
 
 /* ---------- Landing work grid ---------- */
@@ -715,7 +719,7 @@
 .lp-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 36px 28px;
+  gap: 56px 32px;
 }
 .lp-tile {
   display: flex;
@@ -724,6 +728,7 @@
 }
 .lp-tile:hover { transform: translateY(-4px); }
 .lp-thumb {
+  position: relative;
   aspect-ratio: 4 / 3;
   border-radius: 16px;
   overflow: hidden;
@@ -753,42 +758,34 @@
   color: #fff;
   opacity: .7;
 }
-.lp-tile-body {
-  padding: 18px 0 0;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
 .lp-tag {
-  display: inline-block;
-  align-self: flex-start;
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 2;
   font-family: 'Geist Mono', ui-monospace, monospace;
-  font-size: 10px;
+  font-size: 9.5px;
   text-transform: uppercase;
   letter-spacing: .08em;
-  color: var(--clay);
-  background: var(--paper);
-  border: 1px solid var(--rule);
+  color: var(--ink);
+  background: rgba(255, 255, 255, .88);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   border-radius: 99px;
   padding: 4px 10px;
 }
-.lp-tile-title {
-  font-family: 'Bricolage Grotesque', serif;
-  font-size: 18px;
-  font-weight: 500;
-  letter-spacing: -.02em;
-  line-height: 1.15;
-  margin: 0;
-  color: var(--ink);
-}
+.lp-tile-body { padding: 14px 0 0; }
 .lp-tile-desc {
   font-family: 'Geist', sans-serif;
   font-size: 13.5px;
-  line-height: 1.5;
-  color: var(--ink);
-  opacity: .5;
+  line-height: 1.55;
+  color: var(--gray-60);
   margin: 0;
-  max-width: 44ch;
+}
+.lp-tile-name {
+  font-weight: 500;
+  color: var(--ink);
+  margin-right: 2px;
 }
 
 /* ---------- CTA banner ---------- */
@@ -869,11 +866,18 @@
 .lp-btn-outline:hover { border-color: rgba(255,255,255,.7); background: rgba(255,255,255,.08); transform: translateY(-1px); }
 
 @media (max-width: 980px) {
-  .lp-grid { grid-template-columns: repeat(2, 1fr); }
+  .lp-grid { grid-template-columns: repeat(2, 1fr); gap: 40px 24px; }
 }
 @media (max-width: 720px) {
   .lp-cta-panel { flex-direction: column; align-items: flex-start; gap: 32px; }
   .lp-cta-actions { width: 100%; }
+  /* Stats: compress to 2 across on tablet */
+  .lp-stats { flex-wrap: wrap; }
+  .lp-stat { flex: 0 0 50%; min-width: 50%; border-bottom: 1px solid var(--rule); }
+  .lp-stat:nth-child(odd) { border-right: 1px solid var(--rule); padding-left: 0; }
+  .lp-stat:nth-child(even) { padding-left: 24px; border-right: 0; }
+  .lp-stat:nth-child(3),
+  .lp-stat:nth-child(4) { border-bottom: 0; }
 }
 @media (max-width: 600px) {
   .lp-hero-inner,
@@ -882,10 +886,6 @@
   .lp-hero { padding: 48px 0 8px; }
   .lp-work { padding: 56px 0 56px; }
   .lp-cta-wrap { padding: 0 0 64px; }
-  .lp-grid { grid-template-columns: 1fr; }
-  .lp-stats { grid-template-columns: repeat(2, 1fr); }
-  .lp-stat:nth-child(2) { border-right: 0; }
-  .lp-stat:nth-child(3) { border-top: 1px solid var(--rule); border-right: 1px solid var(--rule); }
-  .lp-stat:nth-child(4) { border-top: 1px solid var(--rule); border-right: 0; }
+  .lp-grid { grid-template-columns: 1fr; gap: 32px; }
 }
 
