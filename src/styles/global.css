@@ -105,7 +105,7 @@ button {
 
 ::selection {
   background: var(--terracotta);
-  color: var(--cream);
+  color: #FFFFFF;
 }
 
 /* ---------- Type primitives ---------- */
@@ -184,7 +184,7 @@ button {
   text-transform: uppercase;
   letter-spacing: .12em;
   font-size: 11px;
-  color: var(--clay);
+  color: var(--ink);
   display: inline-flex;
   align-items: center;
   gap: 10px;
@@ -307,17 +307,17 @@ button {
 .pat-arcs {
   background:
     radial-gradient(circle at 50% 100%, transparent 0 60px, var(--terracotta) 60px 64px, transparent 64px 100px, var(--terracotta) 100px 104px, transparent 104px 140px, var(--terracotta) 140px 144px, transparent 144px 180px, var(--terracotta) 180px 184px, transparent 184px 220px, var(--terracotta) 220px 224px, transparent 224px),
-    var(--cream);
+    #FFFFFF;
 }
 
 .pat-grid {
   background:
     radial-gradient(circle, var(--terracotta) 1.5px, transparent 2px) 0 0 / 22px 22px,
-    var(--cream);
+    #FFFFFF;
 }
 
 .pat-stripe {
-  background: repeating-linear-gradient(45deg, var(--terracotta) 0 14px, var(--cream) 14px 28px);
+  background: repeating-linear-gradient(45deg, var(--terracotta) 0 14px, #FFFFFF 14px 28px);
 }
 
 .pat-confetti {
@@ -333,7 +333,7 @@ button {
 }
 
 .pat-block {
-  background: linear-gradient(var(--terracotta) 0 50%, var(--clay) 50% 100%);
+  background: linear-gradient(var(--terracotta) 0 50%, var(--ink) 50% 100%);
 }
 
 .pat-grain {
@@ -354,7 +354,7 @@ button {
 
 /* Heat: terracotta → clay gradient with grain */
 .pat-heat {
-  background: linear-gradient(135deg, var(--terracotta) 0%, var(--clay) 100%);
+  background: linear-gradient(135deg, var(--terracotta) 0%, var(--ink) 100%);
   position: relative;
 }
 
@@ -375,7 +375,7 @@ button {
   text-transform: uppercase;
   letter-spacing: .12em;
   font-size: 11px;
-  color: var(--clay);
+  color: var(--ink);
 }
 
 .muted {
