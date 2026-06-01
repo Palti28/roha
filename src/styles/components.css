@@ -84,6 +84,14 @@
   gap: 8px;
 }
 
+/* Logo inside nav */
+.main-nav-logo {
+  flex-shrink: 0;
+  margin-right: 8px;
+  font-size: 20px;
+  line-height: 1;
+}
+
 /* Scroll wrapper — provides the right-edge fade on mobile */
 .main-nav-scroll {
   flex: 1;
