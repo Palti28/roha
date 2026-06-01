@@ -22,14 +22,24 @@ const isActive = (href: string) =>
       <span></span>
     </button>
   </div>
+
   <div class="topbar-menu" id="topbarMenu" aria-hidden="true">
-    <ul class="topbar-menu-links">
-      {navLinks.map((link) => (
-        <li>
-          <a href={link.href} class={isActive(link.href) ? 'active' : ''}>{link.label}</a>
-        </li>
-      ))}
-    </ul>
+    <nav aria-label="Mobile navigation">
+      <ul class="topbar-menu-links">
+        {navLinks.map((link, i) => (
+          <li style={`--i: ${i}`}>
+            <a href={link.href} class={isActive(link.href) ? 'active' : ''}>
+              <span class="tml-label">{link.label}</span>
+              <span class="tml-arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+      <div class="topbar-menu-footer">
+        <a href="/about#contact" class="tmf-cta">Start a Project →</a>
+        <span class="tmf-tagline">Considered design, built to last.</span>
+      </div>
+    </nav>
   </div>
 </header>
 
@@ -39,19 +49,33 @@ const isActive = (href: string) =>
   const menu   = document.getElementById('topbarMenu')   as HTMLElement | null;
   if (!burger || !menu) return;
 
+  function open() {
+    menu.classList.add('is-open');
+    burger.setAttribute('aria-expanded', 'true');
+    burger.setAttribute('aria-label', 'Close navigation menu');
+    menu.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function close() {
+    menu.classList.remove('is-open');
+    burger.setAttribute('aria-expanded', 'false');
+    burger.setAttribute('aria-label', 'Open navigation menu');
+    menu.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
   burger.addEventListener('click', function () {
-    const isOpen = menu.classList.toggle('is-open');
-    burger.setAttribute('aria-expanded', String(isOpen));
-    burger.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
-    menu.setAttribute('aria-hidden', String(!isOpen));
+    menu.classList.contains('is-open') ? close() : open();
   });
 
   menu.querySelectorAll('a').forEach(function (a) {
-    a.addEventListener('click', function () {
-      menu.classList.remove('is-open');
-      burger.setAttribute('aria-expanded', 'false');
-      menu.setAttribute('aria-hidden', 'true');
-    });
+    a.addEventListener('click', close);
+  });
+
+  // Close on Escape
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && menu.classList.contains('is-open')) close();
   });
 })();
 </script>
