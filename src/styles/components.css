@@ -162,10 +162,10 @@
 }
 
 .btn-primary {
-  background: var(--terracotta);
+  background: #1a1611;
   color: #FFFFFF;
 }
-.btn-primary:hover { background: var(--terracotta-soft); }
+.btn-primary:hover { background: #000000; }
 
 .btn-secondary {
   background: transparent;
