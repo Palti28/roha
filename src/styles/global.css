@@ -63,6 +63,11 @@
 
 html,
 body {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
   margin: 0;
   padding: 0;
   background: var(--paper);
@@ -184,14 +189,6 @@ button {
   align-items: center;
   gap: 10px;
   opacity: .82;
-}
-
-.eyebrow::before {
-  content: "";
-  width: 14px;
-  height: 1px;
-  background: var(--clay);
-  opacity: .6;
 }
 
 .section-title {
