@@ -654,23 +654,22 @@
 .lp-hero-title em { font-size: inherit; line-height: inherit; }
 .lp-hero-tagline {
   font-family: 'Geist', sans-serif;
-  font-size: 17px;
-  line-height: 1.5;
-  opacity: .6;
-  max-width: 40ch;
-  margin: 0 0 56px;
+  font-size: 14px;
+  line-height: 1.6;
+  opacity: .55;
+  max-width: 48ch;
+  margin: 0 0 48px;
 }
 .lp-stats {
-  display: flex;
-  flex-wrap: nowrap;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   border-top: 1px solid var(--rule);
   border-bottom: 1px solid var(--rule);
   margin: 0;
 }
 .lp-stat {
-  flex: 1;
   min-width: 0;
-  padding: 20px 24px;
+  padding: 20px 20px;
   border-right: 1px solid var(--rule);
   display: flex;
   flex-direction: column;
@@ -680,7 +679,7 @@
 .lp-stat:last-child { padding-right: 0; border-right: 0; }
 .lp-stat dt {
   font-family: 'Bricolage Grotesque', serif;
-  font-size: clamp(15px, 1.8vw, 24px);
+  font-size: clamp(14px, 1.7vw, 22px);
   font-weight: 500;
   line-height: 1;
   letter-spacing: -.02em;
@@ -774,7 +773,7 @@
   border-radius: 99px;
   padding: 4px 10px;
 }
-.lp-tile-body { padding: 14px 0 0; }
+.lp-tile-body { padding: 9px 0 0; }
 .lp-tile-desc {
   font-family: 'Geist', sans-serif;
   font-size: 13.5px;
@@ -871,13 +870,11 @@
 @media (max-width: 720px) {
   .lp-cta-panel { flex-direction: column; align-items: flex-start; gap: 32px; }
   .lp-cta-actions { width: 100%; }
-  /* Stats: compress to 2 across on tablet */
-  .lp-stats { flex-wrap: wrap; }
-  .lp-stat { flex: 0 0 50%; min-width: 50%; border-bottom: 1px solid var(--rule); }
-  .lp-stat:nth-child(odd) { border-right: 1px solid var(--rule); padding-left: 0; }
-  .lp-stat:nth-child(even) { padding-left: 24px; border-right: 0; }
-  .lp-stat:nth-child(3),
-  .lp-stat:nth-child(4) { border-bottom: 0; }
+  /* Stats: 2-col on tablet */
+  .lp-stats { grid-template-columns: repeat(2, 1fr); }
+  .lp-stat:nth-child(2) { border-right: 0; padding-right: 0; }
+  .lp-stat:nth-child(3) { border-top: 1px solid var(--rule); padding-left: 0; }
+  .lp-stat:nth-child(4) { border-top: 1px solid var(--rule); border-right: 0; padding-right: 0; }
 }
 @media (max-width: 600px) {
   .lp-hero-inner,
