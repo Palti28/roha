@@ -1,47 +1,13 @@
 ---
-const navLinks = [
-  { href: '/portfolio', label: 'Work' },
-  { href: '/services', label: 'Services' },
-  { href: '/about', label: 'About' },
-  { href: '/work', label: 'Case Studies' },
-];
-
-const path = Astro.url.pathname;
-const isActive = (href: string) =>
-  href === '/' ? path === '/' : path === href || path.startsWith(href + '/');
+// Topbar only — always visible, never sticky.
+// The scroll-then-sticky Main Nav lives in Nav.astro and is placed
+// explicitly per page (after the hero), not in the global layout.
 ---
 
-<!-- =================== SITE HEADER =================== -->
-<header class="site-header" role="banner" data-site-header>
-  <div class="site-header-inner">
-    <a href="/" class="logo site-header-logo" aria-label="Roha — Home">roha<span class="dot">.</span></a>
-    <nav class="site-header-nav" aria-label="Primary">
-      <ul class="site-header-links">
-        {navLinks.map((link) => (
-          <li>
-            <a href={link.href} class={isActive(link.href) ? 'active' : ''}>{link.label}</a>
-          </li>
-        ))}
-      </ul>
-    </nav>
-    <a href="/about#contact" class="site-header-cta">Start a Project</a>
+<!-- =================== TOPBAR =================== -->
+<header class="topbar" role="banner">
+  <div class="topbar-inner">
+    <a href="/" class="logo" aria-label="Roha — Home">roha<span class="dot">.</span></a>
+    <span class="topbar-url">rohaworks.com</span>
   </div>
 </header>
-
-<script>
-  (function () {
-    const header = document.querySelector('[data-site-header]') as HTMLElement | null;
-    if (!header) return;
-    let lastY = 0;
-
-    window.addEventListener('scroll', function () {
-      const y = window.scrollY;
-      if (y > 40) {
-        header.classList.add('is-scrolled');
-      } else {
-        header.classList.remove('is-scrolled');
-      }
-      lastY = y;
-    }, { passive: true });
-  })();
-</script>

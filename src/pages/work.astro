@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import Base from "../layouts/Base.astro";
+import Nav from "../components/Nav.astro";
 
 // 1. Ambil data collection 'work' & filter out draft
 const allWork = await getCollection("work", ({ data }) => {
@@ -109,6 +110,7 @@ const sortedWork = allWork.sort((a, b) => a.data.order - b.data.order);
         </div>
       </div>
     </section>
+    <Nav />
 
     <section class="section-tight">
       <div class="wrap">
