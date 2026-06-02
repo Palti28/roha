@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import { site } from '../data/site.ts';
 ---
 
 <Base
@@ -352,6 +353,10 @@ import Base from '../layouts/Base.astro';
             <div class="contact-info-block">
               <div class="k">Email</div>
               <div class="v"><a href="mailto:hello@rohaworks.com">hello@rohaworks.com</a></div>
+            </div>
+            <div class="contact-info-block">
+              <div class="k">WhatsApp</div>
+              <div class="v"><a href={`https://wa.me/${site.wa}?text=Halo%20Roha%2C%20saya%20ingin%20diskusi%20project%20bareng.`} target="_blank" rel="noopener">Chat on WhatsApp →</a></div>
             </div>
             <div class="contact-info-block">
               <div class="k">Location</div>
