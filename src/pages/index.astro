@@ -36,20 +36,6 @@ const sortedPortfolio = allPortfolio.sort(byDate).slice(0, 6);
             <a href="/about#contact" class="btn btn-primary">Start a Project <span class="arr">→</span></a>
             <a href="/work" class="btn btn-secondary">See Our Work</a>
           </div>
-          <div class="hero-meta">
-            <div class="hero-meta-item">
-              <div class="hm-k">UI/UX</div>
-              <div class="hm-l">Product Design</div>
-            </div>
-            <div class="hero-meta-item">
-              <div class="hm-k">Web</div>
-              <div class="hm-l">Design + Build</div>
-            </div>
-            <div class="hero-meta-item">
-              <div class="hm-k">Brand</div>
-              <div class="hm-l">Identity Systems</div>
-            </div>
-          </div>
         </div>
 
         <div class="home-hero-right">
@@ -434,7 +420,6 @@ const sortedPortfolio = allPortfolio.sort(byDate).slice(0, 6);
     { q: '.home-hero-left .eyebrow',   delay:  60 },
     { q: '.home-hero-left h1',         delay: 160 },
     { q: '.home-hero-left .btn-row',   delay: 290 },
-    { q: '.home-hero-left .hero-meta', delay: 400 },
     { q: '.home-hero-right',           delay: 200 },
   ].forEach(({ q, delay }) => {
     const el = document.querySelector(q);
