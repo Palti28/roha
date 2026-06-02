@@ -746,6 +746,9 @@
   opacity: .45;
   margin: 0;
 }
+@media (max-width: 640px) {
+  .why-roha-block { display: none; }
+}
 
 /* ---------- Service tile 3D tilt interactions ---------- */
 .svc-tile { overflow: hidden; }
