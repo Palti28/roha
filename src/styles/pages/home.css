@@ -303,8 +303,8 @@
 }
 
 .svc-tile {
-  background: var(--paper-tint);
-  border: 1px solid var(--rule);
+  background: transparent;
+  border: none;
   border-radius: var(--radius-sm);
   padding: 18px 18px 20px;
   text-decoration: none;
@@ -312,16 +312,18 @@
   display: flex; flex-direction: column;
   gap: 10px;
   min-height: 220px;
-  transition: background .2s ease, border-color .2s ease, transform .3s cubic-bezier(.2,.7,.2,1), box-shadow .3s ease;
+  transition: background .25s ease, color .25s ease;
   position: relative;
   will-change: transform;
 }
 .svc-tile:hover {
-  background: #FFFFFF;
-  border-color: var(--terracotta-soft);
-  transform: translateY(-5px);
-  box-shadow: 0 20px 40px -20px rgba(28, 23, 20, 0.28);
+  background: var(--terracotta-soft);
+  transform: none;
+  box-shadow: none;
 }
+.svc-tile:hover h3 { color: #FFFFFF; }
+.svc-tile:hover p { color: #FFFFFF; opacity: .8; }
+.svc-tile:hover .num { color: rgba(255,255,255,.65); }
 .svc-tile .top {
   display: flex;
   align-items: center;
@@ -357,8 +359,11 @@
   overflow: visible;
   color: var(--terracotta);
 }
-.icon-bg   { fill: var(--paper-tint); }
-.gear-mask { fill: var(--paper-tint); }
+.icon-bg   { fill: var(--paper); }
+.gear-mask { fill: var(--paper); }
+.svc-tile:hover .icon-bg   { fill: var(--terracotta-soft); }
+.svc-tile:hover .gear-mask { fill: var(--terracotta-soft); }
+.svc-tile:hover .service-icon svg { color: #FFFFFF; }
 
 /* Icon 1 — Product Design: mobile card floats */
 @keyframes floatCard {
@@ -440,12 +445,10 @@
 
 .svc-tile-dark {
   background: var(--ink);
-  border-color: var(--ink);
   color: #FFFFFF;
 }
 .svc-tile-dark:hover {
-  background: #2a2318;
-  border-color: var(--ink);
+  background: var(--terracotta);
 }
 .svc-tile-dark h3 { color: #FFFFFF; }
 .svc-tile-dark p { color: #FFFFFF; opacity: .65; }
