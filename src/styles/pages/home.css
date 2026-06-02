@@ -266,25 +266,27 @@
   flex-direction: row;
   align-items: center;
   min-height: unset;
-  padding: 28px 32px;
-  gap: 24px;
+  padding: 16px 24px;
+  gap: 16px;
 }
 .svc-card-grid .svc-tile:last-child .svc-cta-body {
   flex: 1;
 }
 .svc-card-grid .svc-tile:last-child h3 {
-  margin: 0 0 4px;
-  font-size: 20px;
+  margin: 0 0 2px;
+  font-size: 16px;
 }
 .svc-card-grid .svc-tile:last-child p {
   max-width: 52ch;
   margin: 0;
+  font-size: 12.5px;
+}
 }
 .svc-cta-circle {
-  width: 48px;
-  height: 48px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
-  border: 1px solid rgba(246, 239, 224, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.25);
   display: grid;
   place-items: center;
   flex-shrink: 0;
