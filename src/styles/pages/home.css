@@ -147,14 +147,18 @@
   margin: 0;
 }
 @media (max-width: 640px) {
+  .studio-strip {
+    background: var(--ink);
+    border-color: transparent;
+  }
   .studio-stats { grid-template-columns: repeat(4, 1fr); }
   .stat-item {
     padding: 14px 8px;
-    border-right: 1px solid var(--rule);
+    border-right: 1px solid rgba(255, 255, 255, .1);
   }
   .stat-item:last-child { border-right: 0; }
-  .stat-item dt { font-size: 11.5px; line-height: 1.15; }
-  .stat-item dd { font-size: 8px; letter-spacing: .03em; }
+  .stat-item dt { font-size: 11.5px; line-height: 1.15; color: #FFFFFF; }
+  .stat-item dd { font-size: 8px; letter-spacing: .03em; color: #FFFFFF; opacity: .45; }
 }
 
 /* ---------- Live status pill ---------- */
@@ -362,6 +366,10 @@
 .svc-tile:hover .icon-bg   { fill: var(--blue-soft); }
 .svc-tile:hover .gear-mask { fill: var(--blue-soft); }
 .svc-tile:hover .service-icon svg { color: #FFFFFF; }
+
+@media (max-width: 640px) {
+  .service-icon { display: none; }
+}
 
 /* Icon 1 — Product Design: mobile card floats */
 @keyframes floatCard {
