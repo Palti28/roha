@@ -298,7 +298,7 @@
   .svc-card-grid .svc-tile:last-child { grid-column: 1 / -1; }
 }
 @media (max-width: 600px) {
-  .svc-card-grid { grid-template-columns: repeat(4, 1fr); gap: 8px; }
+  .svc-card-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
   .svc-card-grid .svc-tile:last-child {
     grid-column: 1 / -1;
     padding: 16px 20px;
