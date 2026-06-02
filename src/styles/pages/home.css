@@ -259,18 +259,19 @@
   flex-direction: row;
   align-items: center;
   min-height: unset;
-  padding: 22px 28px;
-  gap: 0;
+  padding: 28px 32px;
+  gap: 24px;
 }
 .svc-card-grid .svc-tile:last-child .svc-cta-body {
   flex: 1;
 }
 .svc-card-grid .svc-tile:last-child h3 {
-  margin: 4px 0 6px;
+  margin: 0 0 4px;
   font-size: 20px;
 }
 .svc-card-grid .svc-tile:last-child p {
   max-width: 52ch;
+  margin: 0;
 }
 .svc-cta-circle {
   width: 48px;
@@ -294,12 +295,9 @@
   .svc-card-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
   .svc-card-grid .svc-tile:last-child {
     grid-column: 1 / -1;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 18px;
-    gap: 8px;
+    padding: 20px;
+    gap: 16px;
   }
-  .svc-card-grid .svc-tile:last-child .svc-cta-arr { padding-left: 0; }
 }
 
 .svc-tile {
@@ -444,11 +442,15 @@
 }
 
 .svc-tile-dark {
-  background: var(--ink);
+  background-color: var(--ink);
+  background-image: radial-gradient(circle, rgba(255,255,255,.10) 1px, transparent 1px);
+  background-size: 22px 22px;
   color: #FFFFFF;
 }
 .svc-tile-dark:hover {
-  background: var(--blue);
+  background-color: var(--blue);
+  background-image: radial-gradient(circle, rgba(255,255,255,.12) 1px, transparent 1px);
+  background-size: 22px 22px;
 }
 .svc-tile-dark h3 { color: #FFFFFF; }
 .svc-tile-dark p { color: #FFFFFF; opacity: .65; }
