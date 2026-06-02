@@ -424,3 +424,33 @@
 @media (max-width: 960px) {
   .process-track { display: none; }
 }
+
+/* ── How We Work — dark section ──────────────────────────────── */
+.process-section {
+  background: var(--ink);
+}
+.process-section .section-head .eyebrow {
+  color: var(--blue-soft);
+}
+.process-section .section-title {
+  color: #FFFFFF;
+}
+.process-section .italic-accent {
+  color: var(--blue-soft);
+  font-weight: 600;
+}
+.process-section .process-band {
+  background: rgba(255,255,255,.04);
+  border-color: rgba(255,255,255,.1);
+}
+.process-section .process-step {
+  border-right-color: rgba(255,255,255,.1);
+  border-bottom-color: rgba(255,255,255,.1);
+}
+.process-section .process-step .num  { color: var(--blue-soft); }
+.process-section .process-step .dur  { color: #FFFFFF; opacity: .35; }
+.process-section .process-step h4    { color: #FFFFFF; }
+.process-section .process-step p     { color: #FFFFFF; opacity: .55; }
+.process-section .ps-illus                           { color: var(--blue-soft); }
+.process-section .process-step.is-revealed .ps-illus { opacity: 1; }
+.process-section .process-track-fill                 { background: var(--blue-soft); opacity: .25; }
