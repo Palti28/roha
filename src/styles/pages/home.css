@@ -27,6 +27,7 @@
 .hero-sub {
   font-size: 15px;
   color: #374151;
+  opacity: 1;
   line-height: 1.6;
   max-width: 38ch;
   margin: 0 0 24px;
