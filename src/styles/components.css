@@ -163,10 +163,10 @@
 }
 
 .btn-primary {
-  background: var(--btn);
-  color: var(--cream);
+  background: var(--blue);
+  color: #FFFFFF;
 }
-.btn-primary:hover { background: var(--ink); }
+.btn-primary:hover { background: var(--navy); }
 
 .btn-secondary {
   background: transparent;
