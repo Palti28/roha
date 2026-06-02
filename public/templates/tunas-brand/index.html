@@ -1,0 +1,472 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Tunas Coffee — Brand Guidelines</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --forest: #1A3C1A;
+      --grove:  #3A7A30;
+      --leaf:   #8CC968;
+      --cream:  #F4EFE3;
+      --sand:   #D4C9A8;
+      --ink:    #0E100D;
+      --rule:   rgba(26,60,26,.1);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { -webkit-font-smoothing: antialiased; scroll-behavior: smooth; }
+    body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background: var(--ink); color: var(--cream); }
+
+    /* ── NAV ── */
+    .nav {
+      position: sticky; top: 0; z-index: 99;
+      background: var(--ink); border-bottom: 1px solid rgba(255,255,255,.07);
+      padding: 0 clamp(24px,5vw,72px);
+      display: flex; align-items: center; justify-content: space-between;
+      height: 60px;
+    }
+    .nav-logo {
+      font-family: 'Syne', sans-serif; font-size: 16px; font-weight: 800;
+      letter-spacing: .08em; color: var(--cream); text-decoration: none;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .nav-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--leaf); }
+    .nav-links { display: flex; gap: 24px; list-style: none; }
+    .nav-links a {
+      font-size: 12px; font-weight: 500; letter-spacing: .04em;
+      color: rgba(244,239,227,.4); text-decoration: none; transition: color .15s;
+    }
+    .nav-links a:hover { color: var(--leaf); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh; display: flex; flex-direction: column; justify-content: flex-end;
+      padding: clamp(48px,8vw,96px) clamp(24px,5vw,72px);
+      background: linear-gradient(170deg, #0A1A0A 0%, #122B12 40%, #1A3C1A 70%, #0E100D 100%);
+      position: relative; overflow: hidden;
+    }
+    .hero-noise {
+      position: absolute; inset: 0; pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      opacity: .03;
+    }
+    /* Large background T letterform */
+    .hero-bg-letter {
+      position: absolute; right: -40px; top: -20px;
+      font-family: 'Syne', sans-serif; font-size: clamp(320px,40vw,520px);
+      font-weight: 800; color: var(--forest); opacity: .15;
+      line-height: 1; pointer-events: none; user-select: none;
+    }
+    /* Logo mark centered top of hero */
+    .hero-mark { position: relative; z-index: 2; margin-bottom: clamp(56px,8vw,96px); }
+    .hero-mark svg { width: clamp(120px,18vw,200px); height: auto; }
+    .hero-eyebrow {
+      font-family: 'Syne', sans-serif; font-size: 11px; font-weight: 600;
+      letter-spacing: .22em; text-transform: uppercase;
+      color: var(--leaf); margin-bottom: 20px; position: relative; z-index: 2;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .hero-eyebrow::before { content: ''; display: block; width: 24px; height: 1px; background: var(--leaf); }
+    .hero-h1 {
+      font-family: 'Syne', sans-serif; font-weight: 800;
+      font-size: clamp(52px,9vw,128px); line-height: .88; letter-spacing: -.04em;
+      color: var(--cream); position: relative; z-index: 2; margin-bottom: 24px;
+    }
+    .hero-h1 em { color: var(--leaf); font-style: normal; }
+    .hero-sub {
+      font-size: 15px; font-weight: 300; color: rgba(244,239,227,.5);
+      max-width: 50ch; line-height: 1.75; position: relative; z-index: 2;
+    }
+    .hero-meta-row {
+      display: flex; gap: 40px; flex-wrap: wrap;
+      margin-top: 48px; padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,.08);
+      position: relative; z-index: 2;
+    }
+    .hero-meta-item { display: flex; flex-direction: column; gap: 4px; }
+    .hero-meta-label {
+      font-family: 'Syne', sans-serif; font-size: 9px; font-weight: 600;
+      letter-spacing: .2em; text-transform: uppercase; color: rgba(244,239,227,.3);
+    }
+    .hero-meta-val {
+      font-family: 'Syne', sans-serif; font-size: 15px; font-weight: 700;
+      color: var(--cream); letter-spacing: .02em;
+    }
+
+    /* ── SECTION BASE ── */
+    .section { padding: clamp(64px,9vw,120px) clamp(24px,5vw,72px); }
+    .section-lt { background: var(--cream); color: var(--ink); }
+    .section-mid { background: #F0EAD8; color: var(--ink); }
+    .section-dk { background: var(--ink); }
+    .section-forest { background: var(--forest); }
+
+    .section-eyebrow {
+      font-family: 'Syne', sans-serif; font-size: 10px; font-weight: 600;
+      letter-spacing: .22em; text-transform: uppercase; margin-bottom: 12px;
+    }
+    .section-eyebrow-lt { color: var(--leaf); }
+    .section-eyebrow-dk { color: var(--grove); }
+    .section-h2 {
+      font-family: 'Syne', sans-serif; font-weight: 800;
+      font-size: clamp(32px,4.5vw,60px); line-height: .9; letter-spacing: -.03em;
+      margin-bottom: 48px;
+    }
+    .section-h2 em { font-style: normal; color: var(--leaf); }
+    .section-h2-dk em { color: var(--leaf); }
+    .section-h2-lt { color: var(--ink); }
+    .section-h2-lt em { color: var(--forest); }
+
+    /* ── LOGO SECTION ── */
+    .logo-variants-grid {
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 2px;
+    }
+    .logo-cell {
+      aspect-ratio: 4/3; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 20px; padding: 40px 24px;
+      position: relative;
+    }
+    .logo-cell-cream { background: var(--cream); }
+    .logo-cell-forest { background: var(--forest); }
+    .logo-cell-leaf { background: var(--leaf); }
+    .logo-cell-label {
+      position: absolute; bottom: 14px; left: 0; right: 0; text-align: center;
+      font-family: 'Syne', sans-serif; font-size: 9px; font-weight: 600;
+      letter-spacing: .18em; text-transform: uppercase; opacity: .45;
+    }
+    .logo-cell-cream .logo-cell-label { color: var(--ink); }
+    .logo-cell-forest .logo-cell-label { color: var(--cream); }
+    .logo-cell-leaf .logo-cell-label { color: var(--ink); }
+    .logo-wm {
+      font-family: 'Syne', sans-serif; font-size: 22px; font-weight: 800;
+      letter-spacing: .12em; text-align: center;
+    }
+    .logo-wm-sub { font-size: 10px; letter-spacing: .22em; margin-top: -4px; opacity: .55; }
+
+    /* ── COLOUR SECTION ── */
+    .colour-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; }
+    .swatch {
+      aspect-ratio: 1; display: flex; flex-direction: column;
+      justify-content: flex-end; padding: 20px;
+    }
+    .swatch-name {
+      font-family: 'Syne', sans-serif; font-size: 13px; font-weight: 700;
+      letter-spacing: .08em; text-transform: uppercase;
+    }
+    .swatch-hex {
+      font-family: 'Syne', sans-serif; font-size: 11px; font-weight: 400;
+      letter-spacing: .06em; opacity: .55; margin-top: 4px;
+    }
+    .swatch-role { font-size: 11px; font-weight: 300; opacity: .38; margin-top: 2px; }
+
+    /* ── TYPOGRAPHY ── */
+    .type-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+    .type-specimen { border-top: 1px solid rgba(26,60,26,.15); padding-top: 24px; }
+    .type-label {
+      font-family: 'Syne', sans-serif; font-size: 9px; font-weight: 600;
+      letter-spacing: .2em; text-transform: uppercase; color: var(--grove);
+      margin-bottom: 12px;
+    }
+    .type-display {
+      font-family: 'Syne', sans-serif; font-size: clamp(36px,5vw,64px);
+      font-weight: 800; letter-spacing: -.03em; line-height: .9;
+      color: var(--ink); margin-bottom: 8px;
+    }
+    .type-meta {
+      font-size: 12px; color: var(--ink); opacity: .4; font-style: italic;
+    }
+    .type-body-sample {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 15px; line-height: 1.7; color: var(--ink); opacity: .7;
+      max-width: 48ch;
+    }
+    .type-scale { display: flex; flex-direction: column; gap: 16px; }
+    .type-scale-row { display: flex; align-items: baseline; gap: 16px; }
+    .type-scale-label { font-size: 10px; letter-spacing: .1em; opacity: .35; width: 60px; flex-shrink: 0; }
+
+    /* ── USAGE / DO & DON'T ── */
+    .usage-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+    .usage-card {
+      padding: 40px; background: rgba(255,255,255,.03);
+      display: flex; flex-direction: column; gap: 16px;
+    }
+    .usage-title {
+      font-family: 'Syne', sans-serif; font-size: 11px; font-weight: 700;
+      letter-spacing: .16em; text-transform: uppercase;
+    }
+    .usage-title-do { color: var(--leaf); }
+    .usage-title-dont { color: #E57373; }
+    .usage-rule { font-size: 13px; color: rgba(244,239,227,.65); line-height: 1.6; }
+    .usage-rule-item { display: flex; gap: 10px; }
+    .usage-rule-item::before { content: '·'; color: var(--leaf); flex-shrink: 0; }
+    .usage-dont-item::before { color: #E57373; }
+
+    /* ── MOCKUPS ── */
+    .mockup-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 32px; align-items: end; }
+
+    /* ── CTA ── */
+    .cta-section {
+      background: var(--leaf); color: var(--ink);
+      padding: clamp(48px,7vw,80px) clamp(24px,5vw,72px);
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 32px;
+    }
+    .cta-h2 {
+      font-family: 'Syne', sans-serif; font-weight: 800;
+      font-size: clamp(28px,3.5vw,48px); letter-spacing: -.03em; line-height: .95;
+    }
+    .cta-link {
+      font-family: 'Syne', sans-serif; font-size: 13px; font-weight: 700;
+      letter-spacing: .06em; color: var(--ink); text-decoration: none;
+      border-bottom: 2px solid rgba(14,16,13,.4); padding-bottom: 2px;
+      display: inline-flex; align-items: center; gap: 8px;
+      transition: gap .2s, border-color .15s;
+    }
+    .cta-link:hover { gap: 16px; border-color: var(--ink); }
+
+    @media (max-width: 800px) {
+      .logo-variants-grid { grid-template-columns: 1fr; }
+      .colour-grid { grid-template-columns: 1fr 1fr; }
+      .type-grid { grid-template-columns: 1fr; }
+      .usage-grid { grid-template-columns: 1fr; }
+      .mockup-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <a href="#" class="nav-logo">
+      <span class="nav-dot"></span> Tunas Coffee
+    </a>
+    <ul class="nav-links">
+      <li><a href="#logo">Logo</a></li>
+      <li><a href="#colours">Colours</a></li>
+      <li><a href="#type">Type</a></li>
+      <li><a href="#usage">Usage</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-noise" aria-hidden="true"></div>
+    <div class="hero-bg-letter" aria-hidden="true">T</div>
+
+    <div class="hero-mark">
+      <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Tunas Coffee logo mark">
+        <circle cx="50" cy="50" r="48" fill="#1A3C1A"/>
+        <circle cx="50" cy="50" r="43" fill="none" stroke="#8CC968" stroke-width=".9" stroke-dasharray="4 2.5" opacity="0.55"/>
+        <rect x="24" y="77" width="52" height="4" rx="2" fill="#F4EFE3" opacity="0.45"/>
+        <rect x="31" y="54" width="38" height="23" rx="3.5" fill="#F4EFE3"/>
+        <rect x="28" y="50" width="44" height="7" rx="3.5" fill="#F4EFE3"/>
+        <path d="M69 56 Q80 56 80 63 Q80 71 69 69" stroke="#F4EFE3" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+        <ellipse cx="50" cy="67" rx="13" ry="3.5" fill="#1A3C1A" opacity="0.3"/>
+        <path d="M50 50 C42 41 41 29 45 20 C48 13 50 10 50 10 C50 10 52 13 55 20 C59 29 58 41 50 50 Z" fill="#8CC968"/>
+        <line x1="50" y1="10" x2="50" y2="50" stroke="#1A3C1A" stroke-width="1" opacity="0.35"/>
+      </svg>
+    </div>
+
+    <div class="hero-eyebrow">Brand Guidelines 2024</div>
+    <h1 class="hero-h1">Tumbuh<br>dari<br><em>dalam.</em></h1>
+    <p class="hero-sub">A brand identity rooted in nature. Green, warm, and grown from something real.</p>
+
+    <div class="hero-meta-row">
+      <div class="hero-meta-item">
+        <span class="hero-meta-label">Brand</span>
+        <span class="hero-meta-val">Tunas Coffee</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="hero-meta-label">Sector</span>
+        <span class="hero-meta-val">F&amp;B / Cafe</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="hero-meta-label">Palette</span>
+        <span class="hero-meta-val">Forest · Leaf · Cream</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="hero-meta-label">Year</span>
+        <span class="hero-meta-val">2024</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOGO SYSTEM -->
+  <section class="section section-dk" id="logo">
+    <div class="section-eyebrow section-eyebrow-lt">01 · Logo System</div>
+    <h2 class="section-h2">Three forms,<br><em>one mark.</em></h2>
+
+    <div class="logo-variants-grid">
+
+      <!-- On Cream -->
+      <div class="logo-cell logo-cell-cream">
+        <svg viewBox="0 0 100 100" width="80" height="80" fill="none">
+          <circle cx="50" cy="50" r="48" fill="#1A3C1A"/>
+          <circle cx="50" cy="50" r="43" fill="none" stroke="#8CC968" stroke-width=".9" stroke-dasharray="4 2.5" opacity="0.55"/>
+          <rect x="24" y="77" width="52" height="4" rx="2" fill="#F4EFE3" opacity="0.45"/>
+          <rect x="31" y="54" width="38" height="23" rx="3.5" fill="#F4EFE3"/>
+          <rect x="28" y="50" width="44" height="7" rx="3.5" fill="#F4EFE3"/>
+          <path d="M69 56 Q80 56 80 63 Q80 71 69 69" stroke="#F4EFE3" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+          <path d="M50 50 C42 41 41 29 45 20 C48 13 50 10 50 10 C50 10 52 13 55 20 C59 29 58 41 50 50 Z" fill="#8CC968"/>
+          <line x1="50" y1="10" x2="50" y2="50" stroke="#1A3C1A" stroke-width="1" opacity="0.35"/>
+        </svg>
+        <div>
+          <div class="logo-wm" style="color:#1A3C1A;">TUNAS</div>
+          <div class="logo-wm-sub" style="color:#3A7A30;">COFFEE</div>
+        </div>
+        <span class="logo-cell-label">Primary on Cream</span>
+      </div>
+
+      <!-- On Forest -->
+      <div class="logo-cell logo-cell-forest">
+        <svg viewBox="0 0 100 100" width="80" height="80" fill="none">
+          <circle cx="50" cy="50" r="48" fill="#0E100D" opacity="0.4"/>
+          <rect x="31" y="54" width="38" height="23" rx="3.5" fill="#F4EFE3"/>
+          <rect x="28" y="50" width="44" height="7" rx="3.5" fill="#F4EFE3"/>
+          <path d="M69 56 Q80 56 80 63 Q80 71 69 69" stroke="#F4EFE3" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+          <path d="M50 50 C42 41 41 29 45 20 C48 13 50 10 50 10 C50 10 52 13 55 20 C59 29 58 41 50 50 Z" fill="#8CC968"/>
+        </svg>
+        <div>
+          <div class="logo-wm" style="color:#F4EFE3;">TUNAS</div>
+          <div class="logo-wm-sub" style="color:#8CC968;">COFFEE</div>
+        </div>
+        <span class="logo-cell-label">Reversed on Dark Green</span>
+      </div>
+
+      <!-- On Leaf -->
+      <div class="logo-cell logo-cell-leaf">
+        <svg viewBox="0 0 100 100" width="80" height="80" fill="none">
+          <circle cx="50" cy="50" r="48" fill="#1A3C1A"/>
+          <rect x="31" y="54" width="38" height="23" rx="3.5" fill="#F4EFE3"/>
+          <rect x="28" y="50" width="44" height="7" rx="3.5" fill="#F4EFE3"/>
+          <path d="M69 56 Q80 56 80 63 Q80 71 69 69" stroke="#F4EFE3" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+          <path d="M50 50 C42 41 41 29 45 20 C48 13 50 10 50 10 C50 10 52 13 55 20 C59 29 58 41 50 50 Z" fill="#F4EFE3"/>
+        </svg>
+        <div>
+          <div class="logo-wm" style="color:#0E100D;">TUNAS</div>
+          <div class="logo-wm-sub" style="color:#1A3C1A;">COFFEE</div>
+        </div>
+        <span class="logo-cell-label">On Accent Leaf Green</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- COLOURS -->
+  <section class="section section-dk" id="colours">
+    <div class="section-eyebrow section-eyebrow-lt">02 · Colour System</div>
+    <h2 class="section-h2">Grounded in<br><em>nature.</em></h2>
+
+    <div class="colour-grid">
+      <div class="swatch" style="background:#1A3C1A; aspect-ratio:4/3;">
+        <span class="swatch-name" style="color:#8CC968;">Forest</span>
+        <span class="swatch-hex" style="color:#8CC968;">#1A3C1A</span>
+        <span class="swatch-role" style="color:#8CC968;">Primary · Dominant</span>
+      </div>
+      <div class="swatch" style="background:#3A7A30; aspect-ratio:4/3;">
+        <span class="swatch-name" style="color:#F4EFE3;">Grove</span>
+        <span class="swatch-hex" style="color:#F4EFE3;">#3A7A30</span>
+        <span class="swatch-role" style="color:#F4EFE3;">Secondary · Active</span>
+      </div>
+      <div class="swatch" style="background:#8CC968; aspect-ratio:4/3;">
+        <span class="swatch-name" style="color:#0E100D;">Leaf</span>
+        <span class="swatch-hex" style="color:#0E100D;">#8CC968</span>
+        <span class="swatch-role" style="color:#0E100D;">Accent · Energy</span>
+      </div>
+      <div class="swatch" style="background:#F4EFE3; aspect-ratio:4/3;">
+        <span class="swatch-name" style="color:#1A3C1A;">Cream</span>
+        <span class="swatch-hex" style="color:#1A3C1A;">#F4EFE3</span>
+        <span class="swatch-role" style="color:#1A3C1A;">Light Background</span>
+      </div>
+      <div class="swatch" style="background:#D4C9A8; aspect-ratio:4/3;">
+        <span class="swatch-name" style="color:#1A3C1A;">Sand</span>
+        <span class="swatch-hex" style="color:#1A3C1A;">#D4C9A8</span>
+        <span class="swatch-role" style="color:#1A3C1A;">Neutral Warm</span>
+      </div>
+      <div class="swatch" style="background:#0E100D; aspect-ratio:4/3; outline:1px solid rgba(255,255,255,.06);">
+        <span class="swatch-name" style="color:#8CC968;">Espresso</span>
+        <span class="swatch-hex" style="color:#8CC968;">#0E100D</span>
+        <span class="swatch-role" style="color:#8CC968;">Near Black · Depth</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- TYPOGRAPHY -->
+  <section class="section section-lt" id="type">
+    <div class="section-eyebrow section-eyebrow-dk">03 · Typography</div>
+    <h2 class="section-h2 section-h2-lt">Two voices,<br><em>one rhythm.</em></h2>
+
+    <div class="type-grid">
+      <div>
+        <div class="type-label">Display — Syne 800</div>
+        <div class="type-display">Aa</div>
+        <p class="type-meta">Syne · ExtraBold 800 · Tracking −0.04em<br>Used for headlines, wordmark, large UI</p>
+        <br>
+        <div class="type-scale">
+          <div class="type-scale-row">
+            <span class="type-scale-label" style="color:#3A7A30;">H1</span>
+            <span style="font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(32px,4vw,48px);color:#1A3C1A;letter-spacing:-.03em;">Tumbuh</span>
+          </div>
+          <div class="type-scale-row">
+            <span class="type-scale-label" style="color:#3A7A30;">H2</span>
+            <span style="font-family:'Syne',sans-serif;font-weight:700;font-size:clamp(22px,3vw,32px);color:#1A3C1A;">Satu tegukan</span>
+          </div>
+          <div class="type-scale-row">
+            <span class="type-scale-label" style="color:#3A7A30;">H3</span>
+            <span style="font-family:'Syne',sans-serif;font-weight:600;font-size:clamp(16px,2vw,22px);color:#1A3C1A;">Menu hari ini</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="type-label">Body — Plus Jakarta Sans 400</div>
+        <div class="type-display" style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:400;font-size:clamp(28px,3vw,44px);">Aa</div>
+        <p class="type-meta">Plus Jakarta Sans · Regular–SemiBold<br>Body text, UI labels, descriptions</p>
+        <br>
+        <div class="type-body-sample">
+          Kami percaya setiap cangkir kopi membawa cerita dari tanah tempat ia tumbuh. Bukan sekadar minuman, melainkan percakapan yang dimulai dari kebun.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- USAGE -->
+  <section class="section section-dk" id="usage">
+    <div class="section-eyebrow section-eyebrow-lt">04 · Logo Usage</div>
+    <h2 class="section-h2">Keep it<br><em>clean.</em></h2>
+
+    <div class="usage-grid">
+      <div class="usage-card">
+        <div class="usage-title usage-title-do">DO</div>
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <div class="usage-rule usage-rule-item">Use on cream, forest green, or near-black backgrounds only</div>
+          <div class="usage-rule usage-rule-item">Maintain clear space equal to the height of the leaf mark on all sides</div>
+          <div class="usage-rule usage-rule-item">Use the reversed (cream) version on dark backgrounds</div>
+          <div class="usage-rule usage-rule-item">Minimum size: 24px height for digital, 10mm for print</div>
+          <div class="usage-rule usage-rule-item">Keep wordmark and mark together — don't separate without approval</div>
+        </div>
+      </div>
+      <div class="usage-card">
+        <div class="usage-title usage-title-dont">DON&rsquo;T</div>
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <div class="usage-rule usage-rule-item usage-dont-item">Don't stretch, rotate, or distort the mark</div>
+          <div class="usage-rule usage-rule-item usage-dont-item">Don't change the leaf colour — it must remain Leaf (#8CC968) or Cream (#F4EFE3)</div>
+          <div class="usage-rule usage-rule-item usage-dont-item">Don't place on busy photographic backgrounds without a solid overlay</div>
+          <div class="usage-rule usage-rule-item usage-dont-item">Don't use any colour not in the brand palette for the logo</div>
+          <div class="usage-rule usage-rule-item usage-dont-item">Don't add shadows, glows, or decorative effects to the logo</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-section">
+    <div>
+      <h2 class="cta-h2">See the website<br>built on this brand.</h2>
+    </div>
+    <a href="../tunas-web/" class="cta-link">Open website demo <span>→</span></a>
+  </div>
+
+</body>
+</html>

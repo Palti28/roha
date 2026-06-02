@@ -74,7 +74,7 @@ const portfolio = defineCollection({
     // Pattern class for the cover frame, e.g. "pat-arcs"
     pattern: z.string().default('pat-arcs'),
     // Image URLs for preview grid (up to 4 images for 2x2 grid)
-    images: z.array(z.string().url()).optional(),
+    images: z.array(z.string()).optional(),
 
     // Controls shop order AND the "related products" sequence
     order: z.number().default(0),

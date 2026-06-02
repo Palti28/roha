@@ -96,7 +96,7 @@
   font-size: 11px;
   text-transform: lowercase;
   letter-spacing: .04em;
-  color: var(--clay);
+  color: var(--ink);
 }
 .pd-hero-meta .by .dot {
   width: 7px;
@@ -235,7 +235,7 @@
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: .1em;
-  color: var(--clay);
+  color: var(--ink);
   opacity: .8;
 }
 .pd-meta-list .v { color: var(--ink); font-weight: 500; }
@@ -270,7 +270,7 @@
   font-size: 10.5px;
   text-transform: uppercase;
   letter-spacing: .12em;
-  color: var(--clay);
+  color: var(--ink);
   opacity: .8;
 }
 .pd-info h1 {
@@ -363,7 +363,7 @@
   font-size: 10.5px;
   text-transform: uppercase;
   letter-spacing: .12em;
-  color: var(--clay);
+  color: var(--ink);
   margin-bottom: 6px;
   opacity: .75;
 }
@@ -451,7 +451,7 @@
   font-size: 10.5px;
   text-transform: uppercase;
   letter-spacing: .12em;
-  color: var(--clay);
+  color: var(--ink);
   opacity: .8;
 }
 .pd-stickybar-title h2 {
