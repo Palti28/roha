@@ -20,6 +20,10 @@
   --ink: #15181F;
   --btn: #121419;
 
+  /* Neutral grays */
+  --gray-60: #666666;
+  --gray-40: #999999;
+
   /* Layout aliases */
   --paper-tint: var(--cream);
   --snow: var(--cream);

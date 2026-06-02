@@ -529,7 +529,7 @@
 }
 .how-card:first-child { padding-left: 0; }
 .how-card:last-child { border-right: none; }
-.how-card:hover { background: rgba(193, 68, 14, 0.12); }
+.how-card:hover { background: #0e44c11f; }
 .how-num {
   font-family: 'Geist Mono', monospace;
   font-size: 12px;
@@ -914,8 +914,8 @@
   font-size: 9.5px;
   text-transform: uppercase;
   letter-spacing: .08em;
-  color: var(--blue);
-  background: rgba(246, 239, 224, .92);
+  color: var(--ink);
+  background: #ffffff8a;
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
   border: 1px solid color-mix(in oklab, var(--blue-soft) 28%, transparent);
