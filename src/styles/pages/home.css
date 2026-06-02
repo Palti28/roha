@@ -325,7 +325,7 @@
   will-change: transform;
 }
 .svc-tile:hover {
-  background: var(--blue-soft);
+  background: var(--blue);
   transform: none;
   box-shadow: none;
 }
@@ -369,8 +369,8 @@
 }
 .icon-bg   { fill: var(--paper); }
 .gear-mask { fill: var(--paper); }
-.svc-tile:hover .icon-bg   { fill: var(--blue-soft); }
-.svc-tile:hover .gear-mask { fill: var(--blue-soft); }
+.svc-tile:hover .icon-bg   { fill: var(--blue); }
+.svc-tile:hover .gear-mask { fill: var(--blue); }
 .svc-tile:hover .service-icon svg { color: #FFFFFF; }
 
 @media (max-width: 640px) {
