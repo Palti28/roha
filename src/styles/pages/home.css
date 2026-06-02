@@ -45,7 +45,7 @@
   border-top: 1px solid var(--rule);
 }
 .hero-meta-item .hm-k {
-  font-family: 'Bricolage Grotesque', serif;
+  font-family: 'Geist', sans-serif;
   font-size: 22px;
   font-weight: 500;
   letter-spacing: -.02em;
@@ -131,7 +131,7 @@
 .stat-item:first-child { padding-left: 0; }
 .stat-item:last-child { border-right: 0; }
 .stat-item dt {
-  font-family: 'Bricolage Grotesque', serif;
+  font-family: 'Geist', sans-serif;
   font-size: 17px;
   font-weight: 500;
   letter-spacing: -.02em;
@@ -216,7 +216,7 @@
 }
 .h-block .left { max-width: 26ch; }
 .h-block .left h2 {
-  font-family: 'Bricolage Grotesque', serif;
+  font-family: 'Geist', sans-serif;
   font-size: clamp(22px, 2.6vw, 32px);
   line-height: 1.12;
   letter-spacing: -.02em;
@@ -338,7 +338,7 @@
   opacity: .8;
 }
 .svc-tile h3 {
-  font-family: 'Bricolage Grotesque', serif;
+  font-family: 'Geist', sans-serif;
   font-size: 18px;
   letter-spacing: -.01em;
   line-height: 1.2;
@@ -473,7 +473,7 @@
   align-items: start;
 }
 @media (max-width: 880px) { .mini-about { grid-template-columns: 1fr; gap: 32px; } }
-.mini-about .pull em { font-family: 'Instrument Serif', serif; font-style: italic; color: var(--terracotta); }
+.mini-about .pull em { font-family: 'Geist', sans-serif; color: var(--blue); font-weight: 600; }
 .mini-about p {
   font-size: 15.5px;
   line-height: 1.65;
@@ -541,7 +541,7 @@
 }
 .how-illus svg { width: 40px; height: 40px; }
 .how-card h4 {
-  font-family: 'Bricolage Grotesque', serif;
+  font-family: 'Geist', sans-serif;
   font-size: 19px;
   font-weight: 500;
   letter-spacing: -.01em;
@@ -608,7 +608,7 @@
 }
 .stat-card:last-child { border-right: none; }
 .stat-number {
-  font-family: 'Bricolage Grotesque', serif;
+  font-family: 'Geist', sans-serif;
   font-size: clamp(28px, 5vw, 42px);
   font-weight: 600;
   letter-spacing: -.02em;
@@ -662,7 +662,7 @@
   flex-shrink: 0;
 }
 .testimonial-card .quote {
-  font-family: 'Instrument Serif', serif;
+  font-family: 'Geist', sans-serif;
   font-size: 15px;
   line-height: 1.7;
   color: var(--ink);
@@ -676,7 +676,7 @@
   margin-top: auto;
 }
 .testimonial-name {
-  font-family: 'Bricolage Grotesque', serif;
+  font-family: 'Geist', sans-serif;
   font-size: 14px;
   font-weight: 500;
   color: var(--ink);
@@ -712,7 +712,7 @@
   text-align: center;
 }
 .why-roha-quote {
-  font-family: 'Bricolage Grotesque', serif;
+  font-family: 'Geist', sans-serif;
   font-size: clamp(19px, 2.2vw, 24px);
   font-weight: 400;
   letter-spacing: -.02em;

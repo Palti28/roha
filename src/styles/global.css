@@ -48,10 +48,10 @@
   --nav-h: 68px;
 
   /* Fonts */
-  --font-display: 'Bricolage Grotesque', serif;
+  --font-display: 'Geist', sans-serif;
   --font-sans: 'Geist', ui-sans-serif, system-ui, sans-serif;
   --font-mono: 'Geist Mono', ui-monospace, monospace;
-  --font-italic: 'Instrument Serif', serif;
+  --font-italic: 'Geist', sans-serif;
 }
 
 /* ---------- Reset ---------- */
@@ -110,14 +110,14 @@ button {
 
 /* ---------- Type primitives ---------- */
 .display {
-  font-family: 'Bricolage Grotesque', serif;
+  font-family: 'Geist', sans-serif;
   letter-spacing: -.03em;
   line-height: .95;
   font-weight: 500;
 }
 
 .serif {
-  font-family: 'Instrument Serif', serif;
+  font-family: 'Geist', sans-serif;
 }
 
 .mono {
@@ -128,10 +128,9 @@ button {
 }
 
 .italic-accent {
-  font-family: 'Instrument Serif', serif;
-  font-style: italic;
-  color: var(--terracotta);
-  font-weight: 400;
+  font-family: 'Geist', sans-serif;
+  color: var(--blue);
+  font-weight: 600;
 }
 
 /* ---------- Layout ---------- */
@@ -192,7 +191,7 @@ button {
 }
 
 .section-title {
-  font-family: 'Bricolage Grotesque', serif;
+  font-family: 'Geist', sans-serif;
   font-size: clamp(24px, 2.8vw, 36px);
   line-height: 1.1;
   letter-spacing: -.02em;
@@ -202,10 +201,9 @@ button {
 }
 
 .section-title em {
-  font-family: 'Instrument Serif', serif;
-  font-style: italic;
-  color: var(--terracotta);
-  font-weight: 400;
+  font-family: 'Geist', sans-serif;
+  color: var(--blue);
+  font-weight: 600;
 }
 
 .section-lede {
@@ -239,7 +237,7 @@ button {
 }
 
 .hero h1 {
-  font-family: 'Bricolage Grotesque', serif;
+  font-family: 'Geist', sans-serif;
   font-weight: 500;
   letter-spacing: -.035em;
   line-height: .94;
@@ -248,10 +246,9 @@ button {
 }
 
 .hero h1 em {
-  font-family: 'Instrument Serif', serif;
-  font-style: italic;
-  color: var(--terracotta);
-  font-weight: 400;
+  font-family: 'Geist', sans-serif;
+  color: var(--blue);
+  font-weight: 600;
 }
 
 .hero-h1--xl {
@@ -289,7 +286,7 @@ button {
 
 /* ---------- Pull quote ---------- */
 .pull {
-  font-family: 'Bricolage Grotesque', serif;
+  font-family: 'Geist', sans-serif;
   font-size: clamp(22px, 2.4vw, 30px);
   line-height: 1.25;
   letter-spacing: -.015em;
@@ -298,9 +295,9 @@ button {
 }
 
 .pull em {
-  font-family: 'Instrument Serif', serif;
-  font-style: italic;
-  color: var(--terracotta);
+  font-family: 'Geist', sans-serif;
+  color: var(--blue);
+  font-weight: 600;
 }
 
 /* ---------- Brand patterns (background utility) ---------- */
@@ -444,7 +441,7 @@ button {
 
 /* Override styling h3 di dalam grid agar pas */
 .prose .features-left h3 {
-  font-family: 'Bricolage Grotesque', display, sans-serif;
+  font-family: 'Geist', sans-serif;
   color: var(--clay, #7A2E1B);
   font-size: 2.25rem;
   /* Ukuran "What you get" yang mantap */
@@ -507,7 +504,7 @@ button {
 }
 
 .prose h2 {
-  font-family: 'Bricolage Grotesque', display, sans-serif;
+  font-family: 'Geist', sans-serif;
   font-size: 1.875rem;
   font-weight: 600;
   line-height: 1.2;
@@ -520,7 +517,7 @@ button {
 }
 
 .prose h3 {
-  font-family: 'Bricolage Grotesque', display, sans-serif;
+  font-family: 'Geist', sans-serif;
   font-size: 1.375rem;
   font-weight: 600;
   line-height: 1.2;
@@ -529,7 +526,7 @@ button {
 }
 
 .prose h4 {
-  font-family: 'Bricolage Grotesque', display, sans-serif;
+  font-family: 'Geist', sans-serif;
   font-size: 1.125rem;
   font-weight: 600;
   color: var(--clay, #7A2E1B);
@@ -728,7 +725,7 @@ button {
 }
 
 .specs-header h3 {
-  font-family: 'Bricolage Grotesque', display, sans-serif;
+  font-family: 'Geist', sans-serif;
   font-size: 1.125rem;
   font-weight: 600;
   color: var(--clay, #7A2E1B);

@@ -53,7 +53,7 @@
   gap: 10px;
 }
 .product-card .name {
-  font-family: 'Bricolage Grotesque', serif;
+  font-family: 'Geist', sans-serif;
   font-size: 16px;
   letter-spacing: -.01em;
   font-weight: 500;
@@ -106,7 +106,7 @@
   opacity: .65;
 }
 .work-card h3 {
-  font-family: 'Bricolage Grotesque', serif;
+  font-family: 'Geist', sans-serif;
   font-size: 18px;
   letter-spacing: -.015em;
   line-height: 1.15;
@@ -201,7 +201,7 @@
   border-radius: 999px;
 }
 .project-card h3 {
-  font-family: 'Bricolage Grotesque', serif;
+  font-family: 'Geist', sans-serif;
   font-size: 22px;
   letter-spacing: -.015em;
   line-height: 1.15;
