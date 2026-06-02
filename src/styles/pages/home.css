@@ -108,6 +108,8 @@
 }
 @media (max-width: 640px) {
   .hero-meta { display: none; }
+  .home-hero h1 { margin-bottom: 8px; }
+  .hero-sub { margin-bottom: 14px; }
 }
 
 /* ---------- Studio stats strip ---------- */
