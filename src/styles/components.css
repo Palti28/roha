@@ -162,10 +162,10 @@
 }
 
 .btn-primary {
-  background: #1a1611;
-  color: #FFFFFF;
+  background: var(--btn);
+  color: var(--cream);
 }
-.btn-primary:hover { background: #000000; }
+.btn-primary:hover { background: var(--ink); }
 
 .btn-secondary {
   background: transparent;
@@ -176,9 +176,9 @@
 
 .btn-ink {
   background: var(--ink);
-  color: #FFFFFF;
+  color: var(--cream);
 }
-.btn-ink:hover { background: #333333; }
+.btn-ink:hover { background: var(--btn); }
 
 .btn-outline-cream {
   background: transparent;
@@ -205,8 +205,8 @@
   font-family: 'Geist Mono', ui-monospace, monospace;
 }
 .btn-tertiary:hover {
-  color: var(--terracotta);
-  border-bottom-color: var(--terracotta);
+  color: var(--blue);
+  border-bottom-color: var(--blue);
   transform: none;
 }
 

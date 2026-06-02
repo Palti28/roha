@@ -3,43 +3,41 @@
    Reset, variables, typography, layout primitives, patterns
    ============================================================ */
 
-/* ---------- Variables — Roha Design System v1.1.0 ----------
-   Minimal, mostly white. Terracotta is the only chromatic note.
-   Legacy var names (--cream/--sand/--mustard/--sage/--paper-tint) are
-   kept as aliases so existing CSS keeps working after the palette shift. */
+/* ---------- Variables — Roha Brand System v2 ----------
+   Cool blue palette. Geist-only typography. */
 :root {
-  /* Brand — black, white, terracotta accent */
-  --terracotta: #C9583B;
-  --terracotta-soft: #E07B5C;
-  --clay: #7A2E1B;
+  /* Brand v2 — blue accent */
+  --blue: #2E48D9;
+  --blue-soft: #5C72F2;
+  --navy: #1A2658;
+  --cyan: #1FAFC4;
+  --sage: #5E7E7C;
 
-  /* Surface — pure black/white, grays for secondary */
-  --paper: #FFFFFF;
-  --snow: #F5F5F5;
-  --stone: #EBEBEB;
-  --ink: #000000;
+  /* Surface */
+  --paper: #F5F8FC;
+  --cream: #EAEFF6;
+  --sand: #DBE2EC;
+  --ink: #15181F;
+  --btn: #121419;
 
-  /* Neutral grays for secondary/tertiary copy */
-  --gray-60: #666666;
-  --gray-40: #999999;
+  /* Legacy aliases — keep existing CSS working */
+  --terracotta: var(--blue);
+  --terracotta-soft: var(--blue-soft);
+  --clay: var(--navy);
+  --paper-tint: var(--cream);
+  --snow: var(--cream);
+  --stone: var(--sand);
 
-  /* Legacy aliases (remapped to the new neutral palette) */
-  --cream: var(--snow);
-  --sand: var(--stone);
-  --paper-tint: var(--snow);
-  --mustard: var(--gray-60);
-  --sage: var(--gray-40);
-
-  /* Borders — hairline first, neutral ink */
-  --rule: rgba(0, 0, 0, .08);
-  --rule-strong: rgba(0, 0, 0, .16);
+  /* Borders */
+  --rule: rgba(21, 24, 31, .12);
+  --rule-strong: rgba(21, 24, 31, .22);
 
   /* Layout */
   --maxw: 1240px;
   --content-max: 1240px;
   --gutter: 32px;
 
-  /* Radius — pill buttons, 22px cards */
+  /* Radius */
   --radius-sm: 10px;
   --radius-md: 14px;
   --radius-lg: 22px;
