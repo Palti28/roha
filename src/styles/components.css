@@ -43,10 +43,11 @@
   transition: background .25s ease, border-color .25s ease, backdrop-filter .25s ease;
 }
 .nav.scrolled {
-  background: hsla(0, 0%, 100%, .5);
-  backdrop-filter: blur(48px);
-  -webkit-backdrop-filter: blur(48px);
-  border-bottom-color: var(--rule);
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
 }
 .nav-inner {
   max-width: var(--maxw);
