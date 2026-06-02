@@ -47,7 +47,7 @@
   background: var(--paper);
   border: 1px solid var(--rule);
   display: inline-flex; align-items: center; justify-content: center;
-  color: var(--terracotta);
+  color: var(--blue);
   margin-bottom: 12px;
 }
 .why-card .icon svg { width: 16px; height: 16px; }
@@ -102,7 +102,7 @@
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: var(--terracotta);
+  background: var(--blue);
 }
 .pd-hero-meta .chip {
   font-family: 'Geist Mono', monospace;
@@ -115,7 +115,7 @@
   border-radius: 999px;
   padding: 5px 11px;
 }
-.pd-hero-meta .chip--available { color: var(--terracotta); border-color: color-mix(in oklab, var(--terracotta) 40%, transparent); }
+.pd-hero-meta .chip--available { color: var(--blue); border-color: color-mix(in oklab, var(--blue) 40%, transparent); }
 .pd-hero-actions {
   display: flex;
   gap: 10px;
@@ -169,7 +169,7 @@
   align-items: center;
   gap: 10px;
 }
-.pd-banner .ico { color: var(--terracotta); font-weight: 700; }
+.pd-banner .ico { color: var(--blue); font-weight: 700; }
 
 /* --- Overview + Highlights two-column --- */
 .pd-detail-grid {
@@ -212,8 +212,8 @@
   height: 18px;
   margin-top: 1px;
   border-radius: 50%;
-  background: color-mix(in oklab, var(--terracotta) 14%, transparent);
-  color: var(--terracotta);
+  background: color-mix(in oklab, var(--blue) 14%, transparent);
+  color: var(--blue);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -337,7 +337,7 @@
 }
 .pd-inside li::before {
   content: "✓";
-  color: var(--terracotta);
+  color: var(--blue);
   font-size: 12px;
 }
 @media (max-width: 600px) { .pd-inside { grid-template-columns: 1fr; } }

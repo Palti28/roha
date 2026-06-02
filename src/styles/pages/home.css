@@ -283,7 +283,7 @@
   transition: background .25s ease, transform .25s ease;
 }
 .svc-card-grid .svc-tile:last-child:hover .svc-cta-circle {
-  background: var(--terracotta);
+  background: var(--blue);
   transform: rotate(-45deg);
 }
 @media (max-width: 980px) {
@@ -317,7 +317,7 @@
   will-change: transform;
 }
 .svc-tile:hover {
-  background: var(--terracotta-soft);
+  background: var(--blue-soft);
   transform: none;
   box-shadow: none;
 }
@@ -357,12 +357,12 @@
   width: 58px;
   height: 58px;
   overflow: visible;
-  color: var(--terracotta);
+  color: var(--blue);
 }
 .icon-bg   { fill: var(--paper); }
 .gear-mask { fill: var(--paper); }
-.svc-tile:hover .icon-bg   { fill: var(--terracotta-soft); }
-.svc-tile:hover .gear-mask { fill: var(--terracotta-soft); }
+.svc-tile:hover .icon-bg   { fill: var(--blue-soft); }
+.svc-tile:hover .gear-mask { fill: var(--blue-soft); }
 .svc-tile:hover .service-icon svg { color: #FFFFFF; }
 
 /* Icon 1 — Product Design: mobile card floats */
@@ -432,7 +432,7 @@
 }
 
 .svc-illus {
-  color: var(--terracotta);
+  color: var(--blue);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -448,7 +448,7 @@
   color: #FFFFFF;
 }
 .svc-tile-dark:hover {
-  background: var(--terracotta);
+  background: var(--blue);
 }
 .svc-tile-dark h3 { color: #FFFFFF; }
 .svc-tile-dark p { color: #FFFFFF; opacity: .65; }
@@ -492,9 +492,9 @@
   font-size: 10.5px;
   text-transform: uppercase;
   letter-spacing: .12em;
-  color: var(--terracotta);
+  color: var(--blue);
   padding-bottom: 3px;
-  border-bottom: 1px solid var(--terracotta);
+  border-bottom: 1px solid var(--blue);
   transition: gap .2s ease, color .15s ease, border-color .15s ease;
 }
 .section-link:hover { gap: 10px; color: var(--ink); border-bottom-color: var(--ink); }
@@ -505,7 +505,7 @@
   color: #FFFFFF;
 }
 .how-section .eyebrow {
-  color: var(--terracotta-soft);
+  color: var(--blue-soft);
 }
 .how-section .h-block .left h2 {
   color: #FFFFFF;
@@ -533,7 +533,7 @@
 .how-num {
   font-family: 'Geist Mono', monospace;
   font-size: 12px;
-  color: var(--terracotta-soft);
+  color: var(--blue-soft);
   margin-bottom: 24px;
 }
 .how-illus {
@@ -612,7 +612,7 @@
   font-size: clamp(28px, 5vw, 42px);
   font-weight: 600;
   letter-spacing: -.02em;
-  color: var(--terracotta);
+  color: var(--blue);
   line-height: 1;
 }
 .stat-label {
@@ -896,7 +896,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, var(--terracotta) 0%, var(--ink) 100%);
+  background: linear-gradient(135deg, var(--blue) 0%, var(--ink) 100%);
 }
 .lp-thumb-fallback span {
   font-family: 'Geist', sans-serif;
@@ -914,11 +914,11 @@
   font-size: 9.5px;
   text-transform: uppercase;
   letter-spacing: .08em;
-  color: var(--terracotta);
+  color: var(--blue);
   background: rgba(246, 239, 224, .92);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
-  border: 1px solid color-mix(in oklab, var(--terracotta-soft) 28%, transparent);
+  border: 1px solid color-mix(in oklab, var(--blue-soft) 28%, transparent);
   border-radius: 99px;
   padding: 4px 10px;
 }
@@ -953,7 +953,7 @@
   padding: 0 var(--gutter);
 }
 .lp-cta-panel {
-  background: linear-gradient(135deg, var(--terracotta) 0%, var(--ink) 100%);
+  background: linear-gradient(135deg, var(--blue) 0%, var(--ink) 100%);
   border-radius: 24px;
   padding: clamp(48px, 6vw, 80px) clamp(40px, 5vw, 72px);
   display: flex;
@@ -1069,7 +1069,7 @@
   color: rgba(255, 255, 255, .38);
   margin: 0 0 18px;
 }
-.lp-cta-em { color: var(--terracotta-soft) !important; }
+.lp-cta-em { color: var(--blue-soft) !important; }
 .lp-cta-ship {
   font-family: 'Geist Mono', ui-monospace, monospace;
   font-size: 10px;
@@ -1081,7 +1081,7 @@
 
 /* Buttons on dark CTA */
 .lp-btn-terra {
-  background: var(--terracotta);
+  background: var(--blue);
   color: #fff;
   font-family: 'Geist', sans-serif;
   font-size: 13.5px;

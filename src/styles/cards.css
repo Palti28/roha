@@ -95,7 +95,7 @@
   font-size: 10.5px;
   text-transform: uppercase;
   letter-spacing: .12em;
-  color: var(--terracotta);
+  color: var(--blue);
 }
 .work-card .meta-tag {
   font-family: 'Geist Mono', monospace;
@@ -179,7 +179,7 @@
   font-size: 10px;
   text-transform: uppercase;
   letter-spacing: .12em;
-  color: var(--terracotta-soft);
+  color: var(--blue-soft);
 }
 .project-card .year {
   font-family: 'Geist Mono', monospace;

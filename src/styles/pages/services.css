@@ -45,8 +45,8 @@
   font-size: 10.5px;
   text-transform: uppercase;
   letter-spacing: .12em;
-  color: var(--terracotta);
-  border: 1px solid var(--terracotta);
+  color: var(--blue);
+  border: 1px solid var(--blue);
   border-radius: 99px;
   padding: 5px 12px;
 }
@@ -71,7 +71,7 @@
   font-family: 'Geist Mono', monospace;
   font-size: 36px;
   letter-spacing: -.02em;
-  color: var(--terracotta);
+  color: var(--blue);
   line-height: 1;
   opacity: .9;
 }
@@ -136,7 +136,7 @@
 }
 .svc-card .deliverables li::before {
   content: "·";
-  color: var(--terracotta);
+  color: var(--blue);
   font-weight: 700;
   font-size: 16px;
   line-height: 1;
@@ -188,7 +188,7 @@
 .process-step:last-child { border-right: none; }
 
 .ps-illus {
-  color: var(--terracotta);
+  color: var(--blue);
   opacity: .85;
   flex-shrink: 0;
 }
@@ -206,7 +206,7 @@
   font-size: 10.5px;
   text-transform: uppercase;
   letter-spacing: .12em;
-  color: var(--terracotta);
+  color: var(--blue);
   font-weight: 500;
 }
 .process-step .dur {
@@ -398,7 +398,7 @@
 .process-track-fill {
   width: 100%;
   height: 1px;
-  background: var(--terracotta);
+  background: var(--blue);
   opacity: 0.22;
   transform: scaleX(0);
   transform-origin: left;
