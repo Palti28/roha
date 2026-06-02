@@ -63,7 +63,6 @@
 }
 .home-hero-left .eyebrow,
 .home-hero-left h1,
-.home-hero-left .hero-sub,
 .home-hero-left .btn-row,
 .home-hero-left .hero-meta {
   opacity: 0;
@@ -72,7 +71,6 @@
 }
 .home-hero-left .eyebrow.is-visible,
 .home-hero-left h1.is-visible,
-.home-hero-left .hero-sub.is-visible,
 .home-hero-left .btn-row.is-visible,
 .home-hero-left .hero-meta.is-visible {
   opacity: 1;
