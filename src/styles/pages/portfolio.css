@@ -2,7 +2,7 @@
 
 .shop-hero { padding: clamp(56px, 7vw, 88px) 0 clamp(24px, 4vw, 48px); }
 .shop-hero h1 {
-  font-family: 'Bricolage Grotesque', serif;
+  font-family: 'Geist', sans-serif;
   font-size: clamp(36px, 5.4vw, 64px);
   line-height: 1;
   letter-spacing: -.035em;
@@ -47,12 +47,12 @@
   background: var(--paper);
   border: 1px solid var(--rule);
   display: inline-flex; align-items: center; justify-content: center;
-  color: var(--terracotta);
+  color: var(--blue);
   margin-bottom: 12px;
 }
 .why-card .icon svg { width: 16px; height: 16px; }
 .why-card h3 {
-  font-family: 'Bricolage Grotesque', serif;
+  font-family: 'Geist', sans-serif;
   font-size: 17px;
   line-height: 1.2;
   letter-spacing: -.01em;
@@ -102,7 +102,7 @@
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: var(--terracotta);
+  background: var(--blue);
 }
 .pd-hero-meta .chip {
   font-family: 'Geist Mono', monospace;
@@ -115,7 +115,7 @@
   border-radius: 999px;
   padding: 5px 11px;
 }
-.pd-hero-meta .chip--available { color: var(--terracotta); border-color: color-mix(in oklab, var(--terracotta) 40%, transparent); }
+.pd-hero-meta .chip--available { color: var(--blue); border-color: color-mix(in oklab, var(--blue) 40%, transparent); }
 .pd-hero-actions {
   display: flex;
   gap: 10px;
@@ -169,7 +169,7 @@
   align-items: center;
   gap: 10px;
 }
-.pd-banner .ico { color: var(--terracotta); font-weight: 700; }
+.pd-banner .ico { color: var(--blue); font-weight: 700; }
 
 /* --- Overview + Highlights two-column --- */
 .pd-detail-grid {
@@ -183,7 +183,7 @@
 .pd-highlights { position: sticky; top: 100px; }
 @media (max-width: 880px) { .pd-highlights { position: static; } }
 .pd-side-title {
-  font-family: 'Bricolage Grotesque', serif;
+  font-family: 'Geist', sans-serif;
   font-size: 20px;
   font-weight: 500;
   letter-spacing: -.01em;
@@ -212,8 +212,8 @@
   height: 18px;
   margin-top: 1px;
   border-radius: 50%;
-  background: color-mix(in oklab, var(--terracotta) 14%, transparent);
-  color: var(--terracotta);
+  background: color-mix(in oklab, var(--blue) 14%, transparent);
+  color: var(--blue);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -274,7 +274,7 @@
   opacity: .8;
 }
 .pd-info h1 {
-  font-family: 'Bricolage Grotesque', serif;
+  font-family: 'Geist', sans-serif;
   font-size: clamp(28px, 4.2vw, 52px);
   line-height: 1;
   letter-spacing: -.03em;
@@ -282,15 +282,14 @@
   margin: 10px 0 10px;
 }
 .pd-info .tagline {
-  font-family: 'Instrument Serif', serif;
-  font-style: italic;
+  font-family: 'Geist', sans-serif;
   font-size: 17px;
   color: var(--ink);
   opacity: .8;
   margin: 0 0 24px;
 }
 .pd-price {
-  font-family: 'Bricolage Grotesque', serif;
+  font-family: 'Geist', sans-serif;
   font-size: 32px;
   letter-spacing: -.02em;
   font-weight: 300;
@@ -338,7 +337,7 @@
 }
 .pd-inside li::before {
   content: "✓";
-  color: var(--terracotta);
+  color: var(--blue);
   font-size: 12px;
 }
 @media (max-width: 600px) { .pd-inside { grid-template-columns: 1fr; } }
@@ -369,7 +368,7 @@
   opacity: .75;
 }
 .pd-spec .v {
-  font-family: 'Bricolage Grotesque', serif;
+  font-family: 'Geist', sans-serif;
   font-size: 17px;
   letter-spacing: -.01em;
   font-weight: 300;
@@ -456,7 +455,7 @@
   opacity: .8;
 }
 .pd-stickybar-title h2 {
-  font-family: 'Bricolage Grotesque', serif;
+  font-family: 'Geist', sans-serif;
   font-size: clamp(16px, 1.6vw, 20px);
   font-weight: 300;
   letter-spacing: -.01em;

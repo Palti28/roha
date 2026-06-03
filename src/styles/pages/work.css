@@ -8,7 +8,7 @@
   align-items: center;
 }
 .work-hero h1 {
-  font-family: 'Bricolage Grotesque', serif;
+  font-family: 'Geist', sans-serif;
   font-size: clamp(36px, 5.4vw, 68px);
   line-height: 1;
   letter-spacing: -.035em;
@@ -60,7 +60,7 @@
   margin-top: 14px;
 }
 .wd-header h1 {
-  font-family: 'Bricolage Grotesque', serif;
+  font-family: 'Geist', sans-serif;
   font-size: clamp(32px, 5vw, 60px);
   line-height: 1;
   letter-spacing: -.035em;
@@ -86,7 +86,7 @@
   opacity: .75;
 }
 .wd-meta-grid .v {
-  font-family: 'Bricolage Grotesque', serif;
+  font-family: 'Geist', sans-serif;
   font-size: 17px;
   letter-spacing: -.01em;
   font-weight: 300;
@@ -211,7 +211,7 @@
   margin-top: 20px;
 }
 .lb-desc {
-  font-family: 'Bricolage Grotesque', serif;
+  font-family: 'Geist', sans-serif;
   font-size: 15px;
   color: #FFFFFF;
   opacity: .7;
@@ -258,22 +258,22 @@
 }
 .wd-section ul li::before {
   content: "→";
-  color: var(--terracotta);
+  color: var(--blue);
   font-family: 'Geist Mono', monospace;
 }
 
 .wd-quote {
-  font-family: 'Bricolage Grotesque', serif;
+  font-family: 'Geist', sans-serif;
   font-size: clamp(22px, 2.6vw, 32px);
   line-height: 1.25;
   letter-spacing: -.015em;
   font-weight: 300;
   margin: 24px 0;
   padding: 20px 0 20px 24px;
-  border-left: 2px solid var(--terracotta);
+  border-left: 2px solid var(--blue);
   max-width: 60ch;
 }
-.wd-quote em { font-family: 'Instrument Serif', serif; font-style: italic; color: var(--terracotta); }
+.wd-quote em { font-family: 'Geist', sans-serif; color: var(--blue); font-weight: 600; }
 .wd-quote .cite {
   display: block;
   font-family: 'Geist Mono', monospace;
@@ -325,12 +325,12 @@
   opacity: .75;
 }
 .wd-metric .v {
-  font-family: 'Bricolage Grotesque', serif;
+  font-family: 'Geist', sans-serif;
   font-size: clamp(32px, 4.4vw, 52px);
   letter-spacing: -.03em;
   line-height: 1;
   font-weight: 300;
-  color: var(--terracotta);
+  color: var(--blue);
   margin-bottom: 8px;
 }
 .wd-metric .lbl {
@@ -356,15 +356,15 @@
   font-size: 10.5px;
   text-transform: uppercase;
   letter-spacing: .12em;
-  color: var(--terracotta-soft);
+  color: var(--blue-soft);
   margin-bottom: 6px;
 }
 .wd-next h3 {
-  font-family: 'Bricolage Grotesque', serif;
+  font-family: 'Geist', sans-serif;
   font-size: clamp(22px, 2.8vw, 32px);
   letter-spacing: -.015em;
   font-weight: 300;
   margin: 0;
   color: #FFFFFF;
 }
-.wd-next .arr { font-size: 28px; color: var(--terracotta-soft); }
+.wd-next .arr { font-size: 28px; color: var(--blue-soft); }

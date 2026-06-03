@@ -40,7 +40,7 @@
   transform: translateY(-1px);
 }
 .pv-trigger:focus-visible {
-  outline: 2px solid var(--terracotta);
+  outline: 2px solid var(--blue);
   outline-offset: 3px;
 }
 .pv-trigger svg { width: 12px; height: 12px; }
@@ -115,7 +115,7 @@ body.pv-lock { overflow: hidden; }
   font-size: 10.5px;
   text-transform: uppercase;
   letter-spacing: .14em;
-  color: var(--clay);
+  color: var(--navy);
   opacity: .8;
   display: inline-flex;
   align-items: center;
@@ -125,11 +125,11 @@ body.pv-lock { overflow: hidden; }
   content: "";
   width: 14px;
   height: 1px;
-  background: var(--clay);
+  background: var(--navy);
   opacity: .5;
 }
 .pv-head-title h2 {
-  font-family: 'Bricolage Grotesque', serif;
+  font-family: 'Geist', sans-serif;
   font-weight: 500;
   letter-spacing: -.02em;
   font-size: clamp(18px, 2vw, 22px);
@@ -245,7 +245,7 @@ body.pv-lock { overflow: hidden; }
   background: var(--rule-strong);
   opacity: .55;
 }
-.pv-dots span:nth-child(1) { background: var(--terracotta-soft); opacity: .55; }
+.pv-dots span:nth-child(1) { background: var(--blue-soft); opacity: .55; }
 .pv-dots span:nth-child(2) { background: var(--gray-60); opacity: .55; }
 .pv-dots span:nth-child(3) { background: var(--gray-40); opacity: .55; }
 
@@ -288,7 +288,7 @@ body.pv-lock { overflow: hidden; }
 .pv-newtab:hover {
   background: var(--paper-tint);
   border-color: var(--rule-strong);
-  color: var(--terracotta);
+  color: var(--blue);
 }
 .pv-newtab:active { transform: scale(.96); }
 .pv-newtab svg { width: 14px; height: 14px; }
@@ -322,7 +322,7 @@ body.pv-lock { overflow: hidden; }
   width: 28px; height: 28px;
   border-radius: 50%;
   border: 2px solid var(--rule);
-  border-top-color: var(--terracotta);
+  border-top-color: var(--blue);
   animation: pv-spin 0.9s linear infinite;
 }
 .pv-skeleton .label {
@@ -353,7 +353,7 @@ body.pv-lock { overflow: hidden; }
 .pv-iframe-wrap.is-fallback .pv-skeleton { display: none; }
 .pv-iframe-wrap.is-fallback iframe { display: none; }
 .pv-fallback h3 {
-  font-family: 'Bricolage Grotesque', serif;
+  font-family: 'Geist', sans-serif;
   font-weight: 500;
   font-size: 22px;
   letter-spacing: -.02em;

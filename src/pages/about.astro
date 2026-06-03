@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import { site } from '../data/site.ts';
 ---
 
 <Base
@@ -161,100 +162,6 @@ import Base from '../layouts/Base.astro';
       </div>
     </section>
 
-    <!-- =================== PROCESS =================== -->
-    <section class="section">
-      <div class="wrap">
-        <div class="section-head">
-          <div class="eyebrow">04 · Process</div>
-          <h2 class="section-title">Five steps from brief to handoff.</h2>
-        </div>
-
-        <div class="process-row" id="processRow">
-
-          <div class="proc-step">
-            <span class="proc-dot" aria-hidden="true"></span>
-            <div class="proc-illus" aria-hidden="true">
-              <!-- Briefing: two overlapping circles = shared understanding -->
-              <svg viewBox="0 0 48 48" fill="none" stroke-width="1.4" stroke-linecap="round">
-                <circle cx="18" cy="24" r="13" stroke="currentColor"/>
-                <circle cx="30" cy="24" r="13" stroke="var(--terracotta)"/>
-              </svg>
-            </div>
-            <span class="proc-num">01</span>
-            <h4 class="proc-name">Briefing</h4>
-            <p class="proc-desc">Discovery call, scope alignment, deliverables. We understand the problem before jumping to a solution.</p>
-          </div>
-
-          <div class="proc-step">
-            <span class="proc-dot" aria-hidden="true"></span>
-            <div class="proc-illus" aria-hidden="true">
-              <!-- Exploration: one path branching into three = divergent thinking -->
-              <svg viewBox="0 0 48 48" fill="none" stroke-width="1.4" stroke-linecap="round">
-                <circle cx="9" cy="24" r="2.5" fill="currentColor"/>
-                <line x1="11.5" y1="24" x2="26" y2="24" stroke="currentColor"/>
-                <line x1="26" y1="24" x2="40" y2="13" stroke="currentColor"/>
-                <line x1="26" y1="24" x2="40" y2="24" stroke="var(--terracotta)"/>
-                <line x1="26" y1="24" x2="40" y2="35" stroke="currentColor"/>
-                <circle cx="40" cy="13" r="2.5" fill="currentColor"/>
-                <circle cx="40" cy="24" r="2.5" fill="var(--terracotta)"/>
-                <circle cx="40" cy="35" r="2.5" fill="currentColor"/>
-              </svg>
-            </div>
-            <span class="proc-num">02</span>
-            <h4 class="proc-name">Exploration</h4>
-            <p class="proc-desc">Mood board, wireframes, direction. Two or three paths tested before committing to one.</p>
-          </div>
-
-          <div class="proc-step">
-            <span class="proc-dot" aria-hidden="true"></span>
-            <div class="proc-illus" aria-hidden="true">
-              <!-- Design: artboard frame with a bezier curve = visual craft -->
-              <svg viewBox="0 0 48 48" fill="none" stroke-width="1.4" stroke-linecap="round">
-                <rect x="6" y="8" width="36" height="32" rx="2.5" stroke="currentColor"/>
-                <path d="M12 34 C12 22 20 20 24 20 C28 20 36 16 36 12" stroke="var(--terracotta)"/>
-                <circle cx="12" cy="34" r="2.2" fill="var(--terracotta)"/>
-                <circle cx="36" cy="12" r="2.2" fill="var(--terracotta)"/>
-              </svg>
-            </div>
-            <span class="proc-num">03</span>
-            <h4 class="proc-name">Design</h4>
-            <p class="proc-desc">Visual design, prototype, interaction details. The longest phase, reviewed weekly.</p>
-          </div>
-
-          <div class="proc-step">
-            <span class="proc-dot" aria-hidden="true"></span>
-            <div class="proc-illus proc-illus--spin" aria-hidden="true">
-              <!-- Iteration: near-full circular arrow = refinement loop -->
-              <svg viewBox="0 0 48 48" fill="none" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M24 5 A19 19 0 1 1 9 33" stroke="currentColor"/>
-                <path d="M5 29 L9 33 L13 29" stroke="var(--terracotta)"/>
-              </svg>
-            </div>
-            <span class="proc-num">04</span>
-            <h4 class="proc-name">Iteration</h4>
-            <p class="proc-desc">Revisions, refinement, polish. One big round, not little ping-pong loops that wear everyone out.</p>
-          </div>
-
-          <div class="proc-step">
-            <span class="proc-dot" aria-hidden="true"></span>
-            <div class="proc-illus" aria-hidden="true">
-              <!-- Handoff: circle with arrow entering a box = delivery -->
-              <svg viewBox="0 0 48 48" fill="none" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="11" cy="24" r="7" stroke="currentColor"/>
-                <line x1="18" y1="24" x2="24" y2="24" stroke="currentColor"/>
-                <path d="M23 20 L29 24 L23 28" stroke="var(--terracotta)"/>
-                <rect x="30" y="16" width="12" height="16" rx="2" stroke="var(--terracotta)"/>
-              </svg>
-            </div>
-            <span class="proc-num">05</span>
-            <h4 class="proc-name">Handoff</h4>
-            <p class="proc-desc">File delivery, documentation, 2 weeks of support. Dev team gets everything they need.</p>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
     <!-- =================== TOOLS =================== -->
     <section class="section">
       <div class="wrap">
@@ -264,11 +171,10 @@ import Base from '../layouts/Base.astro';
           <div data-reveal>
             <h3>What we do.</h3>
             <ul>
-              <li><a href="/services#ux">UX Design</a></li>
-              <li><a href="/services#ui">UI Design</a></li>
+              <li><a href="/services#product-design">Product Design (UI/UX)</a></li>
               <li><a href="/services#web">Website Development</a></li>
-              <li><a href="/services#landing">Landing Page Development</a></li>
-              <li><a href="/services#brand">Brand &amp; Logo Guideline</a></li>
+              <li><a href="/services#landing">Landing Page</a></li>
+              <li><a href="/services#brand">Brand &amp; Logo</a></li>
             </ul>
           </div>
           <div data-reveal data-reveal-delay="150">
@@ -352,6 +258,10 @@ import Base from '../layouts/Base.astro';
             <div class="contact-info-block">
               <div class="k">Email</div>
               <div class="v"><a href="mailto:hello@rohaworks.com">hello@rohaworks.com</a></div>
+            </div>
+            <div class="contact-info-block">
+              <div class="k">WhatsApp</div>
+              <div class="v"><a href={`https://wa.me/${site.wa}?text=Halo%20Roha%2C%20saya%20ingin%20diskusi%20project%20bareng.`} target="_blank" rel="noopener">Chat on WhatsApp →</a></div>
             </div>
             <div class="contact-info-block">
               <div class="k">Location</div>
@@ -467,46 +377,6 @@ import Base from '../layouts/Base.astro';
 
     runStagger();
     replayBtn?.addEventListener('click', runStagger);
-
-    // ---- Process row: scroll-triggered stagger + track fill ----
-    (function () {
-      const row = document.getElementById('processRow') as HTMLElement | null;
-      if (!row) return;
-
-      const isDesktop = () => window.matchMedia('(min-width: 769px)').matches;
-
-      function positionTrack() {
-        if (!isDesktop()) return;
-        const steps = [...row.querySelectorAll('.proc-step')] as HTMLElement[];
-        if (steps.length < 2) return;
-        const firstDot = steps[0].querySelector('.proc-dot') as HTMLElement | null;
-        const lastDot  = steps[steps.length - 1].querySelector('.proc-dot') as HTMLElement | null;
-        if (!firstDot || !lastDot) return;
-        const rowRect   = row.getBoundingClientRect();
-        const firstRect = firstDot.getBoundingClientRect();
-        const lastRect  = lastDot.getBoundingClientRect();
-        const startX = firstRect.left + firstRect.width  / 2 - rowRect.left;
-        const endX   = lastRect.left  + lastRect.width   / 2 - rowRect.left;
-        const dotY   = firstRect.top  + firstRect.height / 2 - rowRect.top;
-        row.style.setProperty('--track-start', startX + 'px');
-        row.style.setProperty('--track-end',   endX   + 'px');
-        row.style.setProperty('--track-width', (endX - startX) + 'px');
-        row.style.setProperty('--track-y',     dotY   + 'px');
-      }
-
-      positionTrack();
-      window.addEventListener('resize', positionTrack, { passive: true });
-
-      if (isDesktop()) {
-        const io = new IntersectionObserver(([entry]) => {
-          if (entry.isIntersecting) {
-            row.classList.add('is-animated');
-            io.disconnect();
-          }
-        }, { threshold: 0.2 });
-        io.observe(row);
-      }
-    })();
   </script>
 
 </Base>
