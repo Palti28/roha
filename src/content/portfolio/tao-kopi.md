@@ -8,6 +8,11 @@ format: "html"
 status: "available"
 previewPath: "tao-kopi"
 pattern: "pat-arcs"
+images:
+  - "https://ik.imagekit.io/gorat/tao-coffee/cover.avif"
+  - "https://ik.imagekit.io/gorat/tao-coffee/image-2.avif"
+  - "https://ik.imagekit.io/gorat/tao-coffee/image-3.avif"
+  - "https://ik.imagekit.io/gorat/tao-coffee/image-4.avif"
 order: 10
 draft: false
 publishedAt: 2026-05-20
