@@ -8,6 +8,11 @@ format: "html"
 status: "available"
 previewPath: "abm-packer"
 pattern: "pat-grid"
+images:
+  - "https://ik.imagekit.io/gorat/apm/img-cover.avif"
+  - "https://ik.imagekit.io/gorat/apm/img-2.avif"
+  - "https://ik.imagekit.io/gorat/apm/img-3.avif"
+  - "https://ik.imagekit.io/gorat/apm/img-4.avif"
 order: 9
 draft: false
 publishedAt: 2026-05-10
