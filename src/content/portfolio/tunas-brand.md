@@ -8,9 +8,9 @@ status: "available"
 previewPath: "tunas-brand"
 pattern: "pat-grain"
 images:
+  - "/brand/tunas/logo-system.svg"
   - "/brand/tunas/logo-primary.svg"
   - "/brand/tunas/colors.svg"
-  - "/brand/tunas/logo-system.svg"
   - "/brand/tunas/mockup.svg"
 order: 11
 draft: false
