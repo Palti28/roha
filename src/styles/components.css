@@ -452,6 +452,16 @@
 }
 .footer-col a:hover { opacity: 1; color: var(--blue); }
 
+.footer-email-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--blue) !important;
+  opacity: 1 !important;
+  font-weight: 500;
+}
+.footer-email-link svg { flex-shrink: 0; }
+
 .footer-social {
   display: flex; gap: 10px;
   margin-top: 14px;
