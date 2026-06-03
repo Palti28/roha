@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BuildCrete — Construction & Cement Mixing Specialists</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --amber: #EAB231;
+      --amber-dark: #C8920E;
+      --amber-glow: rgba(234,178,49,0.35);
+      --dark: #111111;
+      --dark-2: #0A0A0A;
+      --bg: #F6F6F3;
+      --border: #E3E3DF;
+      --text: #141414;
+      --text-2: #636360;
+      --text-3: #9A9A96;
+      --white: #FFFFFF;
+      --r: 14px;
+      --r-sm: 8px;
+      --ease: cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--white); line-height: 1.6; overflow-x: hidden; }
+    h1,h2,h3,h4,h5 { font-family: 'Space Grotesk', sans-serif; line-height: 1.15; letter-spacing: -0.02em; }
+    a { text-decoration: none; }
+    img { display: block; max-width: 100%; }
+
+    /* ── ANIMATIONS ── */
+    .anim {
+      opacity: 0; transform: translateY(36px);
+      transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+    }
+    .anim.on { opacity: 1; transform: none; }
+    .anim-scale {
+      opacity: 0; transform: scale(0.93);
+      transition: opacity 0.65s var(--ease), transform 0.65s var(--ease);
+    }
+    .anim-scale.on { opacity: 1; transform: none; }
+    .anim-left {
+      opacity: 0; transform: translateX(-40px);
+      transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+    }
+    .anim-left.on { opacity: 1; transform: none; }
+
+    /* ── NAVBAR ── */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      height: 68px; padding: 0 64px;
+      display: flex; align-items: center; justify-content: space-between; gap: 40px;
+      background: rgba(255,255,255,0.94); backdrop-filter: blur(18px);
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    .nav.scrolled { border-bottom-color: var(--border); box-shadow: 0 2px 24px rgba(0,0,0,0.07); }
+    .nav-logo {
+      display: flex; align-items: center; gap: 10px;
+      font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 20px;
+      color: var(--dark); white-space: nowrap; flex-shrink: 0;
+    }
+    .logo-box {
+      width: 34px; height: 34px; border-radius: 8px; background: var(--amber);
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+    .nav-links a {
+      font-size: 14px; font-weight: 500; color: var(--text-2);
+      transition: color 0.25s; position: relative;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -4px; left: 0; right: 0;
+      height: 2px; background: var(--amber);
+      transform: scaleX(0); transform-origin: left; transition: transform 0.25s var(--ease);
+    }
+    .nav-links a:hover::after { transform: scaleX(1); }
+
+    /* ── BUTTONS ── */
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 12px 22px; border-radius: var(--r-sm);
+      font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 14px;
+      cursor: pointer; border: none; transition: all 0.25s var(--ease); white-space: nowrap;
+    }
+    .btn-amber { background: var(--amber); color: var(--dark); }
+    .btn-amber:hover { background: var(--amber-dark); transform: translateY(-2px); box-shadow: 0 8px 20px var(--amber-glow); }
+    .btn-ghost { background: transparent; border: 1.5px solid var(--border); color: var(--text); }
+    .btn-ghost:hover { border-color: var(--text); transform: translateY(-2px); }
+    .btn-dark { background: var(--dark); color: var(--white); }
+    .btn-dark:hover { background: #2A2A2A; transform: translateY(-2px); }
+
+    /* ── LAYOUT ── */
+    .section { padding: 100px 64px; }
+    .section-bg { background: var(--bg); }
+    .section-dark { background: var(--dark); }
+    .label {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-size: 11px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.12em; color: var(--amber-dark); margin-bottom: 14px;
+    }
+    .label::before { content: ''; width: 20px; height: 2px; background: var(--amber); flex-shrink: 0; }
+    .sec-title { font-size: clamp(28px, 3.2vw, 44px); color: var(--dark); max-width: 540px; }
+    .sec-desc { font-size: 15px; color: var(--text-2); line-height: 1.8; max-width: 400px; margin-top: 14px; }
+    .sec-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 40px; margin-bottom: 56px; flex-wrap: wrap; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh; padding: 130px 64px 80px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center;
+      background: var(--bg); position: relative; overflow: hidden;
+    }
+    .hero::after {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      background: radial-gradient(ellipse at 80% 25%, rgba(234,178,49,0.09) 0%, transparent 60%);
+    }
+    .hero-pill {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(234,178,49,0.14); border: 1px solid rgba(234,178,49,0.32);
+      color: var(--amber-dark); font-size: 11px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      padding: 6px 14px; border-radius: 100px; margin-bottom: 22px;
+    }
+    .hero-pill::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--amber); }
+    .hero-title { font-size: clamp(42px, 5vw, 70px); color: var(--dark); margin-bottom: 20px; }
+    .hero-title em { color: var(--amber); font-style: normal; }
+    .hero-desc { font-size: 17px; color: var(--text-2); line-height: 1.78; max-width: 460px; margin-bottom: 36px; }
+    .hero-cta { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; margin-bottom: 60px; }
+    .hero-stats {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      padding-top: 32px; border-top: 1px solid var(--border);
+    }
+    .stat-item { padding: 0 20px; border-right: 1px solid var(--border); }
+    .stat-item:first-child { padding-left: 0; }
+    .stat-item:last-child { border-right: none; }
+    .stat-num {
+      font-family: 'Space Grotesk', sans-serif; font-size: 36px; font-weight: 700;
+      color: var(--dark); line-height: 1; display: flex; align-items: baseline; gap: 1px;
+    }
+    .stat-num sup { font-size: 18px; color: var(--amber); font-weight: 700; }
+    .stat-lbl { font-size: 12px; color: var(--text-3); margin-top: 6px; font-weight: 500; }
+
+    /* Hero Visual */
+    .hero-visual { position: relative; }
+    .hero-img-wrap {
+      border-radius: 20px; overflow: hidden; aspect-ratio: 4/5;
+      box-shadow: 0 40px 80px rgba(0,0,0,0.18);
+    }
+    .hero-img-wrap img { width: 100%; height: 100%; object-fit: cover; }
+    .hero-img-wrap .img-ph {
+      width: 100%; height: 100%;
+      background: linear-gradient(145deg, #2a2a2a 0%, #3d3228 40%, #4a3a1e 100%);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .float-card {
+      position: absolute; bottom: -18px; left: -24px; z-index: 2;
+      background: var(--white); border-radius: 14px;
+      padding: 16px 20px; box-shadow: 0 20px 56px rgba(0,0,0,0.14);
+      display: flex; align-items: center; gap: 14px;
+      animation: bob 3.5s ease-in-out infinite;
+    }
+    @keyframes bob { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+    .float-icon { width: 48px; height: 48px; background: var(--amber); border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .float-text strong { display: block; font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; }
+    .float-text span { font-size: 12px; color: var(--text-2); }
+    .hero-stamp {
+      position: absolute; top: 24px; right: -12px; width: 100px; height: 100px; z-index: 2;
+      animation: spin 18s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ── SERVICES ── */
+    .svc-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .svc-card {
+      background: var(--white); border: 1px solid var(--border); border-radius: var(--r);
+      padding: 32px 28px; transition: all 0.3s var(--ease); position: relative; overflow: hidden;
+    }
+    .svc-card::after {
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+      background: var(--amber); transform: scaleX(0); transform-origin: left; transition: transform 0.3s var(--ease);
+    }
+    .svc-card:hover { transform: translateY(-8px); box-shadow: 0 24px 56px rgba(0,0,0,0.1); border-color: transparent; }
+    .svc-card:hover::after { transform: scaleX(1); }
+    .svc-icon { width: 54px; height: 54px; background: var(--amber); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 22px; }
+    .svc-card h3 { font-size: 17px; margin-bottom: 10px; }
+    .svc-card p { font-size: 13px; color: var(--text-2); line-height: 1.7; margin-bottom: 18px; }
+    .link-more { font-size: 13px; font-weight: 600; color: var(--amber-dark); display: inline-flex; align-items: center; gap: 5px; transition: gap 0.2s; }
+    .link-more:hover { gap: 9px; }
+
+    /* ── ABOUT ── */
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .about-imgs { position: relative; }
+    .about-main { border-radius: 16px; overflow: hidden; aspect-ratio: 4/3; }
+    .about-main img { width: 100%; height: 100%; object-fit: cover; }
+    .about-thumb {
+      position: absolute; bottom: -24px; right: -24px;
+      width: 42%; border-radius: 12px; overflow: hidden; aspect-ratio: 4/3;
+      border: 4px solid var(--white); box-shadow: 0 16px 48px rgba(0,0,0,0.16);
+    }
+    .about-thumb img { width: 100%; height: 100%; object-fit: cover; }
+    .exp-badge {
+      position: absolute; top: 16px; right: -16px;
+      background: var(--amber); border-radius: 12px; padding: 16px;
+      text-align: center; box-shadow: 0 12px 32px rgba(234,178,49,0.45);
+    }
+    .exp-badge strong { display: block; font-size: 30px; font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: var(--dark); }
+    .exp-badge span { font-size: 11px; color: var(--dark); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
+    .acc-item { border-bottom: 1px solid var(--border); }
+    .acc-header { display: flex; align-items: center; justify-content: space-between; padding: 22px 0; cursor: pointer; user-select: none; }
+    .acc-header h3 { font-size: 19px; }
+    .acc-toggle {
+      width: 30px; height: 30px; border-radius: 50%; background: var(--bg);
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.25s, transform 0.35s; flex-shrink: 0;
+    }
+    .acc-item.open .acc-toggle { background: var(--amber); transform: rotate(45deg); }
+    .acc-body { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+    .acc-body.open { max-height: 300px; }
+    .acc-body p { padding-bottom: 22px; color: var(--text-2); line-height: 1.8; font-size: 15px; }
+
+    /* ── PARTNERS ── */
+    .partners-bar { padding: 44px 0; overflow: hidden; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .partners-lbl { text-align: center; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-3); margin-bottom: 28px; }
+    .marquee-wrap { overflow: hidden; }
+    .marquee-track { display: flex; gap: 72px; width: max-content; animation: marquee 24s linear infinite; }
+    @keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+    .p-name { font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 700; color: #DDDDD9; letter-spacing: -0.01em; white-space: nowrap; transition: color 0.2s; }
+    .p-name:hover { color: var(--text-3); }
+
+    /* ── QUALITY ── */
+    .quality-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .q-img { border-radius: 16px; overflow: hidden; position: relative; }
+    .q-img img { width: 100%; object-fit: cover; display: block; border-radius: 16px; }
+    .q-img .img-ph-dark { width: 100%; aspect-ratio: 4/3; background: linear-gradient(135deg,#1e1e1e,#2d2420); border-radius:16px; display:flex;align-items:center;justify-content:center; }
+    .play-btn {
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+      width: 68px; height: 68px; border-radius: 50%;
+      background: var(--amber); display: flex; align-items: center; justify-content: center;
+      cursor: pointer; border: 4px solid rgba(255,255,255,0.28);
+      transition: transform 0.3s var(--ease), box-shadow 0.3s;
+    }
+    .play-btn:hover { transform: translate(-50%,-50%) scale(1.12); box-shadow: 0 0 0 20px rgba(234,178,49,0.15); }
+    .q-content .label::before { background: var(--amber); }
+    .q-content .label { color: rgba(255,255,255,0.55); }
+    .q-content .sec-title { color: var(--white); margin-bottom: 16px; max-width: 100%; }
+    .q-content .sec-desc { color: rgba(255,255,255,0.5); max-width: 100%; margin-bottom: 28px; }
+    .checklist { list-style: none; display: flex; flex-direction: column; gap: 14px; margin-bottom: 36px; }
+    .checklist li { display: flex; align-items: center; gap: 12px; font-size: 15px; color: rgba(255,255,255,0.85); }
+    .chk { width: 26px; height: 26px; border-radius: 50%; background: var(--amber); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+
+    /* ── PROJECTS ── */
+    .proj-list { display: flex; flex-direction: column; gap: 28px; }
+    .proj-card {
+      display: grid; grid-template-columns: 1fr 1fr; border-radius: var(--r);
+      overflow: hidden; background: var(--white); box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+      transition: box-shadow 0.3s, transform 0.3s var(--ease);
+    }
+    .proj-card:hover { transform: translateY(-4px); box-shadow: 0 20px 56px rgba(0,0,0,0.12); }
+    .proj-card.flip { direction: rtl; }
+    .proj-card.flip > * { direction: ltr; }
+    .proj-img { overflow: hidden; min-height: 320px; }
+    .proj-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+    .proj-img .img-ph { width:100%;height:100%;display:flex;align-items:center;justify-content:center; }
+    .proj-card:hover .proj-img img { transform: scale(1.05); }
+    .proj-info { padding: 48px; display: flex; flex-direction: column; justify-content: center; }
+    .proj-tag { display: inline-block; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; padding: 4px 12px; border-radius: 100px; margin-bottom: 16px; background: rgba(234,178,49,0.12); color: var(--amber-dark); }
+    .proj-info h3 { font-size: 26px; margin-bottom: 12px; }
+    .proj-info p { font-size: 14px; color: var(--text-2); line-height: 1.75; margin-bottom: 24px; }
+    .proj-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; background: var(--bg); border-radius: 10px; padding: 18px; margin-bottom: 28px; }
+    .meta-row label { display: block; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-3); margin-bottom: 3px; }
+    .meta-row span { font-size: 14px; font-weight: 500; }
+
+    /* ── TESTIMONIALS ── */
+    .testi-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+    .testi-card { background: var(--bg); border: 1px solid var(--border); border-radius: var(--r); padding: 28px; transition: all 0.3s var(--ease); }
+    .testi-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,0.08); }
+    .stars { display: flex; gap: 3px; margin-bottom: 14px; }
+    .stars span { color: var(--amber); font-size: 15px; }
+    .testi-text { font-size: 14px; color: var(--text-2); line-height: 1.8; margin-bottom: 22px; font-style: italic; }
+    .testi-author { display: flex; align-items: center; gap: 12px; }
+    .t-avatar { width: 42px; height: 42px; border-radius: 50%; background: var(--amber); display: flex; align-items: center; justify-content: center; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 16px; color: var(--dark); flex-shrink: 0; }
+    .t-info strong { display: block; font-size: 14px; }
+    .t-info span { font-size: 12px; color: var(--text-3); }
+
+    /* ── CTA ── */
+    .cta-section { background: var(--dark); padding: 100px 64px; text-align: center; position: relative; overflow: hidden; }
+    .cta-section::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% -10%, rgba(234,178,49,0.1) 0%, transparent 60%); pointer-events: none; }
+    .cta-section .label { justify-content: center; color: rgba(255,255,255,0.45); }
+    .cta-section .label::before { background: var(--amber); }
+    .cta-title { font-size: clamp(32px, 4vw, 52px); color: var(--white); margin-bottom: 14px; }
+    .cta-desc { color: rgba(255,255,255,0.45); max-width: 420px; margin: 0 auto 40px; font-size: 15px; }
+    .cta-form { display: flex; gap: 10px; max-width: 420px; margin: 0 auto; }
+    .cta-inp {
+      flex: 1; padding: 14px 18px; border-radius: var(--r-sm);
+      border: 1.5px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.07);
+      color: var(--white); font-size: 14px; font-family: 'Inter', sans-serif; outline: none;
+      transition: border-color 0.2s;
+    }
+    .cta-inp::placeholder { color: rgba(255,255,255,0.3); }
+    .cta-inp:focus { border-color: var(--amber); }
+
+    /* ── FOOTER ── */
+    .footer { background: var(--dark-2); padding: 72px 64px 28px; }
+    .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.2fr; gap: 52px; margin-bottom: 52px; }
+    .f-logo { display: flex; align-items: center; gap: 10px; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 19px; color: var(--white); margin-bottom: 16px; }
+    .f-desc { font-size: 13px; color: rgba(255,255,255,0.36); line-height: 1.75; }
+    .f-socials { display: flex; gap: 12px; margin-top: 20px; }
+    .f-soc { width: 34px; height: 34px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; transition: border-color 0.2s, background 0.2s; }
+    .f-soc:hover { border-color: var(--amber); background: rgba(234,178,49,0.1); }
+    .f-col h5 { font-size: 12px; font-weight: 700; color: var(--white); margin-bottom: 20px; text-transform: uppercase; letter-spacing: 0.08em; }
+    .f-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .f-col ul li a { font-size: 13px; color: rgba(255,255,255,0.36); transition: color 0.2s; }
+    .f-col ul li a:hover { color: rgba(255,255,255,0.75); }
+    .f-contact-row { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 14px; }
+    .f-contact-row svg { flex-shrink: 0; margin-top: 2px; }
+    .f-contact-row span { font-size: 13px; color: rgba(255,255,255,0.36); line-height: 1.6; }
+    .f-bottom { border-top: 1px solid rgba(255,255,255,0.07); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+    .f-bottom p { font-size: 12px; color: rgba(255,255,255,0.24); }
+    .f-bottom a { color: rgba(255,255,255,0.24); transition: color 0.2s; }
+    .f-bottom a:hover { color: rgba(255,255,255,0.5); }
+
+    /* ── IMAGE FALLBACKS ── */
+    .img-ph { background: linear-gradient(145deg,#2a2625,#3d302a); }
+    .img-ph-b { background: linear-gradient(145deg,#1a1f2a,#2a3040); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1100px) {
+      .nav { padding: 0 32px; }
+      .hero { grid-template-columns: 1fr; padding: 120px 32px 64px; }
+      .hero-visual { display: none; }
+      .hero-stats { grid-template-columns: repeat(2,1fr); row-gap: 24px; }
+      .stat-item { border-right: none; }
+      .stat-item:nth-child(odd) { border-right: 1px solid var(--border); }
+      .section { padding: 80px 32px; }
+      .svc-grid { grid-template-columns: repeat(2,1fr); }
+      .about-grid { grid-template-columns: 1fr; gap: 56px; }
+      .quality-grid { grid-template-columns: 1fr; }
+      .proj-card,.proj-card.flip { grid-template-columns: 1fr; direction: ltr; }
+      .proj-img { min-height: 240px; }
+      .testi-grid { grid-template-columns: 1fr 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+      .cta-section { padding: 80px 32px; }
+      .footer { padding: 60px 32px 24px; }
+      .sec-head { flex-direction: column; }
+    }
+    @media (max-width: 640px) {
+      .nav-links,.nav .btn { display: none; }
+      .hero-stats { grid-template-columns: repeat(2,1fr); }
+      .svc-grid { grid-template-columns: 1fr; }
+      .testi-grid { grid-template-columns: 1fr; }
+      .cta-form { flex-direction: column; }
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════ NAVBAR ══════════ -->
+<nav class="nav" id="nav">
+  <a href="#home" class="nav-logo">
+    <div class="logo-box">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 2L2 14H16L9 2Z" fill="#111"/></svg>
+    </div>
+    BuildCrete
+  </a>
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="btn btn-amber">Book Now →</a>
+</nav>
+
+<!-- ══════════ HERO ══════════ -->
+<section class="hero" id="home">
+  <div class="hero-left">
+    <div class="hero-pill anim">Trusted Construction Partner Since 2005</div>
+    <h1 class="hero-title anim" style="transition-delay:.1s">
+      Innovative Builds,<br><em>Stronger</em><br>Foundations
+    </h1>
+    <p class="hero-desc anim" style="transition-delay:.2s">
+      Specializing in high-performance cement mixing, structural concrete, and full-scale building construction. From the first pour to the final finish — we build it right, every time.
+    </p>
+    <div class="hero-cta anim" style="transition-delay:.3s">
+      <a href="#contact" class="btn btn-amber">Book a Consultation →</a>
+      <a href="#projects" class="btn btn-ghost">View Projects</a>
+    </div>
+    <div class="hero-stats anim" style="transition-delay:.4s">
+      <div class="stat-item">
+        <div class="stat-num"><span class="ctr" data-target="150">0</span><sup>+</sup></div>
+        <div class="stat-lbl">Complete Projects</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num"><span class="ctr" data-target="85">0</span><sup>+</sup></div>
+        <div class="stat-lbl">Team Members</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num"><span class="ctr" data-target="200">0</span><sup>+</sup></div>
+        <div class="stat-lbl">Client Reviews</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num"><span class="ctr" data-target="18">0</span><sup>+</sup></div>
+        <div class="stat-lbl">Years Experience</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-visual anim-scale" style="transition-delay:.25s">
+    <div class="hero-img-wrap">
+      <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=720&h=900&fit=crop&auto=format&q=80"
+           alt="Construction workers reviewing plans"
+           onerror="this.style.display='none';this.parentElement.querySelector('.img-ph').style.display='flex'">
+      <div class="img-ph" style="display:none;width:100%;height:100%;aspect-ratio:4/5;align-items:center;justify-content:center">
+        <svg width="80" height="80" viewBox="0 0 80 80" fill="none"><rect x="10" y="40" width="60" height="32" rx="3" fill="#3a3028"/><path d="M10 40L40 12L70 40" fill="#4a3d2e"/><rect x="32" y="52" width="16" height="20" rx="2" fill="#5a4a36"/></svg>
+      </div>
+    </div>
+    <div class="float-card">
+      <div class="float-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7l10 5 10-5-10-5z" stroke="#111" stroke-width="2" stroke-linejoin="round"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5" stroke="#111" stroke-width="2" stroke-linecap="round"/></svg>
+      </div>
+      <div class="float-text">
+        <strong>150+</strong>
+        <span>Projects Delivered</span>
+      </div>
+    </div>
+    <svg class="hero-stamp" viewBox="0 0 100 100">
+      <circle cx="50" cy="50" r="46" stroke="#EAB231" stroke-width="1.5" stroke-dasharray="3 3" fill="none"/>
+      <path id="cpath" d="M50,50 m-36,0 a36,36 0 1,1 72,0 a36,36 0 1,1-72,0" fill="none"/>
+      <text font-size="9" font-family="Space Grotesk,sans-serif" font-weight="600" fill="#111" letter-spacing="3.5">
+        <textPath href="#cpath">CERTIFIED · CONSTRUCTION · PARTNER</textPath>
+      </text>
+      <circle cx="50" cy="50" r="10" fill="#EAB231"/>
+      <path d="M44 50l4 4 8-8" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+</section>
+
+<!-- ══════════ SERVICES ══════════ -->
+<section class="section" id="services">
+  <div class="sec-head">
+    <div>
+      <div class="label anim">Our Services</div>
+      <h2 class="sec-title anim" style="transition-delay:.1s">Services Tailored<br>to Every Build</h2>
+      <p class="sec-desc anim" style="transition-delay:.2s">From precision cement mixing to full structural builds, we bring expertise and reliability to every stage of your project.</p>
+    </div>
+    <div style="display:flex;align-items:flex-end;padding-bottom:6px">
+      <a href="#contact" class="btn btn-ghost anim" style="transition-delay:.1s">All Services →</a>
+    </div>
+  </div>
+  <div class="svc-grid">
+    <div class="svc-card anim">
+      <div class="svc-icon">
+        <svg width="26" height="26" viewBox="0 0 26 26" fill="none"><circle cx="13" cy="13" r="8" stroke="#111" stroke-width="2"/><path d="M13 9v4l3 2" stroke="#111" stroke-width="2" stroke-linecap="round"/><path d="M5 13H3M23 13H21M13 5V3M13 23V21" stroke="#111" stroke-width="2" stroke-linecap="round"/></svg>
+      </div>
+      <h3>Cement Mixing &amp; Supply</h3>
+      <p>On-site and ready-mix concrete for any project scale. Precise mix ratios, consistent quality, and on-time delivery guaranteed.</p>
+      <a href="#" class="link-more">Learn More →</a>
+    </div>
+    <div class="svc-card anim" style="transition-delay:.1s">
+      <div class="svc-icon">
+        <svg width="26" height="26" viewBox="0 0 26 26" fill="none"><rect x="3" y="14" width="20" height="8" rx="1.5" stroke="#111" stroke-width="2"/><path d="M7 14V10L13 5L19 10V14" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><rect x="10" y="17" width="6" height="5" rx="0.5" stroke="#111" stroke-width="1.5"/></svg>
+      </div>
+      <h3>Foundation Construction</h3>
+      <p>Solid, engineered foundations for residential and commercial structures. Excavation, reinforcement, and precision pouring.</p>
+      <a href="#" class="link-more">Learn More →</a>
+    </div>
+    <div class="svc-card anim" style="transition-delay:.2s">
+      <div class="svc-icon">
+        <svg width="26" height="26" viewBox="0 0 26 26" fill="none"><path d="M3 23V10L13 3l10 7V23" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><rect x="9" y="15" width="8" height="8" stroke="#111" stroke-width="2"/><line x1="3" y1="23" x2="23" y2="23" stroke="#111" stroke-width="2" stroke-linecap="round"/></svg>
+      </div>
+      <h3>Building Construction</h3>
+      <p>Full-scale projects from concept to handover. Residential homes, commercial buildings, and industrial facilities.</p>
+      <a href="#" class="link-more">Learn More →</a>
+    </div>
+    <div class="svc-card anim" style="transition-delay:.3s">
+      <div class="svc-icon">
+        <svg width="26" height="26" viewBox="0 0 26 26" fill="none"><path d="M5 21L5 10M21 21V10" stroke="#111" stroke-width="2" stroke-linecap="round"/><path d="M3 21h20" stroke="#111" stroke-width="2" stroke-linecap="round"/><path d="M8 10V7a5 5 0 0110 0v3" stroke="#111" stroke-width="2"/><rect x="9" y="13" width="8" height="8" rx="1" stroke="#111" stroke-width="1.5"/></svg>
+      </div>
+      <h3>Structural Renovation</h3>
+      <p>Revitalize existing structures with expert repairs, upgrades, and full transformations built to modern standards.</p>
+      <a href="#" class="link-more">Learn More →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ ABOUT ══════════ -->
+<section class="section section-bg" id="about">
+  <div class="about-grid">
+    <div class="about-imgs anim-scale" style="padding-bottom:24px">
+      <div class="about-main">
+        <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=700&h=520&fit=crop&auto=format&q=80"
+             alt="Construction blueprints and plans"
+             onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(145deg,#2a2625,#3d302a)';this.parentElement.style.minHeight='300px'">
+      </div>
+      <div class="about-thumb">
+        <img src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?w=400&h=300&fit=crop&auto=format&q=80"
+             alt="Construction worker on site"
+             onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(145deg,#333,#444)'">
+      </div>
+      <div class="exp-badge">
+        <strong>18+</strong>
+        <span>Years of<br>Excellence</span>
+      </div>
+    </div>
+    <div>
+      <div class="label anim">About Us</div>
+      <h2 class="sec-title anim" style="transition-delay:.1s">About Our Company</h2>
+      <p class="sec-desc anim" style="transition-delay:.2s;max-width:100%">With over 18 years in the construction industry, BuildCrete has been the trusted partner for developers, contractors, and homeowners. We combine proven techniques with modern engineering to deliver structures built to last generations.</p>
+      <a href="#contact" class="btn btn-amber anim" style="transition-delay:.3s;margin-top:28px;display:inline-flex">Learn More →</a>
+      <div style="margin-top:12px" class="anim" style="transition-delay:.4s">
+        <div class="acc-item open">
+          <div class="acc-header">
+            <h3>Our Mission</h3>
+            <div class="acc-toggle">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 1v10M1 6h10" stroke="#111" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+          </div>
+          <div class="acc-body open">
+            <p>To provide exceptional construction services that exceed client expectations through quality craftsmanship, innovative techniques, and unwavering commitment to safety. We build not just structures, but lasting relationships with every client.</p>
+          </div>
+        </div>
+        <div class="acc-item">
+          <div class="acc-header">
+            <h3>Our History</h3>
+            <div class="acc-toggle">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 1v10M1 6h10" stroke="#111" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+          </div>
+          <div class="acc-body">
+            <p>Founded in 2005 by a team of civil engineers, BuildCrete started as a cement supply operation and grew into a full-service construction firm. Today we have over 150 completed projects across residential, commercial, and industrial sectors — earning a reputation for durability and precision.</p>
+          </div>
+        </div>
+        <div class="acc-item">
+          <div class="acc-header">
+            <h3>Our Approach</h3>
+            <div class="acc-toggle">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 1v10M1 6h10" stroke="#111" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+          </div>
+          <div class="acc-body">
+            <p>Every project receives the same level of care — from a single foundation pour to a multi-story complex. Our process begins with detailed planning and transparent communication, and ends with a finished product built to outlast expectations and stand as a testament to craftsmanship.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ PARTNERS ══════════ -->
+<div class="partners-bar">
+  <p class="partners-lbl">Trusted Partners &amp; Suppliers</p>
+  <div class="marquee-wrap">
+    <div class="marquee-track">
+      <span class="p-name">CEMEX</span>
+      <span class="p-name">LaFarge</span>
+      <span class="p-name">Holcim</span>
+      <span class="p-name">HeidelbergMaterials</span>
+      <span class="p-name">BASF Construction</span>
+      <span class="p-name">Sika Group</span>
+      <span class="p-name">Caterpillar</span>
+      <span class="p-name">Komatsu</span>
+      <span class="p-name">CEMEX</span>
+      <span class="p-name">LaFarge</span>
+      <span class="p-name">Holcim</span>
+      <span class="p-name">HeidelbergMaterials</span>
+      <span class="p-name">BASF Construction</span>
+      <span class="p-name">Sika Group</span>
+      <span class="p-name">Caterpillar</span>
+      <span class="p-name">Komatsu</span>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ QUALITY ══════════ -->
+<section class="section section-dark">
+  <div class="quality-grid">
+    <div class="q-img anim-scale">
+      <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=680&h=520&fit=crop&auto=format&q=80"
+           alt="Quality concrete construction work"
+           onerror="this.style.display='none';this.parentElement.querySelector('.img-ph-dark').style.display='flex'">
+      <div class="img-ph-dark" style="display:none;aspect-ratio:4/3;align-items:center;justify-content:center">
+        <svg width="80" height="80" viewBox="0 0 80 80" fill="none"><rect x="8" y="32" width="64" height="42" rx="3" fill="#2a2420"/><path d="M8 32L40 8L72 32" fill="#3a3028"/><rect x="28" y="48" width="24" height="26" rx="2" fill="#4a3d30"/></svg>
+      </div>
+      <div class="play-btn">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M8 5l11 6-11 6V5z" fill="#111"/></svg>
+      </div>
+    </div>
+    <div class="q-content">
+      <div class="label anim">Why Choose Us</div>
+      <h2 class="sec-title anim" style="transition-delay:.1s;color:#fff">Quality That<br>Speaks for Itself</h2>
+      <p class="sec-desc anim" style="transition-delay:.2s">Our commitment to excellence shows in every project. From the first concrete pour to the final handover, attention to detail and precision craftsmanship are our standard — not an upgrade.</p>
+      <ul class="checklist anim" style="transition-delay:.3s">
+        <li>
+          <span class="chk"><svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 6.5l3.5 3.5 5.5-7" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          Excellence in Every Pour &amp; Detail
+        </li>
+        <li>
+          <span class="chk"><svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 6.5l3.5 3.5 5.5-7" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          Trusted Expertise, Proven Results
+        </li>
+        <li>
+          <span class="chk"><svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 6.5l3.5 3.5 5.5-7" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          Innovative Solutions Tailored for You
+        </li>
+        <li>
+          <span class="chk"><svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 6.5l3.5 3.5 5.5-7" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          Your Vision, Our Commitment
+        </li>
+      </ul>
+      <a href="#projects" class="btn btn-amber anim" style="transition-delay:.4s">See Our Work →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ PROJECTS ══════════ -->
+<section class="section section-bg" id="projects">
+  <div class="sec-head">
+    <div>
+      <div class="label anim">Our Work</div>
+      <h2 class="sec-title anim" style="transition-delay:.1s">Featured Construction<br>Projects</h2>
+      <p class="sec-desc anim" style="transition-delay:.2s">Each project reflects our dedication to excellence, craftsmanship, and responsible construction practices.</p>
+    </div>
+    <div style="display:flex;align-items:flex-end;padding-bottom:6px">
+      <a href="#" class="btn btn-ghost anim" style="transition-delay:.1s">See All Projects →</a>
+    </div>
+  </div>
+  <div class="proj-list">
+    <div class="proj-card anim">
+      <div class="proj-img">
+        <img src="https://images.unsplash.com/photo-1590579491624-f98f36d4c763?w=700&h=500&fit=crop&auto=format&q=80"
+             alt="Harbor View Residences"
+             onerror="this.style.display='none';this.parentElement.classList.add('img-ph');this.parentElement.style.minHeight='320px'">
+      </div>
+      <div class="proj-info">
+        <span class="proj-tag">Residential Complex</span>
+        <h3>Harbor View Residences</h3>
+        <p>A luxury residential development featuring precision concrete work, high-strength foundations, and premium finishing across 8 residential towers.</p>
+        <div class="proj-meta">
+          <div class="meta-row"><label>Location</label><span>Harbor District, CA</span></div>
+          <div class="meta-row"><label>Completed</label><span>March 2024</span></div>
+          <div class="meta-row"><label>Type</label><span>Residential</span></div>
+          <div class="meta-row"><label>Concrete Used</label><span>4,200 m³</span></div>
+        </div>
+        <a href="#" class="btn btn-amber">See More →</a>
+      </div>
+    </div>
+    <div class="proj-card flip anim" style="transition-delay:.1s">
+      <div class="proj-img">
+        <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=700&h=500&fit=crop&auto=format&q=80"
+             alt="Westgate Commerce Center"
+             onerror="this.style.display='none';this.parentElement.classList.add('img-ph-b');this.parentElement.style.minHeight='320px'">
+      </div>
+      <div class="proj-info">
+        <span class="proj-tag">Commercial Development</span>
+        <h3>Westgate Commerce Center</h3>
+        <p>A mixed-use development spanning 45,000 sqm, featuring post-tensioned concrete slabs, precast facades, and a 6-level underground carpark.</p>
+        <div class="proj-meta">
+          <div class="meta-row"><label>Location</label><span>Downtown, TX</span></div>
+          <div class="meta-row"><label>Completed</label><span>November 2023</span></div>
+          <div class="meta-row"><label>Type</label><span>Commercial</span></div>
+          <div class="meta-row"><label>Scope</label><span>Mixed-Use Complex</span></div>
+        </div>
+        <a href="#" class="btn btn-amber">See More →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ TESTIMONIALS ══════════ -->
+<section class="section" id="testimonials">
+  <div class="sec-head" style="margin-bottom:48px">
+    <div>
+      <div class="label anim">Client Reviews</div>
+      <h2 class="sec-title anim" style="transition-delay:.1s">Why Our Customers<br>Trust Us</h2>
+      <p class="sec-desc anim" style="transition-delay:.2s">Real feedback from real projects, delivered on time and within budget.</p>
+    </div>
+  </div>
+  <div class="testi-grid">
+    <div class="testi-card anim">
+      <div class="stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+      <p class="testi-text">"BuildCrete transformed our project timeline. The cement mixing team was on-site before sunrise and the quality of every pour was flawless. We finished 3 weeks ahead of schedule — extraordinary."</p>
+      <div class="testi-author">
+        <div class="t-avatar">S</div>
+        <div class="t-info"><strong>Sophia H.</strong><span>Property Developer</span></div>
+      </div>
+    </div>
+    <div class="testi-card anim" style="transition-delay:.1s">
+      <div class="stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+      <p class="testi-text">"The renovation exceeded all expectations. Professional, punctual, and incredibly skilled. They handled every challenge with ease and delivered a stunning result. We now have a space that inspires creativity."</p>
+      <div class="testi-author">
+        <div class="t-avatar">J</div>
+        <div class="t-info"><strong>Julian D.</strong><span>Project Manager</span></div>
+      </div>
+    </div>
+    <div class="testi-card anim" style="transition-delay:.2s">
+      <div class="stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+      <p class="testi-text">"We've worked with many construction firms — BuildCrete is in a class of their own. The structural work was stunning. On-budget, delivered with pride, and the finish quality was beyond what we imagined."</p>
+      <div class="testi-author">
+        <div class="t-avatar">T</div>
+        <div class="t-info"><strong>Thomas G.</strong><span>Commercial Client</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ CTA ══════════ -->
+<section class="cta-section" id="contact">
+  <div class="label anim">Get In Touch</div>
+  <h2 class="cta-title anim" style="transition-delay:.1s">Let's Create<br>Your Ideal Space</h2>
+  <p class="cta-desc anim" style="transition-delay:.2s">Together, we'll design and build a space that perfectly matches your vision and budget. Let us be your trusted partner in building excellence.</p>
+  <div class="cta-form anim" style="transition-delay:.3s">
+    <input type="email" class="cta-inp" placeholder="Enter your email address">
+    <button class="btn btn-amber">Get Started →</button>
+  </div>
+</section>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div>
+      <div class="f-logo">
+        <div class="logo-box"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 2L2 14H16L9 2Z" fill="#111"/></svg></div>
+        BuildCrete
+      </div>
+      <p class="f-desc">A trusted leader in construction, specializing in cement mixing, foundation work, and full-scale building projects across residential and commercial sectors.</p>
+      <div class="f-socials">
+        <a href="#" class="f-soc">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" stroke="rgba(255,255,255,.45)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="#" class="f-soc">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="rgba(255,255,255,.45)" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="rgba(255,255,255,.45)" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1" fill="rgba(255,255,255,.45)"/></svg>
+        </a>
+        <a href="#" class="f-soc">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" stroke="rgba(255,255,255,.45)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="4" cy="4" r="2" stroke="rgba(255,255,255,.45)" stroke-width="2"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="f-col">
+      <h5>Navigation</h5>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="f-col">
+      <h5>Utility Pages</h5>
+      <ul>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Service</a></li>
+        <li><a href="#">Our Mission</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Blog</a></li>
+      </ul>
+    </div>
+    <div class="f-col">
+      <h5>Contact</h5>
+      <div class="f-contact-row">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z" stroke="rgba(255,255,255,.36)" stroke-width="2"/><circle cx="12" cy="10" r="3" stroke="rgba(255,255,255,.36)" stroke-width="2"/></svg>
+        <span>123 Construction Ave,<br>Building District, CA 90210</span>
+      </div>
+      <div class="f-contact-row">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.5a19.79 19.79 0 01-3.07-8.63A2 2 0 012 .82h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" stroke="rgba(255,255,255,.36)" stroke-width="2" stroke-linecap="round"/></svg>
+        <span>+1 (800) 555-BUILD</span>
+      </div>
+      <div class="f-contact-row">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="rgba(255,255,255,.36)" stroke-width="2"/><polyline points="22,6 12,13 2,6" stroke="rgba(255,255,255,.36)" stroke-width="2"/></svg>
+        <span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="0960676f66496b7c60656d6a7b6c7d6c276a6664">[email&#160;protected]</a></span>
+      </div>
+    </div>
+  </div>
+  <div class="f-bottom">
+    <p>© BuildCrete 2024 · <a href="#">Privacy</a> · <a href="#">Terms of Service</a></p>
+    <p>Built with precision and care</p>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  // ── INTERSECTION OBSERVER ANIMATIONS ──
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('on');
+        // Trigger counters if inside hero
+        entry.target.querySelectorAll('.ctr').forEach(runCounter);
+      }
+    });
+  }, { threshold: 0.14, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.anim, .anim-scale, .anim-left').forEach(el => observer.observe(el));
+
+  // ── COUNTER ANIMATION ──
+  function runCounter(el) {
+    if (el.dataset.ran) return;
+    el.dataset.ran = '1';
+    const target = +el.dataset.target;
+    const dur = 1800;
+    const t0 = performance.now();
+    const tick = (now) => {
+      const p = Math.min((now - t0) / dur, 1);
+      const ease = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(ease * target);
+      if (p < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  }
+
+  // ── HERO ENTRANCE (on page load) ──
+  window.addEventListener('load', () => {
+    document.querySelectorAll('.hero .anim, .hero .anim-scale').forEach(el => {
+      setTimeout(() => el.classList.add('on'), 80);
+    });
+    setTimeout(() => document.querySelectorAll('.ctr').forEach(runCounter), 600);
+  });
+
+  // ── NAVBAR SCROLL ──
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 24);
+  }, { passive: true });
+
+  // ── SMOOTH SCROLL ──
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - 72, behavior: 'smooth' });
+      }
+    });
+  });
+
+  // ── ACCORDION ──
+  document.querySelectorAll('.acc-header').forEach(header => {
+    header.addEventListener('click', () => {
+      const item = header.parentElement;
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.acc-item').forEach(i => {
+        i.classList.remove('open');
+        i.querySelector('.acc-body').classList.remove('open');
+      });
+      if (!isOpen) {
+        item.classList.add('open');
+        item.querySelector('.acc-body').classList.add('open');
+      }
+    });
+  });
+
+  // ── PLAY BUTTON ──
+  document.querySelector('.play-btn')?.addEventListener('click', () => {
+    alert('Video showcase coming soon!');
+  });
+</script>
+</body>
+</html>
