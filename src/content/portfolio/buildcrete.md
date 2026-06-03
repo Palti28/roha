@@ -9,10 +9,10 @@ status: "available"
 previewPath: "buildcrete"
 pattern: "pat-stripe"
 images:
-  - "https://ik.imagekit.io/gorat/buildcrete/buildcrete-cover.avif"
-  - "https://ik.imagekit.io/gorat/buildcrete/buildcrete-02.avif"
-  - "https://ik.imagekit.io/gorat/buildcrete/buildcrete-03.avif"
-  - "https://ik.imagekit.io/gorat/buildcrete/buildcrete-04.avif"
+  - "https://ik.imagekit.io/gorat/cover-img.avif"
+  - "https://ik.imagekit.io/gorat/image(1).avif"
+  - "https://ik.imagekit.io/gorat/image(2).avif"
+  - "https://ik.imagekit.io/gorat/image(3).avif"
 order: 13
 publishedAt: 2026-06-03
 draft: false
