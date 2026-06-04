@@ -6,6 +6,11 @@ summary: "A feed-driven website for Tunas Coffee — no hero, no marquee, just a
 format: "html"
 status: "available"
 previewPath: "tunas-web"
+images:
+  - "https://ik.imagekit.io/gorat/tunas-coffee/image-asset-cover.avif"
+  - "https://ik.imagekit.io/gorat/tunas-coffee/image-asset-(1).avif"
+  - "https://ik.imagekit.io/gorat/tunas-coffee/image-asset-(2).avif"
+  - "https://ik.imagekit.io/gorat/tunas-coffee/image-asset-(3).avif"
 pattern: "pat-grain"
 order: 12
 draft: false
