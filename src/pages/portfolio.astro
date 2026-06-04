@@ -8,10 +8,8 @@ const portfolio = (
 ).sort((a, b) => a.data.order - b.data.order);
 
 const filterMap: Record<string, string> = {
-  "UI Kit": "ui",
-  "Website Template": "web",
-  "Figma Template": "figma",
-  "Brand Template": "brand",
+  "Website": "website",
+  "Branding": "logo",
 };
 ---
 
@@ -31,11 +29,8 @@ const filterMap: Record<string, string> = {
 
         <div class="shop-filters pills" data-shop-filter>
           <button class="pill active" data-filter="all">All</button>
-          <button class="pill" data-filter="ui">UI Kit</button>
-          <button class="pill" data-filter="web">Website Template</button>
-          <button class="pill" data-filter="figma">Figma Template</button>
-          <button class="pill" data-filter="brand">Brand Template</button>
-          <button class="pill" data-filter="other">Other</button>
+          <button class="pill" data-filter="website">Website</button>
+          <button class="pill" data-filter="logo">Logo</button>
         </div>
       </div>
     </section>
