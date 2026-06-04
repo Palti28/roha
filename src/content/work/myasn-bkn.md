@@ -9,12 +9,12 @@ client: "BKN"
 concept: false
 tagLabel: "CLIENT"
 pattern: "pat-grid"
-coverImage: "/images/work/myasn-bkn/hero.png"
+coverImage: "https://ik.imagekit.io/gorat/rohaworks/mysapk/image-cover.avif"
 images:
-  - "/images/work/myasn-bkn/screen-dashboard.png"
-  - "/images/work/myasn-bkn/screen-document-submission.png"
-  - "/images/work/myasn-bkn/screen-mobile-profile.png"
-  - "/images/work/myasn-bkn/components.png"
+  - "https://ik.imagekit.io/gorat/rohaworks/mysapk/image-(1).avif"
+  - "https://ik.imagekit.io/gorat/rohaworks/mysapk/image-(2).avif"
+  - "https://ik.imagekit.io/gorat/rohaworks/mysapk/image-(3).avif"
+  - "https://ik.imagekit.io/gorat/rohaworks/mysapk/image-(4).avif"
 order: 4
 draft: false
 publishedAt: 2026-06-01
