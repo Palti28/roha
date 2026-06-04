@@ -64,61 +64,24 @@
     }
     .nav-order-btn:hover { background: var(--grove); }
 
-    /* ── STORIES STRIP ──────────────────────────────── */
-    .stories {
-      border-bottom: 1px solid var(--rule);
-      padding: 16px 0;
-      overflow-x: auto; scrollbar-width: none;
-    }
-    .stories::-webkit-scrollbar { display: none; }
-    .stories-track {
-      display: flex; align-items: center; gap: 12px;
-      padding: 0 clamp(16px,3vw,40px);
-      min-width: max-content;
-    }
-    .story {
-      display: flex; flex-direction: column; align-items: center; gap: 6px;
-      cursor: pointer; flex-shrink: 0;
-    }
-    .story-ring {
-      width: 52px; height: 52px; border-radius: 50%;
-      border: 2px solid var(--leaf);
-      padding: 3px; background: none;
-    }
-    .story-ring-seen { border-color: var(--sand); }
-    .story-avatar {
-      width: 100%; height: 100%; border-radius: 50%;
-      object-fit: cover; display: block;
-    }
-    .story-label {
-      font-family: 'Syne', sans-serif; font-size: 10px; font-weight: 600;
-      color: var(--ink); text-align: center; white-space: nowrap;
-    }
-    .story-ring-seen + .story-label { opacity: .5; }
-    .story-add .story-ring {
-      border: 1.5px dashed var(--sand); background: var(--cream);
-      display: flex; align-items: center; justify-content: center;
-    }
-
     /* ── TODAY PICK (pinned post) ─────────────────── */
     .today-pick {
       border-bottom: 1px solid var(--rule);
       display: grid; grid-template-columns: 1fr 1fr;
     }
     .today-visual {
+      background: linear-gradient(145deg, #1A3C1A 0%, #2E6B27 40%, #8CC968 100%);
       min-height: clamp(280px, 40vw, 480px);
       position: relative; overflow: hidden;
       display: flex; align-items: center; justify-content: center;
-      background: var(--forest);
-    }
-    .today-img {
-      position: absolute; inset: 0;
-      width: 100%; height: 100%; object-fit: cover;
     }
     .today-noise {
-      position: absolute; inset: 0; pointer-events: none; z-index: 1;
+      position: absolute; inset: 0; pointer-events: none;
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
       opacity: .04;
+    }
+    .today-mark {
+      position: relative; z-index: 2;
     }
     .today-meta-tag {
       position: absolute; top: 16px; left: 16px; z-index: 3;
@@ -359,75 +322,19 @@
     </div>
   </nav>
 
-  <!-- STORIES STRIP -->
-  <div class="stories" aria-label="Sorotan">
-    <div class="stories-track" role="list">
-
-      <div class="story story-add" role="listitem">
-        <div class="story-ring">
-          <svg width="46" height="46" viewBox="0 0 46 46" fill="none"><line x1="23" y1="13" x2="23" y2="33" stroke="#D4C9A8" stroke-width="2" stroke-linecap="round"/><line x1="13" y1="23" x2="33" y2="23" stroke="#D4C9A8" stroke-width="2" stroke-linecap="round"/></svg>
-        </div>
-        <span class="story-label">Update</span>
-      </div>
-
-      <div class="story" role="listitem">
-        <div class="story-ring">
-          <img class="story-avatar" src="https://ik.imagekit.io/gorat/tunas-coffee/tunas-coffee-(2).avif" alt="Hari Ini">
-        </div>
-        <span class="story-label">Hari Ini</span>
-      </div>
-
-      <div class="story" role="listitem">
-        <div class="story-ring">
-          <img class="story-avatar" src="https://ik.imagekit.io/gorat/tunas-coffee/tunas-coffee-(3).avif" alt="Single Origin">
-        </div>
-        <span class="story-label">Single Origin</span>
-      </div>
-
-      <div class="story" role="listitem">
-        <div class="story-ring">
-          <img class="story-avatar" src="https://ik.imagekit.io/gorat/tunas-coffee/tunas-coffee-(4).avif" alt="Menu Baru">
-        </div>
-        <span class="story-label">Menu Baru</span>
-      </div>
-
-      <div class="story" role="listitem">
-        <div class="story-ring story-ring-seen">
-          <img class="story-avatar" src="https://ik.imagekit.io/gorat/tunas-coffee/tunas-coffee-(5).avif" alt="Makanan">
-        </div>
-        <span class="story-label">Makanan</span>
-      </div>
-
-      <div class="story" role="listitem">
-        <div class="story-ring story-ring-seen">
-          <img class="story-avatar" src="https://ik.imagekit.io/gorat/tunas-coffee/tunas-coffee-(6).avif" alt="Open Late">
-        </div>
-        <span class="story-label">Open Late</span>
-      </div>
-
-      <div class="story" role="listitem">
-        <div class="story-ring story-ring-seen">
-          <img class="story-avatar" src="https://ik.imagekit.io/gorat/tunas-coffee/tunas-coffee-(7).avif" alt="Lokasi">
-        </div>
-        <span class="story-label">Lokasi</span>
-      </div>
-
-      <div class="story" role="listitem">
-        <div class="story-ring story-ring-seen">
-          <img class="story-avatar" src="https://ik.imagekit.io/gorat/tunas-coffee/tunas-coffee-(8).avif" alt="Gift Card">
-        </div>
-        <span class="story-label">Gift Card</span>
-      </div>
-
-    </div>
-  </div>
-
   <!-- TODAY'S PICK (featured) -->
   <div class="today-pick">
     <div class="today-visual">
-      <img class="today-img" src="https://ik.imagekit.io/gorat/tunas-coffee/tunas-coffee-(1).avif" alt="Today's Pick">
       <div class="today-noise" aria-hidden="true"></div>
       <div class="today-meta-tag">Today's Pick</div>
+      <svg class="today-mark" viewBox="0 0 100 100" width="160" height="160" fill="none" aria-hidden="true">
+        <circle cx="50" cy="50" r="48" fill="rgba(14,16,13,.35)"/>
+        <circle cx="50" cy="50" r="43" fill="none" stroke="rgba(244,239,227,.2)" stroke-width=".9" stroke-dasharray="4 2.5"/>
+        <rect x="31" y="54" width="38" height="23" rx="3.5" fill="rgba(244,239,227,.9)"/>
+        <rect x="28" y="50" width="44" height="7" rx="3.5" fill="rgba(244,239,227,.9)"/>
+        <path d="M69 56 Q80 56 80 63 Q80 71 69 69" stroke="rgba(244,239,227,.9)" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+        <path d="M50 50 C42 41 41 29 45 20 C48 13 50 10 50 10 C50 10 52 13 55 20 C59 29 58 41 50 50 Z" fill="#8CC968"/>
+      </svg>
     </div>
     <div class="today-body">
       <div class="today-cat">Signature · Espresso</div>
@@ -446,7 +353,7 @@
     <!-- 1. Manual brew -->
     <div class="feed-post" role="article">
       <div class="post-visual">
-        <img class="post-img" src="https://ik.imagekit.io/gorat/tunas-coffee/tunas-coffee-(9).avif" alt="V60 Flores Bajawa">
+        <img class="post-img" src="https://ik.imagekit.io/gorat/tunas-coffee/img-tunas-(1).avif" alt="V60 Flores Bajawa">
         <span class="post-chip">Manual Brew</span>
       </div>
       <div class="post-body">
@@ -482,7 +389,7 @@
     <!-- 3. Cold brew (wide) -->
     <div class="feed-post feed-post-wide" role="article">
       <div class="post-visual">
-        <img class="post-img" src="https://ik.imagekit.io/gorat/tunas-coffee/tunas-coffee-(10).avif" alt="Nitro Cold Brew">
+        <img class="post-img" src="https://ik.imagekit.io/gorat/tunas-coffee/img-tunas-(2).avif" alt="Nitro Cold Brew">
         <span class="post-chip post-chip-leaf">New</span>
       </div>
       <div class="post-body">
@@ -498,7 +405,7 @@
     <!-- 4. Pastry -->
     <div class="feed-post" role="article">
       <div class="post-visual">
-        <img class="post-img" src="https://ik.imagekit.io/gorat/tunas-coffee/tunas-coffee-(11).avif" alt="Croissant Butter">
+        <img class="post-img" src="https://ik.imagekit.io/gorat/tunas-coffee/img-tunas-(3).avif" alt="Croissant Butter">
         <span class="post-chip">Makanan</span>
       </div>
       <div class="post-body">
@@ -511,7 +418,7 @@
     <!-- 5. Signature latte (tall) -->
     <div class="feed-post feed-post-tall" role="article">
       <div class="post-visual" style="aspect-ratio:1/2;">
-        <img class="post-img" src="https://ik.imagekit.io/gorat/tunas-coffee/tunas-coffee-(12).avif" alt="Tunas Latte">
+        <img class="post-img" src="https://ik.imagekit.io/gorat/tunas-coffee/img-tunas-(4).avif" alt="Tunas Latte">
         <span class="post-chip post-chip-leaf">Signature</span>
       </div>
       <div class="post-body">
@@ -527,7 +434,7 @@
     <!-- 6. Non-coffee -->
     <div class="feed-post" role="article">
       <div class="post-visual">
-        <img class="post-img" src="https://ik.imagekit.io/gorat/tunas-coffee/tunas-coffee-(13).avif" alt="Lemonade Daun Pandan">
+        <img class="post-img" src="https://ik.imagekit.io/gorat/tunas-coffee/img-tunas-(5).avif" alt="Lemonade Daun Pandan">
         <span class="post-chip">Non-Coffee</span>
       </div>
       <div class="post-body">
@@ -553,7 +460,7 @@
     <!-- 8. Espresso -->
     <div class="feed-post" role="article">
       <div class="post-visual">
-        <img class="post-img" src="https://ik.imagekit.io/gorat/tunas-coffee/tunas-coffee-(14).avif" alt="Double Espresso">
+        <img class="post-img" src="https://ik.imagekit.io/gorat/tunas-coffee/img-tunas-(6).avif" alt="Double Espresso">
         <span class="post-chip">Espresso</span>
       </div>
       <div class="post-body">
@@ -566,7 +473,7 @@
     <!-- 9. Location wide -->
     <div class="feed-post feed-post-wide" role="article">
       <div class="post-visual">
-        <img class="post-img" src="https://ik.imagekit.io/gorat/tunas-coffee/tunas-coffee-(15).avif" alt="Lokasi Tunas Coffee">
+        <img class="post-img" src="https://ik.imagekit.io/gorat/tunas-coffee/img-tunas-(7).avif" alt="Lokasi Tunas Coffee">
         <span class="post-chip">Lokasi</span>
       </div>
       <div class="post-body">
@@ -579,7 +486,7 @@
     <!-- 10. Cappuccino -->
     <div class="feed-post" role="article">
       <div class="post-visual">
-        <img class="post-img" src="https://ik.imagekit.io/gorat/tunas-coffee/tunas-coffee-(16).avif" alt="Cappuccino">
+        <img class="post-img" src="https://ik.imagekit.io/gorat/tunas-coffee/img-tunas-(8).avif" alt="Cappuccino">
       </div>
       <div class="post-body">
         <div class="post-meta-row"><span class="post-cat">Espresso</span><span class="post-price">Rp 34.000</span></div>
@@ -604,7 +511,7 @@
     <!-- 12. Dessert -->
     <div class="feed-post" role="article">
       <div class="post-visual">
-        <img class="post-img" src="https://ik.imagekit.io/gorat/tunas-coffee/tunas-coffee-(17).avif" alt="Affogato Gula Aren">
+        <img class="post-img" src="https://ik.imagekit.io/gorat/tunas-coffee/img-tunas-(9).avif" alt="Affogato Gula Aren">
         <span class="post-chip">Dessert</span>
       </div>
       <div class="post-body">
