@@ -64,43 +64,6 @@
     }
     .nav-order-btn:hover { background: var(--grove); }
 
-    /* ── STORIES STRIP ──────────────────────────────── */
-    .stories {
-      border-bottom: 1px solid var(--rule);
-      padding: 16px 0;
-      overflow-x: auto; scrollbar-width: none;
-    }
-    .stories::-webkit-scrollbar { display: none; }
-    .stories-track {
-      display: flex; align-items: center; gap: 12px;
-      padding: 0 clamp(16px,3vw,40px);
-      min-width: max-content;
-    }
-    .story {
-      display: flex; flex-direction: column; align-items: center; gap: 6px;
-      cursor: pointer; flex-shrink: 0;
-    }
-    .story-ring {
-      width: 52px; height: 52px; border-radius: 50%;
-      border: 2px solid var(--leaf);
-      padding: 3px; background: none;
-    }
-    .story-ring-seen { border-color: var(--sand); }
-    .story-avatar {
-      width: 100%; height: 100%; border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 20px;
-    }
-    .story-label {
-      font-family: 'Syne', sans-serif; font-size: 10px; font-weight: 600;
-      color: var(--ink); text-align: center; white-space: nowrap;
-    }
-    .story-ring-seen + .story-label { opacity: .5; }
-    .story-add .story-ring {
-      border: 1.5px dashed var(--sand); background: var(--cream);
-      display: flex; align-items: center; justify-content: center;
-    }
-
     /* ── TODAY PICK (pinned post) ─────────────────── */
     .today-pick {
       border-bottom: 1px solid var(--rule);
@@ -117,7 +80,6 @@
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
       opacity: .04;
     }
-    /* Big decorative mark on visual */
     .today-mark {
       position: relative; z-index: 2;
     }
@@ -186,17 +148,12 @@
       aspect-ratio: 1;
       position: relative; overflow: hidden;
       display: flex; align-items: center; justify-content: center;
+      background: var(--forest);
     }
-    /* Post type: photo-sim (CSS gradient) */
-    .post-visual-v1 { background: linear-gradient(145deg,#122B12,#1A3C1A,#2E6B27); }
-    .post-visual-v2 { background: linear-gradient(145deg,#2E6B27,#8CC968,#3A7A30); }
-    .post-visual-v3 { background: linear-gradient(160deg,#0E100D,#1A3C1A); }
-    .post-visual-v4 { background: linear-gradient(145deg,#8CC968,#3A7A30,#1A3C1A); }
-    .post-visual-v5 { background: linear-gradient(160deg,#3A7A30,#8CC968); }
-    .post-visual-v6 { background: linear-gradient(145deg,#F4EFE3,#D4C9A8,#8CC968); }
-    .post-visual-v7 { background: linear-gradient(160deg,#1A3C1A,#122B12,#0E100D); }
-    .post-visual-v8 { background: linear-gradient(145deg,#D4C9A8,#F4EFE3); }
-    .post-visual-v9 { background: linear-gradient(160deg,#3A7A30,#1A3C1A,#0E100D); }
+    .post-img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%; object-fit: cover;
+    }
 
     /* Quote post (text-only) */
     .post-quote {
@@ -215,15 +172,9 @@
       font-size: 11px; color: var(--leaf); margin-top: 10px; letter-spacing: .06em;
     }
 
-    /* Post-visual icon (inline svg placeholder) */
-    .post-icon {
-      width: 56px; height: 56px; opacity: .25; color: var(--cream);
-    }
-    .post-icon-dk { color: var(--forest); }
-
     /* Post tag chip (top-left on visual) */
     .post-chip {
-      position: absolute; top: 10px; left: 10px;
+      position: absolute; top: 10px; left: 10px; z-index: 1;
       font-family: 'Syne', sans-serif; font-size: 8px; font-weight: 700;
       letter-spacing: .14em; text-transform: uppercase;
       background: rgba(14,16,13,.45); backdrop-filter: blur(6px);
@@ -371,75 +322,11 @@
     </div>
   </nav>
 
-  <!-- STORIES STRIP -->
-  <div class="stories" aria-label="Sorotan">
-    <div class="stories-track" role="list">
-
-      <div class="story story-add" role="listitem">
-        <div class="story-ring">
-          <svg width="46" height="46" viewBox="0 0 46 46" fill="none"><line x1="23" y1="13" x2="23" y2="33" stroke="#D4C9A8" stroke-width="2" stroke-linecap="round"/><line x1="13" y1="23" x2="33" y2="23" stroke="#D4C9A8" stroke-width="2" stroke-linecap="round"/></svg>
-        </div>
-        <span class="story-label">Update</span>
-      </div>
-
-      <div class="story" role="listitem">
-        <div class="story-ring">
-          <div class="story-avatar" style="background:linear-gradient(135deg,#1A3C1A,#8CC968)">☕</div>
-        </div>
-        <span class="story-label">Hari Ini</span>
-      </div>
-
-      <div class="story" role="listitem">
-        <div class="story-ring">
-          <div class="story-avatar" style="background:linear-gradient(135deg,#3A7A30,#0E100D)">🌿</div>
-        </div>
-        <span class="story-label">Single Origin</span>
-      </div>
-
-      <div class="story" role="listitem">
-        <div class="story-ring">
-          <div class="story-avatar" style="background:linear-gradient(135deg,#8CC968,#3A7A30)">🍃</div>
-        </div>
-        <span class="story-label">Menu Baru</span>
-      </div>
-
-      <div class="story" role="listitem">
-        <div class="story-ring story-ring-seen">
-          <div class="story-avatar" style="background:linear-gradient(135deg,#D4C9A8,#F4EFE3)">🥐</div>
-        </div>
-        <span class="story-label">Makanan</span>
-      </div>
-
-      <div class="story" role="listitem">
-        <div class="story-ring story-ring-seen">
-          <div class="story-avatar" style="background:linear-gradient(135deg,#0E100D,#1A3C1A)">🌙</div>
-        </div>
-        <span class="story-label">Open Late</span>
-      </div>
-
-      <div class="story" role="listitem">
-        <div class="story-ring story-ring-seen">
-          <div class="story-avatar" style="background:linear-gradient(135deg,#1A3C1A,#3A7A30)">📍</div>
-        </div>
-        <span class="story-label">Lokasi</span>
-      </div>
-
-      <div class="story" role="listitem">
-        <div class="story-ring story-ring-seen">
-          <div class="story-avatar" style="background:linear-gradient(135deg,#8CC968,#D4C9A8)">🎁</div>
-        </div>
-        <span class="story-label">Gift Card</span>
-      </div>
-
-    </div>
-  </div>
-
   <!-- TODAY'S PICK (featured) -->
   <div class="today-pick">
     <div class="today-visual">
       <div class="today-noise" aria-hidden="true"></div>
       <div class="today-meta-tag">Today's Pick</div>
-      <!-- Large logo mark as visual centrepiece -->
       <svg class="today-mark" viewBox="0 0 100 100" width="160" height="160" fill="none" aria-hidden="true">
         <circle cx="50" cy="50" r="48" fill="rgba(14,16,13,.35)"/>
         <circle cx="50" cy="50" r="43" fill="none" stroke="rgba(244,239,227,.2)" stroke-width=".9" stroke-dasharray="4 2.5"/>
@@ -465,9 +352,9 @@
 
     <!-- 1. Manual brew -->
     <div class="feed-post" role="article">
-      <div class="post-visual post-visual-v1">
+      <div class="post-visual">
+        <img class="post-img" src="https://ik.imagekit.io/gorat/tunas-coffee/img-tunas-(1).avif" alt="V60 Flores Bajawa">
         <span class="post-chip">Manual Brew</span>
-        <svg class="post-icon" viewBox="0 0 48 48" fill="none"><path d="M12 14 L24 40 L36 14 Z" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linejoin="round"/><line x1="10" y1="14" x2="38" y2="14" stroke="currentColor" stroke-width="1.5"/><ellipse cx="24" cy="43" rx="8" ry="2.5" stroke="currentColor" stroke-width="1.5"/></svg>
       </div>
       <div class="post-body">
         <div class="post-meta-row"><span class="post-cat">Manual Brew</span><span class="post-price">Rp 46.000</span></div>
@@ -501,9 +388,9 @@
 
     <!-- 3. Cold brew (wide) -->
     <div class="feed-post feed-post-wide" role="article">
-      <div class="post-visual post-visual-v2">
+      <div class="post-visual">
+        <img class="post-img" src="https://ik.imagekit.io/gorat/tunas-coffee/img-tunas-(2).avif" alt="Nitro Cold Brew">
         <span class="post-chip post-chip-leaf">New</span>
-        <svg class="post-icon" viewBox="0 0 48 48" fill="none"><rect x="14" y="12" width="20" height="28" rx="4" stroke="currentColor" stroke-width="1.5"/><line x1="14" y1="20" x2="34" y2="20" stroke="currentColor" stroke-width="1"/><line x1="18" y1="8" x2="18" y2="14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="30" y1="8" x2="30" y2="14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
       </div>
       <div class="post-body">
         <div class="post-meta-row"><span class="post-cat">Cold Brew</span><span class="post-price">Rp 38.000</span></div>
@@ -517,9 +404,9 @@
 
     <!-- 4. Pastry -->
     <div class="feed-post" role="article">
-      <div class="post-visual post-visual-v8">
-        <span class="post-chip" style="background:rgba(14,16,13,.35);color:#0E100D;">Makanan</span>
-        <svg class="post-icon post-icon-dk" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="28" rx="14" ry="10" stroke="currentColor" stroke-width="1.5"/><path d="M16 28 Q20 20 28 20 Q36 20 32 28" stroke="currentColor" stroke-width="1" fill="none"/><line x1="24" y1="18" x2="24" y2="13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      <div class="post-visual">
+        <img class="post-img" src="https://ik.imagekit.io/gorat/tunas-coffee/img-tunas-(3).avif" alt="Croissant Butter">
+        <span class="post-chip">Makanan</span>
       </div>
       <div class="post-body">
         <div class="post-meta-row"><span class="post-cat">Pastry</span><span class="post-price">Rp 28.000</span></div>
@@ -530,9 +417,9 @@
 
     <!-- 5. Signature latte (tall) -->
     <div class="feed-post feed-post-tall" role="article">
-      <div class="post-visual post-visual-v3" style="aspect-ratio:1/2;">
+      <div class="post-visual" style="aspect-ratio:1/2;">
+        <img class="post-img" src="https://ik.imagekit.io/gorat/tunas-coffee/img-tunas-(4).avif" alt="Tunas Latte">
         <span class="post-chip post-chip-leaf">Signature</span>
-        <svg class="post-icon" viewBox="0 0 48 48" fill="none"><path d="M12 20 L14 38 Q14 40 16 40 L32 40 Q34 40 34 38 L36 20 Z" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M36 25 Q42 25 42 31 Q42 36 36 36" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/><line x1="16" y1="16" x2="32" y2="16" stroke="currentColor" stroke-width="1.5"/></svg>
       </div>
       <div class="post-body">
         <div class="post-meta-row"><span class="post-cat">Espresso</span><span class="post-price">Rp 42.000</span></div>
@@ -546,9 +433,9 @@
 
     <!-- 6. Non-coffee -->
     <div class="feed-post" role="article">
-      <div class="post-visual post-visual-v5">
+      <div class="post-visual">
+        <img class="post-img" src="https://ik.imagekit.io/gorat/tunas-coffee/img-tunas-(5).avif" alt="Lemonade Daun Pandan">
         <span class="post-chip">Non-Coffee</span>
-        <svg class="post-icon" viewBox="0 0 48 48" fill="none"><path d="M24 8 C30 8 36 14 36 22 C36 32 32 40 24 42 C16 40 12 32 12 22 C12 14 18 8 24 8 Z" stroke="currentColor" stroke-width="1.5" fill="none"/><line x1="24" y1="8" x2="24" y2="42" stroke="currentColor" stroke-width="1.2" opacity="0.4"/></svg>
       </div>
       <div class="post-body">
         <div class="post-meta-row"><span class="post-cat">Non-Coffee</span><span class="post-price">Rp 26.000</span></div>
@@ -572,9 +459,9 @@
 
     <!-- 8. Espresso -->
     <div class="feed-post" role="article">
-      <div class="post-visual post-visual-v7">
+      <div class="post-visual">
+        <img class="post-img" src="https://ik.imagekit.io/gorat/tunas-coffee/img-tunas-(6).avif" alt="Double Espresso">
         <span class="post-chip">Espresso</span>
-        <svg class="post-icon" viewBox="0 0 48 48" fill="none"><path d="M16 14 L18 34 Q18 36 24 36 Q30 36 30 34 L32 14 Z" stroke="currentColor" stroke-width="1.5" fill="none"/><ellipse cx="24" cy="40" rx="10" ry="3" stroke="currentColor" stroke-width="1.5"/><line x1="14" y1="14" x2="34" y2="14" stroke="currentColor" stroke-width="1.5"/></svg>
       </div>
       <div class="post-body">
         <div class="post-meta-row"><span class="post-cat">Espresso</span><span class="post-price">Rp 22.000</span></div>
@@ -585,9 +472,9 @@
 
     <!-- 9. Location wide -->
     <div class="feed-post feed-post-wide" role="article">
-      <div class="post-visual post-visual-v4">
-        <span class="post-chip" style="background:rgba(14,16,13,.35);color:#F4EFE3;">Lokasi</span>
-        <svg class="post-icon" style="width:48px;height:48px;opacity:.3;color:#0E100D;" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="20" r="8" stroke="currentColor" stroke-width="1.5"/><path d="M24 12 C16 12 10 16 10 22 C10 32 24 44 24 44 C24 44 38 32 38 22 C38 16 32 12 24 12 Z" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+      <div class="post-visual">
+        <img class="post-img" src="https://ik.imagekit.io/gorat/tunas-coffee/img-tunas-(7).avif" alt="Lokasi Tunas Coffee">
+        <span class="post-chip">Lokasi</span>
       </div>
       <div class="post-body">
         <div class="post-meta-row"><span class="post-cat">Lokasi</span></div>
@@ -598,8 +485,8 @@
 
     <!-- 10. Cappuccino -->
     <div class="feed-post" role="article">
-      <div class="post-visual post-visual-v1">
-        <svg class="post-icon" viewBox="0 0 48 48" fill="none"><ellipse cx="24" cy="38" rx="16" ry="4" stroke="currentColor" stroke-width="1.5"/><path d="M10 24 L12 38 Q12 42 24 42 Q36 42 36 38 L38 24 Z" stroke="currentColor" stroke-width="1.5" fill="none"/><ellipse cx="24" cy="24" rx="14" ry="5" stroke="currentColor" stroke-width="1.5"/></svg>
+      <div class="post-visual">
+        <img class="post-img" src="https://ik.imagekit.io/gorat/tunas-coffee/img-tunas-(8).avif" alt="Cappuccino">
       </div>
       <div class="post-body">
         <div class="post-meta-row"><span class="post-cat">Espresso</span><span class="post-price">Rp 34.000</span></div>
@@ -623,9 +510,9 @@
 
     <!-- 12. Dessert -->
     <div class="feed-post" role="article">
-      <div class="post-visual post-visual-v6">
-        <span class="post-chip" style="background:rgba(14,16,13,.35);color:#0E100D;">Dessert</span>
-        <svg class="post-icon post-icon-dk" viewBox="0 0 48 48" fill="none"><rect x="10" y="28" width="28" height="14" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M18 28 C18 22 22 18 24 18 C26 18 30 22 30 28" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+      <div class="post-visual">
+        <img class="post-img" src="https://ik.imagekit.io/gorat/tunas-coffee/img-tunas-(9).avif" alt="Affogato Gula Aren">
+        <span class="post-chip">Dessert</span>
       </div>
       <div class="post-body">
         <div class="post-meta-row"><span class="post-cat">Dessert</span><span class="post-price">Rp 32.000</span></div>
