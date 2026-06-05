@@ -1,11 +1,11 @@
 ---
-title: "Brand & Logo Identity Design"
-summary: "Crafting a complete visual identity system, from logo concept to brand guidelines that scale across every touchpoint."
-category: "branding"
-service: "Brand Identity + Logo Design"
-duration: "3 weeks"
+title: "Loka"
+summary: "A regional food delivery app with a peer-to-peer driver model — complete UX/UI across customer and merchant flows, 50+ screens delivered for developer handoff."
+category: "product design"
+service: "UX/UI Design"
+duration: "3 months"
 year: 2026
-client: "Roha Studio"
+client: "Confidential"
 concept: false
 pattern: "pat-heat"
 coverImage: "https://ik.imagekit.io/gorat/eca-car-rental/rent-car-ss.avif"
@@ -19,37 +19,67 @@ publishedAt: 2026-04-12
 
 ### 01 — Context
 
-A brand identity isn't just a logo. It's a complete system that tells the world who you are at every touchpoint. This project started with a simple question: how do we create a visual language that feels considered, intentional, and unmistakably ours?
+Loka is a regional food delivery platform with a peer-to-peer driver model. Anyone within the service area can sign up as a driver. No dedicated fleet, no centralized dispatch. Customers, merchants, and drivers are matched within a fixed regional radius.
 
-The client came to us with a strong foundation: a clear mission, a defined audience, and an understanding that visual identity is more than aesthetics. What they needed was a system that could carry that clarity into every interaction, from business cards to billboards, from app icons to invoice headers.
+The project covered the complete customer and merchant experience. Driver-side design was scoped as a separate follow-up phase.
 
-### 02 — Approach
+**Sector:** F&B / Consumer Apps · **Platform:** Mobile (Android / iOS) · **Scope:** 50+ screens · **Type:** Client
 
-We started not with sketches, but with words. A brand identity has to *mean* something before it can *look* like something.
+### 02 — Role
 
-- **Discovery sessions**: three workshops to extract the brand's voice, values, and visual instincts from the team.
-- **Mood boards & direction**: three distinct visual territories, each a different interpretation of the brand's essence.
-- **Concept development**: refining the chosen direction into a primary mark, secondary marks, and supporting elements.
+Full UX/UI Designer, sole design owner across the engagement. User journey mapping, UX flows, high-fidelity UI design, and interactive prototype delivered for developer handoff.
 
-> *"A logo should work as well at 16px as it does on a building. If it can't, it's not done yet."*
+Two-week sprint cycles with reviews against backend and frontend teams kept the work aligned and buildable throughout.
 
-### 03 — Execution
+### 03 — Challenge
 
-The deliverable is a comprehensive brand identity system:
+Designing for an unmanaged driver pool.
 
-- **Primary logo** with full lockup, stacked variant, and standalone mark
-- **Color system**: primary palette, extended palette, and accessibility-tested combinations
-- **Typography**: display, body, and mono families with usage rules and a clear hierarchy
-- **Brand voice**: tone of voice guide with do's, don'ts, and example copy
-- **Pattern library**: supporting graphics, icons, and illustration style
-- **Application guidelines**: how the system behaves across print, digital, social, and environmental design
+Standard food delivery relies on a trained, dedicated fleet. Loka doesn't. Anyone within the coverage area can register as a driver, which surfaces UX problems that established platforms never face.
 
-Every element was tested in context, on dark backgrounds, on busy photographs, at tiny scales, on a phone screen at arm's length. If something broke, it went back to the drawing board.
+How does the interface communicate estimated arrival time when the driver pool is less predictable? What happens when no driver is available nearby? How does the app set expectations for a user who already knows GoFood or GrabFood?
 
-### 04 — Results
+These weren't backend edge cases. They were front-of-screen design decisions.
 
-The final brand book is 64 pages, long enough to be thorough, short enough to actually be read. Every team that touches the brand, from designers to writers to vendors, can pick it up and know what to do.
+The regional boundary added a second layer. Coverage is fixed per city or district. Cart items, merchant listings, and driver matching all operate within that boundary. The UX had to make that constraint invisible under normal conditions, and legible when it mattered.
 
-More importantly, the system is built to evolve. New product launches, campaign extensions, and seasonal variations all have a clear framework to work within. The brand grows without losing itself.
+### 04 — Scope
 
-A brand identity done right isn't a constraint. It's a permission slip, a clear set of decisions that frees the team to focus on what matters.
+50+ screens across two surfaces.
+
+**Customer side:**
+
+- Authentication: register, login, reset password
+- Home and merchant discovery
+- Category browsing
+- Merchant detail and item customization
+- Cart and checkout
+- Real-time order tracking with map
+- Driver info, license plate, and live status
+- Loyalty points
+- Search with filter and sort
+- Multi-restaurant cart handling
+
+**Merchant side:**
+
+- Incoming order management
+- Order status flow
+- Basic order dashboard
+
+Driver side was scoped for Phase 2.
+
+### 05 — Approach
+
+Three months. Six sprints. Two weeks each.
+
+The deliverable at every sprint was a working slice: user flows, hi-fi screens, and an interactive prototype, enough for engineers to build from without ambiguity. Nothing handed off at wireframe stage.
+
+Sprint reviews with backend and frontend teams closed each cycle. Alignment was built in, not bolted on.
+
+### 06 — Outcome
+
+50+ screens delivered and accepted across customer and merchant flows. Prototype signed off by the client.
+
+Post-handoff deployment status is not disclosed. The client did not share updates after design sign-off. The deliverable stands as a complete, handoff-ready design system for a two-sided regional food delivery product.
+
+Working title "Loka" used for portfolio purposes. Client project, name not disclosed.
