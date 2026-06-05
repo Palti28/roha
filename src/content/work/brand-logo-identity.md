@@ -8,10 +8,11 @@ year: 2026
 client: "Confidential"
 concept: false
 pattern: "pat-heat"
-coverImage: "https://ik.imagekit.io/gorat/eca-car-rental/rent-car-ss.avif"
+coverImage: "https://ik.imagekit.io/gorat/rohaworks/loka/loka-img-(3).avif"
 images:
-  - "https://ik.imagekit.io/gorat/eca-car-rental/rent-car-ss.avif"
-  - "https://ik.imagekit.io/gorat/eca-car-rental/rent-car-ss.avif"
+  - "https://ik.imagekit.io/gorat/rohaworks/loka/loka-img-(3).avif"
+  - "https://ik.imagekit.io/gorat/rohaworks/loka/loka-img-(2).avif"
+  - "https://ik.imagekit.io/gorat/rohaworks/loka/loka-img-(1).avif"
 order: 3
 draft: false
 publishedAt: 2026-04-12
