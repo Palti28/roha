@@ -1,7 +1,7 @@
 ---
 title: "Loka"
 summary: "A regional food delivery app with a peer-to-peer driver model — complete UX/UI across customer and merchant flows, 50+ screens delivered for developer handoff."
-category: "product design"
+category: "uiux"
 service: "UX/UI Design"
 duration: "3 months"
 year: 2026
