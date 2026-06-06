@@ -205,7 +205,11 @@
   letter-spacing: .12em;
   color: var(--blue);
   user-select: none;
-  transition: opacity 200ms ease;
+  transition: transform 240ms ease;
+}
+
+.svc-deliverables summary:active {
+  transform: scale(0.98);
 }
 .svc-deliverables summary::-webkit-details-marker { display: none; }
 .svc-deliverables summary:hover { opacity: 1; }
@@ -217,7 +221,21 @@
   display: inline-block;
   color: var(--blue);
 }
+@keyframes content-expand {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .svc-deliverables[open] summary .icon { transform: rotate(45deg); }
+.svc-deliverables[open] ul {
+  animation: content-expand 240ms ease forwards;
+}
 .svc-deliverables ul {
   list-style: none;
   margin: 0;
