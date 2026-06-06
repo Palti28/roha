@@ -374,6 +374,22 @@
   transform: translateX(4px);
 }
 
+/* ── Service illustration panel ──────────────────────────── */
+.svc-card .svc-illus {
+  margin: 14px 0 8px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--rule);
+  background: var(--paper-tint);
+  overflow: hidden;
+  line-height: 0;
+}
+.svc-card .svc-illus svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  padding: 14px 10px;
+}
+
 /* ── Footnote ─────────────────────────────────────────────── */
 .svc-footnote {
   font-size: 12px;
