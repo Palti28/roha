@@ -64,6 +64,20 @@
   border-top: 1px solid var(--rule);
   align-items: start;
 }
+
+/* Alternating layout: odd (1st, 3rd) illus on right, even (2nd, 4th) illus on left */
+.svc-card:nth-child(even) {
+  grid-template-columns: 60px 1fr 1fr;
+}
+
+.svc-card:nth-child(even) .core {
+  grid-column: 3;
+}
+
+.svc-card:nth-child(even) .svc-illus {
+  grid-column: 2;
+  grid-row: 1 / -1;
+}
 .svc-card:first-child { border-top: 1px solid var(--rule-strong); }
 .svc-card:last-child { border-bottom: 1px solid var(--rule-strong); }
 
