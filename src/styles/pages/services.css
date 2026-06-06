@@ -177,11 +177,6 @@
   border: 1px solid var(--rule);
   border-radius: 99px;
   padding: 5px 10px 5px 7px;
-  transition: border-color 200ms ease, background 200ms ease;
-}
-.tool:hover {
-  background: var(--sand);
-  border-color: var(--rule-strong);
 }
 .ico {
   width: 16px;
@@ -444,40 +439,7 @@
 }
 
 /* ── Row hover ─────────────────────────────────────────────── */
-.svc-card {
-  transition: background var(--dur) var(--ease-warm);
-}
 
-.svc-card:hover {
-  background: #F5F5F5;
-}
-
-.svc-card .num {
-  transition: opacity 240ms var(--ease-warm), transform 300ms var(--ease-warm);
-}
-
-.svc-card:hover .num {
-  opacity: 1;
-  transform: translateX(4px);
-}
-
-/* ── List item hover ──────────────────────────────────────── */
-.svc-deliverables li {
-  transition: transform 200ms var(--ease-warm);
-}
-
-.svc-deliverables li:hover {
-  transform: translateX(3px);
-}
-
-.svc-deliverables li::before {
-  display: inline-block;
-  transition: transform 200ms var(--ease-warm);
-}
-
-.svc-deliverables li:hover::before {
-  transform: scale(1.4);
-}
 
 /* ── Service illustration panel ──────────────────────────── */
 .svc-card .svc-illus {
