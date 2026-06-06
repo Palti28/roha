@@ -58,9 +58,9 @@
 
 .svc-card {
   display: grid;
-  grid-template-columns: 60px 1fr 1fr 140px;
-  gap: 28px;
-  padding: 28px 0;
+  grid-template-columns: 60px 1fr 1fr;
+  gap: 28px 40px;
+  padding: 40px 0;
   border-top: 1px solid var(--rule);
   align-items: start;
 }
@@ -91,71 +91,173 @@
   margin: 0 0 14px;
   max-width: 48ch;
 }
-.svc-card .price-tag {
-  display: inline-flex;
+/* Price display */
+.svc-price {
+  display: flex;
   align-items: center;
+  gap: 10px;
+  margin: 16px 0 20px;
+  flex-wrap: wrap;
+}
+.price-main {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+  background: var(--ink);
+  color: var(--paper);
+  border-radius: 99px;
+  padding: 8px 16px;
+}
+.price-from {
   font-family: 'Geist Mono', monospace;
-  font-size: 10.5px;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  opacity: .55;
+}
+.price-val {
+  font-family: 'Geist Mono', monospace;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: .04em;
+}
+.price-dur {
+  font-family: 'Geist Mono', monospace;
+  font-size: 10px;
   text-transform: uppercase;
   letter-spacing: .12em;
-  padding: 6px 10px;
-  border-radius: 99px;
-  background: var(--paper-tint);
-  border: 1px solid var(--rule);
   color: var(--ink);
+  opacity: .5;
+  border: 1px solid var(--rule);
+  border-radius: 99px;
+  padding: 6px 12px;
 }
 
-.svc-card .deliverables {
+/* Tool stack */
+.tool-stack {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+.tlabel {
+  font-family: 'Geist Mono', monospace;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  color: var(--ink);
+  opacity: .45;
+  white-space: nowrap;
+}
+.toolrow {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.tool {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   background: var(--paper-tint);
   border: 1px solid var(--rule);
-  border-radius: var(--radius-sm);
-  padding: 16px 18px;
+  border-radius: 99px;
+  padding: 5px 10px 5px 7px;
+  transition: border-color 200ms ease, background 200ms ease;
 }
-.svc-card .deliverables h4 {
+.tool:hover {
+  background: var(--sand);
+  border-color: var(--rule-strong);
+}
+.ico {
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.ico svg {
+  width: 16px;
+  height: 16px;
+}
+.nm {
+  font-family: 'Geist', sans-serif;
+  font-size: 11.5px;
+  font-weight: 500;
+  color: var(--ink);
+  letter-spacing: -.01em;
+}
+
+/* Deliverables accordion */
+.svc-deliverables {
+  border-top: 1px solid var(--rule);
+  margin-top: 4px;
+}
+.svc-deliverables summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  cursor: pointer;
+  list-style: none;
+  padding: 12px 0;
   font-family: 'Geist Mono', monospace;
   font-size: 10.5px;
   text-transform: uppercase;
   letter-spacing: .12em;
   color: var(--ink);
-  margin: 0 0 10px;
-  font-weight: 500;
-  opacity: .75;
+  opacity: .65;
+  user-select: none;
+  transition: opacity 200ms ease;
 }
-.svc-card .deliverables ul {
+.svc-deliverables summary::-webkit-details-marker { display: none; }
+.svc-deliverables summary:hover { opacity: 1; }
+.svc-deliverables summary .icon {
+  font-size: 16px;
+  font-family: 'Geist', sans-serif;
+  line-height: 1;
+  transition: transform 240ms ease;
+  display: inline-block;
+  opacity: .7;
+}
+.svc-deliverables[open] summary .icon { transform: rotate(45deg); }
+.svc-deliverables[open] summary { opacity: 1; }
+.svc-deliverables ul {
   list-style: none;
-  margin: 0; padding: 0;
-  display: flex; flex-direction: column;
-  gap: 6px;
+  margin: 0;
+  padding: 4px 0 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
 }
-.svc-card .deliverables li {
-  font-size: 13px;
+.svc-deliverables li {
+  font-size: 13.5px;
   color: var(--ink);
-  display: flex; gap: 8px;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
   line-height: 1.5;
-  opacity: .82;
+  opacity: .78;
 }
-.svc-card .deliverables li::before {
+.svc-deliverables li::before {
   content: "·";
   color: var(--blue);
   font-weight: 700;
   font-size: 16px;
-  line-height: 1;
-}
-
-.svc-card .cta-col {
-  display: flex; flex-direction: column;
-  gap: 10px;
-  align-items: flex-end;
+  line-height: 1.2;
+  flex-shrink: 0;
 }
 
 @media (max-width: 1080px) {
-  .svc-card { grid-template-columns: 48px 1fr 1fr; gap: 24px; }
-  .svc-card .cta-col { grid-column: 2 / -1; align-items: flex-start; }
+  .svc-card { grid-template-columns: 48px 1fr; gap: 24px; }
+  .svc-card .svc-illus { grid-column: 2 / -1; }
 }
 @media (max-width: 760px) {
-  .svc-card { grid-template-columns: 1fr; gap: 14px; padding: 24px 0; }
-  .svc-card .num { font-size: 24px; }
-  .svc-card .cta-col { grid-column: 1; }
+  .svc-card { grid-template-columns: 1fr; gap: 14px; padding: 28px 0; }
+  .svc-card .num { font-size: 24px; grid-row: 1; }
+  .svc-card .core { grid-row: 2; }
+  .svc-card .svc-illus { grid-column: 1; }
 }
 
 /* Process band */
@@ -346,37 +448,26 @@
 }
 
 /* ── List item hover ──────────────────────────────────────── */
-.svc-card .deliverables li {
-  cursor: default;
+.svc-deliverables li {
   transition: transform 200ms var(--ease-warm);
 }
 
-.svc-card .deliverables li:hover {
+.svc-deliverables li:hover {
   transform: translateX(3px);
 }
 
-.svc-card .deliverables li::before {
+.svc-deliverables li::before {
   display: inline-block;
   transition: transform 200ms var(--ease-warm);
 }
 
-.svc-card .deliverables li:hover::before {
+.svc-deliverables li:hover::before {
   transform: scale(1.4);
-}
-
-/* ── CTA button arrow ─────────────────────────────────────── */
-.svc-card .cta-col .btn .arr {
-  display: inline-block;
-  transition: transform 240ms var(--ease-warm);
-}
-
-.svc-card .cta-col .btn:hover .arr {
-  transform: translateX(4px);
 }
 
 /* ── Service illustration panel ──────────────────────────── */
 .svc-card .svc-illus {
-  margin: 14px 0 8px;
+  align-self: center;
   border-radius: var(--radius-sm);
   border: 1px solid var(--rule);
   background: var(--paper-tint);
