@@ -11,7 +11,7 @@ pattern: "pat-arcs"
 coverImage: "https://ik.imagekit.io/gorat/myasnbkn.avif?updatedAt=1779433713313"
 order: 2
 draft: false
-visibility: show
+visibility: hide
 publishedAt: 2026-03-18
 ---
 
