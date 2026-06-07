@@ -14,6 +14,7 @@ images:
   - "/brand/tunas/mockup.svg"
 order: 11
 draft: false
+visibility: show
 publishedAt: 2026-05-25
 ---
 

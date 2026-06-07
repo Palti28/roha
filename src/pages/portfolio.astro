@@ -4,7 +4,7 @@ import { getCollection } from "astro:content";
 import Base from "../layouts/Base.astro";
 
 const portfolio = (
-  await getCollection("portfolio", ({ data }) => !data.draft)
+  await getCollection("portfolio", ({ data }) => data.visibility !== 'hide' && !data.draft)
 ).sort((a, b) => a.data.order - b.data.order);
 
 const filterMap: Record<string, string> = {

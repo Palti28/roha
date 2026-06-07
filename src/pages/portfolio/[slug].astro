@@ -10,7 +10,7 @@ import { productSchema } from '../../utils/schema';
 import { site } from '../../data/site';
 
 export async function getStaticPaths() {
-  const all = await getCollection('portfolio', ({ data }) => !data.draft);
+  const all = await getCollection('portfolio', ({ data }) => data.visibility !== 'hide' && !data.draft);
 
   const byRecency = (a: typeof all[0], b: typeof all[0]) =>
     (b.data.publishedAt?.getTime() ?? 0) - (a.data.publishedAt?.getTime() ?? 0);

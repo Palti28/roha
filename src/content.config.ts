@@ -29,6 +29,8 @@ const work = defineCollection({
     images: z.array(z.string()).optional(),
     // Controls listing order AND the "next project" sequence
     order: z.number().default(0),
+    // 'show' = visible on site, 'hide' = hidden from all listings and detail pages
+    visibility: z.enum(['show', 'hide']).default('show'),
     draft: z.boolean().default(false),
     publishedAt: z.date().optional(),
   }),
@@ -78,6 +80,8 @@ const portfolio = defineCollection({
 
     // Controls shop order AND the "related products" sequence
     order: z.number().default(0),
+    // 'show' = visible on site, 'hide' = hidden from all listings and detail pages
+    visibility: z.enum(['show', 'hide']).default('show'),
     draft: z.boolean().default(false),
     publishedAt: z.date().optional(),
   }),

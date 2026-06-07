@@ -10,10 +10,10 @@ const byDate = (a: any, b: any) => {
   return db - da;
 };
 
-const allWork = await getCollection('work', ({ data }) => !data.draft);
+const allWork = await getCollection('work', ({ data }) => data.visibility !== 'hide' && !data.draft);
 const sortedWork = allWork.sort(byDate).slice(0, 3);
 
-const allPortfolio = await getCollection('portfolio', ({ data }) => !data.draft);
+const allPortfolio = await getCollection('portfolio', ({ data }) => data.visibility !== 'hide' && !data.draft);
 const sortedPortfolio = allPortfolio.sort(byDate).slice(0, 6);
 ---
 

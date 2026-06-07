@@ -8,16 +8,18 @@ year: 2026
 client: "Confidential"
 concept: false
 pattern: "pat-heat"
-coverImage: "https://ik.imagekit.io/gorat/eca-car-rental/rent-car-ss.avif"
+coverImage: "https://ik.imagekit.io/gorat/rohaworks/loka/loka-img-(3).avif"
 images:
-  - "https://ik.imagekit.io/gorat/eca-car-rental/rent-car-ss.avif"
-  - "https://ik.imagekit.io/gorat/eca-car-rental/rent-car-ss.avif"
+  - "https://ik.imagekit.io/gorat/rohaworks/loka/loka-img-(3).avif"
+  - "https://ik.imagekit.io/gorat/rohaworks/loka/loka-img-(2).avif"
+  - "https://ik.imagekit.io/gorat/rohaworks/loka/loka-img-(1).avif"
 order: 3
 draft: false
+visibility: show
 publishedAt: 2026-04-12
 ---
 
-### 01 — Context
+### Context
 
 Loka is a regional food delivery platform with a peer-to-peer driver model. Anyone within the service area can sign up as a driver. No dedicated fleet, no centralized dispatch. Customers, merchants, and drivers are matched within a fixed regional radius.
 
@@ -25,13 +27,13 @@ The project covered the complete customer and merchant experience. Driver-side d
 
 **Sector:** F&B / Consumer Apps · **Platform:** Mobile (Android / iOS) · **Scope:** 50+ screens · **Type:** Client
 
-### 02 — Role
+### Role
 
 Full UX/UI Designer, sole design owner across the engagement. User journey mapping, UX flows, high-fidelity UI design, and interactive prototype delivered for developer handoff.
 
 Two-week sprint cycles with reviews against backend and frontend teams kept the work aligned and buildable throughout.
 
-### 03 — Challenge
+### Challenge
 
 Designing for an unmanaged driver pool.
 
@@ -43,7 +45,7 @@ These weren't backend edge cases. They were front-of-screen design decisions.
 
 The regional boundary added a second layer. Coverage is fixed per city or district. Cart items, merchant listings, and driver matching all operate within that boundary. The UX had to make that constraint invisible under normal conditions, and legible when it mattered.
 
-### 04 — Scope
+### Scope
 
 50+ screens across two surfaces.
 
@@ -68,7 +70,7 @@ The regional boundary added a second layer. Coverage is fixed per city or distri
 
 Driver side was scoped for Phase 2.
 
-### 05 — Approach
+### Approach
 
 Three months. Six sprints. Two weeks each.
 
@@ -76,7 +78,7 @@ The deliverable at every sprint was a working slice: user flows, hi-fi screens, 
 
 Sprint reviews with backend and frontend teams closed each cycle. Alignment was built in, not bolted on.
 
-### 06 — Outcome
+### Outcome
 
 50+ screens delivered and accepted across customer and merchant flows. Prototype signed off by the client.
 
