@@ -4,1216 +4,1172 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Frozn — Heat. Eat. Repeat.</title>
-<meta name="description" content="Frozen food berkualitas, sampai tetap beku. Dimsum, bakso, nugget, dan seafood premium dengan cold chain delivery." />
+<meta name="description" content="Frozen food berkualitas premium dengan cold chain delivery. Dimsum, bakso, nugget, seafood — sampai tetap beku." />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-  :root {
-    --blue: #1E5EFF;
-    --blue-dark: #1648c4;
-    --blue-soft: #EAF0FF;
-    --mint: #4FD1A5;
-    --mint-soft: #E6FAF2;
-    --white: #FFFFFF;
-    --gray: #F7FAFC;
-    --gray-200: #E2E8F0;
-    --gray-400: #94A3B8;
-    --gray-600: #475569;
-    --gray-900: #0F172A;
-    --shadow-sm: 0 1px 2px rgba(15,23,42,.06), 0 1px 3px rgba(15,23,42,.04);
-    --shadow-md: 0 4px 12px rgba(15,23,42,.06), 0 2px 4px rgba(15,23,42,.04);
-    --shadow-lg: 0 12px 32px rgba(30,94,255,.12), 0 4px 12px rgba(15,23,42,.06);
-    --radius: 14px;
-    --radius-lg: 22px;
-  }
+:root {
+  --orange: #E8530A;
+  --orange-bg: rgba(232,83,10,.08);
+  --amber: #F5A623;
+  --green: #1C4B35;
+  --yellow-dark: #8B5A00;
+  --cream: #FAF8F4;
+  --white: #FFFFFF;
+  --ink: #1A1611;
+  --muted: #7A6A5A;
+  --rule: #E5DDD4;
+  --gray-light: #F2EEE8;
+  --quote-bg: #F5F2EC;
+  --radius: 14px;
+  --radius-lg: 20px;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 62px; -webkit-tap-highlight-color: transparent; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto !important; } }
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, sans-serif;
+  color: var(--ink);
+  background: var(--cream);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+h1,h2,h3,h4 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 700;
+  line-height: 1.15;
+  margin: 0;
+}
+p { margin: 0; }
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
+img { max-width: 100%; display: block; }
 
-  *, *::before, *::after { box-sizing: border-box; }
-  html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 80px;
-    -webkit-tap-highlight-color: transparent;
-  }
-  @media (max-width: 920px) {
-    html {
-      scroll-padding-top: 65px;
-    }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    html {
-      scroll-behavior: auto !important;
-    }
-  }
-  body {
-    margin: 0;
-    font-family: 'Inter', system-ui, sans-serif;
-    color: var(--gray-900);
-    background: var(--white);
-    line-height: 1.6;
-    overflow-x: hidden;
-  }
-  h1, h2, h3, h4 {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    line-height: 1.15;
-    margin: 0;
-  }
-  p { margin: 0; }
-  a { color: inherit; text-decoration: none; }
-  button { font-family: inherit; cursor: pointer; border: none; background: none; }
-  img { max-width: 100%; display: block; }
+.wrap {
+  width: 100%;
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
 
-  .container {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-  }
+/* ===== NAVBAR ===== */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--white);
+  border-bottom: 1.5px solid var(--rule);
+}
+.nav-inner {
+  display: flex;
+  align-items: stretch;
+  height: 62px;
+}
+.logo {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 900;
+  font-size: 21px;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  padding-right: 24px;
+  border-right: 1.5px solid var(--rule);
+  flex-shrink: 0;
+}
+.logo em { color: var(--orange); font-style: normal; }
 
-  /* ========== NAVBAR ========== */
-  .navbar {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: rgba(255,255,255,0.85);
-    backdrop-filter: saturate(180%) blur(14px);
-    -webkit-backdrop-filter: saturate(180%) blur(14px);
-    border-bottom: 1px solid rgba(226,232,240,0.6);
-    transition: box-shadow .3s ease;
-  }
-  .navbar.scrolled { box-shadow: var(--shadow-sm); }
-  .nav-inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 68px;
-  }
-  .logo {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-weight: 800;
-    font-size: 22px;
-    letter-spacing: -0.03em;
-    color: var(--gray-900);
-  }
-  .logo-mark {
-    width: 34px; height: 34px;
-    background: linear-gradient(135deg, var(--blue), var(--mint));
-    border-radius: 10px;
-    display: grid; place-items: center;
-    color: white;
-    box-shadow: 0 6px 16px rgba(30,94,255,.3);
-  }
-  .nav-menu {
-    display: none;
-    gap: 32px;
-    list-style: none;
-    padding: 0; margin: 0;
-  }
-  .nav-menu a {
-    font-weight: 500;
-    font-size: 15px;
-    color: var(--gray-600);
-    transition: color .2s;
-    position: relative;
-  }
-  .nav-menu a:hover { color: var(--blue); }
-  .nav-menu a::after {
-    content: '';
-    position: absolute;
-    bottom: -6px; left: 0;
-    width: 0; height: 2px;
-    background: var(--blue);
-    transition: width .25s ease;
-  }
-  .nav-menu a:hover::after { width: 100%; }
+.nav-links {
+  display: none;
+  list-style: none;
+  padding: 0; margin: 0;
+  flex: 1;
+}
+.nav-links li { display: flex; }
+.nav-links li a {
+  display: flex;
+  align-items: center;
+  padding: 0 18px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--muted);
+  border-right: 1.5px solid var(--rule);
+  white-space: nowrap;
+  transition: color .2s, background .2s;
+}
+.nav-links li a.active {
+  color: var(--orange);
+  background: var(--orange-bg);
+  font-weight: 600;
+}
+.nav-links li a:hover:not(.active) { color: var(--orange); }
 
-  .nav-actions { display: flex; align-items: center; gap: 10px; }
-  .nav-wa-btn {
-    display: none;
-    align-items: center;
-    gap: 8px;
-    padding: 10px 18px;
-    background: var(--blue);
-    color: white;
-    border-radius: 10px;
-    font-weight: 600;
-    font-size: 14px;
-    transition: all .2s;
-  }
-  .nav-wa-btn:hover { background: var(--blue-dark); transform: translateY(-2px); }
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: auto;
+  padding-left: 20px;
+  border-left: 1.5px solid var(--rule);
+}
+.nav-search {
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  background: var(--gray-light);
+  display: grid; place-items: center;
+  color: var(--muted);
+  flex-shrink: 0;
+  transition: background .2s, color .2s;
+}
+.nav-search:hover { background: var(--orange-bg); color: var(--orange); }
+.nav-wa-btn {
+  display: none;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: var(--orange);
+  color: white;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  transition: background .2s;
+  flex-shrink: 0;
+}
+.nav-wa-btn:hover { background: #c4420a; }
+.menu-toggle {
+  width: 36px; height: 36px;
+  border-radius: 8px;
+  background: var(--gray-light);
+  display: grid; place-items: center;
+}
+@media (min-width: 900px) {
+  .nav-links { display: flex; }
+  .nav-wa-btn { display: inline-flex; }
+  .menu-toggle { display: none; }
+}
 
-  .menu-toggle {
-    width: 42px; height: 42px;
-    background: var(--gray);
-    border-radius: 12px;
-    display: grid; place-items: center;
-  }
-  @media (min-width: 900px) {
-    .nav-menu { display: flex; }
-    .nav-wa-btn { display: inline-flex; }
-    .menu-toggle { display: none; }
-  }
+.mobile-nav {
+  position: absolute;
+  top: 100%; left: 0; right: 0;
+  background: var(--white);
+  border-bottom: 1.5px solid var(--rule);
+  padding: 8px 24px 16px;
+  transform: translateY(-110%);
+  transition: transform .3s, opacity .3s;
+  opacity: 0;
+  pointer-events: none;
+  box-shadow: 0 12px 32px rgba(26,22,17,.08);
+}
+.mobile-nav.open { transform: translateY(0); opacity: 1; pointer-events: auto; }
+.mobile-nav ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 2px; }
+.mobile-nav a {
+  display: block;
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 15px;
+  color: var(--ink);
+}
+.mobile-nav a:hover { background: var(--orange-bg); color: var(--orange); }
 
-  /* Mobile nav */
-  .mobile-nav {
-    position: absolute;
-    top: 100%; left: 0; right: 0;
-    background: white;
-    border-bottom: 1px solid var(--gray-200);
-    padding: 12px 20px 16px;
-    transform: translateY(-110%);
-    transition: transform .3s, opacity .3s;
-    opacity: 0;
-    pointer-events: none;
-  }
-  .mobile-nav.open {
-    transform: translateY(0);
-    opacity: 1;
-    pointer-events: auto;
-    box-shadow: var(--shadow-md);
-  }
-  .mobile-nav ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 2px; }
-  .mobile-nav a {
-    display: block;
-    padding: 12px 16px;
-    border-radius: 10px;
-    font-weight: 500;
-    color: var(--gray-900);
-  }
-  .mobile-nav a:hover { background: var(--gray); color: var(--blue); }
+/* ===== HERO ===== */
+.hero {
+  background: var(--white);
+  border-bottom: 1.5px solid var(--rule);
+}
+.hero-tabs {
+  border-bottom: 1.5px solid var(--rule);
+  display: flex;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.hero-tabs::-webkit-scrollbar { display: none; }
+.hero-tab {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 22px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--muted);
+  border-right: 1.5px solid var(--rule);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color .2s, background .2s;
+  flex-shrink: 0;
+  background: none;
+  font-family: inherit;
+  border-top: none; border-left: none; border-bottom: none;
+}
+.hero-tab:hover { color: var(--ink); }
+.hero-tab.active { color: var(--ink); font-weight: 600; background: var(--cream); }
+.tab-num {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--orange);
+  width: 22px; height: 22px;
+  background: var(--orange-bg);
+  border-radius: 50%;
+  display: grid; place-items: center;
+  flex-shrink: 0;
+}
 
-  /* ========== HERO ========== */
-  .hero {
-    position: relative;
-    padding: 56px 0 80px;
-    overflow: hidden;
-    background:
-      radial-gradient(circle at 80% 10%, rgba(79,209,165,.12), transparent 50%),
-      radial-gradient(circle at 10% 90%, rgba(30,94,255,.08), transparent 50%),
-      linear-gradient(180deg, #fff 0%, var(--gray) 100%);
+.hero-body {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 36px;
+  align-items: center;
+  padding: 44px 0 52px;
+}
+@media (min-width: 900px) {
+  .hero-body {
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    padding: 56px 0 68px;
   }
-  .hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image:
-      radial-gradient(circle at 1px 1px, rgba(30,94,255,.08) 1px, transparent 0);
-    background-size: 28px 28px;
-    mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%);
-    -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%);
-    pointer-events: none;
-  }
-  .hero-grid {
-    position: relative;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 48px;
-    align-items: center;
-  }
-  @media (min-width: 900px) {
-    .hero { padding: 80px 0 120px; }
-    .hero-grid { grid-template-columns: 1.05fr 1fr; gap: 64px; }
-  }
+}
 
-  .hero-eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 6px 14px;
-    background: var(--mint-soft);
-    color: #1a8c66;
-    border-radius: 100px;
-    font-size: 13px;
-    font-weight: 600;
-    margin-bottom: 20px;
-  }
-  .hero-eyebrow .dot {
-    width: 6px; height: 6px;
-    background: var(--mint);
-    border-radius: 50%;
-    animation: pulse 2s infinite;
-  }
-  @keyframes pulse {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: .6; transform: scale(1.4); }
-  }
-  .hero h1 {
-    font-size: clamp(36px, 6vw, 64px);
-    margin-bottom: 20px;
-  }
-  .hero h1 .accent {
-    background: linear-gradient(120deg, var(--blue), var(--mint));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-  }
-  .hero p.lead {
-    font-size: 17px;
-    color: var(--gray-600);
-    margin-bottom: 32px;
-    max-width: 520px;
-  }
-  .hero-cta { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 36px; }
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 14px 24px;
-    border-radius: 12px;
-    font-weight: 600;
-    font-size: 15px;
-    transition: all .2s;
-    white-space: nowrap;
-  }
-  .btn-primary {
-    background: var(--blue);
-    color: white;
-    box-shadow: 0 8px 20px rgba(30,94,255,.3);
-  }
-  .btn-primary:hover { background: var(--blue-dark); transform: translateY(-2px); box-shadow: 0 12px 28px rgba(30,94,255,.4); }
-  .btn-wa {
-    background: #25D366;
-    color: white;
-    box-shadow: 0 8px 20px rgba(37,211,102,.3);
-  }
-  .btn-wa:hover { background: #1eb955; transform: translateY(-2px); }
+.hero-tag {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 16px;
+}
+.hero-tag::before {
+  content: '';
+  width: 28px; height: 2px;
+  background: var(--orange);
+}
+.hero-content h1 {
+  font-size: clamp(38px, 5.5vw, 62px);
+  letter-spacing: -0.02em;
+  margin-bottom: 18px;
+  color: var(--ink);
+}
+.hero-content h1 em {
+  font-style: normal;
+  text-decoration: underline;
+  text-decoration-color: var(--orange);
+  text-underline-offset: 5px;
+  text-decoration-thickness: 3px;
+}
+.hero-desc {
+  font-size: 15px;
+  color: var(--muted);
+  line-height: 1.7;
+  margin-bottom: 24px;
+  max-width: 440px;
+}
+.hero-author-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-top: 20px;
+  border-top: 1.5px solid var(--rule);
+  font-size: 13px;
+  color: var(--muted);
+}
+.hero-author-row::before {
+  content: '';
+  display: block;
+  width: 28px; height: 2px;
+  background: var(--orange);
+  flex-shrink: 0;
+}
+.hero-author-name { font-weight: 600; color: var(--ink); }
+.author-sep {
+  display: block;
+  width: 1px; height: 14px;
+  background: var(--rule);
+}
+.hero-count {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-weight: 500;
+}
 
-  .hero-stats {
-    display: flex;
-    gap: 32px;
-    flex-wrap: wrap;
-  }
-  .stat strong {
-    display: block;
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 28px;
-    font-weight: 800;
-    color: var(--gray-900);
-    line-height: 1;
-  }
-  .stat span { font-size: 13px; color: var(--gray-600); }
+.hero-card {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  aspect-ratio: 4 / 3.1;
+  box-shadow: 0 20px 56px rgba(26,22,17,.14);
+  max-width: 520px;
+  margin: 0 auto;
+  width: 100%;
+}
+.hero-card img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
+.hero-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(26,22,17,.55) 0%, transparent 55%);
+}
+.hero-card-bottom {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 18px 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.card-meta-pill {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 13px;
+  background: rgba(255,255,255,.18);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 600;
+  color: white;
+}
+.card-counter {
+  margin-left: auto;
+  font-size: 13px;
+  font-weight: 700;
+  color: white;
+  background: rgba(255,255,255,.18);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 7px 13px;
+  border-radius: 100px;
+}
 
-  /* Hero visual */
-  .hero-visual {
-    position: relative;
-    aspect-ratio: 1 / 1;
-    max-width: 520px;
-    margin: 0 auto;
-    width: 100%;
-  }
-  .hero-img-wrap {
-    position: absolute;
-    border-radius: 24px;
-    overflow: hidden;
-    box-shadow: var(--shadow-lg);
-  }
-  .hero-img-wrap img { width: 100%; height: 100%; object-fit: cover; }
-  .hero-img-main { inset: 0; }
-  .hero-img-main::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg, transparent 50%, rgba(30,94,255,.15));
-  }
-  .hero-chip {
-    position: absolute;
-    background: white;
-    border-radius: 16px;
-    padding: 12px 16px;
-    box-shadow: var(--shadow-md);
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 13px;
-    font-weight: 600;
-    animation: float 4s ease-in-out infinite;
-  }
-  @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-8px); }
-  }
-  .chip-temp { top: 20px; left: -20px; color: var(--blue); }
-  .chip-temp .icon-box {
-    background: var(--blue-soft);
-    width: 32px; height: 32px;
-    border-radius: 8px;
-    display: grid; place-items: center;
-  }
-  .chip-delivery {
-    bottom: 24px; right: -16px;
-    animation-delay: 1.5s;
-  }
-  .chip-delivery .icon-box {
-    background: var(--mint-soft);
-    width: 32px; height: 32px;
-    border-radius: 8px;
-    display: grid; place-items: center;
-    color: #1a8c66;
-  }
-  @media (max-width: 600px) {
-    .chip-temp { left: 10px; }
-    .chip-delivery { right: 10px; }
-  }
+/* ===== EDITORIAL SECTION ===== */
+.editorial-section { padding: 60px 0 0; }
 
-  /* ========== TRUST BAR ========== */
-  .trust {
-    padding: 40px 0;
-    background: white;
-    border-bottom: 1px solid var(--gray-200);
-  }
-  .trust-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
-  }
-  @media (min-width: 700px) {
-    .trust-grid { grid-template-columns: repeat(4, 1fr); }
-  }
-  .trust-item {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-  }
-  .trust-icon {
-    width: 48px; height: 48px;
-    background: var(--blue-soft);
-    border-radius: 12px;
-    display: grid; place-items: center;
-    color: var(--blue);
-    flex-shrink: 0;
-  }
-  .trust-item:nth-child(2) .trust-icon { background: var(--mint-soft); color: #1a8c66; }
-  .trust-item:nth-child(3) .trust-icon { background: #FFF4E6; color: #D97706; }
-  .trust-item:nth-child(4) .trust-icon { background: #FCE7F3; color: #BE185D; }
-  .trust-item h4 { font-size: 14px; font-weight: 700; margin-bottom: 2px; }
-  .trust-item p { font-size: 12px; color: var(--gray-600); }
+.section-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--orange);
+  color: white;
+  padding: 13px 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+.section-bar-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: .01em;
+  color: white;
+}
+.section-bar-counter {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  opacity: .9;
+}
+.counter-nav {
+  display: flex;
+  gap: 4px;
+}
+.counter-nav button {
+  width: 26px; height: 26px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.2);
+  color: white;
+  display: grid; place-items: center;
+  transition: background .2s;
+  border: none;
+  font-family: inherit;
+  cursor: pointer;
+}
+.counter-nav button:hover { background: rgba(255,255,255,.38); }
 
-  /* ========== SECTIONS ========== */
-  section { padding: 72px 0; }
-  @media (min-width: 900px) { section { padding: 96px 0; } }
+.editorial-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+@media (min-width: 700px) { .editorial-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1000px) {
+  .editorial-grid {
+    grid-template-columns: 1.1fr 1fr 1fr;
+    grid-template-rows: auto auto;
+  }
+}
 
-  .section-head {
-    text-align: center;
-    margin-bottom: 48px;
-    max-width: 640px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .section-eyebrow {
-    display: inline-block;
-    padding: 5px 12px;
-    background: var(--blue-soft);
-    color: var(--blue);
-    border-radius: 100px;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: .05em;
-    text-transform: uppercase;
-    margin-bottom: 14px;
-  }
-  .section-head h2 {
-    font-size: clamp(28px, 4vw, 42px);
-    margin-bottom: 12px;
-  }
-  .section-head p {
-    color: var(--gray-600);
-    font-size: 16px;
-  }
+.ed-card {
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--white);
+  border: 1.5px solid var(--rule);
+  transition: transform .3s, box-shadow .3s;
+}
+.ed-card:hover { transform: translateY(-3px); box-shadow: 0 12px 36px rgba(26,22,17,.1); border-color: transparent; }
 
-  /* ========== CATEGORIES ========== */
-  .categories { background: var(--gray); }
-  .cat-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-  }
-  @media (min-width: 700px) { .cat-grid { grid-template-columns: repeat(4, 1fr); gap: 20px; } }
-  .cat-card {
-    background: white;
-    border-radius: var(--radius-lg);
-    padding: 24px;
-    text-align: center;
-    transition: all .3s ease;
-    cursor: pointer;
-    border: 1px solid transparent;
-    position: relative;
-    overflow: hidden;
-  }
-  .cat-card::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, var(--blue-soft), transparent);
-    opacity: 0;
-    transition: opacity .3s;
-  }
-  .cat-card:hover {
-    transform: translateY(-6px);
-    box-shadow: var(--shadow-lg);
-    border-color: var(--blue-soft);
-  }
-  .cat-card:hover::before { opacity: 1; }
-  .cat-card > * { position: relative; }
-  .cat-img {
-    width: 88px; height: 88px;
-    margin: 0 auto 16px;
-    border-radius: 50%;
-    overflow: hidden;
-    background: var(--gray);
-    box-shadow: 0 8px 24px rgba(30,94,255,.12);
-  }
-  .cat-img img { width: 100%; height: 100%; object-fit: cover; }
-  .cat-card h3 { font-size: 17px; margin-bottom: 4px; }
-  .cat-card span { font-size: 13px; color: var(--gray-600); }
+/* Quote card */
+.ed-quote {
+  background: var(--quote-bg);
+  border-color: transparent;
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 260px;
+}
+@media (min-width: 1000px) { .ed-quote { grid-row: span 2; min-height: 460px; } }
+.quote-mark {
+  display: block;
+  font-size: 72px;
+  line-height: .9;
+  font-family: 'Playfair Display', Georgia, serif;
+  color: var(--orange);
+  margin-bottom: 10px;
+}
+.ed-quote blockquote {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(20px, 2.8vw, 26px);
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--ink);
+  margin: 0 0 20px;
+  font-style: italic;
+}
+.quote-author {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--orange);
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+}
+.quote-author::before { content: ''; width: 20px; height: 2px; background: var(--orange); }
 
-  /* ========== PRODUCTS ========== */
-  .products-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-  }
-  @media (min-width: 700px) { .products-grid { grid-template-columns: repeat(4, 1fr); gap: 24px; } }
-  .product-card {
-    background: white;
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    border: 1px solid var(--gray-200);
-    transition: all .3s ease;
-    display: flex;
-    flex-direction: column;
-  }
-  .product-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-lg);
-    border-color: transparent;
-  }
-  .product-img-wrap {
-    position: relative;
-    aspect-ratio: 1 / 1;
-    overflow: hidden;
-    background: var(--gray);
-  }
-  .product-img-wrap img {
-    width: 100%; height: 100%;
-    object-fit: cover;
-    transition: transform .5s ease;
-  }
-  .product-card:hover .product-img-wrap img { transform: scale(1.08); }
-  .product-tag {
-    position: absolute;
-    top: 12px; left: 12px;
-    background: var(--blue);
-    color: white;
-    font-size: 11px;
-    font-weight: 700;
-    padding: 4px 10px;
-    border-radius: 100px;
-    text-transform: uppercase;
-    letter-spacing: .04em;
-  }
-  .product-tag.hot { background: #EF4444; }
-  .product-tag.new { background: var(--mint); }
-  .product-body { padding: 16px; flex: 1; display: flex; flex-direction: column; }
-  .product-body h3 {
-    font-size: 15px;
-    margin-bottom: 4px;
-    font-family: 'Plus Jakarta Sans', sans-serif;
-  }
-  .product-desc {
-    font-size: 12px;
-    color: var(--gray-600);
-    margin-bottom: 12px;
-    flex: 1;
-  }
-  .product-price {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-weight: 800;
-    font-size: 17px;
-    color: var(--gray-900);
-    margin-bottom: 12px;
-  }
-  .product-price small {
-    display: block;
-    font-size: 11px;
-    color: var(--gray-400);
-    text-decoration: line-through;
-    font-weight: 500;
-  }
-  .order-btn {
-    width: 100%;
-    background: #25D366;
-    color: white;
-    padding: 10px 12px;
-    border-radius: 10px;
-    font-weight: 600;
-    font-size: 13px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-    transition: all .2s;
-  }
-  .order-btn:hover { background: #1eb955; transform: translateY(-1px); }
-  .order-btn:active { transform: scale(.98); }
+/* Image cards */
+.ed-img-wrap {
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: var(--gray-light);
+}
+.ed-img-wrap img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform .5s;
+}
+.ed-card:hover .ed-img-wrap img { transform: scale(1.06); }
+.ed-body {
+  padding: 16px 18px;
+}
+.ed-body h3 {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: var(--ink);
+  line-height: 1.45;
+}
+.ed-body p {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+.ed-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+  color: var(--muted);
+}
+.ed-price {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 700;
+  color: var(--orange);
+  font-family: 'Inter', sans-serif;
+}
+.ed-price::before { content: ''; width: 16px; height: 2px; background: var(--orange); }
+.ed-reactions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.ed-reactions span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 500;
+}
 
-  /* ========== STEPS ========== */
-  .steps { background: var(--gray); }
-  .steps-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 24px;
-    position: relative;
-  }
-  @media (min-width: 800px) { .steps-grid { grid-template-columns: repeat(3, 1fr); gap: 32px; } }
-  .step-card {
-    background: white;
-    border-radius: var(--radius-lg);
-    padding: 32px 28px;
-    text-align: center;
-    position: relative;
-    transition: transform .3s ease;
-  }
-  .step-card:hover { transform: translateY(-4px); }
-  .step-num {
-    width: 56px; height: 56px;
-    margin: 0 auto 18px;
-    background: linear-gradient(135deg, var(--blue), var(--mint));
-    border-radius: 50%;
-    display: grid; place-items: center;
-    color: white;
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-weight: 800;
-    font-size: 22px;
-    box-shadow: 0 8px 20px rgba(30,94,255,.25);
-  }
-  .step-card h3 { font-size: 19px; margin-bottom: 8px; }
-  .step-card p { color: var(--gray-600); font-size: 14px; }
+/* ===== PRODUCT GRID ===== */
+.products-section { padding: 40px 0 60px; }
+.products-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.products-header h2 {
+  font-family: 'Inter', sans-serif;
+  font-size: 19px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+.view-all {
+  margin-left: auto;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--orange);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.view-all:hover { text-decoration: underline; }
 
-  /* ========== TESTIMONIALS ========== */
-  .testi-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-  @media (min-width: 800px) { .testi-grid { grid-template-columns: repeat(3, 1fr); gap: 24px; } }
-  .testi-card {
-    background: white;
-    border: 1px solid var(--gray-200);
-    border-radius: var(--radius-lg);
-    padding: 28px;
-    transition: all .3s ease;
-    position: relative;
-  }
-  .testi-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-3px); border-color: transparent; }
-  .stars { display: flex; gap: 2px; margin-bottom: 14px; color: #F59E0B; }
-  .testi-text {
-    color: var(--gray-600);
-    font-size: 15px;
-    margin-bottom: 20px;
-    font-style: italic;
-  }
-  .testi-author {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-  .testi-avatar {
-    width: 42px; height: 42px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--blue), var(--mint));
-    color: white;
-    display: grid; place-items: center;
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-weight: 700;
-    font-size: 16px;
-  }
-  .testi-author strong { font-size: 14px; display: block; }
-  .testi-author span { font-size: 12px; color: var(--gray-400); }
+.prod-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+@media (min-width: 700px) { .prod-grid { grid-template-columns: repeat(4, 1fr); gap: 18px; } }
 
-  /* ========== CTA BANNER ========== */
-  .cta-banner { padding: 56px 0; }
-  .cta-inner {
-    background: linear-gradient(120deg, var(--blue) 0%, #2563eb 60%, var(--mint) 130%);
-    border-radius: 28px;
-    padding: 48px 32px;
-    text-align: center;
-    color: white;
-    position: relative;
-    overflow: hidden;
-  }
-  .cta-inner::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(circle at 20% 20%, rgba(255,255,255,.15), transparent 40%),
-      radial-gradient(circle at 80% 80%, rgba(255,255,255,.1), transparent 40%);
-  }
-  .cta-inner > * { position: relative; }
-  .cta-inner h2 {
-    font-size: clamp(26px, 4vw, 38px);
-    margin-bottom: 12px;
-  }
-  .cta-inner p {
-    opacity: .92;
-    font-size: 16px;
-    margin-bottom: 24px;
-    max-width: 480px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .cta-inner .btn-primary { background: white; color: var(--blue); }
-  .cta-inner .btn-primary:hover { background: #f1f5f9; }
+.prod-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1.5px solid var(--rule);
+  display: flex;
+  flex-direction: column;
+  transition: transform .3s, box-shadow .3s;
+}
+.prod-card:hover { transform: translateY(-4px); box-shadow: 0 14px 36px rgba(26,22,17,.1); border-color: transparent; }
+.prod-img {
+  aspect-ratio: 1;
+  overflow: hidden;
+  background: var(--gray-light);
+  position: relative;
+}
+.prod-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s; }
+.prod-card:hover .prod-img img { transform: scale(1.08); }
+.prod-badge {
+  position: absolute;
+  top: 10px; left: 10px;
+  padding: 4px 10px;
+  border-radius: 100px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+.badge-hot { background: var(--orange); color: white; }
+.badge-new { background: var(--green); color: white; }
+.prod-body { padding: 13px 15px; flex: 1; display: flex; flex-direction: column; }
+.prod-body h3 { font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 700; margin-bottom: 4px; }
+.prod-body p { font-size: 12px; color: var(--muted); flex: 1; margin-bottom: 10px; line-height: 1.55; }
+.prod-price { font-family: 'Inter', sans-serif; font-weight: 800; font-size: 16px; margin-bottom: 10px; }
+.prod-price small { display: block; font-size: 11px; font-weight: 500; color: var(--muted); text-decoration: line-through; }
+.order-btn {
+  width: 100%;
+  background: #25D366;
+  color: white;
+  padding: 9px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  transition: background .2s, transform .15s;
+}
+.order-btn:hover { background: #1eb955; transform: translateY(-1px); }
+.order-btn:active { transform: scale(.98); }
 
-  /* ========== FOOTER ========== */
-  footer {
-    background: #0a1530;
-    color: #cbd5e1;
-    padding: 64px 0 24px;
-  }
-  .footer-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 36px;
-    margin-bottom: 40px;
-  }
-  @media (min-width: 700px) { .footer-grid { grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 32px; } }
-  .footer-brand .logo { color: white; margin-bottom: 14px; }
-  .footer-brand p { font-size: 14px; line-height: 1.7; max-width: 280px; margin-bottom: 18px; }
-  .socials { display: flex; gap: 10px; }
-  .socials a {
-    width: 38px; height: 38px;
-    background: rgba(255,255,255,.06);
-    border-radius: 10px;
-    display: grid; place-items: center;
-    transition: all .2s;
-    color: white;
-  }
-  .socials a:hover { background: var(--blue); transform: translateY(-2px); }
+/* ===== CTA BANNERS ===== */
+.cta-banners {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  padding: 0 0 68px;
+}
+@media (min-width: 700px) { .cta-banners { grid-template-columns: 1fr 1fr; gap: 18px; } }
 
-  .footer-col h4 {
-    color: white;
-    font-size: 15px;
-    margin-bottom: 16px;
-    font-family: 'Plus Jakarta Sans', sans-serif;
-  }
-  .footer-col ul {
-    list-style: none;
-    padding: 0; margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  .footer-col a {
-    font-size: 14px;
-    color: #94a3b8;
-    transition: color .2s;
-  }
-  .footer-col a:hover { color: var(--mint); }
-  .footer-info { display: flex; flex-direction: column; gap: 14px; font-size: 14px; }
-  .footer-info > div { display: flex; gap: 10px; align-items: flex-start; }
-  .footer-info svg { flex-shrink: 0; color: var(--mint); margin-top: 2px; }
+.cta-banner {
+  border-radius: var(--radius-lg);
+  padding: 40px 36px;
+  min-height: 210px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  position: relative;
+  overflow: hidden;
+}
+.cta-banner h3 {
+  font-size: clamp(22px, 2.8vw, 28px);
+  color: white;
+  line-height: 1.2;
+  margin-bottom: 18px;
+  position: relative;
+  z-index: 1;
+}
+.banner-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 20px;
+  background: white;
+  color: var(--ink);
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  transition: transform .2s;
+  position: relative;
+  z-index: 1;
+  width: fit-content;
+}
+.banner-btn:hover { transform: translateY(-2px); }
+.banner-bg {
+  position: absolute;
+  right: -10px; top: -10px; bottom: -10px;
+  width: 55%;
+  object-fit: cover;
+  mask-image: linear-gradient(to left, rgba(0,0,0,.55) 40%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,.55) 40%, transparent 100%);
+}
+.banner-green { background: var(--green); }
+.banner-warm {
+  background: linear-gradient(135deg, #6B3A00, #C47B0A);
+}
+.banner-warm h3 { color: #FFF4DC; }
 
-  .footer-bottom {
-    border-top: 1px solid rgba(255,255,255,.08);
-    padding-top: 24px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 12px;
-    font-size: 13px;
-    color: #64748b;
-  }
+/* ===== HOW TO ORDER ===== */
+.how-section {
+  background: var(--white);
+  border-top: 1.5px solid var(--rule);
+  border-bottom: 1.5px solid var(--rule);
+  padding: 64px 0;
+}
+.how-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 32px;
+  margin-bottom: 44px;
+  flex-wrap: wrap;
+}
+.how-header h2 { font-size: clamp(26px, 4vw, 36px); max-width: 360px; }
+.how-header p { font-size: 15px; color: var(--muted); max-width: 340px; line-height: 1.65; }
+.how-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border: 1.5px solid var(--rule);
+  border-radius: 16px;
+  overflow: hidden;
+}
+@media (max-width: 700px) { .how-grid { grid-template-columns: 1fr; } }
+.how-step {
+  padding: 30px 26px;
+  border-right: 1.5px solid var(--rule);
+}
+.how-step:last-child { border-right: none; }
+@media (max-width: 700px) {
+  .how-step { border-right: none; border-bottom: 1.5px solid var(--rule); }
+  .how-step:last-child { border-bottom: none; }
+}
+.how-num {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 48px;
+  font-weight: 900;
+  color: rgba(232,83,10,.13);
+  line-height: 1;
+  margin-bottom: 14px;
+}
+.how-step h3 { font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 700; margin-bottom: 8px; }
+.how-step p { font-size: 14px; color: var(--muted); line-height: 1.65; }
 
-  /* ========== FLOATING WA ========== */
-  .wa-float {
-    position: fixed;
-    bottom: 22px; right: 22px;
-    width: 58px; height: 58px;
-    background: #25D366;
-    border-radius: 50%;
-    display: grid; place-items: center;
-    color: white;
-    box-shadow: 0 10px 28px rgba(37,211,102,.45);
-    z-index: 90;
-    transition: all .3s;
-    animation: waPulse 2.5s infinite;
-  }
-  .wa-float:hover { transform: scale(1.1); }
-  @keyframes waPulse {
-    0% { box-shadow: 0 10px 28px rgba(37,211,102,.45), 0 0 0 0 rgba(37,211,102,.5); }
-    70% { box-shadow: 0 10px 28px rgba(37,211,102,.45), 0 0 0 18px rgba(37,211,102,0); }
-    100% { box-shadow: 0 10px 28px rgba(37,211,102,.45), 0 0 0 0 rgba(37,211,102,0); }
-  }
+/* ===== TESTIMONIALS ===== */
+.testi-section { padding: 64px 0; }
+.testi-header { margin-bottom: 36px; }
+.testi-eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.testi-eyebrow::before { content: ''; width: 24px; height: 2px; background: var(--orange); }
+.testi-header h2 { font-size: clamp(24px, 3.5vw, 34px); }
+.testi-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+@media (min-width: 700px) { .testi-grid { grid-template-columns: repeat(3, 1fr); } }
+.testi-card {
+  background: var(--white);
+  border: 1.5px solid var(--rule);
+  border-radius: var(--radius);
+  padding: 22px;
+}
+.testi-stars { display: flex; gap: 2px; color: var(--amber); margin-bottom: 12px; }
+.testi-text { font-size: 14px; color: var(--muted); font-style: italic; line-height: 1.65; margin-bottom: 18px; }
+.testi-author-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-top: 14px;
+  border-top: 1.5px solid var(--rule);
+}
+.testi-avatar {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: var(--orange);
+  color: white;
+  font-weight: 700;
+  font-size: 13px;
+  display: grid; place-items: center;
+  flex-shrink: 0;
+}
+.testi-author-row strong { font-size: 13px; display: block; }
+.testi-author-row span { font-size: 12px; color: var(--muted); }
 
-  /* ========== TOAST ========== */
-  .toast-stack {
-    position: fixed;
-    bottom: 100px; right: 22px;
-    z-index: 300;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    pointer-events: none;
-  }
-  @media (max-width: 600px) {
-    .toast-stack { left: 16px; right: 16px; bottom: 90px; }
-  }
-  .toast {
-    background: white;
-    border-radius: 14px;
-    padding: 12px 16px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    box-shadow: 0 12px 32px rgba(15,23,42,.15);
-    border-left: 4px solid #25D366;
-    transform: translateX(120%);
-    animation: toastIn .35s cubic-bezier(.34,1.56,.64,1) forwards, toastOut .3s ease 2.6s forwards;
-    pointer-events: auto;
-    max-width: 360px;
-  }
-  @keyframes toastIn { to { transform: translateX(0); } }
-  @keyframes toastOut { to { transform: translateX(120%); opacity: 0; } }
-  .toast-icon {
-    width: 36px; height: 36px;
-    background: var(--mint-soft);
-    color: #1a8c66;
-    border-radius: 10px;
-    display: grid; place-items: center;
-    flex-shrink: 0;
-  }
-  .toast-msg strong { font-size: 14px; display: block; }
-  .toast-msg span { font-size: 12px; color: var(--gray-600); }
+/* ===== FOOTER ===== */
+footer {
+  background: var(--ink);
+  color: #7A6A5A;
+  padding: 56px 0 24px;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 36px;
+  margin-bottom: 40px;
+}
+@media (min-width: 700px) { .footer-grid { grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 32px; } }
+.footer-brand .logo { color: white; margin-bottom: 14px; }
+.footer-brand p { font-size: 14px; line-height: 1.7; max-width: 280px; margin-bottom: 18px; }
+.socials { display: flex; gap: 8px; }
+.socials a {
+  width: 36px; height: 36px;
+  background: rgba(255,255,255,.06);
+  border-radius: 8px;
+  display: grid; place-items: center;
+  transition: background .2s;
+  color: white;
+}
+.socials a:hover { background: var(--orange); }
+.footer-col h4 { color: white; font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 700; margin-bottom: 14px; }
+.footer-col ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; }
+.footer-col a { font-size: 14px; color: #5A4A3A; transition: color .2s; }
+.footer-col a:hover { color: white; }
+.footer-info { display: flex; flex-direction: column; gap: 10px; font-size: 14px; }
+.footer-info > div { display: flex; gap: 10px; align-items: flex-start; }
+.footer-info svg { flex-shrink: 0; color: var(--orange); margin-top: 2px; }
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,.06);
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: 13px;
+  color: #3A2A1A;
+}
 
-  /* ========== REVEAL ANIMATION ========== */
-  .reveal {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity .7s ease, transform .7s ease;
-  }
-  .reveal.visible { opacity: 1; transform: translateY(0); }
-  .reveal-stagger > * {
-    opacity: 0;
-    transform: translateY(24px);
-    transition: opacity .6s ease, transform .6s ease;
-  }
-  .reveal-stagger.visible > * { opacity: 1; transform: translateY(0); }
-  .reveal-stagger.visible > *:nth-child(1) { transition-delay: 0s; }
-  .reveal-stagger.visible > *:nth-child(2) { transition-delay: .08s; }
-  .reveal-stagger.visible > *:nth-child(3) { transition-delay: .16s; }
-  .reveal-stagger.visible > *:nth-child(4) { transition-delay: .24s; }
-  .reveal-stagger.visible > *:nth-child(5) { transition-delay: .32s; }
-  .reveal-stagger.visible > *:nth-child(6) { transition-delay: .40s; }
+/* ===== FLOATING WA ===== */
+.wa-float {
+  position: fixed;
+  bottom: 24px; right: 24px;
+  width: 54px; height: 54px;
+  background: #25D366;
+  border-radius: 50%;
+  display: grid; place-items: center;
+  color: white;
+  box-shadow: 0 8px 24px rgba(37,211,102,.4);
+  z-index: 90;
+  transition: transform .2s;
+  animation: waPulse 2.5s infinite;
+}
+.wa-float:hover { transform: scale(1.1); }
+@keyframes waPulse {
+  0%   { box-shadow: 0 8px 24px rgba(37,211,102,.4), 0 0 0 0 rgba(37,211,102,.45); }
+  70%  { box-shadow: 0 8px 24px rgba(37,211,102,.4), 0 0 0 16px rgba(37,211,102,0); }
+  100% { box-shadow: 0 8px 24px rgba(37,211,102,.4), 0 0 0 0 rgba(37,211,102,0); }
+}
 
-  /* ========== NEW KEYFRAMES ========== */
-  @keyframes heroUp {
-    from { opacity: 0; transform: translateY(36px); }
-    to   { opacity: 1; transform: none; }
-  }
-  @keyframes heroIn {
-    from { opacity: 0; transform: translateX(32px) scale(.97); }
-    to   { opacity: 1; transform: none; }
-  }
-  @keyframes popIn {
-    0%   { transform: scale(0) rotate(-10deg); opacity: 0; }
-    70%  { transform: scale(1.14) rotate(2deg); }
-    100% { transform: scale(1) rotate(0); opacity: 1; }
-  }
-  @keyframes shimmerSlide {
-    0%   { background-position: -200% center; }
-    100% { background-position: 200% center; }
-  }
-  @keyframes gradientFlow {
-    0%, 100% { background-position: 0% 50%; }
-    50%       { background-position: 100% 50%; }
-  }
-  @keyframes chipEnter {
-    from { opacity: 0; transform: translateY(14px) scale(.88); }
-    to   { opacity: 1; transform: none; }
-  }
+/* ===== TOAST ===== */
+.toast-stack {
+  position: fixed;
+  bottom: 92px; right: 24px;
+  z-index: 300;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  pointer-events: none;
+}
+@media (max-width: 600px) { .toast-stack { left: 16px; right: 16px; bottom: 86px; } }
+.toast {
+  background: white;
+  border-radius: 12px;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 8px 28px rgba(26,22,17,.12);
+  border-left: 4px solid #25D366;
+  transform: translateX(120%);
+  animation: toastIn .35s cubic-bezier(.34,1.56,.64,1) forwards, toastOut .3s ease 2.6s forwards;
+  pointer-events: auto;
+  max-width: 340px;
+}
+@keyframes toastIn { to { transform: translateX(0); } }
+@keyframes toastOut { to { transform: translateX(120%); opacity: 0; } }
+.toast-icon {
+  width: 32px; height: 32px;
+  background: #E6FAF2;
+  color: #1a8c66;
+  border-radius: 8px;
+  display: grid; place-items: center;
+  flex-shrink: 0;
+}
+.toast-msg strong { font-size: 13px; display: block; }
+.toast-msg span { font-size: 12px; color: var(--muted); }
 
-  /* ========== HERO ENTRANCE (auto-play) ========== */
-  .hero-anim > * {
-    opacity: 0;
-    animation: heroUp .65s ease both;
-  }
-  .hero-anim > *:nth-child(1) { animation-delay: .05s; }
-  .hero-anim > *:nth-child(2) { animation-delay: .17s; }
-  .hero-anim > *:nth-child(3) { animation-delay: .28s; }
-  .hero-anim > *:nth-child(4) { animation-delay: .38s; }
-  .hero-anim > *:nth-child(5) { animation-delay: .48s; }
+/* ===== REVEAL ===== */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-stagger > * { opacity: 0; transform: translateY(20px); transition: opacity .6s ease, transform .6s ease; }
+.reveal-stagger.visible > * { opacity: 1; transform: translateY(0); }
+.reveal-stagger.visible > *:nth-child(1) { transition-delay: 0s; }
+.reveal-stagger.visible > *:nth-child(2) { transition-delay: .08s; }
+.reveal-stagger.visible > *:nth-child(3) { transition-delay: .16s; }
+.reveal-stagger.visible > *:nth-child(4) { transition-delay: .24s; }
 
-  .hero-visual-anim { animation: heroIn .85s .15s ease both; }
+/* ===== HERO ENTRANCE ===== */
+@keyframes heroUp { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: none; } }
+@keyframes heroIn { from { opacity: 0; transform: translateX(24px) scale(.97); } to { opacity: 1; transform: none; } }
+.hero-anim > * { opacity: 0; animation: heroUp .65s ease both; }
+.hero-anim > *:nth-child(1) { animation-delay: .06s; }
+.hero-anim > *:nth-child(2) { animation-delay: .18s; }
+.hero-anim > *:nth-child(3) { animation-delay: .3s; }
+.hero-anim > *:nth-child(4) { animation-delay: .42s; }
+.hero-card-anim { animation: heroIn .85s .15s ease both; }
 
-  /* Chip entrance then hand off to float */
-  .chip-temp    { animation: chipEnter .5s .55s ease both, float 4s 1.1s ease-in-out infinite !important; }
-  .chip-delivery { animation: chipEnter .5s .70s ease both, float 4s 1.6s ease-in-out infinite !important; }
-
-  /* ========== SHIMMER ACCENT TEXT ========== */
-  .hero h1 .accent {
-    background: linear-gradient(120deg, var(--blue) 0%, var(--mint) 40%, var(--blue) 80%);
-    background-size: 200% auto;
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    animation: shimmerSlide 4s linear infinite;
-  }
-
-  /* ========== CTA ANIMATED GRADIENT ========== */
-  .cta-inner {
-    background: linear-gradient(120deg, var(--blue), #2563eb, var(--mint), var(--blue));
-    background-size: 300% 300%;
-    animation: gradientFlow 8s ease infinite;
-  }
-
-  /* ========== TRUST ICON POP ON REVEAL ========== */
-  .trust-grid.reveal-stagger.visible .trust-icon {
-    animation: popIn .45s ease both;
-  }
-  .trust-grid.reveal-stagger.visible > *:nth-child(1) .trust-icon { animation-delay: .05s; }
-  .trust-grid.reveal-stagger.visible > *:nth-child(2) .trust-icon { animation-delay: .16s; }
-  .trust-grid.reveal-stagger.visible > *:nth-child(3) .trust-icon { animation-delay: .27s; }
-  .trust-grid.reveal-stagger.visible > *:nth-child(4) .trust-icon { animation-delay: .38s; }
-
-  /* ========== STEP NUM POP ON REVEAL ========== */
-  .steps-grid.reveal-stagger.visible .step-num {
-    animation: popIn .5s ease both;
-  }
-  .steps-grid.reveal-stagger.visible > *:nth-child(1) .step-num { animation-delay: .12s; }
-  .steps-grid.reveal-stagger.visible > *:nth-child(2) .step-num { animation-delay: .24s; }
-  .steps-grid.reveal-stagger.visible > *:nth-child(3) .step-num { animation-delay: .36s; }
-
-  /* ========== LOGO MARK ROTATE ON HOVER ========== */
-  .logo-mark { transition: transform .4s cubic-bezier(.34,1.56,.64,1), box-shadow .2s; }
-  .logo:hover .logo-mark { transform: rotate(180deg); }
-
-  /* ========== CATEGORY IMG ZOOM ========== */
-  .cat-img img { transition: transform .45s ease; }
-  .cat-card:hover .cat-img img { transform: scale(1.12); }
-
-  /* ========== REDUCED MOTION OVERRIDES ========== */
-  @media (prefers-reduced-motion: reduce) {
-    .hero-anim > * { animation: none !important; opacity: 1; }
-    .hero-visual-anim { animation: none !important; opacity: 1; }
-    .chip-temp, .chip-delivery { animation: none !important; }
-    .hero h1 .accent { animation: none !important; }
-    .cta-inner { animation: none !important; }
-    .trust-grid.reveal-stagger.visible .trust-icon,
-    .steps-grid.reveal-stagger.visible .step-num { animation: none !important; }
-  }
-
+@media (prefers-reduced-motion: reduce) {
+  .hero-anim > *, .hero-card-anim { animation: none !important; opacity: 1; }
+  .wa-float { animation: none !important; }
+}
 </style>
 </head>
 <body>
 
-<!-- ========== NAVBAR ========== -->
+<!-- NAVBAR -->
 <nav class="navbar" id="navbar">
-  <div class="container nav-inner">
-    <a href="#top" class="logo">
-      <span class="logo-mark">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M19.07 4.93L4.93 19.07"/></svg>
-      </span>
-      Frozn
-    </a>
-    <ul class="nav-menu">
-      <li><a href="#kategori">Kategori</a></li>
-      <li><a href="#produk">Produk</a></li>
+  <div class="wrap nav-inner">
+    <a href="#top" class="logo">Froz<em>n</em></a>
+    <ul class="nav-links">
+      <li><a href="#produk" class="active">Dimsum</a></li>
+      <li><a href="#produk">Bakso</a></li>
+      <li><a href="#produk">Nugget</a></li>
+      <li><a href="#produk">Seafood</a></li>
       <li><a href="#cara">Cara Pesan</a></li>
       <li><a href="#testimoni">Testimoni</a></li>
     </ul>
-    <div class="nav-actions">
+    <div class="nav-right">
+      <a href="#" class="nav-search" aria-label="Cari">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+      </a>
       <a href="#" class="nav-wa-btn" id="navWaBtn" target="_blank" rel="noopener">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 6.32A8.78 8.78 0 0 0 11.5 4a8.8 8.8 0 0 0-7.59 13.21L3 22l4.97-.91A8.79 8.79 0 0 0 11.5 22h.01a8.79 8.79 0 0 0 6.09-15.68zM11.5 20.4a7.3 7.3 0 0 1-3.72-1.02l-.27-.16-2.95.54.55-2.87-.18-.29A7.3 7.3 0 1 1 11.5 20.4z"/></svg>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 6.32A8.78 8.78 0 0 0 11.5 4a8.8 8.8 0 0 0-7.59 13.21L3 22l4.97-.91A8.79 8.79 0 0 0 11.5 22h.01a8.79 8.79 0 0 0 6.09-15.68z"/></svg>
         Pesan via WA
       </a>
       <button class="menu-toggle" id="menuToggle" aria-label="Menu" aria-expanded="false">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
       </button>
     </div>
   </div>
   <div class="mobile-nav" id="mobileNav">
     <ul>
-      <li><a href="#kategori">Kategori</a></li>
-      <li><a href="#produk">Produk</a></li>
+      <li><a href="#produk">Dimsum &amp; Bakso</a></li>
+      <li><a href="#produk">Nugget &amp; Seafood</a></li>
       <li><a href="#cara">Cara Pesan</a></li>
       <li><a href="#testimoni">Testimoni</a></li>
     </ul>
   </div>
 </nav>
 
-<!-- ========== HERO ========== -->
+<!-- HERO -->
 <section class="hero" id="top">
-  <div class="container hero-grid">
-    <div class="hero-anim">
-      <div class="hero-eyebrow">
-        <span class="dot"></span>
-        Heat. Eat. Repeat.
-      </div>
-      <h1>Frozen Food Berkualitas, <span class="accent">Sampai Tetap Beku.</span></h1>
-      <p class="lead">Dimsum, bakso, nugget, dan seafood premium yang diantar langsung ke rumah dengan cold chain delivery. Garansi dingin atau uang kembali.</p>
-      <div class="hero-cta">
-        <a href="#produk" class="btn btn-primary">
-          Lihat Produk
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-        <a href="#" class="btn btn-wa" id="heroWaBtn" target="_blank" rel="noopener">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 6.32A8.78 8.78 0 0 0 11.5 4a8.8 8.8 0 0 0-7.59 13.21L3 22l4.97-.91A8.79 8.79 0 0 0 11.5 22h.01a8.79 8.79 0 0 0 6.09-15.68zM11.5 20.4a7.3 7.3 0 0 1-3.72-1.02l-.27-.16-2.95.54.55-2.87-.18-.29A7.3 7.3 0 1 1 11.5 20.4z"/></svg>
-          Chat WhatsApp
-        </a>
-      </div>
-      <div class="hero-stats">
-        <div class="stat"><strong>15K+</strong><span>Pelanggan puas</span></div>
-        <div class="stat"><strong>4.9★</strong><span>Rating produk</span></div>
-        <div class="stat"><strong>-18°C</strong><span>Suhu pengiriman</span></div>
-      </div>
-    </div>
-    <div class="hero-visual hero-visual-anim">
-      <div class="hero-img-wrap hero-img-main">
-        <img src="https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=800&q=80" alt="Frozen food premium" />
-      </div>
-      <div class="hero-chip chip-temp">
-        <span class="icon-box">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M4.93 4.93l14.14 14.14M19.07 4.93L4.93 19.07M2 12h20"/></svg>
-        </span>
-        <div>
-          <div style="font-size:11px;color:#94a3b8;font-weight:500;">Suhu</div>
-          -18°C terjaga
+  <div class="hero-tabs" role="tablist">
+    <button class="hero-tab active" role="tab" aria-selected="true" data-tab="0">
+      <span class="tab-num">01</span>
+      Terlaris Minggu Ini
+    </button>
+    <button class="hero-tab" role="tab" aria-selected="false" data-tab="1">
+      <span class="tab-num">02</span>
+      Promo Cold Pack
+    </button>
+    <button class="hero-tab" role="tab" aria-selected="false" data-tab="2">
+      <span class="tab-num">03</span>
+      Bundel Keluarga
+    </button>
+  </div>
+  <div class="wrap">
+    <div class="hero-body">
+      <div class="hero-content hero-anim">
+        <div class="hero-tag">Frozen Food Premium</div>
+        <h1>Dimsum <em>Mentai</em><br>yang Selalu<br>Kehabisan.</h1>
+        <p class="hero-desc">Kulit tipis, isian penuh, topping mayo mentai yang meleleh. Dikukus dalam 15 menit — makan malam beres tanpa repot.</p>
+        <div class="hero-author-row">
+          <span class="hero-author-name">Rekomendasi Frozn</span>
+          <span class="author-sep"></span>
+          <span>127 ulasan</span>
+          <div class="hero-count">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            127
+          </div>
         </div>
       </div>
-      <div class="hero-chip chip-delivery">
-        <span class="icon-box">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-        </span>
-        <div>
-          <div style="font-size:11px;color:#94a3b8;font-weight:500;">Pengiriman</div>
-          Same day Jakarta
+      <div class="hero-card hero-card-anim">
+        <img src="https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=800&q=80" alt="Dimsum Mentai Premium" />
+        <div class="hero-card-overlay"></div>
+        <div class="hero-card-bottom">
+          <div class="card-meta-pill">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            15 mnt
+          </div>
+          <div class="card-meta-pill">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M4.93 4.93l14.14 14.14M19.07 4.93L4.93 19.07M2 12h20"/></svg>
+            210 kal
+          </div>
+          <div class="card-counter">01/04</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ========== TRUST BAR ========== -->
-<section class="trust" style="padding: 32px 0;">
-  <div class="container">
-    <div class="trust-grid reveal-stagger">
-      <div class="trust-item">
-        <div class="trust-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M4.93 4.93l14.14 14.14M19.07 4.93L4.93 19.07M2 12h20"/></svg>
-        </div>
-        <div>
-          <h4>Cold Chain</h4>
-          <p>Dingin terjaga dari gudang sampai rumah</p>
-        </div>
-      </div>
-      <div class="trust-item">
-        <div class="trust-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9 9 4.03 9 9z"/></svg>
-        </div>
-        <div>
-          <h4>BPOM & Halal</h4>
-          <p>Tersertifikasi resmi & terjamin</p>
+<!-- EDITORIAL / PRODUK PILIHAN -->
+<section class="editorial-section" id="produk">
+  <div class="wrap">
+    <div class="section-bar reveal">
+      <span class="section-bar-title">Produk Pilihan &amp; Best Seller</span>
+      <div class="section-bar-counter">
+        <span>01/03</span>
+        <div class="counter-nav">
+          <button aria-label="Sebelumnya">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <button aria-label="Berikutnya">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+          </button>
         </div>
       </div>
-      <div class="trust-item">
-        <div class="trust-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        </div>
+    </div>
+
+    <div class="editorial-grid reveal-stagger">
+      <!-- Quote card -->
+      <div class="ed-card ed-quote">
         <div>
-          <h4>Same Day</h4>
-          <p>Order sebelum 12 siang, sampai hari ini</p>
+          <span class="quote-mark">"</span>
+          <blockquote>Kenapa harus masak dari nol kalau bisa enak dalam 15 menit?</blockquote>
         </div>
+        <div class="quote-author">Tim Frozn</div>
       </div>
-      <div class="trust-item">
-        <div class="trust-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+
+      <!-- Product card 1 -->
+      <a href="#" class="ed-card" id="edCard1" target="_blank" rel="noopener">
+        <div class="ed-img-wrap">
+          <img src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?w=600&q=80" alt="Bakso Sapi Jumbo" loading="lazy" />
         </div>
-        <div>
-          <h4>Garansi Freshness</h4>
-          <p>Tidak fresh, uang kembali</p>
+        <div class="ed-body">
+          <h3>Bakso Sapi Urat Jumbo — isi 15 pcs, daging pilihan, kenyal &amp; juicy.</h3>
+          <p>Daging sapi grade A, rebus 10 menit, siap santap dengan kuah kaldu.</p>
+          <div class="ed-meta">
+            <span class="ed-price">Rp 48.000</span>
+            <div class="ed-reactions">
+              <span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style="color:#F5A623"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                4.8
+              </span>
+              <span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                89
+              </span>
+            </div>
+          </div>
         </div>
-      </div>
+      </a>
+
+      <!-- Product card 2 -->
+      <a href="#" class="ed-card" id="edCard2" target="_blank" rel="noopener">
+        <div class="ed-img-wrap">
+          <img src="https://images.unsplash.com/photo-1565680018434-b513d5e5fd47?w=600&q=80" alt="Udang Vannamei" loading="lazy" />
+        </div>
+        <div class="ed-body">
+          <h3>Udang Vannamei Peeled — 500gr, ukuran 31/40, tanpa kepala.</h3>
+          <p>Sudah dikupas bersih, tinggal masak — tumis, goreng, atau saus tiram.</p>
+          <div class="ed-meta">
+            <span class="ed-price">Rp 89.000</span>
+            <div class="ed-reactions">
+              <span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style="color:#F5A623"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                4.9
+              </span>
+              <span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                63
+              </span>
+            </div>
+          </div>
+        </div>
+      </a>
     </div>
   </div>
 </section>
 
-<!-- ========== CATEGORIES ========== -->
-<section class="categories" id="kategori">
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="section-eyebrow">Kategori</span>
-      <h2>Pilih sesuai selera</h2>
-      <p>Dari dimsum hangat sampai seafood segar, semua siap dimasak dalam 5 menit.</p>
+<!-- ALL PRODUCTS GRID -->
+<section class="products-section">
+  <div class="wrap">
+    <div class="products-header reveal">
+      <h2>Semua Produk</h2>
+      <a href="#produk" class="view-all">Lihat semua →</a>
     </div>
-    <div class="cat-grid reveal-stagger">
-      <a class="cat-card" href="#produk">
-        <div class="cat-img"><img src="https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=300&q=80" alt="Dimsum" /></div>
-        <h3>Dimsum</h3>
-        <span>12 varian</span>
-      </a>
-      <a class="cat-card" href="#produk">
-        <div class="cat-img"><img src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?w=300&q=80" alt="Bakso" /></div>
-        <h3>Bakso</h3>
-        <span>8 varian</span>
-      </a>
-      <a class="cat-card" href="#produk">
-        <div class="cat-img"><img src="https://images.unsplash.com/photo-1562967914-608f82629710?w=300&q=80" alt="Nugget" /></div>
-        <h3>Nugget</h3>
-        <span>10 varian</span>
-      </a>
-      <a class="cat-card" href="#produk">
-        <div class="cat-img"><img src="https://images.unsplash.com/photo-1565680018434-b513d5e5fd47?w=300&q=80" alt="Seafood" /></div>
-        <h3>Seafood</h3>
-        <span>15 varian</span>
-      </a>
-    </div>
+    <div class="prod-grid reveal-stagger" id="productsGrid"></div>
   </div>
 </section>
 
-<!-- ========== PRODUCTS ========== -->
-<section id="produk">
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="section-eyebrow">Best Seller</span>
-      <h2>Produk paling laris minggu ini</h2>
-      <p>Dipilih ribuan pelanggan setia kami di seluruh Jabodetabek.</p>
+<!-- CTA BANNERS -->
+<div class="wrap">
+  <div class="cta-banners reveal-stagger">
+    <div class="cta-banner banner-green">
+      <img class="banner-bg" src="https://images.unsplash.com/photo-1607631568010-a87245c0daf8?w=500&q=80" alt="" aria-hidden="true" />
+      <h3>Daftar member,<br>hemat setiap bulan.</h3>
+      <a href="#" class="banner-btn" id="bannerWa1">
+        Gabung Sekarang
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
     </div>
-    <div class="products-grid reveal-stagger" id="productsGrid">
-      <!-- Diisi via JS -->
+    <div class="cta-banner banner-warm">
+      <img class="banner-bg" src="https://images.unsplash.com/photo-1562967914-608f82629710?w=500&q=80" alt="" aria-hidden="true" />
+      <h3>Paket keluarga<br>mulai Rp 150rb.</h3>
+      <a href="#produk" class="banner-btn">
+        Lihat Paket
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
     </div>
   </div>
-</section>
+</div>
 
-<!-- ========== STEPS ========== -->
-<section class="steps" id="cara">
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="section-eyebrow">Cara Pesan</span>
-      <h2>3 langkah, sampai depan pintu</h2>
-      <p>Proses pemesanan yang simpel, transparan, dan terjamin.</p>
+<!-- HOW TO ORDER -->
+<section class="how-section" id="cara">
+  <div class="wrap">
+    <div class="how-header reveal">
+      <h2>3 langkah,<br>sampai depan pintu.</h2>
+      <p>Order sebelum jam 12 siang, sampai hari ini. Semua dikemas beku &amp; terjamin.</p>
     </div>
-    <div class="steps-grid reveal-stagger">
-      <div class="step-card">
-        <div class="step-num">1</div>
+    <div class="how-grid reveal-stagger">
+      <div class="how-step">
+        <div class="how-num">01</div>
         <h3>Pesan via WA</h3>
-        <p>Klik tombol "Pesan via WhatsApp" di produk pilihan Anda. Detail otomatis tertulis di chat.</p>
+        <p>Klik tombol di produk pilihan. Detail pesanan otomatis tertulis di chat WhatsApp.</p>
       </div>
-      <div class="step-card">
-        <div class="step-num">2</div>
-        <h3>Dikemas</h3>
-        <p>Produk dikemas rapi dalam styrofoam khusus dengan dry ice agar tetap beku selama perjalanan.</p>
+      <div class="how-step">
+        <div class="how-num">02</div>
+        <h3>Dikemas Beku</h3>
+        <p>Styrofoam khusus + dry ice. Suhu -18°C dijaga dari gudang sampai depan rumah.</p>
       </div>
-      <div class="step-card">
-        <div class="step-num">3</div>
-        <h3>Diterima</h3>
-        <p>Kurir cold chain kami mengantar langsung ke rumah Anda — masih beku, siap masuk freezer.</p>
+      <div class="how-step">
+        <div class="how-num">03</div>
+        <h3>Terima &amp; Simpan</h3>
+        <p>Kurir cold chain mengantarkan langsung. Masih beku sempurna, masuk freezer.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ========== TESTIMONIALS ========== -->
-<section id="testimoni">
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="section-eyebrow">Testimoni</span>
-      <h2>Apa kata pelanggan Frozn</h2>
-      <p>Ribuan keluarga sudah merasakan praktisnya stok frozen food premium di rumah.</p>
+<!-- TESTIMONIALS -->
+<section class="testi-section" id="testimoni">
+  <div class="wrap">
+    <div class="testi-header reveal">
+      <div class="testi-eyebrow">Testimoni Pelanggan</div>
+      <h2>Ribuan keluarga sudah puas.</h2>
     </div>
     <div class="testi-grid reveal-stagger">
       <div class="testi-card">
-        <div class="stars">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <div class="testi-stars">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
         </div>
         <p class="testi-text">"Dimsum-nya beneran kayak di restoran! Sampai rumah masih beku banget. Anak-anak tiap pagi minta diukus terus."</p>
-        <div class="testi-author">
+        <div class="testi-author-row">
           <div class="testi-avatar">SR</div>
-          <div>
-            <strong>Sarah Ramadhani</strong>
-            <span>Jakarta Selatan</span>
-          </div>
+          <div><strong>Sarah Ramadhani</strong><span>Jakarta Selatan</span></div>
         </div>
       </div>
       <div class="testi-card">
-        <div class="stars">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <div class="testi-stars">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
         </div>
         <p class="testi-text">"Udang vannamei-nya gede-gede dan masih segar. Bumbu nugget-nya juga pas, nggak terlalu asin. Langganan tiap bulan!"</p>
-        <div class="testi-author">
+        <div class="testi-author-row">
           <div class="testi-avatar">BW</div>
-          <div>
-            <strong>Budi Wijaya</strong>
-            <span>Tangerang</span>
-          </div>
+          <div><strong>Budi Wijaya</strong><span>Tangerang</span></div>
         </div>
       </div>
       <div class="testi-card">
-        <div class="stars">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <div class="testi-stars">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
         </div>
-        <p class="testi-text">"Pengirimannya cepet, packaging-nya rapih banget pake dry ice. Bakso urat-nya juicy, nggak ada rasa amis sama sekali. Recommended!"</p>
-        <div class="testi-author">
+        <p class="testi-text">"Pengirimannya cepet, packaging-nya rapih banget pake dry ice. Bakso urat-nya juicy, nggak ada rasa amis. Recommended!"</p>
+        <div class="testi-author-row">
           <div class="testi-avatar">DK</div>
-          <div>
-            <strong>Dewi Kartika</strong>
-            <span>Depok</span>
-          </div>
+          <div><strong>Dewi Kartika</strong><span>Depok</span></div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ========== CTA BANNER ========== -->
-<section class="cta-banner">
-  <div class="container">
-    <div class="cta-inner reveal">
-      <h2>Gratis ongkir di atas Rp150rb</h2>
-      <p>Khusus area Jabodetabek. Pesan sekarang dan nikmati pengiriman cold chain tanpa biaya tambahan.</p>
-      <a href="#produk" class="btn btn-primary">
-        Lihat Produk
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ========== FOOTER ========== -->
+<!-- FOOTER -->
 <footer>
-  <div class="container">
+  <div class="wrap">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a href="#top" class="logo">
-          <span class="logo-mark">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M19.07 4.93L4.93 19.07"/></svg>
-          </span>
-          Frozn
-        </a>
+        <a href="#top" class="logo">Froz<em>n</em></a>
         <p>Heat. Eat. Repeat. Frozen food premium dengan cold chain delivery untuk keluarga Indonesia.</p>
         <div class="socials">
-          <a href="#" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
-          <a href="#" aria-label="TikTok"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43V8.39a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.84-.16z"/></svg></a>
-          <a href="#" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
-          <a href="#" aria-label="WhatsApp"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 6.32A8.78 8.78 0 0 0 11.5 4a8.8 8.8 0 0 0-7.59 13.21L3 22l4.97-.91A8.79 8.79 0 0 0 11.5 22h.01a8.79 8.79 0 0 0 6.09-15.68z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+          <a href="#" aria-label="TikTok"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64c.3 0 .59.05.88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43V8.39a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.84-.16z"/></svg></a>
+          <a href="#" aria-label="WhatsApp"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 6.32A8.78 8.78 0 0 0 11.5 4a8.8 8.8 0 0 0-7.59 13.21L3 22l4.97-.91A8.79 8.79 0 0 0 11.5 22h.01a8.79 8.79 0 0 0 6.09-15.68z"/></svg></a>
         </div>
       </div>
       <div class="footer-col">
@@ -1232,7 +1188,6 @@
           <li><a href="#">FAQ</a></li>
           <li><a href="#cara">Cara Pesan</a></li>
           <li><a href="#">Kebijakan Privasi</a></li>
-          <li><a href="#">Syarat & Ketentuan</a></li>
           <li><a href="#">Hubungi Kami</a></li>
         </ul>
       </div>
@@ -1240,15 +1195,15 @@
         <h4>Info Pengiriman</h4>
         <div class="footer-info">
           <div>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
             <span>Same day Jabodetabek</span>
           </div>
           <div>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            <span>Senin – Sabtu, 08.00 – 20.00</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span>Senin – Sabtu, 08.00–20.00</span>
           </div>
           <div>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
             <span>Gudang: Jakarta Timur</span>
           </div>
         </div>
@@ -1261,202 +1216,114 @@
   </div>
 </footer>
 
-<!-- ========== FLOATING WA ========== -->
+<!-- FLOATING WA -->
 <a href="#" class="wa-float" id="floatWaBtn" aria-label="Chat WhatsApp" target="_blank" rel="noopener">
-  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 6.32A8.78 8.78 0 0 0 11.5 4a8.8 8.8 0 0 0-7.59 13.21L3 22l4.97-.91A8.79 8.79 0 0 0 11.5 22h.01a8.79 8.79 0 0 0 6.09-15.68zM11.5 20.4a7.3 7.3 0 0 1-3.72-1.02l-.27-.16-2.95.54.55-2.87-.18-.29A7.3 7.3 0 1 1 11.5 20.4z"/></svg>
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 6.32A8.78 8.78 0 0 0 11.5 4a8.8 8.8 0 0 0-7.59 13.21L3 22l4.97-.91A8.79 8.79 0 0 0 11.5 22h.01a8.79 8.79 0 0 0 6.09-15.68zM11.5 20.4a7.3 7.3 0 0 1-3.72-1.02l-.27-.16-2.95.54.55-2.87-.18-.29A7.3 7.3 0 1 1 11.5 20.4z"/></svg>
 </a>
 
-<!-- ========== TOAST CONTAINER ========== -->
 <div class="toast-stack" id="toastStack"></div>
 
 <script>
-  // ========== CONFIG ==========
-  const WA_NUMBER = "6281234567890"; // ganti dengan nomor WhatsApp Frozn
+const WA_NUMBER = "6281234567890";
 
-  // ========== DATA ==========
-  const products = [
-    {
-      id: 1,
-      name: "Dimsum Mentai Premium",
-      desc: "Isi 20 pcs, topping mayo mentai, siap kukus",
-      price: 65000,
-      oldPrice: 75000,
-      img: "https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=400&q=80",
-      tag: "HOT"
-    },
-    {
-      id: 2,
-      name: "Bakso Sapi Urat Jumbo",
-      desc: "Isi 15 pcs, daging sapi pilihan, kenyal & juicy",
-      price: 48000,
-      oldPrice: null,
-      img: "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?w=400&q=80",
-      tag: null
-    },
-    {
-      id: 3,
-      name: "Chicken Nugget Crispy",
-      desc: "500gr, ayam fillet 100%, tanpa pengawet",
-      price: 42000,
-      oldPrice: 50000,
-      img: "https://images.unsplash.com/photo-1562967914-608f82629710?w=400&q=80",
-      tag: "NEW"
-    },
-    {
-      id: 4,
-      name: "Udang Vannamei Peeled",
-      desc: "500gr, ukuran 31/40, sudah dikupas bersih",
-      price: 89000,
-      oldPrice: null,
-      img: "https://images.unsplash.com/photo-1565680018434-b513d5e5fd47?w=400&q=80",
-      tag: "HOT"
-    }
-  ];
+const products = [
+  { id:1, name:"Dimsum Mentai Premium", desc:"Isi 20 pcs, topping mayo mentai, siap kukus", price:65000, oldPrice:75000, img:"https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=400&q=80", tag:"HOT" },
+  { id:2, name:"Bakso Sapi Urat Jumbo", desc:"Isi 15 pcs, daging sapi pilihan, kenyal & juicy", price:48000, oldPrice:null, img:"https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?w=400&q=80", tag:null },
+  { id:3, name:"Chicken Nugget Crispy", desc:"500gr, ayam fillet 100%, tanpa pengawet", price:42000, oldPrice:50000, img:"https://images.unsplash.com/photo-1562967914-608f82629710?w=400&q=80", tag:"NEW" },
+  { id:4, name:"Udang Vannamei Peeled", desc:"500gr, ukuran 31/40, sudah dikupas bersih", price:89000, oldPrice:null, img:"https://images.unsplash.com/photo-1565680018434-b513d5e5fd47?w=400&q=80", tag:"HOT" },
+];
 
-  const fmt = (n) => "Rp " + n.toLocaleString('id-ID');
+const fmt = n => "Rp " + n.toLocaleString('id-ID');
 
-  // ========== BUILD WA LINKS ==========
-  function buildProductWaLink(p) {
-    const msg = `Halo Frozn 👋
+function buildWaLink(p) {
+  const msg = p
+    ? `Halo Frozn 👋\n\nSaya tertarik untuk pesan:\n*${p.name}*\n${p.desc}\nHarga: ${fmt(p.price)}\n\nApakah masih tersedia? Terima kasih! 🙏`
+    : `Halo Frozn 👋\n\nSaya ingin tanya-tanya seputar produk frozen food. Mohon dibantu. Terima kasih!`;
+  return `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`;
+}
 
-Saya tertarik untuk pesan:
-*${p.name}*
-${p.desc}
-Harga: ${fmt(p.price)}
+const generalLink = buildWaLink(null);
+document.getElementById('navWaBtn').href = generalLink;
+document.getElementById('floatWaBtn').href = generalLink;
+document.getElementById('bannerWa1').href = generalLink;
+document.getElementById('edCard1').href = buildWaLink(products[1]);
+document.getElementById('edCard2').href = buildWaLink(products[3]);
 
-Apakah produk ini masih tersedia? Mohon info detailnya ya. Terima kasih! 🙏`;
-    return `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`;
-  }
-
-  function buildGeneralWaLink() {
-    const msg = `Halo Frozn 👋
-
-Saya ingin tanya-tanya seputar produk frozen food yang tersedia. Mohon dibantu ya. Terima kasih!`;
-    return `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`;
-  }
-
-  // set general WA links
-  document.getElementById('navWaBtn').href = buildGeneralWaLink();
-  document.getElementById('heroWaBtn').href = buildGeneralWaLink();
-  document.getElementById('floatWaBtn').href = buildGeneralWaLink();
-
-  // ========== RENDER PRODUCTS ==========
-  const grid = document.getElementById('productsGrid');
-  grid.innerHTML = products.map(p => `
-    <article class="product-card">
-      <div class="product-img-wrap">
-        ${p.tag ? `<span class="product-tag ${p.tag === 'HOT' ? 'hot' : p.tag === 'NEW' ? 'new' : ''}">${p.tag}</span>` : ''}
-        <img src="${p.img}" alt="${p.name}" loading="lazy" />
+// Render product grid
+document.getElementById('productsGrid').innerHTML = products.map(p => `
+  <article class="prod-card">
+    <div class="prod-img">
+      ${p.tag ? `<span class="prod-badge badge-${p.tag.toLowerCase()}">${p.tag}</span>` : ''}
+      <img src="${p.img}" alt="${p.name}" loading="lazy" />
+    </div>
+    <div class="prod-body">
+      <h3>${p.name}</h3>
+      <p>${p.desc}</p>
+      <div class="prod-price">
+        ${p.oldPrice ? `<small>${fmt(p.oldPrice)}</small>` : ''}
+        ${fmt(p.price)}
       </div>
-      <div class="product-body">
-        <h3>${p.name}</h3>
-        <p class="product-desc">${p.desc}</p>
-        <div class="product-price">
-          ${p.oldPrice ? `<small>${fmt(p.oldPrice)}</small>` : ''}
-          ${fmt(p.price)}
-        </div>
-        <a href="${buildProductWaLink(p)}" target="_blank" rel="noopener" class="order-btn" data-product="${p.name}">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 6.32A8.78 8.78 0 0 0 11.5 4a8.8 8.8 0 0 0-7.59 13.21L3 22l4.97-.91A8.79 8.79 0 0 0 11.5 22h.01a8.79 8.79 0 0 0 6.09-15.68z"/></svg>
-          Pesan via WhatsApp
-        </a>
-      </div>
-    </article>
-  `).join('');
+      <a href="${buildWaLink(p)}" target="_blank" rel="noopener" class="order-btn" data-product="${p.name}">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 6.32A8.78 8.78 0 0 0 11.5 4a8.8 8.8 0 0 0-7.59 13.21L3 22l4.97-.91A8.79 8.79 0 0 0 11.5 22h.01a8.79 8.79 0 0 0 6.09-15.68z"/></svg>
+        Pesan via WA
+      </a>
+    </div>
+  </article>
+`).join('');
 
-  // toast on order click
-  grid.addEventListener('click', (e) => {
-    const btn = e.target.closest('.order-btn');
-    if (!btn) return;
-    showToast(btn.dataset.product);
-  });
+// Toast
+const toastStack = document.getElementById('toastStack');
+function showToast(name) {
+  const t = document.createElement('div');
+  t.className = 'toast';
+  t.innerHTML = `<div class="toast-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 6.32A8.78 8.78 0 0 0 11.5 4a8.8 8.8 0 0 0-7.59 13.21L3 22l4.97-.91A8.79 8.79 0 0 0 11.5 22h.01a8.79 8.79 0 0 0 6.09-15.68z"/></svg></div><div class="toast-msg"><strong>Mengarahkan ke WhatsApp…</strong><span>${name}</span></div>`;
+  toastStack.appendChild(t);
+  setTimeout(() => t.remove(), 3000);
+}
+document.getElementById('productsGrid').addEventListener('click', e => {
+  const btn = e.target.closest('.order-btn');
+  if (btn) showToast(btn.dataset.product);
+});
 
-  // ========== TOAST ==========
-  const toastStack = document.getElementById('toastStack');
-  function showToast(productName) {
-    const toast = document.createElement('div');
-    toast.className = 'toast';
-    toast.innerHTML = `
-      <div class="toast-icon">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 6.32A8.78 8.78 0 0 0 11.5 4a8.8 8.8 0 0 0-7.59 13.21L3 22l4.97-.91A8.79 8.79 0 0 0 11.5 22h.01a8.79 8.79 0 0 0 6.09-15.68z"/></svg>
-      </div>
-      <div class="toast-msg">
-        <strong>Mengarahkan ke WhatsApp…</strong>
-        <span>${productName}</span>
-      </div>
-    `;
-    toastStack.appendChild(toast);
-    setTimeout(() => toast.remove(), 3000);
-  }
+// Navbar scroll shadow
+window.addEventListener('scroll', () =>
+  document.getElementById('navbar').style.boxShadow =
+    window.scrollY > 10 ? '0 2px 12px rgba(26,22,17,.07)' : ''
+);
 
-  // ========== NAVBAR SCROLL ==========
-  const navbar = document.getElementById('navbar');
-  window.addEventListener('scroll', () => {
-    navbar.classList.toggle('scrolled', window.scrollY > 10);
-  });
-
-  // ========== MOBILE NAV ==========
-  const menuToggle = document.getElementById('menuToggle');
-  const mobileNav = document.getElementById('mobileNav');
-  menuToggle.addEventListener('click', (e) => {
-    e.stopPropagation();
-    const isOpen = mobileNav.classList.toggle('open');
-    menuToggle.setAttribute('aria-expanded', isOpen);
-  });
-  mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+// Mobile nav toggle
+const menuToggle = document.getElementById('menuToggle');
+const mobileNav = document.getElementById('mobileNav');
+menuToggle.addEventListener('click', e => {
+  e.stopPropagation();
+  const open = mobileNav.classList.toggle('open');
+  menuToggle.setAttribute('aria-expanded', open);
+});
+mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  mobileNav.classList.remove('open');
+  menuToggle.setAttribute('aria-expanded', 'false');
+}));
+document.addEventListener('click', e => {
+  if (!mobileNav.contains(e.target) && !menuToggle.contains(e.target)) {
     mobileNav.classList.remove('open');
     menuToggle.setAttribute('aria-expanded', 'false');
-  }));
-  // close on outside click
-  document.addEventListener('click', (e) => {
-    if (!mobileNav.contains(e.target) && !menuToggle.contains(e.target)) {
-      mobileNav.classList.remove('open');
-      menuToggle.setAttribute('aria-expanded', 'false');
-    }
-  });
-
-  // ========== STAT COUNTER ==========
-  function animateStat(el, raw) {
-    const neg = raw.startsWith('-');
-    const num = parseFloat(raw.replace(/[^0-9.]/g, ''));
-    const suffix = raw.replace(/^-?[\d.]+/, '');
-    const dur = 1400;
-    const t0 = performance.now();
-    function tick(now) {
-      const prog = Math.min((now - t0) / dur, 1);
-      const eased = 1 - Math.pow(1 - prog, 3);
-      const val = num * eased;
-      el.textContent = (neg ? '-' : '') + (Number.isInteger(num) ? Math.round(val) : val.toFixed(1)) + suffix;
-      if (prog < 1) requestAnimationFrame(tick);
-    }
-    requestAnimationFrame(tick);
   }
+});
 
-  const statsIO = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (!e.isIntersecting) return;
-      statsIO.unobserve(e.target);
-      e.target.querySelectorAll('.stat strong').forEach((el, i) => {
-        const raw = el.textContent.trim();
-        setTimeout(() => animateStat(el, raw), i * 160);
-      });
-    });
-  }, { threshold: 0.6 });
+// Hero tabs
+document.querySelectorAll('.hero-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.hero-tab').forEach(t => { t.classList.remove('active'); t.setAttribute('aria-selected','false'); });
+    tab.classList.add('active');
+    tab.setAttribute('aria-selected','true');
+  });
+});
 
-  const heroStats = document.querySelector('.hero-stats');
-  if (heroStats) statsIO.observe(heroStats);
-
-  // ========== REVEAL ON SCROLL ==========
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-        io.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.12, rootMargin: '0px 0px -50px 0px' });
-
-  document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => io.observe(el));
+// Reveal on scroll
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+}, { threshold: 0.1, rootMargin: '0px 0px -36px 0px' });
+document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => io.observe(el));
 </script>
-
 </body>
 </html>
