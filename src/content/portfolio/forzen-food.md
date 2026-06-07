@@ -10,7 +10,10 @@ buyUrl: "https://roha.mayar.id/frozen-food-template"
 previewPath: "forzen-food"
 pattern: "pat-stripe"
 images:
-  - "https://ik.imagekit.io/gorat/myasnbkn.avif?updatedAt=1779433713313"
+  - "https://ik.imagekit.io/gorat/frozn/image-(1).avif"
+  - "https://ik.imagekit.io/gorat/frozn/image-(2).avif"
+  - "https://ik.imagekit.io/gorat/frozn/image-(3).avif"
+  - "https://ik.imagekit.io/gorat/frozn/image-(4).avif"
 order: 2
 publishedAt: 2026-02-10
 draft: false
