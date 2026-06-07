@@ -8,10 +8,9 @@ year: 2026
 client: "Roha"
 concept: false
 pattern: "pat-grid"
-coverImage: "https://ik.imagekit.io/gorat/eca-car-rental/rent-car-ss.avif"
+coverImage: "https://ik.imagekit.io/gorat/rohaworks/designsystem/image-cover.avif"
 images:
-  - "https://ik.imagekit.io/gorat/eca-car-rental/rent-car-ss.avif"
-  - "https://ik.imagekit.io/gorat/eca-car-rental/rent-car-ss.avif"
+  - "https://ik.imagekit.io/gorat/rohaworks/designsystem/image-cover.avif"
 order: 1
 draft: false
 visibility: show
