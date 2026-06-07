@@ -15,6 +15,7 @@ images:
   - "https://ik.imagekit.io/gorat/apm/img-4.avif"
 order: 9
 draft: false
+visibility: show
 publishedAt: 2026-05-10
 ---
 

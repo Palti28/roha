@@ -15,6 +15,7 @@ images:
   - "https://ik.imagekit.io/gorat/rohaworks/loka/loka-img-(1).avif"
 order: 3
 draft: false
+visibility: show
 publishedAt: 2026-04-12
 ---
 

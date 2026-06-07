@@ -14,6 +14,7 @@ images:
 pattern: "pat-grain"
 order: 12
 draft: false
+visibility: show
 publishedAt: 2026-05-26
 ---
 

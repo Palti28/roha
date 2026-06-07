@@ -15,6 +15,7 @@ images:
   - "https://ik.imagekit.io/gorat/tao-coffee/image-4.avif"
 order: 10
 draft: false
+visibility: show
 publishedAt: 2026-05-20
 ---
 

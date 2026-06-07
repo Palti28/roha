@@ -17,6 +17,7 @@ images:
   - "https://ik.imagekit.io/gorat/rohaworks/mysapk/image-(4).avif"
 order: 4
 draft: false
+visibility: show
 publishedAt: 2026-06-01
 ---
 

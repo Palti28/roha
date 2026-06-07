@@ -11,7 +11,7 @@ import { creativeWorkSchema } from '../../utils/schema';
 import { site } from '../../data/site';
 
 export async function getStaticPaths() {
-  const entries = (await getCollection('work', ({ data }) => !data.draft))
+  const entries = (await getCollection('work', ({ data }) => data.visibility !== 'hide' && !data.draft))
     .sort((a, b) => a.data.order - b.data.order);
 
   return entries.map((entry, i) => ({
