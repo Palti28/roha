@@ -14,7 +14,7 @@ images:
 order: 3
 publishedAt: 2026-03-05
 draft: false
-visibility: show
+visibility: hide
 ---
 
 ### 01 — What it is
