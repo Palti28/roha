@@ -5,1204 +5,1108 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Balige Homestay — Sewa Rumah Privat di Toba</title>
 <meta name="description" content="Sewa rumah privat lengkap di Balige, Toba. 2 pilihan rumah, parkir luas, dapur lengkap, dekat Pantai Lumban Bulbul. Pesan via WhatsApp." />
+
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
 <style>
 :root {
-  --bg:        #FFFFFF;
-  --bg-soft:   #F8F8F6;
-  --bg-alt:    #F2F1EE;
-  --ink:       #18181B;
-  --ink-soft:  #52525B;
-  --muted:     #A1A1AA;
-  --line:      #E4E4E7;
-  --line-soft: #F0F0F0;
-  --accent:    #18181B;
-  --accent-dk: #000000;
-  --accent-bg: #F4F4F5;
+  --olive-dk:  #1A1E0C;
+  --olive:     #353D18;
+  --olive-md:  #4D5826;
+  --gold:      #B8913A;
+  --gold-lt:   #D4A84E;
+  --cream:     #F8F5EE;
+  --cream-2:   #EFE9DC;
   --white:     #FFFFFF;
-  --green-wa:  #25D366;
-
-  --shadow-xs: 0 1px 3px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);
-  --shadow-sm: 0 2px 8px rgba(0,0,0,.06), 0 4px 16px rgba(0,0,0,.04);
-  --shadow-md: 0 8px 24px rgba(0,0,0,.08), 0 2px 8px rgba(0,0,0,.04);
-  --shadow-lg: 0 20px 48px rgba(0,0,0,.10), 0 4px 16px rgba(0,0,0,.06);
-
-  --r-sm:  8px;
-  --r-md:  12px;
-  --r-lg:  20px;
-  --r-xl:  28px;
-
-  --serif: 'Fraunces', Georgia, serif;
-  --sans:  'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --ink:       #1A1C12;
+  --muted:     #6B6550;
+  --rule:      #DDD8CC;
+  --wa:        #25D366;
+  --serif:     'Cormorant Garamond', Georgia, serif;
+  --sans:      'Inter', system-ui, sans-serif;
 }
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 76px;
-}
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto !important; }
-  * { transition: none !important; animation: none !important; }
-}
-
-body {
-  font-family: var(--sans);
-  background: var(--bg);
-  color: var(--ink);
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
-}
-
+html { scroll-behavior: smooth; scroll-padding-top: 74px; -webkit-tap-highlight-color: transparent; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto !important; } * { transition: none !important; animation: none !important; } }
+body { font-family: var(--sans); background: var(--white); color: var(--ink); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
 img { display: block; max-width: 100%; }
 a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
 
-/* ========== LAYOUT ========== */
-.wrap {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 24px;
+.wrap { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+/* ===== BUTTONS ===== */
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--olive); color: var(--white);
+  font-size: 14px; font-weight: 500;
+  padding: 13px 26px; border-radius: 4px;
+  transition: background .2s, transform .2s;
 }
+.btn-primary:hover { background: var(--olive-md); transform: translateY(-2px); }
+.btn-outline {
+  display: inline-flex; align-items: center; gap: 8px;
+  border: 1.5px solid var(--olive); color: var(--olive);
+  font-size: 14px; font-weight: 500;
+  padding: 12px 24px; border-radius: 4px;
+  transition: background .2s, color .2s, transform .2s;
+}
+.btn-outline:hover { background: var(--olive); color: var(--white); transform: translateY(-2px); }
+.btn-gold {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--gold); color: var(--white);
+  font-size: 14px; font-weight: 500;
+  padding: 13px 26px; border-radius: 4px;
+  transition: background .2s, transform .2s;
+}
+.btn-gold:hover { background: var(--gold-lt); transform: translateY(-2px); }
+.btn-wa {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--wa); color: var(--white);
+  font-size: 14px; font-weight: 600;
+  padding: 13px 26px; border-radius: 4px;
+  transition: background .2s, transform .2s;
+}
+.btn-wa:hover { background: #1FB855; transform: translateY(-2px); }
 
-/* ========== NAV ========== */
+/* ===== NAVBAR ===== */
 nav {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 200;
-  background: rgba(255,255,255,0.88);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid transparent;
-  transition: border-color .25s, background .25s;
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  background: rgba(26,30,12,.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  transition: background .3s;
 }
-nav.scrolled {
-  background: rgba(255,255,255,0.96);
-  border-bottom-color: var(--line);
+nav.light {
+  background: rgba(255,255,255,.96);
+  box-shadow: 0 1px 0 var(--rule);
 }
 .nav-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 24px;
-  height: 72px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
+  max-width: 1200px; margin: 0 auto; padding: 0 24px;
+  height: 74px; display: flex; align-items: center; justify-content: space-between; gap: 32px;
 }
 .nav-logo {
-  font-family: var(--serif);
-  font-size: 20px;
-  font-weight: 500;
-  letter-spacing: -.02em;
-  color: var(--ink);
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  flex-shrink: 0;
+  font-family: var(--serif); font-size: 22px; font-weight: 600;
+  letter-spacing: .02em; color: var(--white); flex-shrink: 0;
+  display: flex; align-items: center; gap: 6px;
 }
-.nav-logo-dot { color: var(--accent); }
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 2px;
-  list-style: none;
+nav.light .nav-logo { color: var(--ink); }
+.nav-logo-accent { color: var(--gold-lt); }
+nav.light .nav-logo-accent { color: var(--gold); }
+.nav-links { display: none; list-style: none; align-items: center; gap: 4px; flex: 1; justify-content: center; }
+.nav-links a { padding: 8px 14px; font-size: 14px; font-weight: 400; color: rgba(255,255,255,.8); border-radius: 4px; transition: color .2s; }
+nav.light .nav-links a { color: var(--muted); }
+.nav-links a:hover { color: var(--white); }
+nav.light .nav-links a:hover { color: var(--ink); }
+.nav-cta {
+  display: none; align-items: center; gap: 10px; flex-shrink: 0;
 }
-.nav-links a {
-  padding: 8px 14px;
-  font-size: 14px;
-  color: var(--ink-soft);
-  border-radius: var(--r-sm);
-  transition: color .2s, background .2s;
+.btn-nav {
+  padding: 9px 20px; border-radius: 4px; font-size: 13px; font-weight: 500;
+  background: var(--gold); color: var(--white); transition: background .2s;
 }
-.nav-links a:hover { color: var(--ink); background: var(--bg-soft); }
-.nav-right { display: flex; align-items: center; gap: 10px; }
-.btn-nav-wa {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  background: var(--ink);
-  color: var(--white);
-  font-size: 13px;
-  font-weight: 500;
-  padding: 9px 18px;
-  border-radius: 100px;
-  transition: background .2s, transform .2s;
-}
-.btn-nav-wa:hover { background: var(--accent); transform: translateY(-1px); }
-.btn-nav-wa svg { flex-shrink: 0; }
-
-@media (max-width: 760px) {
-  .nav-links { display: none; }
-  .nav-hamburger { display: flex; }
-  .nav-right .btn-nav-wa { display: none; }
-}
-
-.nav-hamburger {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 6px;
-}
-.nav-hamburger span {
-  display: block;
-  width: 22px; height: 2px;
-  background: var(--ink);
-  border-radius: 2px;
-  transition: transform .25s, opacity .25s;
-}
-.nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.btn-nav:hover { background: var(--gold-lt); }
+.nav-hamburger { display: flex; flex-direction: column; gap: 5px; padding: 6px; }
+.nav-hamburger span { display: block; width: 22px; height: 1.5px; background: var(--white); border-radius: 2px; transition: transform .25s, opacity .25s; }
+nav.light .nav-hamburger span { background: var(--ink); }
+.nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
 .nav-hamburger.open span:nth-child(2) { opacity: 0; }
-.nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
 .nav-mobile {
-  display: none;
-  position: absolute;
-  top: 100%; left: 0; right: 0;
-  background: var(--white);
-  border-top: 1px solid var(--line);
-  padding: 16px 24px 20px;
-  box-shadow: var(--shadow-sm);
+  display: none; position: absolute; top: 100%; left: 0; right: 0;
+  background: var(--olive-dk); padding: 16px 24px 24px;
 }
+nav.light .nav-mobile { background: var(--white); border-top: 1px solid var(--rule); }
 .nav-mobile.open { display: block; }
 .nav-mobile ul { list-style: none; margin-bottom: 16px; }
-.nav-mobile ul li a {
-  display: block;
-  padding: 10px 4px;
-  font-size: 15px;
-  color: var(--ink-soft);
-  border-bottom: 1px solid var(--line-soft);
-}
-.nav-mobile .btn-nav-wa { width: 100%; justify-content: center; }
+.nav-mobile ul li a { display: block; padding: 11px 0; font-size: 15px; color: rgba(255,255,255,.8); border-bottom: 1px solid rgba(255,255,255,.06); }
+nav.light .nav-mobile ul li a { color: var(--muted); border-bottom-color: var(--rule); }
+.nav-mobile .btn-nav { width: 100%; justify-content: center; }
+@media (min-width: 860px) { .nav-links { display: flex; } .nav-cta { display: flex; } .nav-hamburger { display: none; } }
 
-/* ========== HERO ========== */
+/* ===== HERO ===== */
 .hero {
-  padding-top: 72px;
-  position: relative;
-}
-.hero-img-wrap {
-  position: relative;
-  height: 540px;
-  border-radius: 0 0 var(--r-xl) var(--r-xl);
+  position: relative; height: 100svh; min-height: 580px; max-height: 900px;
+  display: flex; align-items: flex-end;
   overflow: hidden;
 }
-@media (max-width: 760px) {
-  .hero-img-wrap { height: 420px; border-radius: 0; }
+.hero-img {
+  position: absolute; inset: 0;
 }
-.hero-img-wrap img {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  object-position: center 60%;
+.hero-img img { width: 100%; height: 100%; object-fit: cover; object-position: center 40%; }
+.hero-img::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(10,12,5,.8) 0%, rgba(10,12,5,.4) 50%, rgba(10,12,5,.2) 100%);
 }
-.hero-img-wrap::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(0,0,0,.65) 0%, rgba(0,0,0,.25) 50%, rgba(0,0,0,.1) 100%);
+.hero-content {
+  position: relative; z-index: 2; padding: 0 0 80px; width: 100%;
 }
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 0 0 40px;
-  z-index: 2;
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: 12px; font-weight: 600; letter-spacing: .15em; text-transform: uppercase;
+  color: var(--gold-lt); margin-bottom: 18px;
 }
-.hero-text {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 24px;
-  width: 100%;
-}
-.hero-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(255,255,255,.15);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255,255,255,.25);
-  color: rgba(255,255,255,.9);
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  padding: 6px 14px;
-  border-radius: 100px;
-  margin-bottom: 16px;
-}
-.hero-badge::before {
-  content: '';
-  width: 6px; height: 6px;
-  background: var(--green-wa);
-  border-radius: 50%;
-}
+.hero-eyebrow::before { content: ''; width: 32px; height: 1px; background: var(--gold-lt); }
 .hero h1 {
-  font-family: var(--serif);
-  font-size: clamp(32px, 5vw, 60px);
-  font-weight: 400;
-  line-height: 1.08;
-  letter-spacing: -.025em;
-  color: var(--white);
-  max-width: 700px;
-  margin-bottom: 6px;
+  font-family: var(--serif); font-size: clamp(40px, 6vw, 76px);
+  font-weight: 500; line-height: 1.08; letter-spacing: -.01em;
+  color: var(--white); max-width: 800px; margin-bottom: 20px;
 }
-.hero h1 em {
-  font-style: italic;
-  font-weight: 300;
+.hero h1 em { font-style: italic; font-weight: 400; }
+.hero-sub { font-size: 16px; color: rgba(255,255,255,.7); max-width: 480px; margin-bottom: 36px; line-height: 1.65; }
+.hero-actions { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+.btn-play {
+  display: inline-flex; align-items: center; gap: 10px;
+  color: var(--white); font-size: 14px; font-weight: 500;
+  padding: 12px 0;
 }
-.hero-sub {
-  font-size: 15px;
-  color: rgba(255,255,255,.75);
-  margin-bottom: 0;
-  max-width: 480px;
+.play-circle {
+  width: 46px; height: 46px; border-radius: 50%;
+  border: 1.5px solid rgba(255,255,255,.5);
+  display: grid; place-items: center;
+  transition: border-color .2s, background .2s;
+}
+.btn-play:hover .play-circle { border-color: var(--white); background: rgba(255,255,255,.1); }
+
+/* ===== ABOUT SPLIT ===== */
+.about-section { padding: 100px 0; }
+.about-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 72px; align-items: center;
+}
+@media (max-width: 860px) { .about-grid { grid-template-columns: 1fr; gap: 48px; } }
+.about-img-col { position: relative; }
+.about-img-main {
+  aspect-ratio: 4/5; border-radius: 6px; overflow: hidden;
+  box-shadow: 0 24px 64px rgba(0,0,0,.12);
+}
+.about-img-main img { width: 100%; height: 100%; object-fit: cover; }
+.about-img-badge {
+  position: absolute; bottom: -20px; right: -20px;
+  background: var(--olive); color: var(--white);
+  padding: 20px 24px; border-radius: 6px;
+  box-shadow: 0 12px 32px rgba(0,0,0,.15);
+}
+@media (max-width: 480px) { .about-img-badge { right: 16px; bottom: 16px; } }
+.about-img-badge .badge-num { font-family: var(--serif); font-size: 40px; font-weight: 600; line-height: 1; }
+.about-img-badge .badge-label { font-size: 12px; opacity: .75; margin-top: 4px; }
+
+.about-text-col .eyebrow {
+  font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 14px;
+  display: flex; align-items: center; gap: 10px;
+}
+.about-text-col .eyebrow::before { content: ''; width: 28px; height: 1px; background: var(--gold); }
+.about-text-col h2 {
+  font-family: var(--serif); font-size: clamp(30px, 4vw, 46px);
+  font-weight: 500; line-height: 1.18; letter-spacing: -.01em;
+  margin-bottom: 20px; color: var(--ink);
+}
+.about-text-col h2 em { font-style: italic; color: var(--olive-md); }
+.about-badges {
+  display: flex; gap: 10px; margin-bottom: 24px; flex-wrap: wrap;
+}
+.about-badge {
+  display: flex; align-items: center; gap: 8px;
+  padding: 9px 16px; border: 1px solid var(--rule); border-radius: 4px;
+  font-size: 13px; font-weight: 500; color: var(--ink);
+  background: var(--cream);
+}
+.about-badge svg { color: var(--gold); }
+.about-desc { font-size: 15px; color: var(--muted); line-height: 1.7; margin-bottom: 24px; }
+.about-checklist { list-style: none; margin-bottom: 32px; display: flex; flex-direction: column; gap: 10px; }
+.about-checklist li {
+  display: flex; align-items: flex-start; gap: 10px;
+  font-size: 14px; color: var(--ink-soft, var(--muted));
+}
+.check-icon {
+  width: 20px; height: 20px; border-radius: 50%;
+  background: var(--olive); color: var(--white);
+  display: grid; place-items: center; flex-shrink: 0; margin-top: 2px;
 }
 
-/* ========== SECTION COMMON ========== */
-.section {
-  padding: 96px 0;
+/* ===== PARTNER STRIP ===== */
+.partner-strip {
+  background: var(--olive); padding: 28px 0;
 }
-.section-alt { background: var(--bg-soft); }
-.section-label {
-  font-size: 12px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: .12em;
-  color: var(--accent);
-  margin-bottom: 12px;
+.partner-inner {
+  display: flex; align-items: center; justify-content: center;
+  gap: 48px; flex-wrap: wrap;
 }
-.section-h2 {
-  font-family: var(--serif);
-  font-size: clamp(28px, 3.5vw, 44px);
-  font-weight: 400;
-  line-height: 1.12;
-  letter-spacing: -.022em;
-  color: var(--ink);
+.partner-item {
+  display: flex; align-items: center; gap: 10px;
+  color: rgba(255,255,255,.6); font-size: 13px; font-weight: 500;
 }
-.section-h2 em { font-style: italic; font-weight: 300; color: var(--accent); }
-.section-sub {
-  font-size: 15px;
-  color: var(--ink-soft);
-  margin-top: 12px;
-  max-width: 560px;
-  line-height: 1.65;
-}
+.partner-item svg { color: var(--gold-lt); }
 
-/* ========== STATS STRIP ========== */
-.stats-strip {
-  padding: 64px 0 0;
+/* ===== CINEMATIC SECTION ===== */
+.cinematic {
+  position: relative; height: 520px; overflow: hidden;
 }
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0;
-  border: 1px solid var(--line);
-  border-radius: var(--r-lg);
-  overflow: hidden;
-  background: var(--white);
-  box-shadow: var(--shadow-xs);
+@media (max-width: 760px) { .cinematic { height: 380px; } }
+.cinematic img { width: 100%; height: 100%; object-fit: cover; }
+.cinematic::after {
+  content: ''; position: absolute; inset: 0;
+  background: rgba(10,12,5,.5);
 }
-.stat-item {
-  padding: 28px 24px;
-  border-right: 1px solid var(--line);
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 4px;
+.cinematic-content {
+  position: absolute; inset: 0; z-index: 2;
+  display: flex; align-items: center; justify-content: center;
+  flex-direction: column; gap: 24px; text-align: center; padding: 0 24px;
 }
-.stat-item:last-child { border-right: none; }
-.stat-icon {
-  width: 36px; height: 36px;
-  background: var(--accent-bg);
-  border-radius: var(--r-sm);
-  display: grid;
-  place-items: center;
-  color: var(--accent);
-  margin-bottom: 8px;
+.cinematic-content h2 {
+  font-family: var(--serif); font-size: clamp(28px, 4.5vw, 52px);
+  font-weight: 500; color: var(--white); line-height: 1.15; max-width: 640px;
 }
-.stat-icon svg { width: 18px; height: 18px; }
-.stat-num {
-  font-family: var(--serif);
-  font-size: 26px;
-  font-weight: 500;
-  letter-spacing: -.02em;
-  color: var(--ink);
-  line-height: 1;
-}
-.stat-desc {
-  font-size: 13px;
-  color: var(--ink-soft);
-}
-@media (max-width: 640px) {
-  .stats-grid {
-    display: flex;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    border-radius: var(--r-md);
-  }
-  .stats-grid::-webkit-scrollbar { display: none; }
-  .stats-grid .stat-item {
-    flex: 0 0 auto;
-    min-width: 140px;
-    border-right: 1px solid var(--line);
-    border-top: none;
-  }
-  .stats-grid .stat-item:last-child { border-right: none; }
-}
-
-/* ========== RUMAH SECTION ========== */
-.houses-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
-  margin-top: 48px;
-}
-.house-card {
-  background: var(--white);
-  border: 1px solid var(--line);
-  border-radius: var(--r-lg);
-  overflow: hidden;
-  transition: transform .3s cubic-bezier(.2,.7,.2,1), box-shadow .3s;
-}
-.house-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-md);
-}
-.house-img {
-  aspect-ratio: 16/9;
-  overflow: hidden;
-  position: relative;
-  background: var(--bg-alt);
-}
-.house-img img {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  transition: transform .6s cubic-bezier(.2,.7,.2,1);
-}
-.house-card:hover .house-img img { transform: scale(1.04); }
-.house-badge {
-  position: absolute;
-  top: 16px; left: 16px;
-  background: var(--white);
-  color: var(--ink);
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: .06em;
-  padding: 5px 12px;
-  border-radius: 100px;
-  box-shadow: var(--shadow-xs);
-}
-.house-body {
-  padding: 28px;
-}
-.house-name {
-  font-family: var(--serif);
-  font-size: 26px;
-  font-weight: 500;
-  letter-spacing: -.02em;
-  margin-bottom: 4px;
-}
-.house-caption {
-  font-size: 13px;
-  color: var(--muted);
-  margin-bottom: 20px;
-}
-.house-specs {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px 16px;
-  padding: 18px 0;
-  border-top: 1px solid var(--line-soft);
-  border-bottom: 1px solid var(--line-soft);
-  margin-bottom: 18px;
-}
-.house-spec {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 13px;
-  color: var(--ink-soft);
-}
-.house-spec svg { width: 15px; height: 15px; color: var(--accent); flex-shrink: 0; }
-.house-amenities {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 7px;
-  margin-bottom: 24px;
-}
-.house-amenities li {
-  display: flex;
-  align-items: center;
-  gap: 9px;
-  font-size: 13.5px;
-  color: var(--ink-soft);
-}
-.house-amenities li::before {
-  content: '';
-  width: 5px; height: 5px;
-  background: var(--accent);
-  border-radius: 50%;
-  flex-shrink: 0;
-}
-.house-footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-top: 20px;
-  border-top: 1px solid var(--line-soft);
-  gap: 12px;
-}
-.house-price-note {
-  font-size: 13px;
-  color: var(--muted);
-}
-.house-price-note strong {
-  display: block;
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--ink);
-}
-.btn-wa-house {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  background: var(--green-wa);
-  color: var(--white);
-  font-size: 13px;
-  font-weight: 600;
-  padding: 10px 18px;
-  border-radius: 100px;
-  white-space: nowrap;
+.cinematic-content h2 em { font-style: italic; color: var(--gold-lt); }
+.play-btn-lg {
+  width: 70px; height: 70px; border-radius: 50%;
+  background: rgba(255,255,255,.15); backdrop-filter: blur(10px);
+  border: 1.5px solid rgba(255,255,255,.4);
+  display: grid; place-items: center; color: var(--white);
   transition: background .2s, transform .2s;
 }
-.btn-wa-house:hover { background: #1FB855; transform: translateY(-1px); }
+.play-btn-lg:hover { background: rgba(255,255,255,.25); transform: scale(1.08); }
 
-.callout-note {
-  margin-top: 20px;
-  padding: 16px 20px;
-  background: var(--accent-bg);
-  border-left: 3px solid var(--accent);
-  border-radius: 0 var(--r-sm) var(--r-sm) 0;
-  font-size: 14px;
-  color: var(--accent-dk);
+/* ===== FEATURES ===== */
+.features-section { padding: 96px 0; background: var(--cream); }
+.section-head { margin-bottom: 56px; }
+.section-head .eyebrow {
+  font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 12px;
+  display: flex; align-items: center; gap: 10px;
 }
-.callout-note strong { font-weight: 600; }
-
-@media (max-width: 760px) {
-  .houses-grid {
-    display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    gap: 16px;
-    padding-bottom: 8px;
-  }
-  .houses-grid::-webkit-scrollbar { display: none; }
-  .house-card {
-    flex: 0 0 82vw;
-    min-width: 280px;
-    scroll-snap-align: start;
-  }
-  .house-specs { grid-template-columns: 1fr 1fr; }
-  .house-footer { flex-direction: column; align-items: stretch; }
-  .btn-wa-house { justify-content: center; }
+.section-head .eyebrow::before { content: ''; width: 28px; height: 1px; background: var(--gold); }
+.section-head h2 {
+  font-family: var(--serif); font-size: clamp(28px, 4vw, 44px);
+  font-weight: 500; line-height: 1.15; letter-spacing: -.01em; color: var(--ink);
 }
-
-/* ========== FASILITAS ========== */
+.section-head h2 em { font-style: italic; color: var(--olive-md); }
+.section-head p { font-size: 15px; color: var(--muted); margin-top: 12px; max-width: 560px; line-height: 1.65; }
 .features-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
+}
+@media (max-width: 900px) { .features-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px) { .features-grid { grid-template-columns: 1fr; gap: 12px; } }
+.feat-card {
+  background: var(--white); border: 1px solid var(--rule);
+  border-radius: 6px; padding: 28px 24px;
+  transition: transform .3s, box-shadow .3s, border-color .3s;
+}
+.feat-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,.08); border-color: var(--gold); }
+.feat-icon {
+  width: 52px; height: 52px; border-radius: 6px;
+  background: var(--cream-2); color: var(--olive);
+  display: grid; place-items: center; margin-bottom: 18px;
+}
+.feat-card h4 { font-size: 16px; font-weight: 600; margin-bottom: 8px; }
+.feat-card p { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+/* ===== ROOMS / VILLAS ===== */
+.rooms-section { padding: 96px 0; }
+.rooms-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;
   margin-top: 48px;
 }
-.feature-card {
-  background: var(--white);
-  border: 1px solid var(--line);
-  border-radius: var(--r-md);
-  padding: 24px;
-  transition: box-shadow .25s, transform .25s;
+@media (max-width: 760px) { .rooms-grid { grid-template-columns: 1fr; } }
+.room-card {
+  border-radius: 8px; overflow: hidden;
+  border: 1px solid var(--rule);
+  transition: transform .3s, box-shadow .3s;
 }
-.feature-card:hover {
-  box-shadow: var(--shadow-sm);
-  transform: translateY(-2px);
+.room-card:hover { transform: translateY(-4px); box-shadow: 0 20px 48px rgba(0,0,0,.1); }
+.room-img { position: relative; aspect-ratio: 4/3; overflow: hidden; background: var(--cream-2); }
+.room-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s; }
+.room-card:hover .room-img img { transform: scale(1.04); }
+.room-badge {
+  position: absolute; top: 16px; left: 16px;
+  background: var(--olive); color: var(--white);
+  font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase;
+  padding: 5px 12px; border-radius: 2px;
 }
-.feature-icon {
-  width: 44px; height: 44px;
-  background: var(--accent-bg);
-  border-radius: var(--r-sm);
-  display: grid;
-  place-items: center;
-  color: var(--accent);
-  margin-bottom: 16px;
+.room-body { padding: 28px; background: var(--white); }
+.room-body h3 { font-family: var(--serif); font-size: 26px; font-weight: 500; margin-bottom: 6px; }
+.room-caption { font-size: 13px; color: var(--muted); margin-bottom: 20px; }
+.room-specs {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+  padding: 16px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
+  margin-bottom: 20px;
 }
-.feature-icon svg { width: 22px; height: 22px; }
-.feature-card h4 {
-  font-size: 15px;
-  font-weight: 600;
-  margin-bottom: 6px;
-  color: var(--ink);
-}
-.feature-card p {
-  font-size: 13px;
-  color: var(--ink-soft);
-  line-height: 1.55;
-}
-@media (max-width: 900px) {
-  .features-grid { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 480px) {
-  .features-grid { grid-template-columns: 1fr; gap: 8px; }
-  .feature-card {
-    display: grid;
-    grid-template-columns: 40px 1fr;
-    grid-template-rows: auto auto;
-    align-items: center;
-    column-gap: 14px;
-    padding: 14px 16px;
-  }
-  .feature-icon {
-    grid-column: 1; grid-row: 1 / 3;
-    align-self: center;
-    margin-bottom: 0;
-    width: 40px; height: 40px;
-  }
-  .feature-icon svg { width: 18px; height: 18px; }
-  .feature-card h4 { grid-column: 2; grid-row: 1; margin-bottom: 0; font-size: 14px; align-self: end; }
-  .feature-card p { grid-column: 2; grid-row: 2; font-size: 12px; margin-top: 2px; align-self: start; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden; }
-}
-
-/* ========== CARA PESAN ========== */
-.steps-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0;
-  margin-top: 48px;
-  position: relative;
-}
-.steps-grid::before {
-  content: '';
-  position: absolute;
-  top: 20px;
-  left: calc(12.5% + 20px);
-  right: calc(12.5% + 20px);
-  height: 1px;
-  background: var(--line);
-}
-.step {
-  padding: 0 24px;
-  text-align: center;
-  position: relative;
-}
-.step:first-child { padding-left: 0; }
-.step:last-child { padding-right: 0; }
-.step-num {
-  width: 40px; height: 40px;
-  background: var(--white);
-  border: 2px solid var(--line);
-  border-radius: 50%;
-  font-size: 15px;
-  font-weight: 600;
-  color: var(--ink-soft);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 20px;
-  position: relative;
-  z-index: 1;
-  transition: background .3s, border-color .3s, color .3s;
-}
-.step.active .step-num {
-  background: var(--accent);
-  border-color: var(--accent);
-  color: var(--white);
-}
-.step h4 {
-  font-size: 15px;
-  font-weight: 600;
-  margin-bottom: 6px;
-  color: var(--ink);
-}
-.step p {
-  font-size: 13px;
-  color: var(--ink-soft);
-  line-height: 1.5;
-}
-.step-note {
-  margin-top: 36px;
-  text-align: center;
-  font-size: 13px;
-  color: var(--muted);
-  padding: 12px 20px;
-  background: var(--bg-soft);
-  border-radius: var(--r-md);
-  display: inline-block;
-}
-.step-note-wrap { text-align: center; }
-@media (max-width: 760px) {
-  .steps-grid {
-    grid-template-columns: 1fr;
-    gap: 24px;
-  }
-  .steps-grid::before { display: none; }
-  .step { display: flex; align-items: flex-start; gap: 16px; text-align: left; padding: 0; }
-  .step-num { flex-shrink: 0; margin: 0; }
-  .step-text { flex: 1; }
-}
-
-/* ========== LOKASI ========== */
-.lokasi-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 56px;
-  align-items: start;
-  margin-top: 48px;
-}
-.distance-list {
-  list-style: none;
-  margin-top: 24px;
-  margin-bottom: 28px;
-}
-.distance-list li {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 13px 0;
-  border-bottom: 1px solid var(--line-soft);
-  font-size: 14px;
-  gap: 12px;
-}
-.distance-list li:first-child { border-top: 1px solid var(--line-soft); }
-.distance-list .place { color: var(--ink); font-weight: 500; }
-.distance-list .dist {
-  color: var(--accent);
-  font-size: 13px;
-  font-weight: 500;
-  white-space: nowrap;
-}
-.btn-maps {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  border: 1.5px solid var(--ink);
-  color: var(--ink);
-  font-size: 13.5px;
-  font-weight: 500;
-  padding: 11px 20px;
-  border-radius: 100px;
-  transition: background .2s, color .2s;
-}
-.btn-maps:hover { background: var(--ink); color: var(--white); }
-.map-frame {
-  aspect-ratio: 1/1;
-  border-radius: var(--r-lg);
-  overflow: hidden;
-  border: 1px solid var(--line);
-  background: var(--bg-alt);
-}
-.map-frame iframe {
-  width: 100%; height: 100%;
-  display: block;
-  border: none;
-}
-@media (max-width: 760px) {
-  .lokasi-grid { grid-template-columns: 1fr; gap: 36px; }
-  .map-frame { aspect-ratio: 4/3; }
-}
-
-/* ========== CTA BANNER ========== */
-.cta-banner {
-  background: var(--ink);
-  padding: 80px 0;
-}
-.cta-banner-inner {
-  max-width: 640px;
-  margin: 0 auto;
-  padding: 0 24px;
-  text-align: center;
-}
-.cta-banner .section-label { color: #E8A688; }
-.cta-banner h2 {
-  font-family: var(--serif);
-  font-size: clamp(28px, 4vw, 44px);
-  font-weight: 400;
-  letter-spacing: -.025em;
-  color: var(--white);
-  margin: 12px 0 14px;
-  line-height: 1.15;
-}
-.cta-banner h2 em { font-style: italic; font-weight: 300; color: #E8A688; }
-.cta-banner p { font-size: 15px; color: rgba(255,255,255,.6); margin-bottom: 32px; }
-.btn-cta-wa {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  background: var(--green-wa);
-  color: var(--white);
-  font-size: 15px;
-  font-weight: 600;
-  padding: 14px 28px;
-  border-radius: 100px;
-  transition: background .2s, transform .2s, box-shadow .2s;
-}
-.btn-cta-wa:hover {
-  background: #1FB855;
-  transform: translateY(-2px);
-  box-shadow: 0 12px 28px rgba(37,211,102,.35);
-}
-
-/* ========== FOOTER ========== */
-footer {
-  background: var(--white);
-  border-top: 1px solid var(--line);
-  padding: 56px 0 32px;
-}
-.footer-grid {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  gap: 48px;
-  margin-bottom: 40px;
-}
-.footer-brand .nav-logo { margin-bottom: 10px; font-size: 18px; }
-.footer-brand p { font-size: 13.5px; color: var(--ink-soft); max-width: 280px; line-height: 1.6; }
-.footer-col h5 {
-  font-size: 11px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: .12em;
-  color: var(--muted);
-  margin-bottom: 14px;
-}
-.footer-col ul { list-style: none; }
-.footer-col li { padding: 4px 0; }
-.footer-col a { font-size: 14px; color: var(--ink-soft); transition: color .2s; }
-.footer-col a:hover { color: var(--accent); }
-.footer-bottom {
-  padding-top: 28px;
-  border-top: 1px solid var(--line-soft);
-  display: flex;
-  justify-content: space-between;
+.room-spec { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--muted); }
+.room-spec svg { color: var(--gold); flex-shrink: 0; }
+.room-amenities { list-style: none; display: flex; flex-direction: column; gap: 7px; margin-bottom: 24px; }
+.room-amenities li { display: flex; align-items: center; gap: 8px; font-size: 13.5px; color: var(--muted); }
+.room-amenities li::before { content: ''; width: 5px; height: 5px; background: var(--gold); border-radius: 50%; flex-shrink: 0; }
+.room-footer {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding-top: 20px; border-top: 1px solid var(--rule);
   flex-wrap: wrap;
+}
+.room-price-note { font-size: 13px; color: var(--muted); }
+.room-price-note strong { display: block; font-size: 13px; font-weight: 600; color: var(--ink); margin-bottom: 2px; }
+
+/* ===== STATS SECTION ===== */
+.stats-section { padding: 96px 0; background: var(--cream); }
+.stats-grid-layout {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center;
+}
+@media (max-width: 860px) { .stats-grid-layout { grid-template-columns: 1fr; gap: 48px; } }
+.stats-img { border-radius: 8px; overflow: hidden; aspect-ratio: 5/4; }
+.stats-img img { width: 100%; height: 100%; object-fit: cover; }
+.stats-content .eyebrow {
+  font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 14px;
+  display: flex; align-items: center; gap: 10px;
+}
+.stats-content .eyebrow::before { content: ''; width: 28px; height: 1px; background: var(--gold); }
+.stats-content h2 {
+  font-family: var(--serif); font-size: clamp(28px, 4vw, 44px);
+  font-weight: 500; line-height: 1.18; margin-bottom: 40px; color: var(--ink);
+}
+.stats-content h2 em { font-style: italic; color: var(--olive-md); }
+.stats-numbers {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px;
+  border-top: 1px solid var(--rule); padding-top: 36px;
+}
+.stat-item { }
+.stat-num {
+  font-family: var(--serif); font-size: clamp(42px, 6vw, 64px);
+  font-weight: 600; line-height: 1; color: var(--olive);
+  letter-spacing: -.02em;
+}
+.stat-label { font-size: 13px; color: var(--muted); margin-top: 6px; line-height: 1.4; }
+
+/* ===== GALLERY ===== */
+.gallery-section { padding: 96px 0; }
+.gallery-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1fr;
+  grid-template-rows: 260px 260px;
   gap: 12px;
-  font-size: 13px;
-  color: var(--muted);
+  margin-top: 48px;
 }
 @media (max-width: 760px) {
-  .footer-grid { grid-template-columns: 1fr 1fr; }
-  .footer-brand { grid-column: 1/-1; }
-  .footer-bottom { flex-direction: column; }
+  .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: 200px 200px 200px; }
 }
-@media (max-width: 480px) {
-  .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+@media (max-width: 480px) { .gallery-grid { grid-template-columns: 1fr; grid-template-rows: auto; } }
+.gal-item {
+  border-radius: 6px; overflow: hidden; background: var(--cream-2);
+  cursor: pointer;
+}
+.gal-item img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s; }
+.gal-item:hover img { transform: scale(1.06); }
+.gal-item-tall {
+  grid-row: span 2;
+}
+@media (max-width: 760px) { .gal-item-tall { grid-row: span 1; } }
+.gal-item-tall .gal-inner { height: 100%; }
+.gal-item img { height: 100%; }
+
+/* ===== CTA BANNER ===== */
+.cta-banner {
+  background: var(--olive-dk);
+  padding: 96px 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.cta-banner::before {
+  content: '';
+  position: absolute; top: -60px; left: 50%; transform: translateX(-50%);
+  width: 500px; height: 500px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(184,145,58,.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+.cta-banner .eyebrow {
+  font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--gold-lt); margin-bottom: 14px;
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+}
+.cta-banner .eyebrow::before, .cta-banner .eyebrow::after { content: ''; width: 24px; height: 1px; background: var(--gold-lt); }
+.cta-banner h2 {
+  font-family: var(--serif); font-size: clamp(30px, 5vw, 56px);
+  font-weight: 500; color: var(--white); line-height: 1.12;
+  margin-bottom: 16px; letter-spacing: -.01em; max-width: 700px; margin-left: auto; margin-right: auto;
+}
+.cta-banner h2 em { font-style: italic; color: var(--gold-lt); }
+.cta-banner p { font-size: 16px; color: rgba(255,255,255,.6); margin-bottom: 36px; max-width: 440px; margin-left: auto; margin-right: auto; }
+.cta-actions { display: flex; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap; }
+
+/* ===== WHY US ===== */
+.why-section { padding: 96px 0; background: var(--cream); }
+.why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+@media (max-width: 860px) { .why-grid { grid-template-columns: 1fr; gap: 48px; } }
+.why-img-col { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.why-img-main { grid-column: span 2; border-radius: 6px; overflow: hidden; aspect-ratio: 16/9; }
+.why-img-main img { width: 100%; height: 100%; object-fit: cover; }
+.why-img-sub { border-radius: 6px; overflow: hidden; aspect-ratio: 1; }
+.why-img-sub img { width: 100%; height: 100%; object-fit: cover; }
+.why-text-col {}
+.why-text-col .eyebrow {
+  font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 14px;
+  display: flex; align-items: center; gap: 10px;
+}
+.why-text-col .eyebrow::before { content: ''; width: 28px; height: 1px; background: var(--gold); }
+.why-text-col h2 {
+  font-family: var(--serif); font-size: clamp(26px, 3.5vw, 38px);
+  font-weight: 500; line-height: 1.2; margin-bottom: 32px; color: var(--ink);
+}
+.why-text-col h2 em { font-style: italic; color: var(--olive-md); }
+.why-list { list-style: none; display: flex; flex-direction: column; gap: 24px; margin-bottom: 36px; }
+.why-item { display: flex; align-items: flex-start; gap: 18px; }
+.why-num {
+  font-family: var(--serif); font-size: 32px; font-weight: 600; color: rgba(93,103,38,.2);
+  line-height: 1; flex-shrink: 0; width: 36px; text-align: right;
+}
+.why-item-text h4 { font-size: 15px; font-weight: 600; margin-bottom: 4px; color: var(--ink); }
+.why-item-text p { font-size: 14px; color: var(--muted); line-height: 1.6; }
+
+/* ===== TESTIMONIALS ===== */
+.testi-section { padding: 96px 0; }
+.testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 48px; }
+@media (max-width: 860px) { .testi-grid { grid-template-columns: 1fr; } }
+.testi-card {
+  background: var(--white); border: 1px solid var(--rule);
+  border-radius: 6px; padding: 28px;
+  transition: box-shadow .3s, transform .3s;
+}
+.testi-card:hover { box-shadow: 0 12px 32px rgba(0,0,0,.08); transform: translateY(-3px); }
+.testi-quote-icon { color: var(--gold); margin-bottom: 14px; }
+.testi-text { font-family: var(--serif); font-size: 17px; font-style: italic; color: var(--ink); line-height: 1.65; margin-bottom: 20px; }
+.testi-author-row {
+  display: flex; align-items: center; gap: 12px;
+  padding-top: 18px; border-top: 1px solid var(--rule);
+}
+.testi-avatar {
+  width: 40px; height: 40px; border-radius: 50%;
+  background: var(--olive); color: var(--white);
+  font-weight: 700; font-size: 14px;
+  display: grid; place-items: center; flex-shrink: 0;
+}
+.testi-author-row strong { font-size: 14px; display: block; }
+.testi-author-row span { font-size: 12px; color: var(--muted); }
+
+/* ===== CONTACT INFO ===== */
+.contact-section { padding: 96px 0; background: var(--cream); }
+.contact-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 48px; }
+@media (max-width: 860px) { .contact-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px) { .contact-grid { grid-template-columns: 1fr; } }
+.contact-card {
+  background: var(--white); border: 1px solid var(--rule);
+  border-radius: 6px; padding: 28px 24px; text-align: center;
+}
+.contact-icon {
+  width: 52px; height: 52px; border-radius: 6px;
+  background: var(--cream-2); color: var(--olive);
+  display: grid; place-items: center; margin: 0 auto 16px;
+}
+.contact-card h4 { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin-bottom: 8px; }
+.contact-card p { font-size: 15px; color: var(--ink); font-weight: 500; line-height: 1.5; }
+
+/* ===== LOCATION ===== */
+.location-section { padding: 0 0 96px; }
+.location-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
+@media (max-width: 760px) { .location-grid { grid-template-columns: 1fr; gap: 36px; } }
+.distance-list { list-style: none; margin: 24px 0 28px; }
+.distance-list li {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 13px 0; border-bottom: 1px solid var(--rule); font-size: 14px; gap: 12px;
+}
+.distance-list li:first-child { border-top: 1px solid var(--rule); }
+.dist-place { font-weight: 500; color: var(--ink); }
+.dist-km { font-size: 13px; color: var(--gold); font-weight: 600; }
+.map-frame { aspect-ratio: 1; border-radius: 8px; overflow: hidden; border: 1px solid var(--rule); }
+.map-frame iframe { width: 100%; height: 100%; display: block; border: none; }
+
+/* ===== FOOTER ===== */
+footer { background: var(--olive-dk); color: rgba(255,255,255,.55); padding: 72px 0 28px; }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+@media (max-width: 860px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; } .footer-brand { grid-column: span 2; } }
+@media (max-width: 480px) { .footer-grid { grid-template-columns: 1fr; gap: 28px; } .footer-brand { grid-column: 1; } }
+.footer-logo { font-family: var(--serif); font-size: 22px; font-weight: 600; color: var(--white); margin-bottom: 12px; display: block; }
+.footer-logo span { color: var(--gold-lt); }
+.footer-brand p { font-size: 14px; line-height: 1.7; max-width: 280px; }
+.footer-col h5 { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .1em; color: rgba(255,255,255,.4); margin-bottom: 16px; }
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+.footer-col a { font-size: 14px; color: rgba(255,255,255,.55); transition: color .2s; }
+.footer-col a:hover { color: var(--white); }
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,.07); padding-top: 24px;
+  display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+  font-size: 13px;
 }
 
-/* ========== FLOATING WA ========== */
+/* ===== FLOATING WA ===== */
 .float-wa {
-  position: fixed;
-  bottom: 24px; right: 24px;
-  background: var(--green-wa);
-  color: var(--white);
-  border-radius: 100px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 14px 20px;
-  box-shadow: 0 8px 20px rgba(37,211,102,.4);
-  z-index: 150;
+  position: fixed; bottom: 24px; right: 24px; z-index: 150;
+  display: flex; align-items: center; gap: 10px;
+  background: var(--wa); color: var(--white);
+  padding: 13px 20px; border-radius: 100px;
+  box-shadow: 0 8px 24px rgba(37,211,102,.4);
   transition: transform .2s;
-  animation: pulse-wa 2.5s ease-in-out infinite;
+  animation: waPulse 2.5s ease-in-out infinite;
 }
 .float-wa:hover { transform: scale(1.05) translateY(-2px); }
-.float-wa svg { width: 22px; height: 22px; flex-shrink: 0; }
-.float-wa-text { font-size: 14px; font-weight: 600; white-space: nowrap; }
-@keyframes pulse-wa {
-  0%, 100% { box-shadow: 0 8px 20px rgba(37,211,102,.4), 0 0 0 0 rgba(37,211,102,.4); }
-  60%       { box-shadow: 0 8px 20px rgba(37,211,102,.4), 0 0 0 14px rgba(37,211,102,.0); }
+.float-wa span { font-size: 14px; font-weight: 600; white-space: nowrap; }
+@keyframes waPulse {
+  0%, 100% { box-shadow: 0 8px 24px rgba(37,211,102,.4), 0 0 0 0 rgba(37,211,102,.4); }
+  60% { box-shadow: 0 8px 24px rgba(37,211,102,.4), 0 0 0 14px rgba(37,211,102,0); }
 }
 
-/* ========== REVEAL ANIMATION ========== */
-.reveal {
-  opacity: 0;
-  transform: translateY(22px);
-  transition: opacity .6s cubic-bezier(.2,.8,.4,1), transform .6s cubic-bezier(.2,.8,.4,1);
-}
-.reveal.visible { opacity: 1; transform: translateY(0); }
-.reveal-delay-1 { transition-delay: .08s; }
-.reveal-delay-2 { transition-delay: .16s; }
-.reveal-delay-3 { transition-delay: .24s; }
+/* ===== REVEAL ===== */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+.reveal.visible { opacity: 1; transform: none; }
+.reveal-d1 { transition-delay: .1s; }
+.reveal-d2 { transition-delay: .2s; }
+.reveal-d3 { transition-delay: .3s; }
 </style>
 </head>
 <body>
 
-<!-- ===== NAV ===== -->
+<!-- NAV -->
 <nav id="nav">
   <div class="nav-inner">
-    <a href="#" class="nav-logo">
-      Balige<span class="nav-logo-dot">.</span>Homestay
-    </a>
-
-    <ul class="nav-links" id="navDesktop">
-      <li><a href="#rumah">Rumah</a></li>
-      <li><a href="#fasilitas">Fasilitas</a></li>
-      <li><a href="#cara-pesan">Cara Pesan</a></li>
+    <a href="#top" class="nav-logo">Balige<span class="nav-logo-accent">.</span>Homestay</a>
+    <ul class="nav-links">
+      <li><a href="#rooms">Rumah</a></li>
+      <li><a href="#features">Fasilitas</a></li>
+      <li><a href="#gallery">Galeri</a></li>
       <li><a href="#lokasi">Lokasi</a></li>
     </ul>
-
-    <div class="nav-right">
-      <a href="https://wa.me/6281932594187?text=Halo%2C%20saya%20mau%20tanya%20ketersediaan%20dan%20harga%20homestay" class="btn-nav-wa" target="_blank" rel="noopener">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.6 6.32A7.85 7.85 0 0 0 12.05 4a7.94 7.94 0 0 0-6.84 11.96L4 20l4.16-1.09a7.93 7.93 0 0 0 3.88 1h.01a7.94 7.94 0 0 0 5.55-13.59z"/></svg>
-        WhatsApp
+    <div class="nav-cta">
+      <a href="https://wa.me/6281932594187?text=Halo%2C%20saya%20mau%20tanya%20ketersediaan%20dan%20harga%20homestay" class="btn-nav" target="_blank" rel="noopener">
+        Pesan via WA
       </a>
-      <button class="nav-hamburger" id="hamburger" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
     </div>
+    <button class="nav-hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </div>
-
   <div class="nav-mobile" id="navMobile">
     <ul>
-      <li><a href="#rumah">Rumah</a></li>
-      <li><a href="#fasilitas">Fasilitas</a></li>
-      <li><a href="#cara-pesan">Cara Pesan</a></li>
+      <li><a href="#rooms">Rumah</a></li>
+      <li><a href="#features">Fasilitas</a></li>
+      <li><a href="#gallery">Galeri</a></li>
       <li><a href="#lokasi">Lokasi</a></li>
     </ul>
-    <a href="https://wa.me/6281932594187?text=Halo%2C%20saya%20mau%20tanya%20ketersediaan%20dan%20harga%20homestay" class="btn-nav-wa" target="_blank" rel="noopener">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.6 6.32A7.85 7.85 0 0 0 12.05 4a7.94 7.94 0 0 0-6.84 11.96L4 20l4.16-1.09a7.93 7.93 0 0 0 3.88 1h.01a7.94 7.94 0 0 0 5.55-13.59z"/></svg>
-      Chat WhatsApp
+    <a href="https://wa.me/6281932594187?text=Halo%2C%20saya%20mau%20tanya%20ketersediaan%20dan%20harga%20homestay" class="btn-nav" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;margin-top:8px;">
+      Pesan via WhatsApp
     </a>
   </div>
 </nav>
 
-<!-- ===== HERO ===== -->
-<section class="hero">
-  <div class="hero-img-wrap">
-    <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=1600&q=80" alt="Balige Homestay — suasana" loading="eager" />
-    <div class="hero-overlay">
-      <div class="hero-text">
-        <div class="hero-badge">Homestay Privat · Balige, Toba</div>
-        <h1>Rumah lengkap,<br>privat, untuk <em>kamu sendiri.</em></h1>
-        <p class="hero-sub">Sewa satu rumah penuh — bukan per kamar. Ideal untuk keluarga besar, reuni, dan liburan kelompok di tepi Danau Toba.</p>
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-img">
+    <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=1800&q=80" alt="Balige Homestay" loading="eager" />
+  </div>
+  <div class="hero-content">
+    <div class="wrap">
+      <div class="hero-eyebrow">Luxury Homestay · Balige, Toba</div>
+      <h1>Welcome To <em>Luxury</em><br>Balige Accommodations</h1>
+      <p class="hero-sub">Rumah privat lengkap di pesisir Danau Toba. Ideal untuk keluarga besar, reuni, dan liburan kelompok.</p>
+      <div class="hero-actions">
+        <a href="#rooms" class="btn-gold">Lihat Rumah</a>
+        <a href="https://wa.me/6281932594187?text=Halo%2C%20saya%20mau%20tanya%20ketersediaan%20homestay" class="btn-play" target="_blank" rel="noopener">
+          <span class="play-circle">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 6.32A7.85 7.85 0 0 0 12.05 4a7.94 7.94 0 0 0-6.84 11.96L4 20l4.16-1.09a7.93 7.93 0 0 0 3.88 1h.01a7.94 7.94 0 0 0 5.55-13.59z"/></svg>
+          </span>
+          Chat WhatsApp
+        </a>
       </div>
     </div>
   </div>
-
 </section>
 
-<!-- ===== STATS ===== -->
-<div class="stats-strip reveal">
+<!-- ABOUT SPLIT -->
+<section class="about-section">
   <div class="wrap">
-    <div class="stats-grid">
-      <div class="stat-item">
-        <div class="stat-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+    <div class="about-grid">
+      <div class="about-img-col reveal">
+        <div class="about-img-main">
+          <img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=900&q=80" alt="Rumah Homestay" loading="lazy" />
         </div>
-        <div class="stat-num">2</div>
-        <div class="stat-desc">Rumah tersedia</div>
+        <div class="about-img-badge">
+          <div class="badge-num">2</div>
+          <div class="badge-label">Rumah Privat</div>
+        </div>
       </div>
-      <div class="stat-item">
-        <div class="stat-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+      <div class="about-text-col reveal reveal-d1">
+        <div class="eyebrow">Tentang Kami</div>
+        <h2>Experience The Pinnacle of Comfort &amp; <em>Privacy</em> at Balige</h2>
+        <div class="about-badges">
+          <div class="about-badge">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Privat &amp; Eksklusif
+          </div>
+          <div class="about-badge">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Lokasi Strategis
+          </div>
         </div>
-        <div class="stat-num">9</div>
-        <div class="stat-desc">Total kamar (4 + 5)</div>
+        <p class="about-desc">Dua rumah privat di Balige, tepian Danau Toba — disewakan satu kelompok per rumah. Tidak berbagi dengan tamu lain. Cocok untuk keluarga besar, reuni, atau liburan kelompok.</p>
+        <ul class="about-checklist">
+          <li>
+            <span class="check-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            Sewa per rumah penuh — tidak berbagi dengan tamu lain
+          </li>
+          <li>
+            <span class="check-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            Dapur lengkap, kompor, dan peralatan masak tersedia
+          </li>
+          <li>
+            <span class="check-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            Dekat Pantai Lumban Bulbul dan Pasar Balige
+          </li>
+        </ul>
+        <a href="https://wa.me/6281932594187?text=Halo%2C%20saya%20mau%20tanya%20ketersediaan%20dan%20harga%20homestay" class="btn-primary" target="_blank" rel="noopener">
+          Tanya via WhatsApp
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
       </div>
-      <div class="stat-item">
-        <div class="stat-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-        </div>
-        <div class="stat-num">8</div>
-        <div class="stat-desc">Mobil bisa parkir</div>
+    </div>
+  </div>
+</section>
+
+<!-- PARTNER STRIP -->
+<div class="partner-strip">
+  <div class="wrap">
+    <div class="partner-inner">
+      <div class="partner-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
+        Sewa Per Rumah Penuh
       </div>
-      <div class="stat-item">
-        <div class="stat-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        </div>
-        <div class="stat-num">12<span style="font-size:16px;font-weight:400">.00</span></div>
-        <div class="stat-desc">Check-in (fleksibel)</div>
+      <div class="partner-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Check-in Fleksibel
+      </div>
+      <div class="partner-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="1" y="3" width="15" height="13" rx="2"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        Parkir 8 Mobil
+      </div>
+      <div class="partner-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Pekarangan Berpagar
+      </div>
+      <div class="partner-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Tepi Danau Toba
       </div>
     </div>
   </div>
 </div>
 
-<!-- ===== RUMAH ===== -->
-<section class="section" id="rumah">
-  <div class="wrap">
-    <div class="reveal">
-      <div class="section-label">Pilih Rumah</div>
-      <h2 class="section-h2">Dua rumah, <em>sewa penuh.</em></h2>
-      <p class="section-sub">Setiap rumah tersedia untuk satu kelompok saja. Tidak berbagi dengan tamu lain.</p>
-    </div>
+<!-- CINEMATIC -->
+<div class="cinematic">
+  <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1800&q=80" alt="Danau Toba" loading="lazy" />
+  <div class="cinematic-content">
+    <h2>A Peaceful Escape to <em>Lake Toba</em></h2>
+    <a href="https://maps.app.goo.gl/wSkYo4c1dSfxh89v9" class="play-btn-lg" target="_blank" rel="noopener" aria-label="Lihat di Maps">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+    </a>
+  </div>
+</div>
 
-    <div class="houses-grid">
-      <!-- Rumah 1 -->
-      <div class="house-card reveal">
-        <div class="house-img">
-          <img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=900&q=80" alt="Rumah 1 — Balige Homestay" loading="lazy" />
-          <span class="house-badge">Rumah 1</span>
+<!-- FEATURES -->
+<section class="features-section" id="features">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Fasilitas</div>
+      <h2>Our High Class &amp; <em>Luxury</em><br>Villas Accommodation</h2>
+      <p>Semua kebutuhan liburan sudah tersedia — tinggal datang dan nikmati.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feat-card reveal">
+        <div class="feat-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M19 9H5a2 2 0 00-2 2v5a2 2 0 002 2h14a2 2 0 002-2v-5a2 2 0 00-2-2z"/><path d="M3 9V7a2 2 0 012-2h10a2 2 0 012 2v2"/><path d="M15 21v-3M9 21v-3"/></svg>
         </div>
-        <div class="house-body">
-          <h3 class="house-name">Rumah 1</h3>
-          <p class="house-caption">Cocok untuk keluarga atau rombongan hingga ±10 orang</p>
-          <div class="house-specs">
-            <div class="house-spec">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 12h18M3 12V7a2 2 0 012-2h14a2 2 0 012 2v5M3 12v5a2 2 0 002 2h14a2 2 0 002-2v-5"/></svg>
+        <h4>Dapur &amp; Fasilitas</h4>
+        <p>Kompor, wajan, panci, alat panggang — semua tersedia. Tinggal masak atau bawa bahan dari pasar.</p>
+      </div>
+      <div class="feat-card reveal reveal-d1">
+        <div class="feat-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="2"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        </div>
+        <h4>Parkir 8 Mobil</h4>
+        <p>Lahan parkir luas, kapasitas hingga 8 kendaraan — cocok untuk rombongan besar.</p>
+      </div>
+      <div class="feat-card reveal reveal-d2">
+        <div class="feat-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h4>Privasi &amp; Keamanan</h4>
+        <p>Kedua rumah dalam pekarangan berpagar, gerbang privat. Aman dan nyaman untuk keluarga.</p>
+      </div>
+      <div class="feat-card reveal reveal-d3">
+        <div class="feat-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        </div>
+        <h4>Mudah Dipesan</h4>
+        <p>Langsung via WhatsApp ke pemilik. Respons cepat, harga transparan, tanpa perantara.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROOMS -->
+<section class="rooms-section" id="rooms">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Pilih Rumah</div>
+      <h2>Luxury And Relaxation<br>With <em>Private Villas</em></h2>
+      <p>Dua rumah tersedia — satu kelompok per rumah. Tidak berbagi dengan tamu lain.</p>
+    </div>
+    <div class="rooms-grid">
+      <div class="room-card reveal">
+        <div class="room-img">
+          <img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=900&q=80" alt="Villa Resort 01" loading="lazy" />
+          <span class="room-badge">Villa 01</span>
+        </div>
+        <div class="room-body">
+          <h3>Villa Resort 01</h3>
+          <p class="room-caption">Ideal untuk keluarga atau rombongan hingga ±10 orang</p>
+          <div class="room-specs">
+            <div class="room-spec">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h18M3 12V7a2 2 0 012-2h14a2 2 0 012 2v5M3 12v5a2 2 0 002 2h14a2 2 0 002-2v-5"/></svg>
               4 Kamar Tidur
             </div>
-            <div class="house-spec">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M9 6h10M9 12h10M9 18h10M5 6v.01M5 12v.01M5 18v.01"/></svg>
+            <div class="room-spec">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6h10M9 12h10M9 18h10M5 6v.01M5 12v.01M5 18v.01"/></svg>
               2 Kamar Mandi
             </div>
-            <div class="house-spec">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            <div class="room-spec">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
               Ruang Tamu
             </div>
-            <div class="house-spec">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M19 9H5a2 2 0 00-2 2v5a2 2 0 002 2h14a2 2 0 002-2v-5a2 2 0 00-2-2z"/><path d="M3 9V7a2 2 0 012-2h10a2 2 0 012 2v2"/></svg>
+            <div class="room-spec">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 9H5a2 2 0 00-2 2v5a2 2 0 002 2h14a2 2 0 002-2v-5a2 2 0 00-2-2z"/><path d="M3 9V7a2 2 0 012-2h10a2 2 0 012 2v2"/></svg>
               Dapur Lengkap
             </div>
           </div>
-          <ul class="house-amenities">
+          <ul class="room-amenities">
             <li>1 kamar mandi dalam kamar, 1 di luar</li>
-            <li>Kompor, alat panggang, dan peralatan masak lengkap</li>
+            <li>Kompor, alat panggang, peralatan masak lengkap</li>
             <li>Dalam pekarangan privat berpagar</li>
           </ul>
-          <div class="house-footer">
-            <div class="house-price-note">
+          <div class="room-footer">
+            <div class="room-price-note">
               <strong>Harga — tanya via WA</strong>
               Sewa per malam, per rumah penuh
             </div>
-            <a href="https://wa.me/6281932594187?text=Halo%2C%20saya%20mau%20tanya%20ketersediaan%20Rumah%201%20(4%20kamar)%20untuk%20tanggal..." class="btn-wa-house" target="_blank" rel="noopener">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.6 6.32A7.85 7.85 0 0 0 12.05 4a7.94 7.94 0 0 0-6.84 11.96L4 20l4.16-1.09a7.93 7.93 0 0 0 3.88 1h.01a7.94 7.94 0 0 0 5.55-13.59z"/></svg>
+            <a href="https://wa.me/6281932594187?text=Halo%2C%20saya%20mau%20tanya%20ketersediaan%20Villa%2001%20(4%20kamar)%20untuk%20tanggal..." class="btn-gold" target="_blank" rel="noopener">
               Tanya Harga
             </a>
           </div>
         </div>
       </div>
 
-      <!-- Rumah 2 -->
-      <div class="house-card reveal reveal-delay-1">
-        <div class="house-img">
-          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=900&q=80" alt="Rumah 2 — Balige Homestay" loading="lazy" />
-          <span class="house-badge">Rumah 2</span>
+      <div class="room-card reveal reveal-d1">
+        <div class="room-img">
+          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=900&q=80" alt="Villa Resort 02" loading="lazy" />
+          <span class="room-badge">Villa 02</span>
         </div>
-        <div class="house-body">
-          <h3 class="house-name">Rumah 2</h3>
-          <p class="house-caption">Luas, ideal untuk rombongan besar hingga ±14 orang</p>
-          <div class="house-specs">
-            <div class="house-spec">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 12h18M3 12V7a2 2 0 012-2h14a2 2 0 012 2v5M3 12v5a2 2 0 002 2h14a2 2 0 002-2v-5"/></svg>
+        <div class="room-body">
+          <h3>Villa Resort 02</h3>
+          <p class="room-caption">Luas, ideal untuk rombongan besar hingga ±14 orang</p>
+          <div class="room-specs">
+            <div class="room-spec">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h18M3 12V7a2 2 0 012-2h14a2 2 0 012 2v5M3 12v5a2 2 0 002 2h14a2 2 0 002-2v-5"/></svg>
               5 Kamar Tidur
             </div>
-            <div class="house-spec">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M9 6h10M9 12h10M9 18h10M5 6v.01M5 12v.01M5 18v.01"/></svg>
+            <div class="room-spec">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6h10M9 12h10M9 18h10M5 6v.01M5 12v.01M5 18v.01"/></svg>
               3 Kamar Mandi
             </div>
-            <div class="house-spec">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-              Ruang Tamu
+            <div class="room-spec">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
+              Ruang Tamu Luas
             </div>
-            <div class="house-spec">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
-              Luas &amp; Lapang
+            <div class="room-spec">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
+              Extra Luas
             </div>
           </div>
-          <ul class="house-amenities">
+          <ul class="room-amenities">
             <li>2 kamar mandi dalam kamar, 1 di luar</li>
             <li>Dapur dengan kompor dan alat masak lengkap</li>
             <li>Dalam pekarangan privat berpagar</li>
           </ul>
-          <div class="house-footer">
-            <div class="house-price-note">
+          <div class="room-footer">
+            <div class="room-price-note">
               <strong>Harga — tanya via WA</strong>
               Sewa per malam, per rumah penuh
             </div>
-            <a href="https://wa.me/6281932594187?text=Halo%2C%20saya%20mau%20tanya%20ketersediaan%20Rumah%202%20(5%20kamar)%20untuk%20tanggal..." class="btn-wa-house" target="_blank" rel="noopener">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.6 6.32A7.85 7.85 0 0 0 12.05 4a7.94 7.94 0 0 0-6.84 11.96L4 20l4.16-1.09a7.93 7.93 0 0 0 3.88 1h.01a7.94 7.94 0 0 0 5.55-13.59z"/></svg>
+            <a href="https://wa.me/6281932594187?text=Halo%2C%20saya%20mau%20tanya%20ketersediaan%20Villa%2002%20(5%20kamar)%20untuk%20tanggal..." class="btn-gold" target="_blank" rel="noopener">
               Tanya Harga
             </a>
           </div>
         </div>
       </div>
     </div>
-
-    <p class="callout-note reveal">
-      <strong>Sewa per rumah penuh, bukan per kamar.</strong> Satu kelompok menyewa satu rumah seluruhnya — tidak berbagi dengan tamu lain. Kedua rumah berada dalam satu pekarangan berpagar dan bisa disewa bersamaan.
-    </p>
   </div>
 </section>
 
-<!-- ===== FASILITAS ===== -->
-<section class="section section-alt" id="fasilitas">
+<!-- STATS -->
+<section class="stats-section">
   <div class="wrap">
-    <div class="reveal">
-      <div class="section-label">Fasilitas</div>
-      <h2 class="section-h2">Lengkap untuk <em>liburan santai.</em></h2>
-    </div>
-
-    <div class="features-grid">
-      <div class="feature-card reveal">
-        <div class="feature-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M19 9H5a2 2 0 00-2 2v5a2 2 0 002 2h14a2 2 0 002-2v-5a2 2 0 00-2-2z"/><path d="M3 9V7a2 2 0 012-2h10a2 2 0 012 2v2"/><path d="M15 21v-3"/><path d="M9 21v-3"/></svg>
-        </div>
-        <h4>Dapur &amp; Alat Masak</h4>
-        <p>Kompor, wajan, panci, alat panggang, dan semua perlengkapan masak sudah tersedia. Bisa masak sendiri atau bawa bahan dari Pasar Balige.</p>
+    <div class="stats-grid-layout">
+      <div class="stats-img reveal">
+        <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=900&q=80" alt="Interior Homestay" loading="lazy" />
       </div>
-      <div class="feature-card reveal reveal-delay-1">
-        <div class="feature-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+      <div class="stats-content reveal reveal-d1">
+        <div class="eyebrow">Kenapa Balige</div>
+        <h2>Comfort &amp; <em>Exclusive</em><br>Villas Experience</h2>
+        <div class="stats-numbers">
+          <div class="stat-item">
+            <div class="stat-num">9</div>
+            <div class="stat-label">Total Kamar<br>di 2 Rumah</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">8</div>
+            <div class="stat-label">Kapasitas<br>Parkir Mobil</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">2</div>
+            <div class="stat-label">Rumah Privat<br>Tersedia</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">1</div>
+            <div class="stat-label">Kelompok per<br>Rumah</div>
+          </div>
         </div>
-        <h4>Parkir Luas</h4>
-        <p>Area parkir bisa menampung hingga 8 mobil. Cocok untuk rombongan yang datang dengan beberapa kendaraan.</p>
-      </div>
-      <div class="feature-card reveal reveal-delay-2">
-        <div class="feature-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        </div>
-        <h4>Privat &amp; Berpagar</h4>
-        <p>Kedua rumah dalam satu pekarangan tertutup bergerbang. Privat, aman, dan nyaman untuk keluarga.</p>
-      </div>
-      <div class="feature-card reveal reveal-delay-3">
-        <div class="feature-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
-        </div>
-        <h4>Lokasi Strategis</h4>
-        <p>Sangat dekat ke Pantai Lumban Bulbul, Pasar Balige, dan minimarket. Semua kebutuhan dalam jangkauan.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== CARA PESAN ===== -->
-<section class="section" id="cara-pesan">
+<!-- GALLERY -->
+<section class="gallery-section" id="gallery">
   <div class="wrap">
-    <div class="reveal" style="text-align:center">
-      <div class="section-label">Cara Memesan</div>
-      <h2 class="section-h2">Simpel, langsung, <em>tanpa ribet.</em></h2>
-      <p class="section-sub" style="margin:12px auto 0">Tidak ada sistem booking online yang rumit. Cukup WhatsApp dan konfirmasi langsung ke pemilik.</p>
+    <div class="section-head reveal">
+      <div class="eyebrow">Galeri</div>
+      <h2>Lets Discover Our <em>Luxury</em><br>Villa Gallery</h2>
     </div>
-
-    <div class="steps-grid">
-      <div class="step active reveal">
-        <div class="step-num">1</div>
-        <div class="step-text">
-          <h4>Hubungi WhatsApp</h4>
-          <p>Chat langsung ke nomor kami. Dijawab oleh pemilik, bukan sistem otomatis.</p>
-        </div>
+    <div class="gallery-grid">
+      <div class="gal-item gal-item-tall reveal">
+        <img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=800&q=80" alt="Villa" loading="lazy" />
       </div>
-      <div class="step reveal reveal-delay-1">
-        <div class="step-num">2</div>
-        <div class="step-text">
-          <h4>Ceritakan Rencanamu</h4>
-          <p>Tanggal menginap, berapa orang, dan rumah yang diinginkan (atau tanya rekomendasi).</p>
-        </div>
+      <div class="gal-item reveal reveal-d1">
+        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80" alt="Villa" loading="lazy" />
       </div>
-      <div class="step reveal reveal-delay-2">
-        <div class="step-num">3</div>
-        <div class="step-text">
-          <h4>Konfirmasi &amp; Harga</h4>
-          <p>Kami cek ketersediaan dan informasikan harga. Konfirmasi dengan DP jika setuju.</p>
-        </div>
+      <div class="gal-item reveal reveal-d2">
+        <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=600&q=80" alt="Villa" loading="lazy" />
       </div>
-      <div class="step reveal reveal-delay-3">
-        <div class="step-num">4</div>
-        <div class="step-text">
-          <h4>Check-in Jam 12</h4>
-          <p>Tiba, parkir, dan nikmati. Check-in standar jam 12 siang, bisa fleksibel tergantung tamu sebelumnya.</p>
-        </div>
+      <div class="gal-item reveal reveal-d1">
+        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80" alt="Danau Toba" loading="lazy" />
       </div>
-    </div>
-
-    <div class="step-note-wrap reveal" style="margin-top:36px">
-      <span class="step-note">
-        * Check-in bisa lebih awal atau lebih malam sesuai situasi — konfirmasi via WhatsApp sebelum datang.
-      </span>
+      <div class="gal-item reveal reveal-d2">
+        <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=600&q=80" alt="Homestay" loading="lazy" />
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ===== LOKASI ===== -->
-<section class="section section-alt" id="lokasi">
+<!-- CTA BANNER -->
+<section class="cta-banner">
   <div class="wrap">
-    <div class="lokasi-grid">
-      <div class="reveal">
-        <div class="section-label">Lokasi</div>
-        <h2 class="section-h2">Balige, <em>Toba.</em></h2>
-        <p class="section-sub">Di pusat Balige, kota di pesisir Danau Toba, Sumatera Utara. Dekat ke semua yang kamu butuhkan selama liburan.</p>
+    <div class="eyebrow">Booking Sekarang</div>
+    <h2>Plan Your <em>Unforgettable</em><br>Stay Today</h2>
+    <p>Tanya ketersediaan, harga, atau apapun yang ingin kamu ketahui — dijawab langsung oleh pemilik, bukan bot.</p>
+    <div class="cta-actions">
+      <a href="https://wa.me/6281932594187?text=Halo%2C%20saya%20mau%20tanya%20ketersediaan%20dan%20harga%20homestay" class="btn-gold" target="_blank" rel="noopener">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 6.32A7.85 7.85 0 0 0 12.05 4a7.94 7.94 0 0 0-6.84 11.96L4 20l4.16-1.09a7.93 7.93 0 0 0 3.88 1h.01a7.94 7.94 0 0 0 5.55-13.59z"/></svg>
+        Chat WhatsApp Sekarang
+      </a>
+      <a href="#rooms" class="btn-outline" style="border-color:rgba(255,255,255,.4);color:rgba(255,255,255,.85);">Lihat Rumah</a>
+    </div>
+  </div>
+</section>
 
-        <ul class="distance-list">
-          <li>
-            <span class="place">Pantai Lumban Bulbul</span>
-            <span class="dist">Sangat dekat</span>
+<!-- WHY US -->
+<section class="why-section">
+  <div class="wrap">
+    <div class="why-grid">
+      <div class="why-img-col reveal">
+        <div class="why-img-main">
+          <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=900&q=80" alt="Dapur" loading="lazy" />
+        </div>
+        <div class="why-img-sub">
+          <img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=600&q=80" alt="Rumah" loading="lazy" />
+        </div>
+        <div class="why-img-sub">
+          <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=600&q=80" alt="Interior" loading="lazy" />
+        </div>
+      </div>
+      <div class="why-text-col reveal reveal-d1">
+        <div class="eyebrow">Mengapa Kami</div>
+        <h2>We Strive To Provide An <em>Exceptional Guest Experience</em></h2>
+        <ul class="why-list">
+          <li class="why-item">
+            <span class="why-num">01</span>
+            <div class="why-item-text">
+              <h4>Langsung ke Pemilik</h4>
+              <p>Tidak ada perantara atau sistem booking otomatis. Semua dikelola langsung dan responsif.</p>
+            </div>
           </li>
-          <li>
-            <span class="place">Pasar Balige</span>
-            <span class="dist">Sangat dekat</span>
+          <li class="why-item">
+            <span class="why-num">02</span>
+            <div class="why-item-text">
+              <h4>Check-in Fleksibel</h4>
+              <p>Standar jam 12 siang, tapi bisa didiskusikan sesuai kondisi tamu sebelumnya.</p>
+            </div>
           </li>
-          <li>
-            <span class="place">Minimarket &amp; Groceries</span>
-            <span class="dist">Sangat dekat</span>
-          </li>
-          <li>
-            <span class="place">Pusat Kota Balige</span>
-            <span class="dist">Dekat</span>
+          <li class="why-item">
+            <span class="why-num">03</span>
+            <div class="why-item-text">
+              <h4>Cocok Untuk Semua</h4>
+              <p>Keluarga besar, reuni sekolah, kelompok wisata — semua nyaman di sini.</p>
+            </div>
           </li>
         </ul>
+        <a href="https://wa.me/6281932594187?text=Halo%2C%20saya%20mau%20tanya%20ketersediaan%20dan%20harga%20homestay" class="btn-primary" target="_blank" rel="noopener">
+          Hubungi Kami
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
 
-        <a href="https://maps.app.goo.gl/wSkYo4c1dSfxh89v9" class="btn-maps" target="_blank" rel="noopener">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+<!-- TESTIMONIALS -->
+<section class="testi-section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Testimoni</div>
+      <h2>Travel Experience<br>With <em>Luxury Villas</em></h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card reveal">
+        <div class="testi-quote-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" opacity=".4"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+        </div>
+        <p class="testi-text">"Rumah yang bersih dan lengkap. Parkir luas banget, cocok untuk rombongan kami yang bawa 6 mobil. Lokasi dekat ke pantai, anak-anak senang sekali."</p>
+        <div class="testi-author-row">
+          <div class="testi-avatar">SR</div>
+          <div>
+            <strong>Sarah Ramadhani</strong>
+            <span>Keluarga Besar, Medan</span>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card reveal reveal-d1">
+        <div class="testi-quote-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" opacity=".4"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+        </div>
+        <p class="testi-text">"Pemiliknya ramah dan responsif. Kami sewa kedua rumah sekaligus untuk reuni keluarga besar. Dapur lengkap banget, masak sendiri lebih hemat dan seru."</p>
+        <div class="testi-author-row">
+          <div class="testi-avatar">BW</div>
+          <div>
+            <strong>Budi Wijaya</strong>
+            <span>Reuni Keluarga, Jakarta</span>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card reveal reveal-d2">
+        <div class="testi-quote-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" opacity=".4"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+        </div>
+        <p class="testi-text">"Privat dan aman untuk keluarga. Pekarangan berpagar sangat membantu karena kami bawa anak kecil. Puas banget dan pasti balik lagi ke Balige!"</p>
+        <div class="testi-author-row">
+          <div class="testi-avatar">DK</div>
+          <div>
+            <strong>Dewi Kartika</strong>
+            <span>Liburan Keluarga, Bandung</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT INFO -->
+<section class="contact-section">
+  <div class="wrap">
+    <div class="section-head reveal" style="text-align:center">
+      <div class="eyebrow" style="justify-content:center;">Hubungi Kami</div>
+      <h2>Lets Get In Touch &amp; Keep<br><em>Connected With Us</em></h2>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-card reveal">
+        <div class="contact-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <h4>Lokasi</h4>
+        <p>Balige, Toba<br>Sumatera Utara</p>
+      </div>
+      <div class="contact-card reveal reveal-d1">
+        <div class="contact-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <h4>Check-in</h4>
+        <p>Mulai 12.00 WIB<br>Fleksibel sesuai kondisi</p>
+      </div>
+      <div class="contact-card reveal reveal-d2">
+        <div class="contact-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 6.32A7.85 7.85 0 0 0 12.05 4a7.94 7.94 0 0 0-6.84 11.96L4 20l4.16-1.09a7.93 7.93 0 0 0 3.88 1h.01a7.94 7.94 0 0 0 5.55-13.59z"/></svg>
+        </div>
+        <h4>WhatsApp</h4>
+        <p>+62 819-3259-4187<br>Respons cepat</p>
+      </div>
+      <div class="contact-card reveal reveal-d3">
+        <div class="contact-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012.18 1h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 8.1a16 16 0 006 6l1.44-1.44a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92v2z"/></svg>
+        </div>
+        <h4>Telepon</h4>
+        <p>+62 819-3259-4187<br>Langsung ke pemilik</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOCATION -->
+<section class="location-section" id="lokasi">
+  <div class="wrap">
+    <div class="location-grid">
+      <div class="reveal">
+        <div class="eyebrow" style="font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;display:flex;align-items:center;gap:10px;"><span style="display:block;width:28px;height:1px;background:var(--gold);"></span>Lokasi</div>
+        <h2 style="font-family:var(--serif);font-size:clamp(28px,4vw,40px);font-weight:500;margin-bottom:16px;color:var(--ink);line-height:1.2;">Balige, <em style="font-style:italic;color:var(--olive-md)">Toba.</em></h2>
+        <p style="font-size:15px;color:var(--muted);line-height:1.7;margin-bottom:0;">Di pusat kota Balige, pesisir Danau Toba, Sumatera Utara. Dekat ke semua yang dibutuhkan selama liburan.</p>
+        <ul class="distance-list">
+          <li><span class="dist-place">Pantai Lumban Bulbul</span><span class="dist-km">Sangat Dekat</span></li>
+          <li><span class="dist-place">Pasar Balige</span><span class="dist-km">Sangat Dekat</span></li>
+          <li><span class="dist-place">Minimarket &amp; Groceries</span><span class="dist-km">Sangat Dekat</span></li>
+          <li><span class="dist-place">Pusat Kota Balige</span><span class="dist-km">Dekat</span></li>
+        </ul>
+        <a href="https://maps.app.goo.gl/wSkYo4c1dSfxh89v9" class="btn-outline" target="_blank" rel="noopener">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
           Lihat di Google Maps
         </a>
       </div>
-
-      <div class="map-frame reveal reveal-delay-1">
-        <iframe
-          src="https://maps.google.com/maps?q=Pantai+Lumban+Bulbul,+Balige,+Toba,+Sumatera+Utara&output=embed&z=15"
-          title="Lokasi Balige Homestay"
-          loading="lazy"
-          allowfullscreen
-        ></iframe>
+      <div class="map-frame reveal reveal-d1">
+        <iframe src="https://maps.google.com/maps?q=Pantai+Lumban+Bulbul,+Balige,+Toba,+Sumatera+Utara&output=embed&z=15" title="Lokasi" loading="lazy" allowfullscreen></iframe>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== CTA BANNER ===== -->
-<section class="cta-banner">
-  <div class="cta-banner-inner">
-    <div class="section-label">Booking Langsung</div>
-    <h2>Siap liburan <em>ke Balige?</em></h2>
-    <p>Tanya ketersediaan, harga, atau apapun yang kamu ingin tahu — kami jawab langsung, bukan bot.</p>
-    <a href="https://wa.me/6281932594187?text=Halo%2C%20saya%20mau%20tanya%20ketersediaan%20dan%20harga%20homestay" class="btn-cta-wa" target="_blank" rel="noopener">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.6 6.32A7.85 7.85 0 0 0 12.05 4a7.94 7.94 0 0 0-6.84 11.96L4 20l4.16-1.09a7.93 7.93 0 0 0 3.88 1h.01a7.94 7.94 0 0 0 5.55-13.59z"/></svg>
-      Chat WhatsApp Sekarang
-    </a>
-  </div>
-</section>
-
-<!-- ===== FOOTER ===== -->
+<!-- FOOTER -->
 <footer>
   <div class="wrap">
     <div class="footer-grid">
       <div class="footer-brand">
-        <div class="nav-logo">Balige<span class="nav-logo-dot">.</span>Homestay</div>
+        <a href="#top" class="footer-logo">Balige<span>.</span>Homestay</a>
         <p>Dua rumah privat di Balige, Toba Sumatera Utara. Sewa per malam, langsung ke pemilik, tanpa perantara.</p>
       </div>
       <div class="footer-col">
-        <h5>Halaman</h5>
+        <h5>Navigasi</h5>
         <ul>
-          <li><a href="#rumah">Rumah</a></li>
-          <li><a href="#fasilitas">Fasilitas</a></li>
-          <li><a href="#cara-pesan">Cara Pesan</a></li>
+          <li><a href="#rooms">Rumah</a></li>
+          <li><a href="#features">Fasilitas</a></li>
+          <li><a href="#gallery">Galeri</a></li>
           <li><a href="#lokasi">Lokasi</a></li>
         </ul>
       </div>
@@ -1213,8 +1117,15 @@ footer {
           <li><a href="https://maps.app.goo.gl/wSkYo4c1dSfxh89v9" target="_blank" rel="noopener">Balige, Toba, Sumatera Utara</a></li>
         </ul>
       </div>
+      <div class="footer-col">
+        <h5>Info</h5>
+        <ul>
+          <li><a href="#rooms">Check-in Fleksibel</a></li>
+          <li><a href="#rooms">Sewa Per Rumah</a></li>
+          <li><a href="#features">Parkir Luas</a></li>
+        </ul>
+      </div>
     </div>
-
     <div class="footer-bottom">
       <span>© 2026 Balige Homestay. Dikelola langsung oleh pemilik.</span>
       <span>Horas!</span>
@@ -1222,26 +1133,32 @@ footer {
   </div>
 </footer>
 
-<!-- ===== FLOATING WA ===== -->
-<a href="https://wa.me/6281932594187?text=Halo%20Balige%20Homestay" class="float-wa" target="_blank" rel="noopener" aria-label="Chat via WhatsApp">
-  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.6 6.32A7.85 7.85 0 0 0 12.05 4a7.94 7.94 0 0 0-6.84 11.96L4 20l4.16-1.09a7.93 7.93 0 0 0 3.88 1h.01a7.94 7.94 0 0 0 5.55-13.59zm-5.55 12.21h-.01a6.6 6.6 0 0 1-3.36-.92l-.24-.14-2.49.65.66-2.43-.16-.25a6.59 6.59 0 0 1 5.6-10.07 6.55 6.55 0 0 1 4.65 1.93 6.55 6.55 0 0 1 1.92 4.65 6.6 6.6 0 0 1-6.57 6.58zm3.61-4.93c-.2-.1-1.17-.58-1.36-.64-.18-.07-.32-.1-.45.1-.13.2-.51.64-.62.77-.12.13-.23.15-.42.05a5.4 5.4 0 0 1-1.6-.99 5.96 5.96 0 0 1-1.1-1.37c-.12-.2 0-.3.09-.4.09-.09.2-.23.3-.35.1-.12.13-.2.2-.33.07-.13.03-.25-.02-.35l-.62-1.49c-.16-.4-.33-.34-.45-.34l-.38-.01a.74.74 0 0 0-.54.25 2.26 2.26 0 0 0-.7 1.67c0 .98.71 1.94.81 2.07.1.13 1.4 2.13 3.4 2.99.47.2.84.32 1.13.42.48.15.91.13 1.25.08.38-.06 1.17-.48 1.34-.94.16-.46.16-.86.12-.94-.05-.08-.18-.13-.38-.23z"/></svg>
-  <span class="float-wa-text">Chat WA</span>
+<!-- FLOATING WA -->
+<a href="https://wa.me/6281932594187?text=Halo%20Balige%20Homestay" class="float-wa" target="_blank" rel="noopener" aria-label="Chat WhatsApp">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 6.32A7.85 7.85 0 0 0 12.05 4a7.94 7.94 0 0 0-6.84 11.96L4 20l4.16-1.09a7.93 7.93 0 0 0 3.88 1h.01a7.94 7.94 0 0 0 5.55-13.59z"/></svg>
+  <span>Chat WA</span>
 </a>
 
 <script>
 (function () {
-  // Nav scroll shadow
   var nav = document.getElementById('nav');
-  window.addEventListener('scroll', function () {
-    nav.classList.toggle('scrolled', window.scrollY > 20);
-  }, { passive: true });
-
-  // Mobile hamburger
   var hamburger = document.getElementById('hamburger');
   var navMobile = document.getElementById('navMobile');
+
+  // Nav style on scroll
+  window.addEventListener('scroll', function () {
+    if (window.scrollY > 80) {
+      nav.classList.add('light');
+    } else {
+      nav.classList.remove('light');
+    }
+  }, { passive: true });
+
+  // Hamburger
   hamburger.addEventListener('click', function () {
     hamburger.classList.toggle('open');
     navMobile.classList.toggle('open');
+    hamburger.setAttribute('aria-expanded', hamburger.classList.contains('open'));
   });
   navMobile.querySelectorAll('a').forEach(function (a) {
     a.addEventListener('click', function () {
@@ -1249,19 +1166,19 @@ footer {
       navMobile.classList.remove('open');
     });
   });
+  document.addEventListener('click', function (e) {
+    if (!nav.contains(e.target)) {
+      hamburger.classList.remove('open');
+      navMobile.classList.remove('open');
+    }
+  });
 
-
-
-  // Scroll reveal
+  // Reveal on scroll
   var io = new IntersectionObserver(function (entries) {
     entries.forEach(function (e) {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-        io.unobserve(e.target);
-      }
+      if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
     });
-  }, { threshold: 0.12 });
-
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
   document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
 })();
 </script>
