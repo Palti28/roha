@@ -1,12 +1,12 @@
 ---
-title: "Public Sector Website Redesign"
-summary: "A self-initiated concept rethinking how a large public-service institution talks to ordinary people online."
-category: "web"
-service: "UX Audit + UI Design"
-duration: "4 weeks"
+title: "Roha Design System"
+summary: "Building the studio's own design language from scratch: tokens, type, components, and a living documentation site."
+category: "uiux"
+service: "Design System"
+duration: "3 weeks"
 year: 2026
-client: "Self-initiated"
-concept: true
+client: "Roha"
+concept: false
 pattern: "pat-grid"
 coverImage: "https://ik.imagekit.io/gorat/eca-car-rental/rent-car-ss.avif"
 images:
@@ -18,38 +18,45 @@ visibility: show
 publishedAt: 2026-02-20
 ---
 
-> **A self-initiated concept.** This is an independent design exercise, not affiliated with or commissioned by any institution. It explores public-sector UX using only publicly available patterns.
-
 ### 01 — Context
 
-Public-service institutions carry a lot of weight: people often arrive at their sites at a stressful moment, looking for one specific answer. But many of these sites ask a lot of the visitor: dense navigation, PDF-first content, and a homepage built around the organization rather than the person reading it.
+Every project Roha touches eventually needs the same decisions: what blue is the right blue, how small should small type go, what does a disabled button look like. Without a system, those decisions get made four times a year by whoever is closest to the screen that week.
 
-This concept asks a narrow question: if someone arrives scared, confused, or in a hurry, can the site help them in under a minute?
+The Roha Design System is the answer: a single source of truth for color, type, spacing, radius, shadow, and components — documented in a live preview site so nothing gets lost in a Figma file no one can find.
 
-> *"A public institution's website is often read at the worst moment of someone's day. It should behave like it knows that."*
+### 02 — Principles
 
-### 02 — Approach
+The system is built on a small number of deliberate constraints.
 
-We framed the audit around three real intents, each one a person rather than a page:
+**One chromatic accent.** The palette is mostly white. Surfaces step from Paper (#FFFFFF) to Cream (#EAEFF6) to Sand (#DBE2EC), with a single chromatic accent: Blue (#2776EA). Cyan and sage appear only in data contexts; status tones (success, warning, danger) appear only in feedback. Everything else is ink and surface.
 
-- *"Is this allowed?"*, someone about to make a decision.
-- *"Something went wrong, what now?"*, someone who needs to report or recover.
-- *"Where do I even start?"*, someone unsure which service applies to them.
+**One type family.** Geist handles all display and body work. Geist Mono carries every uppercase label and monospaced detail. Display sizes are always weight 500 with tight tracking; accent words step to 600. The system never needs a font decision at the start of a project.
 
-Each intent should have one obvious, fast path from the homepage. In a typical institutional site, all three are buried two to four clicks deep, often ending in a PDF.
+**Low shadows.** Most depth is expressed with a 1px rule. Shadows appear only on elements that genuinely float: cards on hover, dialogs, popovers. Anything else is flat.
 
-### 03 — Execution
+**Soft corners, not pill-everything.** Border radius is a fixed scale (sm 10, btn 13, md 14, lg 22). Fully round is reserved for tags, pills, and avatars.
 
-The redesign keeps the institutional weight (this is still an authority, not a startup) but reorganizes the surface around tasks.
+### 03 — What's inside
 
-The homepage leads with a single **"Check & Report"** module: a search field that answers the most common question directly, and a clearly separate, calmer path for reporting. Content that used to live in PDFs becomes plain HTML pages that load fast on a mid-range Android phone over 4G, which is how most of the audience actually arrives.
+The documentation site is organized into two sections.
 
-Typography does quiet work here. A clear, high-contrast type scale and generous spacing make dense official language feel approachable without dumbing it down.
+**Foundations** covers the decisions that underpin everything: Color (full token set with usage rules), Typography (scale + weight + tracking samples), Logo usage (wordmark on light and dark), Icons (Lucide at 1.75 stroke), Shadows, Spacing (4px base scale, nine steps), and Border radius.
 
-### 04 — Results
+**Components** is the working library:
 
-The deliverable is a clickable prototype covering the three priority flows plus a homepage, and a short IA document proposing how the deeper content tree could be reorganized.
+- Badges, Buttons (variants, sizes, states), Button groups
+- Checkbox and radio, Toggles, Select and dropdown
+- Progress indicators, Slider, Tooltips, Breadcrumbs
+- Date picker, Empty states, Filters, Carousel
+- Alerts (info, success, draft, unavailable), Modal, Notifications
+- Pagination, Charts (linear + donut), Table, Vertical tabs
 
-Measured against the one-minute test, each of the three intents resolves in two clicks or fewer in the prototype, down from the current three-to-five.
+Each component shows every relevant state including disabled, hover, and error. Nothing ships without its full state set documented.
 
-As a concept, the goal isn't to claim it's the right answer. It's to show what a task-first, anxiety-aware public site could feel like, and to use that as a way of thinking about every public-sector project Roha might take on.
+### 04 — Outcome
+
+The result is a self-contained HTML file that loads without any external dependencies. Any team member can open it in a browser and see every token, every component, and every usage rule in one place.
+
+The system is now the starting point for every Roha project. New client work does not begin with color decisions; it begins from a working palette. New components extend existing patterns rather than reinventing them. The design file stays navigable because the naming conventions are already decided.
+
+For a studio that keeps a deliberately short project list, the value is not efficiency in isolation. It is consistency across work that spans different clients, categories, and years.
