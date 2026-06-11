@@ -581,33 +581,26 @@
   }
 }
 
-/* ---------- Dark CTA variant — centered editorial ---------- */
+/* ---------- Dark CTA variant — horizontal split ---------- */
 .cta-panel-dark {
   background: var(--ink);
   border-radius: 24px !important;
-  padding: clamp(64px, 8vw, 96px) clamp(32px, 6vw, 80px) !important;
+  padding: clamp(48px, 6vw, 72px) clamp(36px, 6vw, 72px) !important;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  text-align: center;
+  justify-content: space-between;
+  gap: 48px;
 }
-.cta-center {
-  max-width: 680px;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.cta-body {
+  flex: 1;
+  min-width: 0;
   position: relative;
   z-index: 1;
 }
-.cta-live {
-  justify-content: center;
-  margin-bottom: 16px;
-}
-.cta-panel-dark .live-label { color: rgba(255,255,255,.5); }
 .cta-panel-dark .eyebrow {
   color: rgba(255,255,255,.55);
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 .cta-eyebrow { display: inline-flex; align-items: center; gap: 10px; }
 .cta-dash {
@@ -618,13 +611,13 @@
 }
 .cta-panel-dark h2 {
   font-family: 'Geist', sans-serif;
-  font-size: clamp(40px, 5.5vw, 68px);
+  font-size: clamp(36px, 4.8vw, 62px);
   font-weight: 500;
-  line-height: .94;
-  letter-spacing: -.035em;
+  line-height: .96;
+  letter-spacing: -.03em;
   color: #fff;
-  margin: 0 0 24px;
-  text-wrap: balance;
+  margin: 0 0 18px;
+  max-width: 18ch;
 }
 .cta-panel-dark h2 em {
   font-style: normal;
@@ -634,7 +627,7 @@
   font-size: 15px;
   line-height: 1.6;
   color: rgba(255,255,255,.6);
-  max-width: 48ch;
+  max-width: 46ch;
   margin: 0 0 10px;
 }
 .cta-avail {
@@ -643,14 +636,16 @@
   letter-spacing: .1em;
   text-transform: uppercase;
   color: rgba(255,255,255,.38);
-  margin: 0 0 36px;
+  margin: 0;
 }
 .cta-actions {
   display: flex;
   flex-direction: row;
   gap: 12px;
   flex-wrap: wrap;
-  justify-content: center;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
 }
 .cta-btn-primary {
   background: #fff;
@@ -692,11 +687,14 @@
 .cta-panel-dark .arcs-deco::before,
 .cta-panel-dark .arcs-deco::after { display: none; }
 
-@media (max-width: 600px) {
+@media (max-width: 720px) {
   .cta-panel-dark {
-    padding: 48px 24px !important;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 28px;
+    padding: 40px 28px !important;
   }
-  .cta-panel-dark h2 { font-size: 36px; }
+  .cta-panel-dark h2 { font-size: 32px; }
   .cta-actions { flex-direction: column; width: 100%; }
   .cta-btn-primary,
   .cta-btn-secondary { width: 100%; justify-content: center; text-align: center; }
