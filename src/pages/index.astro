@@ -165,29 +165,64 @@ const sortedPortfolio = allPortfolio.sort(byDate).slice(0, 6);
         </div>
       </div>
 
-      <div class="lp-grid">
-        {
-          sortedWork.map((project, i) => {
-            const { title, summary, service, year, pattern, coverImage, client } = project.data;
+      <div class="fw-grid">
+
+        {/* Hero card — first work item */}
+        {sortedWork[0] && (() => {
+          const { title, summary, service, year, client, coverImage, pattern } = sortedWork[0].data;
+          const initial = title.trim().charAt(0).toUpperCase();
+          return (
+            <a href={`/work/${sortedWork[0].id}/`} class="fw-hero" data-reveal data-reveal-delay="0">
+              {coverImage
+                ? <img class="fw-hero-img" src={coverImage} alt={title} loading="lazy" width={800} height={600} />
+                : <div class={`fw-hero-fallback ${pattern} pattern-wrap`} aria-hidden="true"><span>{initial}</span></div>
+              }
+              <div class="fw-overlay" aria-hidden="true"></div>
+              <div class="fw-hero-content">
+                <div class="fw-tag">{service}</div>
+                <h3 class="fw-hero-name">{title}</h3>
+                <p class="fw-hero-desc">{summary}</p>
+                <p class="fw-hero-meta">{client} &middot; {year}</p>
+                <span class="fw-cta">View case study <span class="fw-arr">→</span></span>
+              </div>
+            </a>
+          );
+        })()}
+
+        {/* Right stack — items 2 & 3 + dashed CTA slot */}
+        <div class="fw-stack">
+
+          {sortedWork.slice(1).map((project, i) => {
+            const { title, summary, service, year, client, coverImage, pattern } = project.data;
             const initial = title.trim().charAt(0).toUpperCase();
             return (
-              <a href={`/work/${project.id}/`} class="lp-tile" data-reveal data-reveal-delay={i * 100}>
-                <div class="lp-thumb">
-                  <div class="lp-tag">{service}</div>
-                  {coverImage ? (
-                    <img src={coverImage} alt={`${title} — case study`} loading="lazy" width={600} height={450} />
-                  ) : (
-                    <div class={`lp-thumb-fallback ${pattern} pattern-wrap`} aria-hidden="true"><span>{initial}</span></div>
-                  )}
+              <a href={`/work/${project.id}/`} class="fw-row" data-reveal data-reveal-delay={(i + 1) * 70}>
+                <div class="fw-row-thumb">
+                  {coverImage
+                    ? <img src={coverImage} alt={title} loading="lazy" width={76} height={76} />
+                    : <div class={`fw-row-fallback ${pattern} pattern-wrap`} aria-hidden="true"><span>{initial}</span></div>
+                  }
                 </div>
-                <div class="lp-tile-body">
-                  <p class="lp-tile-desc"><span class="lp-tile-name">{title}.</span> {summary}</p>
-                  <p class="lp-tile-meta">{client} &middot; {year}</p>
+                <div class="fw-row-body">
+                  <div class="fw-tag fw-row-tag">{service}</div>
+                  <p class="fw-row-name">{title}</p>
+                  <p class="fw-row-desc">{summary}</p>
+                  <p class="fw-row-meta">{client} &middot; {year}</p>
                 </div>
               </a>
             );
-          })
-        }
+          })}
+
+          <a href="/work" class="fw-row fw-row-more" data-reveal data-reveal-delay="210">
+            <div class="fw-row-more-body">
+              <div class="eyebrow">MORE WORK</div>
+              <p>See every project we&rsquo;ve shipped.</p>
+              <span class="btn btn-tertiary btn-sm">View all work <span class="arr">→</span></span>
+            </div>
+          </a>
+
+        </div>
+
       </div>
 
       <a href="/work" class="section-link" data-reveal>ALL WORK <span class="arr">→</span></a>
