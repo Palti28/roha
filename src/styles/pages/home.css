@@ -309,27 +309,55 @@
 }
 
 .svc-tile {
-  background: transparent;
-  border: none;
-  border-radius: var(--radius-sm);
-  padding: 18px 18px 20px;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 190px;
+  background: var(--paper);
+  transition: background .25s ease, border-color .25s ease;
   text-decoration: none;
   color: inherit;
-  display: flex; flex-direction: column;
-  gap: 10px;
-  min-height: 220px;
-  transition: background .25s ease, color .25s ease;
   position: relative;
   will-change: transform;
 }
+.svc-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px solid var(--rule);
+  transition: border-color .25s ease;
+}
+.svc-price {
+  font-family: 'Geist Mono', monospace;
+  font-size: 11px;
+  letter-spacing: .08em;
+  color: var(--terracotta);
+  font-weight: 600;
+}
+.svc-duration {
+  font-family: 'Geist Mono', monospace;
+  font-size: 11px;
+  letter-spacing: .08em;
+  color: var(--ink);
+  opacity: .5;
+}
 .svc-tile:hover {
   background: var(--blue);
+  border-color: var(--blue);
   transform: none;
   box-shadow: none;
 }
 .svc-tile:hover h3 { color: #FFFFFF; }
 .svc-tile:hover p { color: #FFFFFF; opacity: .8; }
 .svc-tile:hover .num { color: rgba(255,255,255,.65); }
+.svc-tile:hover .svc-footer { border-color: rgba(255,255,255,.2); }
+.svc-tile:hover .svc-price { color: rgba(255,255,255,.9); }
+.svc-tile:hover .svc-duration { color: #FFFFFF; opacity: .55; }
 .svc-tile .top {
   display: flex;
   align-items: center;
