@@ -132,6 +132,11 @@ button {
   font-weight: 600;
 }
 
+.accent {
+  color: var(--blue);
+  font-weight: 600;
+}
+
 /* ---------- Layout ---------- */
 .wrap {
   max-width: var(--maxw);
