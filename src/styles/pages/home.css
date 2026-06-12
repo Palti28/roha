@@ -1116,7 +1116,7 @@
 /* Work row */
 .fw-row {
   display: grid;
-  grid-template-columns: 76px 1fr;
+  grid-template-columns: 110px 1fr;
   gap: 14px;
   padding: 16px;
   border: 1px solid var(--rule);
@@ -1133,8 +1133,10 @@
   transform: translateY(-1px);
 }
 .fw-row-thumb {
-  width: 76px;
-  height: 76px;
+  width: 110px;
+  height: auto;
+  min-height: 100px;
+  align-self: stretch;
   border-radius: 10px;
   border: 1px solid var(--rule);
   overflow: hidden;
