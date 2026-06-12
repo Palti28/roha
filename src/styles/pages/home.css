@@ -995,7 +995,7 @@
   display: grid;
   grid-template-columns: 1.2fr 0.8fr;
   gap: 14px;
-  align-items: start;
+  align-items: stretch;
 }
 
 /* Hero card */
@@ -1110,6 +1110,7 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+  height: 100%;
 }
 
 /* Work row */
@@ -1124,6 +1125,8 @@
   color: inherit;
   transition: border-color .2s ease, transform .25s cubic-bezier(.22,1,.36,1);
   will-change: transform;
+  flex: 1;
+  align-content: start;
 }
 .fw-row:hover {
   border-color: color-mix(in oklab, var(--ink) 35%, transparent);
@@ -1198,23 +1201,48 @@
 
 /* Third slot — dashed CTA */
 .fw-row-more {
-  grid-template-columns: 1fr;
+  display: flex;
+  grid-template-columns: unset;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
   border-style: dashed;
   border-color: color-mix(in oklab, var(--ink) 22%, transparent);
-  align-items: center;
-  min-height: 100px;
+  flex: 0 0 auto;
 }
 .fw-row-more:hover {
-  border-color: color-mix(in oklab, var(--ink) 40%, transparent);
+  border-color: color-mix(in oklab, var(--ink) 42%, transparent);
   border-style: dashed;
 }
-.fw-row-more-body { display: flex; flex-direction: column; gap: 6px; }
-.fw-row-more-body .eyebrow { opacity: .5; }
+.fw-row-more-body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.fw-row-more-body .eyebrow { opacity: .45; }
 .fw-row-more-body p {
   font-size: 13px;
   color: var(--ink);
-  opacity: .6;
+  opacity: .55;
   margin: 0;
+}
+.fw-row-more-arrow {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid color-mix(in oklab, var(--ink) 22%, transparent);
+  display: grid;
+  place-items: center;
+  font-size: 14px;
+  color: var(--ink);
+  flex-shrink: 0;
+  transition: background .2s ease, border-color .2s ease, transform .2s ease;
+}
+.fw-row-more:hover .fw-row-more-arrow {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: #fff;
+  transform: translateX(2px);
 }
 
 @media (max-width: 860px) {
